@@ -523,6 +523,10 @@ body {
     background-image: url("../image/characters/younuo.png");
     background-size: 100% auto;
 }
+.mcr-jiabeilina {
+    background-image: url("../image/characters/jiabeilina.png");
+    background-size: 100% auto;
+}
 
 .mc-box-evaluate {
     position: relative;

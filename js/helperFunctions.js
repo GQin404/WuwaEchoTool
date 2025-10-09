@@ -118,6 +118,9 @@ var renderCostList = function renderCostList(list) {
                     case "息界套":
                         sxz = 20;
                         break;
+                    case "焚羽套":
+                        sxz = 21;
+                        break;
                 }
                 ress += `<img class="mc-suite-attr2" src="image/attribute/` + sxz + `.png" alt="套装属性">`;
             }

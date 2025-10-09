@@ -468,6 +468,9 @@ function randerMainAttri() {
                 case "息界套":
                     sxz = 20;
                     break;
+                case "焚羽套":
+                    sxz = 21;
+                    break;
             }
             $("#shimg02").attr("src", "image/attribute/" + sxz + ".png");
         }
