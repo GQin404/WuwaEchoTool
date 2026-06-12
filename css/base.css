@@ -551,6 +551,10 @@ body {
     background-image: url("../image/characters/aemeath.png");
     background-size: 100% auto;
 }
+.mcr-luuk-herssen {
+    background-image: url("../image/characters/luuk-herssen.png");
+    background-size: 100% auto;
+}
 
 .mc-box-evaluate {
     position: relative;

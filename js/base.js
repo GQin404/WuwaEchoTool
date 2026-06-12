@@ -1,4 +1,4 @@
-﻿const toolVersion = "3.1.41";
+﻿const toolVersion = "3.1.42";
 const suiteAttributeMap = {
     "冰套": 1,
     "火套": 2,
@@ -722,6 +722,20 @@ const roleList = [
         "liberate": 0.63,
         "other": 0.05,
         "maxscore": 500.8
+    },
+    {   //陆·赫斯
+        "id": 50,
+        "gid": 0,
+        "name": "陆·赫斯",
+        "star": 5,
+        "rule": 1,
+        "cls": "mcr-luuk-herssen",
+        "normal": 0.62,
+        "skill": 0.12,
+        "heavy": 0.03,
+        "liberate": 0.15,
+        "other": 0.08,
+        "maxscore": 494.6
     }
 ];
 const costList = [
@@ -5165,6 +5179,136 @@ const RoleSumProperty = [
             {"normal": 0.08, "skill": 0.14, "heavy": 0.04, "liberate": 0.69, "other": 0.05, "maxscore": 490.5},
             {"normal": 0.07, "skill": 0.13, "heavy": 0.04, "liberate": 0.71, "other": 0.05, "maxscore": 488.4},
             {"normal": 0.06, "skill": 0.12, "heavy": 0.03, "liberate": 0.74, "other": 0.05, "maxscore": 484.8},
+        ],
+        mzRule: [
+            {
+                "ruleId": 1,
+                "attack01": 1,
+                "attack02": 0.1,
+                "crit": 1.8,
+                "critDamage": 0.9,
+                "property": 1,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 1,
+                "treat": 0
+            },
+            {
+                "ruleId": 2,
+                "attack01": 0.98,
+                "attack02": 0.098,
+                "crit": 1.8,
+                "critDamage": 0.9,
+                "property": 0.98,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 0.98,
+                "treat": 0
+            },
+            {
+                "ruleId": 3,
+                "attack01": 0.96,
+                "attack02": 0.096,
+                "crit": 1.8,
+                "critDamage": 0.9,
+                "property": 0.96,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 0.96,
+                "treat": 0
+            },
+            {
+                "ruleId": 4,
+                "attack01": 0.94,
+                "attack02": 0.094,
+                "crit": 1.8,
+                "critDamage": 0.9,
+                "property": 0.94,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 0.94,
+                "treat": 0
+            },
+            {
+                "ruleId": 5,
+                "attack01": 0.92,
+                "attack02": 0.092,
+                "crit": 1.8,
+                "critDamage": 0.9,
+                "property": 0.92,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 0.92,
+                "treat": 0
+            },
+            {
+                "ruleId": 6,
+                "attack01": 0.90,
+                "attack02": 0.09,
+                "crit": 1.8,
+                "critDamage": 0.9,
+                "property": 0.90,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 0.90,
+                "treat": 0
+            },
+        ]
+    },
+    {
+        "id": 50, "propertyList": [
+            {"name": "暴击", "property": "52.5%"},
+            {"name": "暴伤", "property": "105%"},
+            {"name": "大攻击", "property": "58%"},
+            {"name": "小攻击", "property": "120"},
+            {"name": "共鸣效率", "property": "37.2%"},
+            {"name": "普攻伤害", "property": "58%"},
+            {"name": "技能伤害", "property": "0%"},
+            {"name": "重击伤害", "property": "0%"},
+            {"name": "解放伤害", "property": "0%"},
+            {"name": "大生命", "property": "0%"},
+            {"name": "小生命", "property": "0"},
+            {"name": "大防御", "property": "0%"},
+            {"name": "小防御", "property": "0"}
+        ],
+        //陆·赫斯暂无可核验的完整命座轴，这里按导电拳套普攻主C定位作保守估算。
+        mzProperty: [
+            {"normal": 0.62, "skill": 0.12, "heavy": 0.03, "liberate": 0.15, "other": 0.08, "maxscore": 494.6},
+            {"normal": 0.64, "skill": 0.11, "heavy": 0.03, "liberate": 0.14, "other": 0.08, "maxscore": 491.8},
+            {"normal": 0.66, "skill": 0.10, "heavy": 0.03, "liberate": 0.13, "other": 0.08, "maxscore": 489.2},
+            {"normal": 0.68, "skill": 0.09, "heavy": 0.02, "liberate": 0.13, "other": 0.08, "maxscore": 485.5},
+            {"normal": 0.70, "skill": 0.08, "heavy": 0.02, "liberate": 0.12, "other": 0.08, "maxscore": 482.8},
+            {"normal": 0.72, "skill": 0.07, "heavy": 0.02, "liberate": 0.11, "other": 0.08, "maxscore": 479.6},
         ],
         mzRule: [
             {
