@@ -555,6 +555,10 @@ body {
     background-image: url("../image/characters/luuk-herssen.png");
     background-size: 100% auto;
 }
+.mcr-sigrika {
+    background-image: url("../image/characters/sigrika.png");
+    background-size: 100% auto;
+}
 
 .mc-box-evaluate {
     position: relative;

@@ -1,4 +1,4 @@
-﻿const toolVersion = "3.1.43";
+﻿const toolVersion = "3.2.45";
 const suiteAttributeMap = {
     "冰套": 1,
     "火套": 2,
@@ -736,6 +736,20 @@ const roleList = [
         "cls": "mcr-luuk-herssen",
         // 库街区明确标注：流金回潮、斩杀日冕、日髓阵列、空中攻击与共鸣解放
         // 均按普攻伤害处理；普攻词条应成为主要收益来源。
+        "normal": 0.82,
+        "skill": 0.04,
+        "heavy": 0.02,
+        "liberate": 0.07,
+        "other": 0.05,
+        "maxscore": 494.6
+    },
+    {   //西格莉卡
+        "id": 51,
+        "gid": 0,
+        "name": "西格莉卡",
+        "star": 5,
+        "rule": 1,
+        "cls": "mcr-sigrika",
         "normal": 0.82,
         "skill": 0.04,
         "heavy": 0.02,
