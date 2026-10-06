@@ -5948,3 +5948,51 @@ function decrypt(ciphertext) {
         throw new Error('转化解密数据为JSON失败，请联系作者。');
     }
 }
+
+// 首次进入当前浏览器会话时显示维护说明。
+$(function () {
+    const maintenanceKey = "mcMaintenanceNoticeShown";
+    let hasShown = false;
+    try {
+        hasShown = sessionStorage.getItem(maintenanceKey) === "1";
+    } catch (e) {
+        hasShown = false;
+    }
+
+    if (hasShown || $("#mc-maintenance-modal").length > 0) {
+        return;
+    }
+
+    const modalHtml = `
+        <div class="modal fade mc-maintenance-modal" id="mc-maintenance-modal" tabindex="-1" role="dialog" aria-labelledby="mc-maintenance-title" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="mc-maintenance-title">维护说明</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="关闭">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li>本工具原维护已停止，<code class="mc-maintenance-domain">wuwaechotool.com</code> 将于 2026 年底到期。详情请查看 <a href="https://space.bilibili.com/287293445/dynamic" target="_blank" rel="noopener noreferrer">B站主页</a>。</li>
+                            <li>目前由本人 <a href="https://space.bilibili.com/1265897372" target="_blank">@炭烤蛋</a> 继续接手维护，希望能让这个工具继续使用下去。由于个人时间与开发进度有限，更新速度可能较慢，还请见谅。</li>
+                            <li>原作者在设计时，部分占比主要依据个人判断，目前本人会借助 AI 辅助判断占比，让结果更准确。</li>
+                            <li>如果发现任何问题，欢迎留言反馈 <a href="https://space.bilibili.com/1265897372" target="_blank">@炭烤蛋</a>。</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">我知道了</button>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+
+    $("body").append(modalHtml);
+    try {
+        sessionStorage.setItem(maintenanceKey, "1");
+    } catch (e) {
+        // 某些隐私模式可能禁用 sessionStorage，弹窗仍可正常使用。
+    }
+    $("#mc-maintenance-modal").modal("show");
+});

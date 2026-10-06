@@ -1676,3 +1676,87 @@ body {
     border-color: #2196f3;
     box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.3);
 }
+
+/* 维护说明弹窗 */
+.mc-maintenance-modal .modal-dialog {
+    width: auto;
+    max-width: 560px;
+    margin: 1.75rem auto;
+}
+
+.mc-maintenance-modal .modal-content {
+    color: #e8edf3;
+    background-color: #242a33;
+    border: 1px solid #4b5665;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    text-align: left;
+    overflow: hidden;
+}
+
+.mc-maintenance-modal .modal-header,
+.mc-maintenance-modal .modal-footer {
+    border-color: #414b59;
+}
+
+.mc-maintenance-modal .modal-title {
+    font-weight: 700;
+}
+
+.mc-maintenance-modal .close {
+    color: #e8edf3;
+    text-shadow: none;
+    opacity: 0.85;
+}
+
+.mc-maintenance-modal .close:hover,
+.mc-maintenance-modal .close:focus {
+    color: #ffffff;
+    opacity: 1;
+}
+
+.mc-maintenance-modal .modal-body {
+    padding: 1rem 1.25rem;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.mc-maintenance-modal .modal-body ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.mc-maintenance-modal .modal-body li + li {
+    margin-top: 0.85rem;
+}
+
+.mc-maintenance-modal .mc-maintenance-domain {
+    color: #f2d58a;
+    background-color: #171b22;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+}
+
+.mc-maintenance-modal a {
+    color: #82c9ff;
+    overflow-wrap: anywhere;
+}
+
+.mc-maintenance-modal .modal-footer .btn {
+    height: auto;
+    min-height: 32px;
+    padding: 0.35rem 1.2rem;
+}
+
+@media (max-width: 576px) {
+    .mc-maintenance-modal .modal-dialog {
+        max-width: calc(100% - 1rem);
+        margin: 0.5rem auto;
+    }
+
+    .mc-maintenance-modal .modal-body {
+        padding: 0.9rem 1rem;
+        font-size: 14px;
+    }
+}
