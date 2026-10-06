@@ -1,4 +1,4 @@
-﻿const toolVersion = "3.1.42";
+﻿const toolVersion = "3.1.43";
 const suiteAttributeMap = {
     "冰套": 1,
     "火套": 2,
@@ -702,11 +702,13 @@ const roleList = [
         "star": 5,
         "rule": 10,
         "cls": "mcr-moning",
-        "normal": 0.12,
-        "skill": 0.45,
-        "heavy": 0.08,
-        "liberate": 0.28,
-        "other": 0.07,
+        // 库街区技能资料显示：莫宁的核心循环是共鸣回路/强化重击、共鸣技能与共鸣解放；
+        // 普攻只负责填充静质量能，故不应把技能伤害权重设为最高。
+        "normal": 0.05,
+        "skill": 0.25,
+        "heavy": 0.25,
+        "liberate": 0.40,
+        "other": 0.05,
         "maxscore": 486.5
     },
     {   //爱弥斯
@@ -716,10 +718,12 @@ const roleList = [
         "star": 5,
         "rule": 1,
         "cls": "mcr-aemeath",
+        // 官方攻略的循环包含两次光翼共奏（该技能属于共鸣解放伤害）与两次大招，
+        // 因此维持解放伤害主导，同时略提高共鸣技能占比。
         "normal": 0.10,
-        "skill": 0.17,
+        "skill": 0.20,
         "heavy": 0.05,
-        "liberate": 0.63,
+        "liberate": 0.60,
         "other": 0.05,
         "maxscore": 500.8
     },
@@ -730,11 +734,13 @@ const roleList = [
         "star": 5,
         "rule": 1,
         "cls": "mcr-luuk-herssen",
-        "normal": 0.62,
-        "skill": 0.12,
-        "heavy": 0.03,
-        "liberate": 0.15,
-        "other": 0.08,
+        // 库街区明确标注：流金回潮、斩杀日冕、日髓阵列、空中攻击与共鸣解放
+        // 均按普攻伤害处理；普攻词条应成为主要收益来源。
+        "normal": 0.82,
+        "skill": 0.04,
+        "heavy": 0.02,
+        "liberate": 0.07,
+        "other": 0.05,
         "maxscore": 494.6
     }
 ];
@@ -5028,27 +5034,27 @@ const RoleSumProperty = [
     {
         "id": 48, "propertyList": [
             {"name": "暴击", "property": "0%"},
-            {"name": "暴伤", "property": "0%"},
+            {"name": "暴伤", "property": "25%"},
             {"name": "大攻击", "property": "0%"},
             {"name": "小攻击", "property": "0"},
             {"name": "共鸣效率", "property": "62%"},
             {"name": "普攻伤害", "property": "0%"},
             {"name": "技能伤害", "property": "0%"},
-            {"name": "重击伤害", "property": "0%"},
-            {"name": "解放伤害", "property": "0%"},
-            {"name": "大生命", "property": "58%"},
-            {"name": "小生命", "property": "2900"},
+            {"name": "重击伤害", "property": "25%"},
+            {"name": "解放伤害", "property": "25%"},
+            {"name": "大生命", "property": "0%"},
+            {"name": "小生命", "property": "0"},
             {"name": "大防御", "property": "73.5%"},
             {"name": "小防御", "property": "350"}
         ],
-        //莫宁暂无可核验的完整命座轴，这里按防御奶/循环辅助定位作保守估算。
+        //莫宁的共鸣链不改变其防御治疗定位；C5/C6才显著提高共鸣解放与响应伤害，因此只在对应命座提高解放权重。
         mzProperty: [
-            {"normal": 0.12, "skill": 0.45, "heavy": 0.08, "liberate": 0.28, "other": 0.07, "maxscore": 486.5},
-            {"normal": 0.11, "skill": 0.46, "heavy": 0.07, "liberate": 0.29, "other": 0.07, "maxscore": 480.8},
-            {"normal": 0.10, "skill": 0.47, "heavy": 0.07, "liberate": 0.29, "other": 0.07, "maxscore": 476.2},
-            {"normal": 0.10, "skill": 0.46, "heavy": 0.06, "liberate": 0.31, "other": 0.07, "maxscore": 470.5},
-            {"normal": 0.09, "skill": 0.45, "heavy": 0.06, "liberate": 0.33, "other": 0.07, "maxscore": 466.8},
-            {"normal": 0.08, "skill": 0.44, "heavy": 0.05, "liberate": 0.36, "other": 0.07, "maxscore": 459.6},
+            {"normal": 0.05, "skill": 0.25, "heavy": 0.25, "liberate": 0.40, "other": 0.05, "maxscore": 486.5},
+            {"normal": 0.05, "skill": 0.25, "heavy": 0.23, "liberate": 0.42, "other": 0.05, "maxscore": 480.8},
+            {"normal": 0.05, "skill": 0.28, "heavy": 0.22, "liberate": 0.40, "other": 0.05, "maxscore": 476.2},
+            {"normal": 0.05, "skill": 0.25, "heavy": 0.20, "liberate": 0.45, "other": 0.05, "maxscore": 470.5},
+            {"normal": 0.04, "skill": 0.20, "heavy": 0.16, "liberate": 0.55, "other": 0.05, "maxscore": 466.8},
+            {"normal": 0.03, "skill": 0.15, "heavy": 0.12, "liberate": 0.65, "other": 0.05, "maxscore": 459.6}
         ],
         mzRule: [
             {
@@ -5171,14 +5177,14 @@ const RoleSumProperty = [
             {"name": "大防御", "property": "0%"},
             {"name": "小防御", "property": "0"}
         ],
-        //爱弥斯暂无可核验的完整命座轴，这里按热熔迅刀机甲输出定位作保守估算。
+        //爱弥斯的共鸣链强化终结共鸣解放与双形态循环；权重沿用共鸣解放主导的输出定位。
         mzProperty: [
-            {"normal": 0.10, "skill": 0.17, "heavy": 0.05, "liberate": 0.63, "other": 0.05, "maxscore": 500.8},
-            {"normal": 0.09, "skill": 0.16, "heavy": 0.05, "liberate": 0.65, "other": 0.05, "maxscore": 497.6},
-            {"normal": 0.08, "skill": 0.15, "heavy": 0.04, "liberate": 0.68, "other": 0.05, "maxscore": 495.2},
-            {"normal": 0.08, "skill": 0.14, "heavy": 0.04, "liberate": 0.69, "other": 0.05, "maxscore": 490.5},
-            {"normal": 0.07, "skill": 0.13, "heavy": 0.04, "liberate": 0.71, "other": 0.05, "maxscore": 488.4},
-            {"normal": 0.06, "skill": 0.12, "heavy": 0.03, "liberate": 0.74, "other": 0.05, "maxscore": 484.8},
+            {"normal": 0.10, "skill": 0.20, "heavy": 0.05, "liberate": 0.60, "other": 0.05, "maxscore": 500.8},
+            {"normal": 0.09, "skill": 0.19, "heavy": 0.05, "liberate": 0.62, "other": 0.05, "maxscore": 497.6},
+            {"normal": 0.08, "skill": 0.18, "heavy": 0.04, "liberate": 0.65, "other": 0.05, "maxscore": 495.2},
+            {"normal": 0.08, "skill": 0.16, "heavy": 0.04, "liberate": 0.67, "other": 0.05, "maxscore": 490.5},
+            {"normal": 0.07, "skill": 0.14, "heavy": 0.04, "liberate": 0.70, "other": 0.05, "maxscore": 488.4},
+            {"normal": 0.06, "skill": 0.12, "heavy": 0.03, "liberate": 0.74, "other": 0.05, "maxscore": 484.8}
         ],
         mzRule: [
             {
@@ -5301,14 +5307,14 @@ const RoleSumProperty = [
             {"name": "大防御", "property": "0%"},
             {"name": "小防御", "property": "0"}
         ],
-        //陆·赫斯暂无可核验的完整命座轴，这里按导电拳套普攻主C定位作保守估算。
+        //陆·赫斯的共鸣链主要强化空中攻击、共鸣技能与集谐响应；这些伤害在官方资料中均归入普攻伤害。
         mzProperty: [
-            {"normal": 0.62, "skill": 0.12, "heavy": 0.03, "liberate": 0.15, "other": 0.08, "maxscore": 494.6},
-            {"normal": 0.64, "skill": 0.11, "heavy": 0.03, "liberate": 0.14, "other": 0.08, "maxscore": 491.8},
-            {"normal": 0.66, "skill": 0.10, "heavy": 0.03, "liberate": 0.13, "other": 0.08, "maxscore": 489.2},
-            {"normal": 0.68, "skill": 0.09, "heavy": 0.02, "liberate": 0.13, "other": 0.08, "maxscore": 485.5},
-            {"normal": 0.70, "skill": 0.08, "heavy": 0.02, "liberate": 0.12, "other": 0.08, "maxscore": 482.8},
-            {"normal": 0.72, "skill": 0.07, "heavy": 0.02, "liberate": 0.11, "other": 0.08, "maxscore": 479.6},
+            {"normal": 0.82, "skill": 0.04, "heavy": 0.02, "liberate": 0.07, "other": 0.05, "maxscore": 494.6},
+            {"normal": 0.84, "skill": 0.03, "heavy": 0.02, "liberate": 0.06, "other": 0.05, "maxscore": 491.8},
+            {"normal": 0.86, "skill": 0.03, "heavy": 0.02, "liberate": 0.04, "other": 0.05, "maxscore": 489.2},
+            {"normal": 0.88, "skill": 0.02, "heavy": 0.01, "liberate": 0.04, "other": 0.05, "maxscore": 485.5},
+            {"normal": 0.90, "skill": 0.02, "heavy": 0.01, "liberate": 0.02, "other": 0.05, "maxscore": 482.8},
+            {"normal": 0.92, "skill": 0.01, "heavy": 0.01, "liberate": 0.01, "other": 0.05, "maxscore": 479.6}
         ],
         mzRule: [
             {
