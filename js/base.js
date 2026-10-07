@@ -7656,7 +7656,7 @@ $(function () {
         hasShown = false;
     }
 
-    if (hasShown || $("#mc-maintenance-modal").length > 0) {
+    if ($("#mc-maintenance-modal").length > 0) {
         return;
     }
 
@@ -7665,18 +7665,48 @@ $(function () {
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="mc-maintenance-title">维护说明</h5>
+                        <h5 class="modal-title" id="mc-maintenance-title">网站公告</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="关闭">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="nav nav-tabs mc-notice-tabs" role="tablist" aria-label="公告分类">
+                        <button type="button" class="nav-link active" id="mc-notice-important-tab" data-toggle="tab" data-target="#mc-notice-important" role="tab" aria-controls="mc-notice-important" aria-selected="true">重要事项</button>
+                        <button type="button" class="nav-link" id="mc-notice-updates-tab" data-toggle="tab" data-target="#mc-notice-updates" role="tab" aria-controls="mc-notice-updates" aria-selected="false">版本更新</button>
+                    </div>
+                    <div class="modal-body tab-content">
+                        <div class="tab-pane fade show active" id="mc-notice-important" role="tabpanel" aria-labelledby="mc-notice-important-tab">
                         <ul>
                             <li>本工具前维护者已停止维护，<code class="mc-maintenance-domain">wuwaechotool.com</code> 将于 2026 年底到期。详情请查看 <a href="https://space.bilibili.com/287293445/dynamic" target="_blank" rel="noopener noreferrer">B站主页</a>。</li>
                             <li>目前由本人 <a href="https://space.bilibili.com/1265897372" target="_blank">@炭烤蛋</a> 继续接手维护，希望能让这个工具继续使用下去。</br>由于个人时间与开发进度有限，更新速度可能较慢，还请见谅。</li>
                             <li>原作者在设计时，部分占比主要依据个人判断，目前本人会借助 AI 辅助判断占比，让结果更准确。</li>
                             <li>如果发现任何问题，欢迎留言反馈 <a href="https://space.bilibili.com/1265897372" target="_blank">@炭烤蛋</a>。</li>
                         </ul>
+                        </div>
+                        <div class="tab-pane fade" id="mc-notice-updates" role="tabpanel" aria-labelledby="mc-notice-updates-tab">
+                            <!-- 更新记录由新到旧排列，新版本添加在列表最前方。 -->
+                            <article class="mc-release" aria-labelledby="mc-release-3-7-48">
+                                <header class="mc-release-header">
+                                    <h6 id="mc-release-3-7-48">声骸评分工具 <strong>3.7.48</strong></h6>
+                                    <time datetime="2026-10-07">2026年10月7日</time>
+                                </header>
+                                <h6 class="mc-release-heading">角色数据新增</h6>
+                                <ul class="mc-release-characters">
+                                    <li>西格莉卡</li><li>绯雪</li><li>达妮娅</li><li>秧秧·玄翎</li><li>穗穗</li>
+                                    <li>漂泊者·导电（女）</li><li>漂泊者·导电（男）</li><li>清宵</li><li>景燃</li><li>心</li>
+                                </ul>
+                                <p class="mc-release-summary">上述角色已新增占比判断与多模态判断；另外，爱弥斯新增多模态判断。</p>
+                                <h6 class="mc-release-heading">功能优化与新增</h6>
+                                <ol class="mc-release-features">
+                                    <li>放大电脑端角色选择卡牌，手机端大小不变。</li>
+                                    <li>新增多模态选择。</li>
+                                    <li>调整角色删除按钮的显示。</li>
+                                    <li>鼠标悬停在角色卡牌时显示角色名称。</li>
+                                    <li>新增角色属性筛选。</li>
+                                    <li>放大角色声骸页面的角色图片。</li>
+                                </ol>
+                            </article>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">我知道了</button>
@@ -7686,6 +7716,8 @@ $(function () {
         </div>`;
 
     $("body").append(modalHtml);
+    // 保留弹窗供首页手动打开；会话标记只控制自动显示。
+    if (hasShown) return;
     try {
         sessionStorage.setItem(maintenanceKey, "1");
     } catch (e) {
