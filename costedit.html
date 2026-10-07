@@ -137,7 +137,7 @@
     </div>
     <div class="mc-btn-backhome">返&nbsp;回&nbsp;首&nbsp;页</div>
     <!--  footer  !-->
-    <div class="mc-footer">原创作者@哲字君/维护者@PillowTrel-本工具免费使用 | Version: V<span id="tool-version">1.1.1</span></div>
+    <div class="mc-footer">原创作者@哲字君/前维护者@PillowTrel/维护者@炭烤蛋-本工具免费使用 | Version: V<span id="tool-version">1.1.1</span></div>
     <!--  弹出添加副词条  !-->
     <!-- Modal -->
     <div class="modal fade" id="mc-addwords" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -206,6 +206,17 @@
                             <select id="mc-suite-name" class="form-control mc-select">
                                 //对于老套装，我们仅显示属性名称但不改变底层赋值，因为这样不会破坏已导出的json文件
                                 //对于新套装则可以随意更改
+                                <!--
+                                    套装简称规则：
+                                    属性主C：火套 / 冰套 / 暗套 / 雷套 / 风套 / 光套
+                                    属性辅助：火辅套 / 冰辅套 / 暗辅套 / 雷辅套 / 风辅套 / 光辅套
+                                    特殊机制：破韧套 / 普重套 / 效应套 / 盾套
+                                    治疗辅助：奶套
+
+                                    原则：
+                                    优先属性，其次定位；非属性套按核心机制命名。
+                                    只写主要用途，不堆叠所有效果。
+                                -->
                                 <option selected value="光套">光套</option>
                                 <option value="火套">火套</option>
                                 <option value="冰套">冰套</option>
@@ -232,8 +243,17 @@
                                 <option value="流金套">流金·光套</option>
                                 <option value="逆光套">逆光·光套</option>
                                 <option value="长路套">长路·火套</option>
-                                <option value="斑驳套">斑驳·火套</option>
-                                <option value="听取套">听取·风套</option>                                
+                                <option value="斑驳套">斑驳·火辅套</option>
+                                <option value="听唤套">听唤·风套</option>
+                                <option value="雪落套">雪落·冰套</option>
+                                <option value="剪心套">剪心·破韧套</option>
+                                <option value="碎梦套">碎梦·普重套</option>
+                                <option value="冥途套">冥途·火盾套</option>
+                                <option value="清邪套">清邪·风套</option>
+                                <option value="羽落套">羽落·效应套</option>
+                                <option value="衔梦套">衔梦·雷套</option>
+                                <option value="镜影套">镜影·雷辅套</option>
+                                <option value="茜染套">茜染·奶套</option>
                             </select>
                         </span></li>
                         <li class="list-group-item"><span class="mc-select-title">选择声骸属性：</span><span

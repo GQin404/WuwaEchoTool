@@ -1,4 +1,4 @@
-﻿const toolVersion = "3.2.45";
+﻿const toolVersion = "3.7.46";
 const suiteAttributeMap = {
     "冰套": 1,
     "火套": 2,
@@ -27,7 +27,16 @@ const suiteAttributeMap = {
     "逆光套": 25,
     "长路套": 26,
     "斑驳套": 27,
-    "听取套": 28,
+    "听唤套": 28,
+    "雪落套": 29,
+    "剪心套": 30,
+    "碎梦套": 31,
+    "冥途套": 32,
+    "清邪套": 33,
+    "羽落套": 34,
+    "衔梦套": 35,
+    "镜影套": 36,
+    "茜染套": 37,
 };
 
 function getSuiteAttributeId(suiteName) {
@@ -918,6 +927,33 @@ const costList = [
     {"id": 157, "name": "冠顶械隼", "type": "Cost3", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/957f5b4c853b48849d87bff371e82df420260131.png"},
     {"id": 158, "name": "辛吉勒姆", "type": "Cost4", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/777036cbede346778f6e8b9cf46864cd20260204.png"},
     {"id": 159, "name": "无铭探索者", "type": "Cost4", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/160483c26d3045258e736de8a506482f20260131.png"},
+    {"id": 160, "name": "共鸣回响·鸣式·虚造神型", "type": "Cost4", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/6238d0a1b9ad44a28266f5da32bf587120260427.png"},
+    {"id": 161, "name": "共鸣回响·达妮娅", "type": "Cost4", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/73fc9323ba3843a29e6980a4aa0f597f20260428.png"},
+    {"id": 162, "name": "共鸣回响·梦魇亚当·重锤", "type": "Cost4", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/b8e9ca9f69434565a9cd0ac7e627172f20260605.png"},
+    {"id": 163, "name": "千傀重楼", "type": "Cost4", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/cedcff1b762c4588a9ca91bf1ed56a3e20260706.png"},
+    {"id": 164, "name": "封庭械囿", "type": "Cost3", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/d5c10b1f2e2644d48a96e2d2033e824920260706.png"},
+    {"id": 165, "name": "瓷庭候", "type": "Cost1", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/995abc3ec1fb4299b81a70be7175523f20260707.png"},
+    {"id": 166, "name": "石庭候", "type": "Cost1", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/885e85b7b33a40bd8aa4e72d2e8ddbe620260707.png"},
+    {"id": 167, "name": "金庭候", "type": "Cost1", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/ddb724030ed3412a94a9e7bae77489d420260707.png"},
+    {"id": 168, "name": "心傀·喜", "type": "Cost1", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/f6221ad22fcb4335a757ab9ed12c9e8e20260706.png"},
+    {"id": 169, "name": "心傀·怒", "type": "Cost1", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/42f8b34296be4f6eb60ce1f07711545c20260707.png"},
+    {"id": 170, "name": "心傀·忧", "type": "Cost1", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/ad3b6c5e2aea4526882f046f0ba4995820260707.png"},
+    {"id": 171, "name": "心傀·思", "type": "Cost1", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/0cb2fa83868646d080b7345d1f45362e20260707.png"},
+    {"id": 172, "name": "心傀·悲", "type": "Cost1", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/2ff0333040bc4e31bb2816a2bfa817df20260707.png"},
+    {"id": 173, "name": "心傀·恐", "type": "Cost1", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/6446a63d7e6c4e6fa33dc0c07cd9190f20260707.png"},
+    {"id": 174, "name": "霁息兽尊·身", "type": "Cost1", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/6f4fdcf152e144e49a9b2bfb3861f42120260706.png"},
+    {"id": 175, "name": "霁息兽尊·首", "type": "Cost1", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/c141123b4cac4d569bceda44cf15591e20260706.png"},
+    {"id": 176, "name": "不熄猎手", "type": "Cost1", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/49f3858a8e834f7dbf34199b7f320edd20260927.png"},
+    {"id": 177, "name": "霁息兽尊", "type": "Cost3", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/1db6e30777604f019bc94ef473c15db820260706.png"},
+    {"id": 178, "name": "万囮牢·朽躯", "type": "Cost4", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/d40160c26ad84c54810ea40a0da1833620260707.png"},
+    {"id": 179, "name": "融躯战士", "type": "Cost1", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/a17c803247ee4e468568bcdfceb73c5620260706.png"},
+    {"id": 180, "name": "天傀劫煞", "type": "Cost4", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/db41db58abd64a3aa70eee7d238f8f8520260818.png"},
+    {"id": 181, "name": "共鸣回响·天演溯心", "type": "Cost4", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/aa17bfdf387740f186ff81988192b3aa20260929.png"},
+    {"id": 182, "name": "巡宵枪卫", "type": "Cost3", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/fdc00647c06c4c689dba6a4534f28d3d20260927.png"},
+    {"id": 183, "name": "绝息魄", "type": "Cost3", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/b727819977e84c1e8a3d36abf0c1ff7820260927.png"},
+    {"id": 184, "name": "解形煞", "type": "Cost3", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/de4eafba05624778b5f2ee9b9afee0c020260927.png"},
+    {"id": 185, "name": "奇绽傀", "type": "Cost1", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/c4560345eb6640668c203dc429856f1b20260927.png"},
+    {"id": 186, "name": "玉冥蛇", "type": "Cost1", "imgCode": "https://prod-alicdn-community.kurobbs.com/forum/c17bce57248143e79a0ad4ef1366779a20260927.png"},
 ];
 const ruleList = [
     {
@@ -5989,9 +6025,10 @@ $(function () {
                     </div>
                     <div class="modal-body">
                         <ul>
-                            <li>本工具原维护已停止，<code class="mc-maintenance-domain">wuwaechotool.com</code> 将于 2026 年底到期。详情请查看 <a href="https://space.bilibili.com/287293445/dynamic" target="_blank" rel="noopener noreferrer">B站主页</a>。</li>
-                            <li>目前由本人 <a href="https://space.bilibili.com/1265897372" target="_blank">@炭烤蛋</a> 继续接手维护，希望能让这个工具继续使用下去。由于个人时间与开发进度有限，更新速度可能较慢，还请见谅。</li>
+                            <li>本工具前维护者已停止维护，<code class="mc-maintenance-domain">wuwaechotool.com</code> 将于 2026 年底到期。详情请查看 <a href="https://space.bilibili.com/287293445/dynamic" target="_blank" rel="noopener noreferrer">B站主页</a>。</li>
+                            <li>目前由本人 <a href="https://space.bilibili.com/1265897372" target="_blank">@炭烤蛋</a> 继续接手维护，希望能让这个工具继续使用下去。</br>由于个人时间与开发进度有限，更新速度可能较慢，还请见谅。</li>
                             <li>原作者在设计时，部分占比主要依据个人判断，目前本人会借助 AI 辅助判断占比，让结果更准确。</li>
+                            <li>!!!注意目前只能使用陆·赫斯之前的角色，选之后的角色会卡住，请进首页然后把角色删除。</li>
                             <li>如果发现任何问题，欢迎留言反馈 <a href="https://space.bilibili.com/1265897372" target="_blank">@炭烤蛋</a>。</li>
                         </ul>
                     </div>
