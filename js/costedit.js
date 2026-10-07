@@ -239,6 +239,8 @@ $(function () {
                 //无溢出
                 curRole.totalScore = totalScore.toFixed(2);
             }
+            //新机制角色需按当前链数、模态及整套充能重新计算，避免沿用旧缓存。
+            recalculateMechanicRole(curRole);
             //将角色覆盖到mcData保存并返回
             curData.role.forEach((its, index) => {
                 if (its.roleId == curRole.roleId) {
@@ -377,7 +379,10 @@ function loadMainPgAttri() {
             let ress = "";
             zctValue.forEach(item => {
                 if (item.type === currentCost.type) {
-                    item.values.forEach((itm, index) => {
+                    const values = item.type === 'Cost3' && curRole && [57, 58].includes(Number(curRole.roleListId))
+                        ? item.values.concat(['导电伤害30%', '衍射伤害30%', '湮灭伤害30%', '气动伤害30%', '热熔伤害30%', '冷凝伤害30%'])
+                        : item.values;
+                    values.forEach((itm, index) => {
                         if (index === 0) {
                             ress += `<option selected value="` + itm + `">` + itm + `</option>`;
                         } else {

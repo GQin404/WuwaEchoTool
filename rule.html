@@ -504,11 +504,11 @@
             <tr>
                 <th scope="row">43</th>
                 <td>爱弥斯</td>
-                <td>10%</td>
-                <td>5%</td>
-                <td>63%</td>
-                <td>17%</td>
-                <td>5%</td>
+                <td>8%</td>
+                <td>0%</td>
+                <td>70%</td>
+                <td>2%</td>
+                <td>20%</td>
             </tr>
             <tr>
                 <th scope="row">44</th>
@@ -519,8 +519,99 @@
                 <td>12%</td>
                 <td>8%</td>
             </tr>
+            <tr>
+                <th scope="row">45</th>
+                <td>西格莉卡</td>
+                <td>5%</td>
+                <td>0%</td>
+                <td>0%</td>
+                <td>1%</td>
+                <td>94%</td>
+            </tr>
+            <tr>
+                <th scope="row">46</th>
+                <td>绯雪</td>
+                <td>2%</td>
+                <td>0%</td>
+                <td>81%</td>
+                <td>7%</td>
+                <td>10%</td>
+            </tr>
+            <tr>
+                <th scope="row">47</th>
+                <td>达妮娅</td>
+                <td>5%</td>
+                <td>0%</td>
+                <td>75%</td>
+                <td>15%</td>
+                <td>5%</td>
+            </tr>
             </tbody>
         </table>
+        <p>西格莉卡、绯雪、达妮娅上表为零链估值，0–6链独立配置见下表，均非官方伤害占比。西格莉卡的声骸技能伤害、绯雪的霜冻效应归入“其他”，不套用四类伤害加成。达妮娅按虚质粒子充足、蚀域持续命中的副输出流程估算。不同队伍、武器和输出流程会改变占比。</p>
+        <details>
+            <summary>导电漂泊者、秧秧·玄翎、穗穗、清宵、景燃、心：0–6链与模态</summary>
+            <p>以下为库街区技能资料结合固定循环的估算，并非官方占比。苍／羽、负阴／抱阳等循环内形态已合并；心分同奏／电磁，导电漂泊者分速切／临界共鸣。穗穗默认治疗辅助，可切换自身输出。清宵与景燃区分首轮和持续循环。景燃下表使用40000生命作为边际收益基准，页面输入可调整。详细假设见项目 docs/character-weights-57-63.md。</p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead><tr><th>角色</th><th>模态／情景</th><th>链</th><th>普攻</th><th>技能</th><th>重击</th><th>解放</th><th>其他</th><th>评分分母</th></tr></thead>
+                    <tbody id="new-character-profiles"></tbody>
+                </table>
+            </div>
+        </details>
+        <details>
+            <summary>爱弥斯、西格莉卡、绯雪、达妮娅：0–6链占比与评分分母</summary>
+            <p>固定循环情景估算：爱弥斯区分震谐／聚爆，六链固定双暴不计入面板双暴收益。绯雪按两层雪锈、持续循环；达妮娅区分聚爆／集谐模态。西格莉卡计入125%–150%共鸣效率转声骸增伤（表中声骸外额外充能为0）。分母随各链权重重算。全体增益可能不改变占比；不代表该链没有提升。</p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead><tr><th scope="col">角色</th><th scope="col">链数</th><th scope="col">普攻</th><th scope="col">重击</th><th scope="col">技能</th><th scope="col">解放</th><th scope="col">其他</th><th scope="col">评分分母</th></tr></thead>
+                    <tbody>
+                        <tr><td>爱弥斯·震谐</td><td>0</td><td>8.00%</td><td>0.00%</td><td>2.00%</td><td>70.00%</td><td>20.00%</td><td>488.2</td></tr>
+                        <tr><td>爱弥斯·震谐</td><td>1</td><td>6.97%</td><td>0.00%</td><td>1.74%</td><td>73.86%</td><td>17.43%</td><td>500.3848</td></tr>
+                        <tr><td>爱弥斯·震谐</td><td>2</td><td>5.32%</td><td>0.00%</td><td>1.33%</td><td>73.05%</td><td>20.30%</td><td>479.4273</td></tr>
+                        <tr><td>爱弥斯·震谐</td><td>3</td><td>4.51%</td><td>0.00%</td><td>1.13%</td><td>77.15%</td><td>17.21%</td><td>495.4457</td></tr>
+                        <tr><td>爱弥斯·震谐</td><td>4</td><td>4.57%</td><td>0.00%</td><td>1.14%</td><td>78.17%</td><td>16.11%</td><td>496.4444</td></tr>
+                        <tr><td>爱弥斯·震谐</td><td>5</td><td>4.57%</td><td>0.00%</td><td>1.14%</td><td>78.17%</td><td>16.11%</td><td>496.4444</td></tr>
+                        <tr><td>爱弥斯·震谐</td><td>6</td><td>2.74%</td><td>0.00%</td><td>0.68%</td><td>65.47%</td><td>31.11%</td><td>405.0869</td></tr>
+                        <tr><td>爱弥斯·聚爆</td><td>0</td><td>7.27%</td><td>0.00%</td><td>1.82%</td><td>63.64%</td><td>27.27%</td><td>443.8182</td></tr>
+                        <tr><td>爱弥斯·聚爆</td><td>1</td><td>6.41%</td><td>0.00%</td><td>1.60%</td><td>67.94%</td><td>24.05%</td><td>460.275</td></tr>
+                        <tr><td>爱弥斯·聚爆</td><td>2</td><td>4.87%</td><td>0.00%</td><td>1.22%</td><td>66.79%</td><td>27.13%</td><td>438.3416</td></tr>
+                        <tr><td>爱弥斯·聚爆</td><td>3</td><td>4.18%</td><td>0.00%</td><td>1.05%</td><td>71.47%</td><td>23.30%</td><td>458.9789</td></tr>
+                        <tr><td>爱弥斯·聚爆</td><td>4</td><td>4.26%</td><td>0.00%</td><td>1.07%</td><td>72.84%</td><td>21.83%</td><td>462.5889</td></tr>
+                        <tr><td>爱弥斯·聚爆</td><td>5</td><td>4.26%</td><td>0.00%</td><td>1.07%</td><td>72.84%</td><td>21.83%</td><td>462.5889</td></tr>
+                        <tr><td>爱弥斯·聚爆</td><td>6</td><td>2.40%</td><td>0.00%</td><td>0.60%</td><td>57.37%</td><td>39.63%</td><td>354.969</td></tr>
+                        <tr><td>西格莉卡</td><td>0</td><td>5.00%</td><td>0.00%</td><td>1.00%</td><td>0.00%</td><td>94.00%</td><td>488.832</td></tr>
+                        <tr><td>西格莉卡</td><td>1</td><td>4.50%</td><td>0.00%</td><td>0.90%</td><td>0.00%</td><td>94.60%</td><td>489.0101</td></tr>
+                        <tr><td>西格莉卡</td><td>2</td><td>3.24%</td><td>0.00%</td><td>0.65%</td><td>0.00%</td><td>96.11%</td><td>489.4549</td></tr>
+                        <tr><td>西格莉卡</td><td>3</td><td>2.59%</td><td>0.00%</td><td>0.52%</td><td>0.00%</td><td>96.89%</td><td>489.6844</td></tr>
+                        <tr><td>西格莉卡</td><td>4</td><td>2.59%</td><td>0.00%</td><td>0.52%</td><td>0.00%</td><td>96.89%</td><td>477.9069</td></tr>
+                        <tr><td>西格莉卡</td><td>5</td><td>2.54%</td><td>0.00%</td><td>0.51%</td><td>0.00%</td><td>96.95%</td><td>477.9236</td></tr>
+                        <tr><td>西格莉卡</td><td>6</td><td>1.87%</td><td>0.00%</td><td>0.37%</td><td>0.00%</td><td>97.76%</td><td>478.161</td></tr>
+                        <tr><td>绯雪</td><td>0</td><td>2.00%</td><td>0.00%</td><td>7.00%</td><td>81.00%</td><td>10.00%</td><td>494.58</td></tr>
+                        <tr><td>绯雪</td><td>1</td><td>1.68%</td><td>0.00%</td><td>5.89%</td><td>83.36%</td><td>9.06%</td><td>498.9762</td></tr>
+                        <tr><td>绯雪</td><td>2</td><td>1.39%</td><td>0.00%</td><td>4.87%</td><td>86.25%</td><td>7.49%</td><td>506.8966</td></tr>
+                        <tr><td>绯雪</td><td>3</td><td>1.09%</td><td>0.00%</td><td>3.82%</td><td>81.59%</td><td>13.50%</td><td>473.4892</td></tr>
+                        <tr><td>绯雪</td><td>4</td><td>1.10%</td><td>0.00%</td><td>3.86%</td><td>82.53%</td><td>12.51%</td><td>473.6375</td></tr>
+                        <tr><td>绯雪</td><td>5</td><td>1.07%</td><td>0.00%</td><td>6.74%</td><td>80.05%</td><td>12.14%</td><td>473.8463</td></tr>
+                        <tr><td>绯雪</td><td>6</td><td>0.91%</td><td>0.00%</td><td>5.71%</td><td>84.20%</td><td>9.19%</td><td>489.2461</td></tr>
+                        <tr><td>达妮娅·聚爆</td><td>0</td><td>5.00%</td><td>0.00%</td><td>15.00%</td><td>75.00%</td><td>5.00%</td><td>510.3</td></tr>
+                        <tr><td>达妮娅·聚爆</td><td>1</td><td>5.00%</td><td>0.00%</td><td>15.00%</td><td>75.00%</td><td>5.00%</td><td>510.1768</td></tr>
+                        <tr><td>达妮娅·聚爆</td><td>2</td><td>4.77%</td><td>0.00%</td><td>18.89%</td><td>71.56%</td><td>4.77%</td><td>496.1845</td></tr>
+                        <tr><td>达妮娅·聚爆</td><td>3</td><td>1.42%</td><td>0.00%</td><td>11.93%</td><td>83.10%</td><td>3.55%</td><td>502.8729</td></tr>
+                        <tr><td>达妮娅·聚爆</td><td>4</td><td>1.36%</td><td>0.00%</td><td>11.39%</td><td>83.86%</td><td>3.39%</td><td>503.3161</td></tr>
+                        <tr><td>达妮娅·聚爆</td><td>5</td><td>1.27%</td><td>0.00%</td><td>10.67%</td><td>84.89%</td><td>3.18%</td><td>503.9106</td></tr>
+                        <tr><td>达妮娅·聚爆</td><td>6</td><td>1.23%</td><td>0.00%</td><td>10.30%</td><td>81.93%</td><td>6.55%</td><td>452.3435</td></tr>
+                        <tr><td>达妮娅·集谐</td><td>0</td><td>5.00%</td><td>0.00%</td><td>15.00%</td><td>75.00%</td><td>5.00%</td><td>510.3</td></tr>
+                        <tr><td>达妮娅·集谐</td><td>1</td><td>5.00%</td><td>0.00%</td><td>15.00%</td><td>75.00%</td><td>5.00%</td><td>510.1768</td></tr>
+                        <tr><td>达妮娅·集谐</td><td>2</td><td>4.77%</td><td>0.00%</td><td>18.89%</td><td>71.56%</td><td>4.77%</td><td>508.1845</td></tr>
+                        <tr><td>达妮娅·集谐</td><td>3</td><td>1.42%</td><td>0.00%</td><td>11.93%</td><td>83.10%</td><td>3.55%</td><td>514.8729</td></tr>
+                        <tr><td>达妮娅·集谐</td><td>4</td><td>1.36%</td><td>0.00%</td><td>11.39%</td><td>83.86%</td><td>3.39%</td><td>515.3161</td></tr>
+                        <tr><td>达妮娅·集谐</td><td>5</td><td>1.27%</td><td>0.00%</td><td>10.67%</td><td>84.89%</td><td>3.18%</td><td>515.9106</td></tr>
+                        <tr><td>达妮娅·集谐</td><td>6</td><td>1.27%</td><td>0.00%</td><td>10.67%</td><td>84.89%</td><td>3.18%</td><td>474.774</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
         如何带入表1进行计算，举例今汐某1C声骸出了个11.6%共鸣技能增伤，查表2得今汐的共技能加成系数为0.72，那么该项积点为11.6*1.15*0.72=9.6。<br><br>
         4.既然所有项的计算公式均已明确，那么我们就可以设定一个完美属性声骸套的总积点为100分对应的积点，例如今汐我们用暴击10.5 爆伤21 大攻击11.6 小攻击60
         技伤加成11.6作为满分计算完后得到497.2积点，那么我们再将497.2积点作为今汐的计分分母，
@@ -963,7 +1054,7 @@
             <tr>
                 <th scope="row">45</th>
                 <td>爱弥斯</td>
-                <td>500.8</td>
+                <td>488.2</td>
                 <td>43311长路套</td>
             </tr>
             <tr>
@@ -971,6 +1062,24 @@
                 <td>陆·赫斯</td>
                 <td>494.6</td>
                 <td>43311彻空套</td>
+            </tr>
+            <tr>
+                <th scope="row">47</th>
+                <td>西格莉卡</td>
+                <td>488.832</td>
+                <td>43311零链参考套（估值）</td>
+            </tr>
+            <tr>
+                <th scope="row">48</th>
+                <td>绯雪</td>
+                <td>494.58</td>
+                <td>43311零链参考套（估值）</td>
+            </tr>
+            <tr>
+                <th scope="row">49</th>
+                <td>达妮娅</td>
+                <td>510.3</td>
+                <td>43311零链参考套（估值）</td>
             </tr>
             </tbody>
         </table>
@@ -992,6 +1101,15 @@
 <script src="library/bootstrap/js/bootstrap.min.js" type="application/javascript"></script>
 <script src="js/base.js" type="application/javascript"></script>
 <script type="application/javascript">
+    newCharacterModels.ids.forEach(id => {
+        newCharacterModels.settings[id].modes.forEach(([mode, label]) => {
+            for (let ming = 0; ming <= 6; ming++) {
+                const {weights} = newCharacterModels.profile({roleListId:id, ming, damageMode:mode});
+                const columns = ['normal','skill','heavy','liberate','other'].map(key => '<td>' + (weights[key] * 100).toFixed(2) + '%</td>').join('');
+                $('#new-character-profiles').append('<tr><td>' + roleList[id-1].name + '</td><td>' + label + '</td><td>' + ming + '</td>' + columns + '<td>' + weights.maxscore.toFixed(2) + '</td></tr>');
+            }
+        });
+    });
     //返回首页
     $(".mc-btn-backhome").click(() => {
         window.open("./index.html", "_self");

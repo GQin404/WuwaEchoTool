@@ -240,24 +240,74 @@ body {
     cursor: pointer;
 }
 
+/* 桌面角色选择器：保持卡面比例，手机继续使用原尺寸。 */
+@media (min-width: 992px) {
+    #mc-addrole .modal-dialog {
+        max-width: 800px;
+    }
+
+    #mc-addrole .modal-body-a {
+        padding: 8px;
+        max-height: 65vh;
+        overflow-y: auto;
+    }
+
+    #mc-addrole .mc-role {
+        width: 108px;
+        height: 180px;
+        margin: 8px;
+        vertical-align: top;
+    }
+}
+
 .mc-role-delete {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     line-height: 1;
-    font-size: 12px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
     border-radius: 50%;
-    border: solid #aaa 1px;
-    color: #bbb;
-    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, .85);
+    background: #242830;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .65);
+    display: inline-flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     text-align: center;
     cursor: pointer;
     position: absolute;
-    bottom: 5px;
+    top: 2px;
     right: 2px;
-    padding-bottom: 1px;
+    padding: 0;
     z-index: 10;
+}
+
+.mc-role-delete:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+.mc-role-delete:active {
+    background: #b82737;
+}
+
+@media (hover: hover) {
+    .mc-role-delete:hover {
+        background: #b82737;
+    }
+}
+
+@media (pointer: coarse) {
+    .mc-role-delete::before {
+        content: "";
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        top: -2px;
+        right: -2px;
+        border-radius: 50%;
+    }
 }
 
 .mc-cost-delete {
@@ -614,26 +664,29 @@ body {
 
 .mc-box-evaluate {
     position: relative;
-    min-height: 265px;
-    text-align: right;
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    text-align: left;
 }
 
 .mc-box-evaluate-left {
-    width: 30%;
+    width: 100%;
     max-width: 150px;
     height: auto;
     border: #3e3e3e solid 1px;
     border-radius: 5px;
     padding: 0 0 3px 0;
     box-shadow: 0 0 4px #3e3e3e;
-    display: inline-block;
+    justify-self: center;
     background-color: white;
-    position: absolute;
-    top: 35px;
-    right: 68.5%;
+    overflow: hidden;
 }
 
 .mc-box-evaluate-img {
+    display: block;
     width: 100%;
     height: auto;
     margin: 0;
@@ -641,29 +694,31 @@ body {
 }
 
 .mc-box-evaluate-right {
-    width: 66.5%;
-    height: auto;
+    min-width: 0;
     text-align: center;
     border-left: #3e3e3e dotted 1px;
-    display: inline-block;
+    padding-left: 16px;
+    display: grid;
+    gap: 12px;
 }
 
 .mc-box-right-a {
-    width: 100%;
-    height: auto;
-    border-bottom: #3e3e3e dotted 1px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 12px;
 }
 
 .mc-box-right-a .mcra-st {
-    width: 45%;
+    width: 100%;
+    min-width: 0;
     height: auto;
     line-height: 25px;
     color: white;
     font-size: 12px;
-    display: inline-block;
-    margin: 4px 1.5%;
+    margin: 0;
     box-shadow: 3px 3px 4px #3e3e3e;
     border-radius: 6px;
+    overflow: hidden;
 }
 
 .mcra-st-title {
@@ -702,13 +757,16 @@ body {
 }
 
 .mc-box-right-b {
-    width: 94%;
+    width: 100%;
     height: auto;
-    min-height: 106px;
-    text-indent: 1em;
+    min-width: 0;
+    text-indent: 0;
     font-size: 14px;
     color: #3e3e3e;
-    padding: 15px 5px 20px 5px;
+    padding: 12px 14px;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+    border-radius: 4px;
     background-color: white;
     margin: 0;
     text-align: left;
@@ -748,7 +806,8 @@ body {
 
 .mc-box-evaluate-result {
     width: 100%;
-    height: 40px;
+    min-height: 40px;
+    line-height: 20px;
     text-align: center;
     font-size: 14px;
     color: #3e3e3e;
@@ -759,6 +818,27 @@ body {
     margin: 0;
     color: white;
     background-color: rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 576px) {
+    .mc-box-evaluate {
+        grid-template-columns: 96px minmax(0, 1fr);
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .mc-box-evaluate-right {
+        display: contents;
+    }
+
+    .mc-box-right-a {
+        grid-column: 2;
+        gap: 8px;
+    }
+
+    .mc-box-right-b {
+        grid-column: 1 / -1;
+    }
 }
 
 .mc-score-rule {
@@ -1025,6 +1105,20 @@ body {
     position: absolute;
     top: 5px;
     left: 12%;
+}
+
+@media (min-width: 768px) {
+    .mc-character-custom {
+        min-height: 180px;
+    }
+
+    .mc-character-custom > .mc-character-img {
+        width: 96px;
+        max-width: 24%;
+        top: 50%;
+        left: 15%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 .mc-character .mc-character-read-img {
@@ -1418,6 +1512,34 @@ body {
     width: 100%;
 }
 
+#mc-addrole .mc-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    padding: 8px;
+}
+
+#mc-addrole .mc-filter label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1 1 160px;
+    min-width: 0;
+    margin: 0;
+    white-space: nowrap;
+}
+
+#mc-addrole .mc-filter .mc-select {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+}
+
+#mc-addrole .mc-filter-empty {
+    padding: 16px;
+    text-align: center;
+}
+
 .mc-fct-hj-title {
     width: 100%;
     height: 25px;
@@ -1792,6 +1914,56 @@ body {
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     padding: 0.1rem 0.3rem;
     border-radius: 3px;
+}
+
+#mc-role-mechanics {
+    padding: 0.8rem;
+    border: 1px solid #495057;
+    border-radius: 6px;
+    background: #252a30;
+    color: #e9ecef;
+    overflow-wrap: anywhere;
+}
+
+#mc-role-mechanics select,
+#mc-role-mechanics input {
+    max-width: 100%;
+    background: #343a40;
+    color: #f8f9fa;
+    border: 1px solid #6c757d;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+}
+
+#mc-role-mechanics small {
+    display: block;
+    margin-top: 0.4rem;
+}
+
+#mc-role-mechanics.mc-role-mode-row {
+    margin-top: 6px;
+    margin-right: 6px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+}
+
+#mc-role-mechanics.mc-role-mode-row label {
+    margin-bottom: 0;
+}
+
+#mc-role-mechanics.mc-role-mode-row small {
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+#mc-role-mechanics.mc-role-mode-row select {
+    padding: 0 0.25rem;
+    height: 24px;
+    font-size: inherit;
+    vertical-align: middle;
 }
 
 .mc-maintenance-modal a {

@@ -1,4 +1,4 @@
-﻿const toolVersion = "3.7.47";
+﻿const toolVersion = "3.7.48";
 const suiteAttributeMap = {
     "冰套": 1,
     "火套": 2,
@@ -727,14 +727,13 @@ const roleList = [
         "star": 5,
         "rule": 1,
         "cls": "mcr-aemeath",
-        // 官方攻略的循环包含两次光翼共奏（该技能属于共鸣解放伤害）与两次大招，
-        // 因此维持解放伤害主导，同时略提高共鸣技能占比。
-        "normal": 0.10,
-        "skill": 0.20,
-        "heavy": 0.05,
-        "liberate": 0.60,
-        "other": 0.05,
-        "maxscore": 500.8
+        // 0–6链区分震谐／聚爆；光翼共奏与蓄力重击均为解放伤害。详见 docs/character-weights-51-53.md。
+        "normal": 0.08,
+        "skill": 0.02,
+        "heavy": 0,
+        "liberate": 0.7,
+        "other": 0.2,
+        "maxscore": 488.2
     },
     {   //陆·赫斯
         "id": 50,
@@ -759,12 +758,14 @@ const roleList = [
         "star": 5,
         "rule": 1,
         "cls": "mcr-xigelika",
-        "normal": 0.82,
-        "skill": 0.04,
-        "heavy": 0.02,
-        "liberate": 0.07,
-        "other": 0.05,
-        "maxscore": 494.6
+        // 零链估值：强化普攻、符语重击、回路及解放均按声骸技能伤害计入 other。 依据与限制见 docs/character-weights-51-53.md。
+        "normal": 0.05,
+        "skill": 0.01,
+        "heavy": 0,
+        "liberate": 0,
+        "other": 0.94,
+        "echoSkillShare": 0.88,
+        "maxscore": 488.832
     },
     {   //绯雪
         "id": 52,
@@ -773,26 +774,28 @@ const roleList = [
         "star": 5,
         "rule": 1,
         "cls": "mcr-feixue",
-        "normal": 0.82,
-        "skill": 0.04,
-        "heavy": 0.02,
-        "liberate": 0.07,
-        "other": 0.05,
-        "maxscore": 494.6
+        // 零链估值：预求身攻击、居合与强化重击归解放；霜冻效应计入 other。 依据与限制见 docs/character-weights-51-53.md。
+        "normal": 0.02,
+        "skill": 0.07,
+        "heavy": 0,
+        "liberate": 0.81,
+        "other": 0.1,
+        "maxscore": 494.58
     },
     {   //达妮娅
         "id": 53,
         "gid": 0,
         "name": "达妮娅",
         "star": 5,
-        "rule": 1,
+        "rule": 2,
         "cls": "mcr-daniya",
-        "normal": 0.82,
-        "skill": 0.04,
-        "heavy": 0.02,
-        "liberate": 0.07,
+        // 零链副输出估值：虚质粒子充足，计入蚀域持续伤害；沿用副输出充能规则。 依据与限制见 docs/character-weights-51-53.md。
+        "normal": 0.05,
+        "skill": 0.15,
+        "heavy": 0,
+        "liberate": 0.75,
         "other": 0.05,
-        "maxscore": 494.6
+        "maxscore": 510.3
     },
     {   //露西
         "id": 54,
@@ -843,12 +846,12 @@ const roleList = [
         "star": 5,
         "rule": 1,
         "cls": "mcr-nvzhu-dian",
-        "normal": 0.82,
-        "skill": 0.04,
-        "heavy": 0.02,
-        "liberate": 0.07,
-        "other": 0.05,
-        "maxscore": 494.6
+        "normal": 0.15,
+        "skill": 0.5,
+        "heavy": 0,
+        "liberate": 0.225,
+        "other": 0.125,
+        "maxscore": 459.596717
     },
     {   //漂泊者·导电（男）
         "id": 58,
@@ -857,12 +860,12 @@ const roleList = [
         "star": 5,
         "rule": 1,
         "cls": "mcr-nanzhu-dian",
-        "normal": 0.82,
-        "skill": 0.04,
-        "heavy": 0.02,
-        "liberate": 0.07,
-        "other": 0.05,
-        "maxscore": 494.6
+        "normal": 0.15,
+        "skill": 0.5,
+        "heavy": 0,
+        "liberate": 0.225,
+        "other": 0.125,
+        "maxscore": 459.596717
     },
     {   //秧秧·玄翎
         "id": 59,
@@ -871,12 +874,12 @@ const roleList = [
         "star": 5,
         "rule": 1,
         "cls": "mcr-yangyang-xuanling",
-        "normal": 0.82,
-        "skill": 0.04,
-        "heavy": 0.02,
-        "liberate": 0.07,
-        "other": 0.05,
-        "maxscore": 494.6
+        "normal": 0.051314,
+        "skill": 0.012829,
+        "heavy": 0.775499,
+        "liberate": 0.115457,
+        "other": 0.044901,
+        "maxscore": 500.756649
     },
     {   //穗穗
         "id": 60,
@@ -885,12 +888,12 @@ const roleList = [
         "star": 5,
         "rule": 1,
         "cls": "mcr-suisui",
-        "normal": 0.82,
-        "skill": 0.04,
-        "heavy": 0.02,
-        "liberate": 0.07,
-        "other": 0.05,
-        "maxscore": 494.6
+        "normal": 0.119661,
+        "skill": 0.043513,
+        "heavy": 0.027196,
+        "liberate": 0,
+        "other": 0.80963,
+        "maxscore": 299.92064
     },
     {   //清宵
         "id": 61,
@@ -899,12 +902,12 @@ const roleList = [
         "star": 5,
         "rule": 1,
         "cls": "mcr-qingxiao",
-        "normal": 0.82,
-        "skill": 0.04,
-        "heavy": 0.02,
-        "liberate": 0.07,
-        "other": 0.05,
-        "maxscore": 494.6
+        "normal": 0.297843,
+        "skill": 0.0334,
+        "heavy": 0.454655,
+        "liberate": 0.193228,
+        "other": 0.020874,
+        "maxscore": 484.433034
     },
     {   //景燃
         "id": 62,
@@ -913,12 +916,12 @@ const roleList = [
         "star": 5,
         "rule": 1,
         "cls": "mcr-jingran",
-        "normal": 0.82,
-        "skill": 0.04,
-        "heavy": 0.02,
-        "liberate": 0.07,
-        "other": 0.05,
-        "maxscore": 494.6
+        "normal": 0.019481,
+        "skill": 0.077922,
+        "heavy": 0.87013,
+        "liberate": 0,
+        "other": 0.032467,
+        "maxscore": 568.841212
     },
     {   //心
         "id": 63,
@@ -927,12 +930,12 @@ const roleList = [
         "star": 5,
         "rule": 1,
         "cls": "mcr-xin",
-        "normal": 0.82,
-        "skill": 0.04,
-        "heavy": 0.02,
-        "liberate": 0.07,
-        "other": 0.05,
-        "maxscore": 494.6
+        "normal": 0.12,
+        "skill": 0.69,
+        "heavy": 0,
+        "liberate": 0.06,
+        "other": 0.13,
+        "maxscore": 474.582891
     },
     {   //锁暝
         "id": 64,
@@ -5394,38 +5397,125 @@ const RoleSumProperty = [
         ]
     },
     {
-        "id": 49, "propertyList": [
-            {"name": "暴击", "property": "52.5%"},
-            {"name": "暴伤", "property": "105%"},
-            {"name": "大攻击", "property": "58%"},
-            {"name": "小攻击", "property": "120"},
-            {"name": "共鸣效率", "property": "37.2%"},
-            {"name": "普攻伤害", "property": "0%"},
-            {"name": "技能伤害", "property": "0%"},
-            {"name": "重击伤害", "property": "5%"},
-            {"name": "解放伤害", "property": "58%"},
-            {"name": "大生命", "property": "0%"},
-            {"name": "小生命", "property": "0"},
-            {"name": "大防御", "property": "0%"},
-            {"name": "小防御", "property": "0"}
+        "id": 49,
+        "propertyList": [
+            {
+                "name": "暴击",
+                "property": "52.5%"
+            },
+            {
+                "name": "暴伤",
+                "property": "105%"
+            },
+            {
+                "name": "大攻击",
+                "property": "58%"
+            },
+            {
+                "name": "小攻击",
+                "property": "300"
+            },
+            {
+                "name": "共鸣效率",
+                "property": "0%"
+            },
+            {
+                "name": "普攻伤害",
+                "property": "0%"
+            },
+            {
+                "name": "技能伤害",
+                "property": "0%"
+            },
+            {
+                "name": "重击伤害",
+                "property": "0%"
+            },
+            {
+                "name": "解放伤害",
+                "property": "58%"
+            },
+            {
+                "name": "大生命",
+                "property": "0%"
+            },
+            {
+                "name": "小生命",
+                "property": "0"
+            },
+            {
+                "name": "大防御",
+                "property": "0%"
+            },
+            {
+                "name": "小防御",
+                "property": "0"
+            }
         ],
-        //爱弥斯的共鸣链强化终结共鸣解放与双形态循环；权重沿用共鸣解放主导的输出定位。
-        mzProperty: [
-            {"normal": 0.10, "skill": 0.20, "heavy": 0.05, "liberate": 0.60, "other": 0.05, "maxscore": 500.8},
-            {"normal": 0.09, "skill": 0.19, "heavy": 0.05, "liberate": 0.62, "other": 0.05, "maxscore": 497.6},
-            {"normal": 0.08, "skill": 0.18, "heavy": 0.04, "liberate": 0.65, "other": 0.05, "maxscore": 495.2},
-            {"normal": 0.08, "skill": 0.16, "heavy": 0.04, "liberate": 0.67, "other": 0.05, "maxscore": 490.5},
-            {"normal": 0.07, "skill": 0.14, "heavy": 0.04, "liberate": 0.70, "other": 0.05, "maxscore": 488.4},
-            {"normal": 0.06, "skill": 0.12, "heavy": 0.03, "liberate": 0.74, "other": 0.05, "maxscore": 484.8}
+        "mzProperty": [
+            {
+                "normal": 0.069714,
+                "skill": 0.017429,
+                "heavy": 0,
+                "liberate": 0.738571,
+                "other": 0.174286,
+                "anomalyShare": 0.130714,
+                "maxscore": 500.3848
+            },
+            {
+                "normal": 0.053243,
+                "skill": 0.013311,
+                "heavy": 0,
+                "liberate": 0.730457,
+                "other": 0.202989,
+                "anomalyShare": 0.169713,
+                "maxscore": 479.4273
+            },
+            {
+                "normal": 0.045133,
+                "skill": 0.011283,
+                "heavy": 0,
+                "liberate": 0.771514,
+                "other": 0.17207,
+                "anomalyShare": 0.143861,
+                "maxscore": 495.4457
+            },
+            {
+                "normal": 0.045731,
+                "skill": 0.011433,
+                "heavy": 0,
+                "liberate": 0.781738,
+                "other": 0.161098,
+                "anomalyShare": 0.132516,
+                "maxscore": 496.4444
+            },
+            {
+                "normal": 0.045731,
+                "skill": 0.011433,
+                "heavy": 0,
+                "liberate": 0.781738,
+                "other": 0.161098,
+                "anomalyShare": 0.132516,
+                "maxscore": 496.4444
+            },
+            {
+                "normal": 0.027356,
+                "skill": 0.006839,
+                "heavy": 0,
+                "liberate": 0.654686,
+                "other": 0.311119,
+                "anomalyShare": 0.294022,
+                "maxscore": 405.0869
+            }
         ],
-        mzRule: [
+        "mzRule": [
             {
                 "ruleId": 1,
-                "attack01": 1,
-                "attack02": 0.1,
-                "crit": 1.8,
-                "critDamage": 0.9,
-                "property": 1,
+                "attack01": 1.022689,
+                "attack02": 0.102269,
+                "crit": 2.029916,
+                "critDamage": 0.784286,
+                "property": 1.022689,
                 "health01": 0,
                 "health02": 0,
                 "defense01": 0,
@@ -5438,11 +5528,11 @@ const RoleSumProperty = [
             },
             {
                 "ruleId": 2,
-                "attack01": 0.98,
-                "attack02": 0.098,
-                "crit": 1.8,
-                "critDamage": 0.9,
-                "property": 0.98,
+                "attack01": 0.976809,
+                "attack02": 0.097681,
+                "crit": 1.902659,
+                "critDamage": 0.775157,
+                "property": 0.976809,
                 "health01": 0,
                 "health02": 0,
                 "defense01": 0,
@@ -5450,16 +5540,16 @@ const RoleSumProperty = [
                 "defenseLimit": 40,
                 "efficiency01": 0.5,
                 "efficiency02": 0,
-                "unike": 0.98,
+                "unike": 1,
                 "treat": 0
             },
             {
                 "ruleId": 3,
-                "attack01": 0.96,
-                "attack02": 0.096,
-                "crit": 1.8,
-                "critDamage": 0.9,
-                "property": 0.96,
+                "attack01": 1.007222,
+                "attack02": 0.100722,
+                "crit": 1.935407,
+                "critDamage": 0.818367,
+                "property": 1.007222,
                 "health01": 0,
                 "health02": 0,
                 "defense01": 0,
@@ -5467,16 +5557,16 @@ const RoleSumProperty = [
                 "defenseLimit": 40,
                 "efficiency01": 0.5,
                 "efficiency02": 0,
-                "unike": 0.96,
+                "unike": 1,
                 "treat": 0
             },
             {
                 "ruleId": 4,
-                "attack01": 0.94,
-                "attack02": 0.094,
-                "crit": 1.8,
-                "critDamage": 0.9,
-                "property": 0.94,
+                "attack01": 1.020569,
+                "attack02": 0.102057,
+                "crit": 1.961054,
+                "critDamage": 0.829211,
+                "property": 0.92779,
                 "health01": 0,
                 "health02": 0,
                 "defense01": 0,
@@ -5484,16 +5574,16 @@ const RoleSumProperty = [
                 "defenseLimit": 40,
                 "efficiency01": 0.5,
                 "efficiency02": 0,
-                "unike": 0.94,
+                "unike": 1,
                 "treat": 0
             },
             {
                 "ruleId": 5,
-                "attack01": 0.92,
-                "attack02": 0.092,
-                "crit": 1.8,
-                "critDamage": 0.9,
-                "property": 0.92,
+                "attack01": 1.020569,
+                "attack02": 0.102057,
+                "crit": 1.961054,
+                "critDamage": 0.829211,
+                "property": 0.92779,
                 "health01": 0,
                 "health02": 0,
                 "defense01": 0,
@@ -5501,16 +5591,16 @@ const RoleSumProperty = [
                 "defenseLimit": 40,
                 "efficiency01": 0.5,
                 "efficiency02": 0,
-                "unike": 0.92,
+                "unike": 1,
                 "treat": 0
             },
             {
                 "ruleId": 6,
-                "attack01": 0.90,
-                "attack02": 0.09,
-                "crit": 1.8,
-                "critDamage": 0.9,
-                "property": 0.90,
+                "attack01": 0.830563,
+                "attack02": 0.083056,
+                "crit": 1.598884,
+                "critDamage": 0.672719,
+                "property": 0.755057,
                 "health01": 0,
                 "health02": 0,
                 "defense01": 0,
@@ -5518,10 +5608,210 @@ const RoleSumProperty = [
                 "defenseLimit": 40,
                 "efficiency01": 0.5,
                 "efficiency02": 0,
-                "unike": 0.90,
+                "unike": 1,
                 "treat": 0
-            },
-        ]
+            }
+        ],
+        "modeProfiles": {
+            "fusion": [
+                {
+                    "weights": {
+                        "normal": 0.072727,
+                        "skill": 0.018182,
+                        "heavy": 0,
+                        "liberate": 0.636364,
+                        "other": 0.272727,
+                        "anomalyShare": 0.227273,
+                        "maxscore": 443.8182
+                    },
+                    "rule": {
+                        "ruleId": 0,
+                        "attack01": 0.909091,
+                        "attack02": 0.090909,
+                        "crit": 1.636364,
+                        "critDamage": 0.818182,
+                        "property": 0.909091,
+                        "health01": 0,
+                        "health02": 0,
+                        "defense01": 0,
+                        "defense02": 0,
+                        "defenseLimit": 40,
+                        "efficiency01": 0.5,
+                        "efficiency02": 0,
+                        "unike": 1,
+                        "treat": 0
+                    }
+                },
+                {
+                    "weights": {
+                        "normal": 0.064126,
+                        "skill": 0.016032,
+                        "heavy": 0,
+                        "liberate": 0.679369,
+                        "other": 0.240473,
+                        "anomalyShare": 0.200394,
+                        "maxscore": 460.275
+                    },
+                    "rule": {
+                        "ruleId": 1,
+                        "attack01": 0.940713,
+                        "attack02": 0.094071,
+                        "crit": 1.867203,
+                        "critDamage": 0.721419,
+                        "property": 0.940713,
+                        "health01": 0,
+                        "health02": 0,
+                        "defense01": 0,
+                        "defense02": 0,
+                        "defenseLimit": 40,
+                        "efficiency01": 0.5,
+                        "efficiency02": 0,
+                        "unike": 1,
+                        "treat": 0
+                    }
+                },
+                {
+                    "weights": {
+                        "normal": 0.04868,
+                        "skill": 0.01217,
+                        "heavy": 0,
+                        "liberate": 0.667858,
+                        "other": 0.271292,
+                        "anomalyShare": 0.240866,
+                        "maxscore": 438.3416
+                    },
+                    "rule": {
+                        "ruleId": 2,
+                        "attack01": 0.893099,
+                        "attack02": 0.08931,
+                        "crit": 1.739606,
+                        "critDamage": 0.708728,
+                        "property": 0.893099,
+                        "health01": 0,
+                        "health02": 0,
+                        "defense01": 0,
+                        "defense02": 0,
+                        "defenseLimit": 40,
+                        "efficiency01": 0.5,
+                        "efficiency02": 0,
+                        "unike": 1,
+                        "treat": 0
+                    }
+                },
+                {
+                    "weights": {
+                        "normal": 0.041811,
+                        "skill": 0.010453,
+                        "heavy": 0,
+                        "liberate": 0.714727,
+                        "other": 0.233009,
+                        "anomalyShare": 0.206877,
+                        "maxscore": 458.9789
+                    },
+                    "rule": {
+                        "ruleId": 3,
+                        "attack01": 0.933086,
+                        "attack02": 0.093309,
+                        "crit": 1.792952,
+                        "critDamage": 0.758131,
+                        "property": 0.933086,
+                        "health01": 0,
+                        "health02": 0,
+                        "defense01": 0,
+                        "defense02": 0,
+                        "defenseLimit": 40,
+                        "efficiency01": 0.5,
+                        "efficiency02": 0,
+                        "unike": 1,
+                        "treat": 0
+                    }
+                },
+                {
+                    "weights": {
+                        "normal": 0.042612,
+                        "skill": 0.010653,
+                        "heavy": 0,
+                        "liberate": 0.728427,
+                        "other": 0.218308,
+                        "anomalyShare": 0.191675,
+                        "maxscore": 462.5889
+                    },
+                    "rule": {
+                        "ruleId": 4,
+                        "attack01": 0.950971,
+                        "attack02": 0.095097,
+                        "crit": 1.827318,
+                        "critDamage": 0.772662,
+                        "property": 0.864519,
+                        "health01": 0,
+                        "health02": 0,
+                        "defense01": 0,
+                        "defense02": 0,
+                        "defenseLimit": 40,
+                        "efficiency01": 0.5,
+                        "efficiency02": 0,
+                        "unike": 1,
+                        "treat": 0
+                    }
+                },
+                {
+                    "weights": {
+                        "normal": 0.042612,
+                        "skill": 0.010653,
+                        "heavy": 0,
+                        "liberate": 0.728427,
+                        "other": 0.218308,
+                        "anomalyShare": 0.191675,
+                        "maxscore": 462.5889
+                    },
+                    "rule": {
+                        "ruleId": 5,
+                        "attack01": 0.950971,
+                        "attack02": 0.095097,
+                        "crit": 1.827318,
+                        "critDamage": 0.772662,
+                        "property": 0.864519,
+                        "health01": 0,
+                        "health02": 0,
+                        "defense01": 0,
+                        "defense02": 0,
+                        "defenseLimit": 40,
+                        "efficiency01": 0.5,
+                        "efficiency02": 0,
+                        "unike": 1,
+                        "treat": 0
+                    }
+                },
+                {
+                    "weights": {
+                        "normal": 0.023972,
+                        "skill": 0.005993,
+                        "heavy": 0,
+                        "liberate": 0.573687,
+                        "other": 0.396348,
+                        "anomalyShare": 0.381366,
+                        "maxscore": 354.969
+                    },
+                    "rule": {
+                        "ruleId": 6,
+                        "attack01": 0.727805,
+                        "attack02": 0.07278,
+                        "crit": 1.401069,
+                        "critDamage": 0.589489,
+                        "property": 0.661641,
+                        "health01": 0,
+                        "health02": 0,
+                        "defense01": 0,
+                        "defense02": 0,
+                        "defenseLimit": 40,
+                        "efficiency01": 0.5,
+                        "efficiency02": 0,
+                        "unike": 1,
+                        "treat": 0
+                    }
+                }
+            ]
+        }
     },
     {
         "id": 50, "propertyList": [
@@ -5652,8 +5942,1041 @@ const RoleSumProperty = [
                 "treat": 0
             },
         ]
+    },
+    {
+        "id": 51,
+        "propertyList": [
+            {
+                "name": "暴击",
+                "property": "52.5%"
+            },
+            {
+                "name": "暴伤",
+                "property": "105%"
+            },
+            {
+                "name": "大攻击",
+                "property": "58%"
+            },
+            {
+                "name": "小攻击",
+                "property": "300"
+            },
+            {
+                "name": "共鸣效率",
+                "property": "37.2%"
+            },
+            {
+                "name": "普攻伤害",
+                "property": "23.2%"
+            },
+            {
+                "name": "技能伤害",
+                "property": "0%"
+            },
+            {
+                "name": "重击伤害",
+                "property": "0%"
+            },
+            {
+                "name": "解放伤害",
+                "property": "0%"
+            },
+            {
+                "name": "大生命",
+                "property": "0%"
+            },
+            {
+                "name": "小生命",
+                "property": "0"
+            },
+            {
+                "name": "大防御",
+                "property": "0%"
+            },
+            {
+                "name": "小防御",
+                "property": "0"
+            }
+        ],
+        "mzProperty": [
+            {
+                "normal": 0.044964,
+                "skill": 0.008993,
+                "heavy": 0,
+                "liberate": 0,
+                "other": 0.946043,
+                "anomalyShare": 0,
+                "echoSkillShare": 0.892086,
+                "maxscore": 489.0101
+            },
+            {
+                "normal": 0.032383,
+                "skill": 0.006477,
+                "heavy": 0,
+                "liberate": 0,
+                "other": 0.96114,
+                "anomalyShare": 0,
+                "echoSkillShare": 0.92228,
+                "maxscore": 489.4549
+            },
+            {
+                "normal": 0.025893,
+                "skill": 0.005179,
+                "heavy": 0,
+                "liberate": 0,
+                "other": 0.968928,
+                "anomalyShare": 0,
+                "echoSkillShare": 0.937856,
+                "maxscore": 489.6844
+            },
+            {
+                "normal": 0.025893,
+                "skill": 0.005179,
+                "heavy": 0,
+                "liberate": 0,
+                "other": 0.968928,
+                "anomalyShare": 0,
+                "echoSkillShare": 0.937856,
+                "maxscore": 477.9069
+            },
+            {
+                "normal": 0.025419,
+                "skill": 0.005084,
+                "heavy": 0,
+                "liberate": 0,
+                "other": 0.969497,
+                "anomalyShare": 0,
+                "echoSkillShare": 0.938993,
+                "maxscore": 477.9236
+            },
+            {
+                "normal": 0.018708,
+                "skill": 0.003742,
+                "heavy": 0,
+                "liberate": 0,
+                "other": 0.97755,
+                "anomalyShare": 0,
+                "echoSkillShare": 0.955102,
+                "maxscore": 478.161
+            }
+        ],
+        "mzRule": [
+            {
+                "ruleId": 1,
+                "attack01": 1,
+                "attack02": 0.1,
+                "crit": 1.8,
+                "critDamage": 0.9,
+                "property": 1,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 50,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 1,
+                "treat": 0
+            },
+            {
+                "ruleId": 2,
+                "attack01": 1,
+                "attack02": 0.1,
+                "crit": 1.8,
+                "critDamage": 0.9,
+                "property": 1,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 50,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 1,
+                "treat": 0
+            },
+            {
+                "ruleId": 3,
+                "attack01": 1,
+                "attack02": 0.1,
+                "crit": 1.8,
+                "critDamage": 0.9,
+                "property": 1,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 50,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 1,
+                "treat": 0
+            },
+            {
+                "ruleId": 4,
+                "attack01": 0.925926,
+                "attack02": 0.092593,
+                "crit": 1.8,
+                "critDamage": 0.9,
+                "property": 1,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 50,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 1,
+                "treat": 0
+            },
+            {
+                "ruleId": 5,
+                "attack01": 0.925926,
+                "attack02": 0.092593,
+                "crit": 1.8,
+                "critDamage": 0.9,
+                "property": 1,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 50,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 1,
+                "treat": 0
+            },
+            {
+                "ruleId": 6,
+                "attack01": 0.925926,
+                "attack02": 0.092593,
+                "crit": 1.8,
+                "critDamage": 0.9,
+                "property": 1,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 50,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 1,
+                "treat": 0
+            }
+        ]
+    },
+    {
+        "id": 52,
+        "propertyList": [
+            {
+                "name": "暴击",
+                "property": "52.5%"
+            },
+            {
+                "name": "暴伤",
+                "property": "105%"
+            },
+            {
+                "name": "大攻击",
+                "property": "58%"
+            },
+            {
+                "name": "小攻击",
+                "property": "300"
+            },
+            {
+                "name": "共鸣效率",
+                "property": "0%"
+            },
+            {
+                "name": "普攻伤害",
+                "property": "0%"
+            },
+            {
+                "name": "技能伤害",
+                "property": "0%"
+            },
+            {
+                "name": "重击伤害",
+                "property": "0%"
+            },
+            {
+                "name": "解放伤害",
+                "property": "58%"
+            },
+            {
+                "name": "大生命",
+                "property": "0%"
+            },
+            {
+                "name": "小生命",
+                "property": "0"
+            },
+            {
+                "name": "大防御",
+                "property": "0%"
+            },
+            {
+                "name": "小防御",
+                "property": "0"
+            }
+        ],
+        "mzProperty": [
+            {
+                "normal": 0.01684,
+                "skill": 0.058941,
+                "heavy": 0,
+                "liberate": 0.833601,
+                "other": 0.090618,
+                "anomalyShare": 0.073777,
+                "maxscore": 498.9762
+            },
+            {
+                "normal": 0.013912,
+                "skill": 0.048692,
+                "heavy": 0,
+                "liberate": 0.862537,
+                "other": 0.074859,
+                "anomalyShare": 0.060947,
+                "maxscore": 506.8966
+            },
+            {
+                "normal": 0.010908,
+                "skill": 0.038179,
+                "heavy": 0,
+                "liberate": 0.815945,
+                "other": 0.134968,
+                "anomalyShare": 0.124059,
+                "maxscore": 473.4892
+            },
+            {
+                "normal": 0.011033,
+                "skill": 0.038615,
+                "heavy": 0,
+                "liberate": 0.825252,
+                "other": 0.1251,
+                "anomalyShare": 0.114067,
+                "maxscore": 473.6375
+            },
+            {
+                "normal": 0.010702,
+                "skill": 0.067424,
+                "heavy": 0,
+                "liberate": 0.800523,
+                "other": 0.121351,
+                "anomalyShare": 0.110649,
+                "maxscore": 473.8463
+            },
+            {
+                "normal": 0.009062,
+                "skill": 0.057088,
+                "heavy": 0,
+                "liberate": 0.841964,
+                "other": 0.091886,
+                "anomalyShare": 0.082825,
+                "maxscore": 489.2461
+            }
+        ],
+        "mzRule": [
+            {
+                "ruleId": 1,
+                "attack01": 1.006764,
+                "attack02": 0.100676,
+                "crit": 1.812175,
+                "critDamage": 0.906088,
+                "property": 1.006764,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 1,
+                "treat": 0
+            },
+            {
+                "ruleId": 2,
+                "attack01": 1.020709,
+                "attack02": 0.102071,
+                "crit": 1.837277,
+                "critDamage": 0.918638,
+                "property": 1.020709,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 1,
+                "treat": 0
+            },
+            {
+                "ruleId": 3,
+                "attack01": 0.95211,
+                "attack02": 0.095211,
+                "crit": 1.713798,
+                "critDamage": 0.856899,
+                "property": 0.95211,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 1,
+                "treat": 0
+            },
+            {
+                "ruleId": 4,
+                "attack01": 0.96297,
+                "attack02": 0.096297,
+                "crit": 1.733347,
+                "critDamage": 0.866673,
+                "property": 0.875428,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 1,
+                "treat": 0
+            },
+            {
+                "ruleId": 5,
+                "attack01": 0.966686,
+                "attack02": 0.096669,
+                "crit": 1.740034,
+                "critDamage": 0.870017,
+                "property": 0.878805,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 1,
+                "treat": 0
+            },
+            {
+                "ruleId": 6,
+                "attack01": 0.99693,
+                "attack02": 0.099693,
+                "crit": 2.136138,
+                "critDamage": 0.651238,
+                "property": 0.9063,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 0.5,
+                "efficiency02": 0,
+                "unike": 1,
+                "treat": 0
+            }
+        ]
+    },
+    {
+        "id": 53,
+        "propertyList": [
+            {
+                "name": "暴击",
+                "property": "52.5%"
+            },
+            {
+                "name": "暴伤",
+                "property": "105%"
+            },
+            {
+                "name": "大攻击",
+                "property": "58%"
+            },
+            {
+                "name": "小攻击",
+                "property": "120"
+            },
+            {
+                "name": "共鸣效率",
+                "property": "37.2%"
+            },
+            {
+                "name": "普攻伤害",
+                "property": "0%"
+            },
+            {
+                "name": "技能伤害",
+                "property": "0%"
+            },
+            {
+                "name": "重击伤害",
+                "property": "0%"
+            },
+            {
+                "name": "解放伤害",
+                "property": "58%"
+            },
+            {
+                "name": "大生命",
+                "property": "0%"
+            },
+            {
+                "name": "小生命",
+                "property": "0"
+            },
+            {
+                "name": "大防御",
+                "property": "0%"
+            },
+            {
+                "name": "小防御",
+                "property": "0"
+            }
+        ],
+        "mzProperty": [
+            {
+                "normal": 0.05,
+                "skill": 0.15,
+                "heavy": 0,
+                "liberate": 0.75,
+                "other": 0.05,
+                "anomalyShare": 0,
+                "maxscore": 510.1768
+            },
+            {
+                "normal": 0.04771,
+                "skill": 0.188931,
+                "heavy": 0,
+                "liberate": 0.715649,
+                "other": 0.04771,
+                "anomalyShare": 0,
+                "maxscore": 496.1845
+            },
+            {
+                "normal": 0.014205,
+                "skill": 0.119318,
+                "heavy": 0,
+                "liberate": 0.830966,
+                "other": 0.035511,
+                "anomalyShare": 0,
+                "maxscore": 502.8729
+            },
+            {
+                "normal": 0.013562,
+                "skill": 0.113924,
+                "heavy": 0,
+                "liberate": 0.838608,
+                "other": 0.033906,
+                "anomalyShare": 0,
+                "maxscore": 503.3161
+            },
+            {
+                "normal": 0.012701,
+                "skill": 0.106689,
+                "heavy": 0,
+                "liberate": 0.848857,
+                "other": 0.031753,
+                "anomalyShare": 0,
+                "maxscore": 503.9106
+            },
+            {
+                "normal": 0.012259,
+                "skill": 0.102972,
+                "heavy": 0,
+                "liberate": 0.819282,
+                "other": 0.065487,
+                "anomalyShare": 0.034841,
+                "maxscore": 452.3435
+            }
+        ],
+        "mzRule": [
+            {
+                "ruleId": 1,
+                "attack01": 1,
+                "attack02": 0.1,
+                "crit": 1.91194,
+                "critDamage": 0.819403,
+                "property": 1,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 1,
+                "efficiency02": 0.3,
+                "unike": 1,
+                "treat": 0
+            },
+            {
+                "ruleId": 2,
+                "attack01": 1,
+                "attack02": 0.1,
+                "crit": 1.91194,
+                "critDamage": 0.819403,
+                "property": 0.8,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 1,
+                "efficiency02": 0.3,
+                "unike": 1,
+                "treat": 0
+            },
+            {
+                "ruleId": 3,
+                "attack01": 1,
+                "attack02": 0.1,
+                "crit": 1.91194,
+                "critDamage": 0.819403,
+                "property": 0.8,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 1,
+                "efficiency02": 0.3,
+                "unike": 1,
+                "treat": 0
+            },
+            {
+                "ruleId": 4,
+                "attack01": 1,
+                "attack02": 0.1,
+                "crit": 1.91194,
+                "critDamage": 0.819403,
+                "property": 0.8,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 1,
+                "efficiency02": 0.3,
+                "unike": 1,
+                "treat": 0
+            },
+            {
+                "ruleId": 5,
+                "attack01": 1,
+                "attack02": 0.1,
+                "crit": 1.91194,
+                "critDamage": 0.819403,
+                "property": 0.8,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 1,
+                "efficiency02": 0.3,
+                "unike": 1,
+                "treat": 0
+            },
+            {
+                "ruleId": 6,
+                "attack01": 0.778354,
+                "attack02": 0.077835,
+                "crit": 1.845326,
+                "critDamage": 0.790854,
+                "property": 0.622683,
+                "health01": 0,
+                "health02": 0,
+                "defense01": 0,
+                "defense02": 0,
+                "defenseLimit": 40,
+                "efficiency01": 1,
+                "efficiency02": 0.3,
+                "unike": 1,
+                "treat": 0
+            }
+        ],
+        "modeProfiles": {
+            "harmony": [
+                {
+                    "weights": {
+                        "normal": 0.05,
+                        "skill": 0.15,
+                        "heavy": 0,
+                        "liberate": 0.75,
+                        "other": 0.05,
+                        "anomalyShare": 0,
+                        "maxscore": 510.3
+                    },
+                    "rule": {
+                        "ruleId": 0,
+                        "attack01": 1,
+                        "attack02": 0.1,
+                        "crit": 1.8,
+                        "critDamage": 0.9,
+                        "property": 1,
+                        "health01": 0,
+                        "health02": 0,
+                        "defense01": 0,
+                        "defense02": 0,
+                        "defenseLimit": 40,
+                        "efficiency01": 1,
+                        "efficiency02": 0.3,
+                        "unike": 1,
+                        "treat": 0
+                    }
+                },
+                {
+                    "weights": {
+                        "normal": 0.05,
+                        "skill": 0.15,
+                        "heavy": 0,
+                        "liberate": 0.75,
+                        "other": 0.05,
+                        "anomalyShare": 0,
+                        "maxscore": 510.1768
+                    },
+                    "rule": {
+                        "ruleId": 1,
+                        "attack01": 1,
+                        "attack02": 0.1,
+                        "crit": 1.91194,
+                        "critDamage": 0.819403,
+                        "property": 1,
+                        "health01": 0,
+                        "health02": 0,
+                        "defense01": 0,
+                        "defense02": 0,
+                        "defenseLimit": 40,
+                        "efficiency01": 1,
+                        "efficiency02": 0.3,
+                        "unike": 1,
+                        "treat": 0
+                    }
+                },
+                {
+                    "weights": {
+                        "normal": 0.04771,
+                        "skill": 0.188931,
+                        "heavy": 0,
+                        "liberate": 0.715649,
+                        "other": 0.04771,
+                        "anomalyShare": 0,
+                        "maxscore": 508.1845
+                    },
+                    "rule": {
+                        "ruleId": 2,
+                        "attack01": 1,
+                        "attack02": 0.1,
+                        "crit": 1.91194,
+                        "critDamage": 0.819403,
+                        "property": 1,
+                        "health01": 0,
+                        "health02": 0,
+                        "defense01": 0,
+                        "defense02": 0,
+                        "defenseLimit": 40,
+                        "efficiency01": 1,
+                        "efficiency02": 0.3,
+                        "unike": 1,
+                        "treat": 0
+                    }
+                },
+                {
+                    "weights": {
+                        "normal": 0.014205,
+                        "skill": 0.119318,
+                        "heavy": 0,
+                        "liberate": 0.830966,
+                        "other": 0.035511,
+                        "anomalyShare": 0,
+                        "maxscore": 514.8729
+                    },
+                    "rule": {
+                        "ruleId": 3,
+                        "attack01": 1,
+                        "attack02": 0.1,
+                        "crit": 1.91194,
+                        "critDamage": 0.819403,
+                        "property": 1,
+                        "health01": 0,
+                        "health02": 0,
+                        "defense01": 0,
+                        "defense02": 0,
+                        "defenseLimit": 40,
+                        "efficiency01": 1,
+                        "efficiency02": 0.3,
+                        "unike": 1,
+                        "treat": 0
+                    }
+                },
+                {
+                    "weights": {
+                        "normal": 0.013562,
+                        "skill": 0.113924,
+                        "heavy": 0,
+                        "liberate": 0.838608,
+                        "other": 0.033906,
+                        "anomalyShare": 0,
+                        "maxscore": 515.3161
+                    },
+                    "rule": {
+                        "ruleId": 4,
+                        "attack01": 1,
+                        "attack02": 0.1,
+                        "crit": 1.91194,
+                        "critDamage": 0.819403,
+                        "property": 1,
+                        "health01": 0,
+                        "health02": 0,
+                        "defense01": 0,
+                        "defense02": 0,
+                        "defenseLimit": 40,
+                        "efficiency01": 1,
+                        "efficiency02": 0.3,
+                        "unike": 1,
+                        "treat": 0
+                    }
+                },
+                {
+                    "weights": {
+                        "normal": 0.012701,
+                        "skill": 0.106689,
+                        "heavy": 0,
+                        "liberate": 0.848857,
+                        "other": 0.031753,
+                        "anomalyShare": 0,
+                        "maxscore": 515.9106
+                    },
+                    "rule": {
+                        "ruleId": 5,
+                        "attack01": 1,
+                        "attack02": 0.1,
+                        "crit": 1.91194,
+                        "critDamage": 0.819403,
+                        "property": 1,
+                        "health01": 0,
+                        "health02": 0,
+                        "defense01": 0,
+                        "defense02": 0,
+                        "defenseLimit": 40,
+                        "efficiency01": 1,
+                        "efficiency02": 0.3,
+                        "unike": 1,
+                        "treat": 0
+                    }
+                },
+                {
+                    "weights": {
+                        "normal": 0.012701,
+                        "skill": 0.106689,
+                        "heavy": 0,
+                        "liberate": 0.848857,
+                        "other": 0.031753,
+                        "anomalyShare": 0,
+                        "maxscore": 474.774
+                    },
+                    "rule": {
+                        "ruleId": 6,
+                        "attack01": 0.806452,
+                        "attack02": 0.080645,
+                        "crit": 1.91194,
+                        "critDamage": 0.819403,
+                        "property": 0.769231,
+                        "health01": 0,
+                        "health02": 0,
+                        "defense01": 0,
+                        "defense02": 0,
+                        "defenseLimit": 40,
+                        "efficiency01": 1,
+                        "efficiency02": 0.3,
+                        "unike": 1,
+                        "treat": 0
+                    }
+                }
+            ]
+        }
     }
 ]
+// BEGIN GENERATED NEW CHARACTER MODELS
+// Generated by scripts/sync-new-character-model.cjs; edit the source model.
+const newCharacterModels = (function createNewCharacterModels() {
+    const ids = [57, 58, 59, 60, 61, 62, 63];
+    const types = ['normal', 'skill', 'heavy', 'liberate', 'other'];
+    const elements = ['导电', '衍射', '湮灭', '气动', '热熔', '冷凝'];
+    const primary = {57:'导电',58:'导电',59:'湮灭',60:'冷凝',61:'气动',62:'热熔',63:'导电'};
+    const settings = {
+        57: {label:'输出循环', modes:[['quick','短按超负荷·速切'],['critical','长按超负荷·临界共鸣']]},
+        58: {label:'输出循环', modes:[['quick','短按超负荷·速切'],['critical','长按超负荷·临界共鸣']]},
+        59: {modes:[['cycle','苍／羽完整循环']]},
+        60: {label:'评分用途', modes:[['support','治疗辅助'],['damage','自身输出']]},
+        61: {label:'循环情景', modes:[['sustained','持续循环'],['opening','首轮爆发']]},
+        62: {label:'循环情景', modes:[['sustained','持续循环'],['opening','首轮爆发']]},
+        63: {label:'共鸣模态', modes:[['unison','同奏'],['electro','电磁']]}
+    };
+    const clamp = (n,a,b) => Math.max(a,Math.min(b,n));
+    const round = n => Number(n.toFixed(6));
+    function modeFor(role) {
+        const modes = settings[Number(role.roleListId)].modes;
+        return modes.some(m => m[0] === role.damageMode) ? role.damageMode : modes[0][0];
+    }
+    function packets(role) {
+        const id = Number(role.roleListId), c = clamp(parseInt(role.ming)||0,0,6), mode = modeFor(role);
+        const parts = [];
+        let attack = 2500, bonus = 2, cd = 2.8, crit = .8;
+        const add = (type, budget, extra = {}) => parts.push({type,budget,attack,bonus,cd,crit,element:primary[id],...extra});
+        if (id === 57 || id === 58) {
+            add('normal',mode === 'quick' ? 12 : 6);
+            add('skill',mode === 'quick' ? 8 : 4);
+            add('skill',32*(c>=3?1.2:1),{tag:'overload'});
+            add('liberate',18*(c>=4?1.2:1));
+            add('other',5);
+            add('other',5*(c>=2?1.5:1),{fixed:true,tag:'electro'});
+            if (mode === 'critical') {
+                // One ground chain: all multi-element packets retain SKILL damage classification.
+                for (const [element,budget] of [['衍射',12],['湮灭',12],['气动',16],['导电',15]]) {
+                    add('skill',budget*(c>=6?1.2:1),{element,bonus:bonus+.2,cd:cd+(c>=5?.2:0),tag:'critical'});
+                }
+            }
+        } else if (id === 59) {
+            if (c>=4) attack += 200;
+            const heavy = c>=6 ? 1.4 : 1;
+            add('normal',8);
+            add('skill',2);
+            add('heavy',10*heavy,{tag:'switch'});
+            // Both swords in one rotation; +160% stance CD and assumed full +150% feather oath.
+            add('heavy',55*(c>=2?2:1)*heavy,{cd:cd+3.1,tag:'stance'});
+            add('liberate',18*(c>=3?2.75:1));
+            add('other',5);
+            add('other',2*(c>=3?1.5:1),{fixed:true});
+            if(c>=1) add('heavy',2*337.98/60*heavy,{tag:'c1'});
+            if(c>=6) add('heavy',5*337.98/60*heavy,{crit:1,guaranteed:true,tag:'c6'});
+        } else if (id === 60) {
+            if(c>=2) cd += .5;
+            add('normal',c>=3?6:12);
+            add('normal',10*(c>=5?2:1));
+            add('heavy',5*(c>=5?2:1));
+            add('skill',8);
+            // Intro directly enters the rain stance; do not also invent an awakening in this rotation.
+            // Shared passive once per 25s: +80% CR is capped, +240% elemental bonus.
+            add('other',55,{health:true,crit:1,guaranteed:true,cd:cd+(c>=6?5:0),bonus:bonus+2.4,tag:'intro'});
+            add('other',5);
+            add('other',5,{fixed:true});
+        } else if (id === 61) {
+            if(c>=1) crit = .96;
+            if(c>=4) attack += 200;
+            const stacks = c>=2?25:15;
+            const lock = 1 + stacks*.02 + .35;
+            const final = c>=6?1.4:1;
+            add('normal',6);
+            add('normal',24,{multiplier:lock*lock});
+            add('heavy',10*(c>=2?1.4:1)*final,{multiplier:lock*lock});
+            add('heavy',30*(c>=3?1+stacks*.03:1)*final,{multiplier:lock*lock});
+            add('skill',8*(c>=5?2:1));
+            add('liberate',17*final,{cd:cd+(c>=3?1:0),multiplier:lock*lock});
+            add('other',5);
+            // C1 stacks are consumed together; only C6 replenishes them in sustained rotations.
+            if(c>=1 && (mode==='opening'||c>=6)) add('normal',400/60*(1+25*.04)*final,{multiplier:c>=6?lock*lock:1,tag:'greatsword'});
+            // Harmony is a common final multiplier, so cancels from echo stat proportions.
+        } else if (id === 62) {
+            const hp = clamp(Number(role.referenceHealth)||40000,15000,70000);
+            const capped = Math.min(hp,50000);
+            attack += capped*(c>=3?.05:.036);
+            bonus += capped*.000015 + (c>=4?.2:0);
+            const heavy = c>=6?1.4:1;
+            const fire = 1+clamp(hp-25000,0,25000)*.00009;
+            add('normal',3);
+            add('heavy',10*heavy);
+            add('skill',12*(c>=1?1.8:1));
+            add('heavy',40*fire*(c>=2?1.46:1)*(mode==='opening'&&c>=2?1.45:1)*heavy,{tag:'lifeFire'});
+            add('heavy',18*heavy); // Liberation explicitly deals heavy damage.
+            add('heavy',12*(c>=6?1.8*3:1)*heavy,{tag:'ghosts'}); // Four regular + eight C6 summons.
+            add('other',5);
+        } else if (id === 63) {
+            if(mode==='unison') attack += 500;
+            else bonus += .5; // Two passive stacks, no unselected teammate/weapon buffs.
+            if(c>=4) bonus += .2;
+            const skill = c>=6?1.4*(2/1.8):1;
+            const unisonStacks = c>=6?4:3;
+            add('normal',mode==='unison'?12:17);
+            add('skill',10*skill);
+            add('skill',34*(c>=2?1.6:1)*skill,{tag:'heavyConverted'});
+            add('skill',25*(c>=3?1.7:1)*skill,{cd:cd+(mode==='unison'&&c>=3?.2+.15*unisonStacks:0),tag:'liberationConverted'});
+            add('liberate',6,{tag:'coordinated'});
+            add('other',(mode==='unison'?13:8)*(mode==='unison'&&c>=1?1.15+.1*unisonStacks:1),{tag:'intro'});
+            if(mode==='electro') {
+                const fixedCrit = c>=6?1+.8*(2.3-1):1;
+                // 50 Thunderheart stacks assumed: C0 17.5 times, C1 21 times, C3 +15 times.
+                add('other',20*((c>=1?21:17.5)+(c>=3?15:0))/17.5*fixedCrit,{fixed:true,tag:'electro'});
+            }
+        }
+        return parts.map(p=>({...p,damage:p.fixed?p.budget:p.budget*(p.health?1:p.attack/2500)*(p.bonus/2)*(1+p.crit*(p.cd-1))/2.44*(p.multiplier||1)}));
+    }
+    function reference(role) {
+        const id=Number(role.roleListId), support=id===60&&modeFor(role)==='support';
+        const names=['暴击','暴伤','大攻击','小攻击','共鸣效率','普攻伤害','技能伤害','重击伤害','解放伤害','大生命','小生命','大防御','小防御'];
+        let values=[52.5,105,58,120,37.2,0,0,0,0,0,0,0,0];
+        if(id===57||id===58||id===63) values[6]=46.4;
+        if(id===59||id===61) values[7]=46.4;
+        if(id===62) values=[52.5,105,23.2,0,37.2,0,0,23.2,0,58,1740,0,0];
+        if(id===60) values=support?[0,0,0,0,62,0,0,0,0,58,2900,0,0]:[52.5,105,0,0,37.2,0,23.2,0,0,58,1040,0,0];
+        return names.map((name,i)=>({name,property:String(values[i])+([3,10,12].includes(i)?'':'%')}));
+    }
+    function profile(role) {
+        const id=Number(role.roleListId), parts=packets(role), total=parts.reduce((s,p)=>s+p.damage,0);
+        const weighted=f=>parts.reduce((s,p)=>s+(p.fixed?0:p.damage*f(p)),0)/total;
+        const weights=Object.fromEntries(types.map(t=>[t,round(parts.filter(p=>p.type===t).reduce((s,p)=>s+p.damage,0)/total)]));
+        weights.other=round(1-types.slice(0,4).reduce((s,t)=>s+weights[t],0));
+        weights.anomalyShare=round(parts.filter(p=>p.fixed).reduce((s,p)=>s+p.damage,0)/total);
+        const rule={ruleId:clamp(parseInt(role.ming)||0,0,6),attack01:2500*weighted(p=>p.health?0:1/p.attack),attack02:250*weighted(p=>p.health?0:1/p.attack),
+            crit:2.5*weighted(p=>p.guaranteed?0:(p.cd-1)/(1+p.crit*(p.cd-1))),critDamage:2.5*weighted(p=>p.crit/(1+p.crit*(p.cd-1))),
+            property:2.5*weighted(p=>1/p.bonus),health01:0,health02:0,defense01:0,defense02:0,defenseLimit:40,efficiency01:.5,efficiency02:0,unike:1.25,treat:0};
+        // Named elements keep mixed-element Rover bonuses separate; legacy 属伤 means primary element.
+        rule.elements=Object.fromEntries(elements.map(e=>[e,2.5*weighted(p=>p.element===e?1/p.bonus:0)]));
+        rule.property=rule.elements[primary[id]];
+        if(id===60) {
+            // HP 35k / base HP 16,712 reference. Support score measures healing/energy, not team DPS.
+            rule.health01=250*167.12/35000*weighted(p=>p.health?1:0);
+            rule.health02=rule.health01/167.12;
+            if(modeFor(role)==='support') Object.assign(rule,{attack01:0,attack02:0,crit:0,critDamage:0,property:0,health01:1,health02:1/167.12,unike:0,treat:1.2,defenseLimit:100,efficiency01:1.2,elements:{}});
+        }
+        if(id===62) {
+            const hp=clamp(Number(role.referenceHealth)||40000,15000,70000);
+            // Forward marginal derivative includes HP->ATK, elemental bonus and life-fire multiplier.
+            const next=packets({...role,referenceHealth:hp+1}).reduce((s,p)=>s+p.damage,0);
+            rule.health02=hp>=50000?0:250*(next-total)/total;
+            rule.health01=rule.health02*153.75;
+        }
+        for(const key of Object.keys(rule)) if(typeof rule[key]==='number') rule[key]=round(rule[key]);
+        for(const e of Object.keys(rule.elements)) rule.elements[e]=round(rule.elements[e]);
+        // Per-type sensitivity matters for packets with innate bonus, fixed damage or HP scaling.
+        rule.typeCoefficients=Object.fromEntries(types.slice(0,4).map(t=>[t,round(id===60&&modeFor(role)==='support'?0:2.5*weighted(p=>p.type===t?1/p.bonus:0))]));
+        const coefficients={'暴击':rule.crit,'暴伤':rule.critDamage,'大攻击':rule.attack01,'小攻击':rule.attack02,'共鸣效率':rule.efficiency01,
+            '普攻伤害':rule.typeCoefficients.normal,'技能伤害':rule.typeCoefficients.skill,'重击伤害':rule.typeCoefficients.heavy,'解放伤害':rule.typeCoefficients.liberate,'大生命':rule.health01,'小生命':rule.health02};
+        const ref=reference(role);
+        let main=22*rule.crit+60*rule.property+36*rule.attack01+350*rule.attack02+4560*rule.health02;
+        if(id===62||id===60) main=22*rule.crit+60*rule.property+45.6*rule.health01+350*rule.attack02+4560*rule.health02;
+        if(id===60&&modeFor(role)==='support') main=26.4*rule.treat+64*rule.efficiency01+45.6*rule.health01+4560*rule.health02;
+        const er=Number.parseFloat(ref[4].property)+(id===60&&modeFor(role)==='support'?64:0);
+        weights.maxscore=round(main+ref.reduce((s,p)=>s+parseFloat(p.property)*(coefficients[p.name]||0),0)-(rule.efficiency01-rule.efficiency02)*Math.max(0,er-rule.defenseLimit));
+        return {weights,rule,reference:ref};
+    }
+    function install(roles, refs) {
+        for(const id of ids) {
+            const modeProfiles={};
+            for(const [mode] of settings[id].modes) modeProfiles[mode]=Array.from({length:7},(_,ming)=>profile({roleListId:id,ming,damageMode:mode}));
+            const profiles=modeProfiles[settings[id].modes[0][0]];
+            Object.assign(roles[id-1],profiles[0].weights);
+            refs[id-1]={id,propertyList:profiles[0].reference,mzProperty:profiles.slice(1).map(p=>p.weights),mzRule:profiles.slice(1).map(p=>p.rule),modeProfiles};
+        }
+    }
+    return {ids,settings,modeFor,packets,profile,reference,install};
+})();
+newCharacterModels.install(roleList, RoleSumProperty);
+// END GENERATED NEW CHARACTER MODELS
 //计算角色声骸超越人数百分比的分母
 const MaxScore = 85;
 
@@ -5763,20 +7086,141 @@ function checkMingConfig(roleId){
     });
     return flag;
 }
+// 统一读取链数及角色模态，单词条、整套充能校正使用同一分母。
+function getRoleScoreConfig(role) {
+    if (newCharacterModels.ids.includes(Number(role.roleListId))) return newCharacterModels.profile(role);
+    const base = roleList[Number(role.roleListId) - 1];
+    const ref = RoleSumProperty[Number(role.roleListId) - 1];
+    const chain = Math.max(0, Math.min(6, parseInt(role.ming) || 0));
+    let weights = base;
+    let rule = ruleList[base.rule];
+    if (chain && ref && ref.mzProperty && ref.mzRule) {
+        weights = ref.mzProperty[chain - 1];
+        rule = ref.mzRule[chain - 1];
+    }
+    if (Number(role.roleListId) === 53 && role.damageMode === 'harmony') {
+        const profile = ref.modeProfiles.harmony[chain];
+        weights = profile.weights;
+        rule = profile.rule;
+    }
+    if (Number(role.roleListId) === 49 && role.damageMode === 'fusion') {
+        const profile = ref.modeProfiles.fusion[chain];
+        weights = profile.weights;
+        rule = profile.rule;
+    }
+    if (Number(role.roleListId) === 51) {
+        const extra = Math.max(0, Math.min(200, Number(role.extraEnergy) || 0));
+        rule = {...rule, defenseLimit: Math.max(0, 50 - extra)};
+        // 默认分母已含37.2%参考充能在额外充能为0时的转化；按用户输入重算。
+        const coefficient = 2 * weights.echoSkillShare * rule.property;
+        const conversion = er => Math.min(25, Math.max(0, extra + er - 25)) - Math.min(25, Math.max(0, extra - 25));
+        const delta = coefficient * (conversion(37.2) - 12.2)
+            - rule.efficiency01 * Math.max(0, 37.2 - rule.defenseLimit);
+        weights = {...weights, maxscore: weights.maxscore + delta};
+    }
+    return {weights, rule};
+}
+
+// 按整套累计共鸣效率处理阈值，避免每个词条分别跨越125%而重复计分。
+function getRoleEnergyCorrection(role, echoEnergy) {
+    const {weights, rule} = getRoleScoreConfig(role);
+    const energy = Math.max(0, Number(echoEnergy) || 0);
+    let points = -(rule.efficiency01 - rule.efficiency02) * Math.max(0, energy - rule.defenseLimit);
+    if (Number(role.roleListId) === 51) {
+        const extra = Math.max(0, Math.min(200, Number(role.extraEnergy) || 0));
+        const converted = Math.min(25, Math.max(0, extra + energy - 25)) - Math.min(25, Math.max(0, extra - 25));
+        points += 2 * weights.echoSkillShare * rule.property * converted;
+    }
+    return points * 100 / weights.maxscore;
+}
+
+// 导入存档的声骸分数也要随链数、模态、外部充能重算，不能沿用缓存。
+function recalculateMechanicRole(role) {
+    if (![49, 51, 52, 53, ...newCharacterModels.ids].includes(Number(role.roleListId))) return;
+    let total = 0, energy = 0;
+    (role.costList || []).forEach(cost => {
+        const imported = cost.mainAtrri && typeof cost.mainAtrri === 'object';
+        let score = 0;
+        if (imported) {
+            score = Number(countMainAttr2(cost, role)) + Number(countScores(cost.mainAtrri, role));
+            if (cost.mainAtrri.property === '共鸣效率') energy += parseFloat(cost.mainAtrri.value) || 0;
+        } else if (cost.mainAtrri) {
+            score = Number(countMainAttr(cost, role));
+            if (cost.mainAtrri.includes('效率')) energy += 32;
+        }
+        (cost.propertyList || []).forEach(ct => {
+            score += Number(countScores(ct, role));
+            if (ct.property === '共鸣效率') energy += parseFloat(ct.value) || 0;
+        });
+        cost.sumScores = score.toFixed(2);
+        total += Number(cost.sumScores);
+    });
+    role.totalScore = (total + getRoleEnergyCorrection(role, energy)).toFixed(2);
+}
+
+// 新机制的选项保存在当前角色；默认值也可用于没有这些字段的旧存档。
+function setupRoleMechanics(role, onChange) {
+    const id = Number(role.roleListId);
+    if (newCharacterModels.ids.includes(id)) {
+        $('#mc-role-mechanics').remove();
+        const setting = newCharacterModels.settings[id];
+        let content = '';
+        if (setting.modes.length > 1) {
+            content = '<label for="mc-damage-mode">' + setting.label + '</label> <select id="mc-damage-mode">' +
+                setting.modes.map(([value,label]) => '<option value="' + value + '">' + label + '</option>').join('') + '</select>';
+        }
+        if (id === 62) content += '<div><label for="mc-reference-health">生命收益评估基准</label> <input id="mc-reference-health" type="number" min="15000" max="70000" step="100" style="width:7em"><small>评估此生命值附近的词条收益；50000后额外生命无输出收益。比较配装时请保持同一基准。</small></div>';
+        if (id === 57 || id === 58) content += '<small>旧存档“属伤”按导电计；其他属性请在声骸主词条中指定。</small>';
+        if (!content) return;
+        const panel = '<div id="mc-role-mechanics" class="mc-role-mode-row">' + content + '</div>';
+        if ($('#roleMing').length) $('#roleMing').parent().after(panel);
+        else $('.mc-character-score').first().append(panel);
+        $('#mc-damage-mode').val(newCharacterModels.modeFor(role)).on('change', function () {
+            role.damageMode = $(this).val();
+            onChange();
+        });
+        $('#mc-reference-health').val(Math.max(15000,Math.min(70000,Number(role.referenceHealth)||40000))).on('change',function () {
+            role.referenceHealth = Math.max(15000,Math.min(70000,Number($(this).val())||40000));
+            $(this).val(role.referenceHealth);
+            onChange();
+        });
+        return;
+    }
+    if (![49, 51, 53].includes(id)) return;
+    $('#mc-role-mechanics').remove();
+    const options = id === 49
+        ? '<option value="tune">震谐</option><option value="fusion">聚爆</option>'
+        : '<option value="fusion">聚爆</option><option value="harmony">集谐</option>';
+    const content = id !== 51
+        ? '<label for="mc-damage-mode">评分模态</label> <select id="mc-damage-mode">' + options + '</select>'
+        : '<label for="mc-extra-energy">声骸以外的额外共鸣效率（%）</label> <input id="mc-extra-energy" type="number" min="0" max="200" step="0.1" style="width:6em"> <small>不含基础100%；计入武器等提供的充能。125%至150%的声骸增伤转化计入整套总分。</small>';
+    if (id === 51) {
+        $('.mc-fct-hj-title3').first().before('<div id="mc-role-mechanics" class="mb-3">' + content + '</div>');
+    } else {
+        // 与共鸣链放在同一角色设置区；导入页没有链数选择器，放在角色摘要下。
+        const panel = '<div id="mc-role-mechanics" class="mc-role-mode-row">' + content + '</div>';
+        if ($('#roleMing').length) {
+            $('#roleMing').parent().after(panel);
+        } else {
+            $('.mc-character-score').first().append(panel);
+        }
+    }
+    const selectedMode = id === 49 ? (role.damageMode === 'fusion' ? 'fusion' : 'tune') : (role.damageMode === 'harmony' ? 'harmony' : 'fusion');
+    $('#mc-damage-mode').val(selectedMode).on('change', function () {
+        role.damageMode = $(this).val();
+        onChange();
+    });
+    $('#mc-extra-energy').val(Math.max(0, Math.min(200, Number(role.extraEnergy) || 0))).on('change', function () {
+        role.extraEnergy = Math.max(0, Math.min(200, Number($(this).val()) || 0));
+        $(this).val(role.extraEnergy);
+        onChange();
+    });
+}
+
 //传入词条根据角色自动计算分数,ct词条对象,role角色对象，return分数
 function countScores(ct, role) {
     if (role != null && ct != null) {
-        let curRule = ruleList[roleList[role.roleListId - 1].rule];
-        let ruleType = roleList[role.roleListId - 1];
-        //校验是否有命座，如果有，优先适用命座规则-部分角色开放】
-        if (checkMingConfig(role.roleListId)) {
-            if (typeof (role.ming) !== "undefined" && parseInt(role.ming) > 0) {
-                //取出对应的命座计算规则。
-                let ming = parseInt(role.ming) - 1;
-                ruleType = RoleSumProperty[role.roleListId - 1].mzProperty[ming];
-                curRule = RoleSumProperty[role.roleListId - 1].mzRule[ming];
-            }
-        }
+        const {rule: curRule, weights: ruleType} = getRoleScoreConfig(role);
         //先确定词条系数
         let xs = 0;
         switch (ct.property) {
@@ -5798,6 +7242,9 @@ function countScores(ct, role) {
             case "小生命":
                 xs = curRule.health02;
                 break;
+            case "生命":
+                if (newCharacterModels.ids.includes(Number(role.roleListId))) xs = curRule.health02;
+                break;
             case "大防御":
                 xs = curRule.defense01;
                 break;
@@ -5807,6 +7254,14 @@ function countScores(ct, role) {
             case "属伤":
                 xs = curRule.property;
                 break;
+            case "导电伤害":
+            case "衍射伤害":
+            case "湮灭伤害":
+            case "气动伤害":
+            case "热熔伤害":
+            case "冷凝伤害":
+                xs = curRule.elements ? (curRule.elements[ct.property.slice(0,2)] || 0) : curRule.property;
+                break;
             case "治疗":
                 xs = curRule.treat;
                 break;
@@ -5814,16 +7269,16 @@ function countScores(ct, role) {
                 xs = curRule.efficiency01;
                 break;
             case "普攻伤害":
-                xs = curRule.unike * ruleType.normal;
+                xs = curRule.typeCoefficients ? curRule.typeCoefficients.normal : curRule.unike * ruleType.normal;
                 break;
             case "重击伤害":
-                xs = curRule.unike * ruleType.heavy;
+                xs = curRule.typeCoefficients ? curRule.typeCoefficients.heavy : curRule.unike * ruleType.heavy;
                 break;
             case "技能伤害":
-                xs = curRule.unike * ruleType.skill;
+                xs = curRule.typeCoefficients ? curRule.typeCoefficients.skill : curRule.unike * ruleType.skill;
                 break;
             case "解放伤害":
-                xs = curRule.unike * ruleType.liberate;
+                xs = curRule.typeCoefficients ? curRule.typeCoefficients.liberate : curRule.unike * ruleType.liberate;
                 break;
         }
         //先将百分号去除
@@ -5879,6 +7334,8 @@ function countMainAttr(currentCost, curRole) {
         ct = {"property": "大攻击", "value": "30%"};
     } else if (currentCost.mainAtrri === "属伤30%") {
         ct = {"property": "属伤", "value": "30%"};
+    } else if (/^(导电|衍射|湮灭|气动|热熔|冷凝)伤害30%$/.test(currentCost.mainAtrri)) {
+        ct = {"property": currentCost.mainAtrri.slice(0,4), "value": "30%"};
     } else if (currentCost.mainAtrri === "生命30%") {
         ct = {"property": "大生命", "value": "30%"};
     } else if (currentCost.mainAtrri === "共鸣效率32%") {
@@ -6123,7 +7580,15 @@ function getRandomInt(min, max) {
 }
 
 //官方角色ID互相映射我的体系角色ID
-function mappingRoleId(rid) {
+function mappingRoleId(rid, roleName) {
+    // New API roles may not yet have a numeric mapping. Only match an explicit full name.
+    if (roleName && !roleList.some(item => item.gid !== 0 && rid == item.gid)) {
+        const normalized = String(roleName).replace(/[·・\-\s（）()]/g, '');
+        const aliases = {'漂泊者女导电':57, '漂泊者男导电':58};
+        if (aliases[normalized]) return aliases[normalized];
+        const match = roleList.find(item => newCharacterModels.ids.includes(item.id) && item.name.replace(/[·・\-\s（）()]/g, '') === normalized);
+        if (match) return match.id;
+    }
     let re = 0;
     roleList.forEach((item) => {
         if (rid == item.gid) {
@@ -6210,7 +7675,7 @@ $(function () {
                             <li>本工具前维护者已停止维护，<code class="mc-maintenance-domain">wuwaechotool.com</code> 将于 2026 年底到期。详情请查看 <a href="https://space.bilibili.com/287293445/dynamic" target="_blank" rel="noopener noreferrer">B站主页</a>。</li>
                             <li>目前由本人 <a href="https://space.bilibili.com/1265897372" target="_blank">@炭烤蛋</a> 继续接手维护，希望能让这个工具继续使用下去。</br>由于个人时间与开发进度有限，更新速度可能较慢，还请见谅。</li>
                             <li>原作者在设计时，部分占比主要依据个人判断，目前本人会借助 AI 辅助判断占比，让结果更准确。</li>
-                            <li>!!!注意目前只能使用陆·赫斯之前的角色，选之后的角色会卡住，请进首页然后把角色删除。</li>
+                            <li>爱弥斯、西格莉卡、绯雪、达妮娅、导电漂泊者、秧秧·玄翎、穗穗、清宵、景燃、心已补充0–6链估算评分；露西、丽贝卡、洛瑟菈、锁暝尚未补齐。</li>
                             <li>如果发现任何问题，欢迎留言反馈 <a href="https://space.bilibili.com/1265897372" target="_blank">@炭烤蛋</a>。</li>
                         </ul>
                     </div>

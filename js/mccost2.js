@@ -34,6 +34,11 @@ $(function () {
             curData.role.forEach(item => {
                 if (item.roleId == roleid) {
                     curRole = item;
+                    setupRoleMechanics(curRole, function () {
+                        recalculateMechanicRole(curRole);
+                        saveDataToCache(curData);
+                        randerCostList(curRole.costList);
+                    });
                     //初始化角色头像
                     if (item.cls != "" && item.cls != null) {
                         let rlItem = roleList.find(r => r.id == item.roleListId);
@@ -100,7 +105,7 @@ $(function () {
                 "serverId": "76402e5b20be2c39f095a152090afddc",
                 "channelId": 19,
                 "countryCode": 1,
-                "id": mappingRoleId(curRole.roleListId)
+                "id": curRole.gameRoleId || mappingRoleId(curRole.roleListId)
             }
             //发送刷新数据请求
             $.ajax({
@@ -202,12 +207,7 @@ $(function () {
                                     });
                                     sumScore = parseFloat(sumScore) + parseFloat(iic.sumScores);
                                 });
-                                let maxScore = 0;
-                                if (parseFloat(overOfen) > ruleList[roleList[curRole.roleListId - 1].rule].defenseLimit) {
-                                    maxScore = (ruleList[roleList[curRole.roleListId - 1].rule].efficiency01 - ruleList[roleList[curRole.roleListId - 1].rule].efficiency02) * (ruleList[roleList[curRole.roleListId - 1].rule].defenseLimit - parseFloat(overOfen));
-                                    maxScore = parseFloat(maxScore) * 100 / roleList[curRole.roleListId - 1].maxscore;
-                                    alert("检测到当前角色共鸣效率溢出，溢出上限设置为【"+ruleList[roleList[curRole.roleListId - 1].rule].defenseLimit+"%】,当前累计值为【"+overOfen.toFixed(1)+"%】,溢出部分的得分会在总分中减去。");
-                                }
+                                const maxScore = getRoleEnergyCorrection(curRole, overOfen);
                                 sumScore = parseFloat(sumScore) + parseFloat(maxScore);
                                 curRole.totalScore = sumScore.toFixed(2);
                                 //保存数据到本地
@@ -248,6 +248,12 @@ $(function () {
 
 //初始化声骸列表list-声骸列表
 function randerCostList(list) {
+    // 切换模态会重新渲染，汇总值必须从零开始。
+    fcthz.forEach(item => { item.property = 0; });
+    if ([49, 51, 52, 53, ...newCharacterModels.ids].includes(Number(curRole.roleListId))) {
+        recalculateMechanicRole(curRole);
+        saveDataToCache(curData);
+    }
     if (list != null && typeof (list) != "undefined" && list.length > 0) {
         let ress = ""
         let ctz = "";
@@ -364,7 +370,7 @@ function renderFctCount() {
     //将标题命座回填
     $("#mc-mzs").html(typeof (curRole.ming) !== "undefined" ? curRole.ming : 0);
     //开始回填列表
-    let maxHz = RoleSumProperty[parseInt(curRole.roleListId) - 1].propertyList;
+    let maxHz = getRoleScoreConfig(curRole).reference || RoleSumProperty[parseInt(curRole.roleListId) - 1].propertyList;
     let resh = "";
     let wcd = 0;
     maxHz.forEach((item, index) => {
@@ -417,6 +423,7 @@ function jianhua(zt) {
 
 //将官方词条规范成我的标准
 function guifan(zt, value) {
+    if (/^(衍射|气动|热熔|冷凝|湮灭|导电)伤害加成$/.test(zt)) return zt.replace('加成', '');
     if (zt === "普攻伤害加成") {
         return "普攻伤害";
     } else if (zt === "重击伤害加成") {

@@ -35,6 +35,11 @@ $(function () {
             curData.role.forEach(item => {
                 if (item.roleId == roleid) {
                     curRole = item;
+                    setupRoleMechanics(curRole, function () {
+                        recalculateMechanicRole(curRole);
+                        saveDataToCache(curData);
+                        randerCostList(curRole.costList);
+                    });
                     //初始化角色头像
                     if (item.cls != "" && item.cls != null) {
                         let rlItem = roleList.find(r => r.id == item.roleListId);
@@ -253,7 +258,7 @@ $(function () {
 //渲染副词条汇总统计表
 function renderFctCount() {
     //开始回填列表
-    let maxHz = RoleSumProperty[parseInt(curRole.roleListId) - 1].propertyList;
+    let maxHz = getRoleScoreConfig(curRole).reference || RoleSumProperty[parseInt(curRole.roleListId) - 1].propertyList;
     let resh = "";
     let wcd = 0;
     maxHz.forEach((item, index) => {
@@ -505,12 +510,7 @@ function scoreAdjust() {
         jszf = parseFloat(jszf) + parseFloat(shzf);
         curRole.costList[index].sumScores = shzf;
     });
-    let maxScore = 0;
-    if (parseFloat(overOfen) > ruleList[roleList[curRole.roleListId - 1].rule].defenseLimit) {
-        maxScore = (ruleList[roleList[curRole.roleListId - 1].rule].efficiency01 - ruleList[roleList[curRole.roleListId - 1].rule].efficiency02) * (ruleList[roleList[curRole.roleListId - 1].rule].defenseLimit - parseFloat(overOfen));
-        maxScore = parseFloat(maxScore) * 100 / roleList[curRole.roleListId - 1].maxscore;
-        alert("检测到当前角色共鸣效率溢出，溢出上限设置为【"+ruleList[roleList[curRole.roleListId - 1].rule].defenseLimit+"%】,当前累计值为【"+overOfen.toFixed(1)+"%】,溢出部分的得分会在总分中减去。");
-    }
+    const maxScore = getRoleEnergyCorrection(curRole, overOfen);
     jszf = parseFloat(jszf) + parseFloat(maxScore);
     jszf = jszf.toFixed(2);
     if (jszf != curRole.totalScore) {

@@ -117,35 +117,51 @@ $(function () {
     setTimeout(function () {
         $('[data-toggle="tooltip"]').tooltip("hide");
     }, 5000);
-    //初始化角色选单
-    let roleRes = `<div class="mc-filter">角色过滤：
-                        <select id="mc-filter-select" class="form-control mc-select">
-                            <option value="s5" selected>五星角色</option>
-                            <option value="s4">四星角色</option>
-                        </select>
-                    </div><div class="mc-filter-role5">`;
-    let ress4 = `<div class="mc-filter-role4 mc-hide">`
+    // 角色本身的属性用于筛选，不随输出模态改变。
+    // 分类参考：https://wuthering.gg/zh-Hans/characters
+    const roleElementGroups = {
+        '冷凝': [11,13,19,23,26,29,52,56,60],
+        '热熔': [2,4,12,16,33,39,43,48,49,53,62],
+        '导电': [8,10,14,24,28,41,46,55,57,58,63,64],
+        '气动': [3,9,15,18,35,36,37,38,42,44,51,61],
+        '衍射': [1,6,7,21,25,31,32,47,50,54],
+        '湮灭': [5,17,20,22,27,30,34,40,45,59]
+    };
+    let roleRes = '<div class="mc-filter">' +
+        '<label for="mc-filter-select">星级<select id="mc-filter-select" class="form-control mc-select">' +
+        '<option value="5" selected>五星角色</option><option value="4">四星角色</option><option value="all">全部星级</option></select></label>' +
+        '<label for="mc-filter-element">属性<select id="mc-filter-element" class="form-control mc-select">' +
+        '<option value="all">全部属性</option>' +
+        Object.keys(roleElementGroups).map(element => '<option value="' + element + '">' + element + '</option>').join('') +
+        '</select></label></div><div class="mc-filter-roles">';
     roleList.forEach(item => {
-        if (item.star === 5) {
-            roleRes += `<div data-role-val="` + item.id + `" class="mc-role ` + item.cls + `"></div>`;
-        } else {
-            ress4 += `<div data-role-val="` + item.id + `" class="mc-role ` + item.cls + `"></div>`;
-        }
+        const element = Object.keys(roleElementGroups).find(key => roleElementGroups[key].includes(item.id)) || '';
+        const name = $('<span>').text(item.name).html().replace(/"/g, '&quot;');
+        roleRes += '<div data-role-val="' + item.id + '" data-star="' + item.star + '" data-element="' + element +
+            '" title="' + name + '" aria-label="' + name + '" class="mc-role ' + item.cls + '"></div>';
     });
-    roleRes += "</div>";
-    ress4 += "</div>";
-    roleRes += ress4;
-    //切换选择角色星级
-    $(".modal-body-a").on("change", "#mc-filter-select", function () {
-        if ($("#mc-filter-select option:selected").val() === "s5") {
-            $(".mc-filter-role5").removeClass("mc-hide");
-            $(".mc-filter-role4").addClass("mc-hide");
-        } else {
-            $(".mc-filter-role4").removeClass("mc-hide");
-            $(".mc-filter-role5").addClass("mc-hide");
-        }
-    });
-    $("#mc-addrole .modal-body-a").html(roleRes);
+    roleRes += '</div><p class="mc-filter-empty mc-hide" role="status">没有符合条件的角色</p>';
+    const rolePicker = $('#mc-addrole .modal-body-a');
+    rolePicker.html(roleRes);
+    function filterRoleCards() {
+        const star = $('#mc-filter-select').val();
+        const element = $('#mc-filter-element').val();
+        let visibleCount = 0;
+        rolePicker.find('.mc-role').each(function () {
+            const card = $(this);
+            const visible = (star === 'all' || card.attr('data-star') === star) &&
+                (element === 'all' || card.attr('data-element') === element);
+            card.toggleClass('mc-hide', !visible);
+            if (visible) visibleCount++;
+            if (!visible && card.hasClass('mc-active')) {
+                card.removeClass('mc-active');
+                currentRole = 0;
+            }
+        });
+        rolePicker.find('.mc-filter-empty').toggleClass('mc-hide', visibleCount > 0);
+    }
+    rolePicker.on('change', '#mc-filter-select, #mc-filter-element', filterRoleCards);
+    filterRoleCards();
     //点击特征码ID，隐藏或显示ID
     $("#idTitle").click(() => {
         if ($("#idValue").attr("type") === "password") {
@@ -230,7 +246,7 @@ $(function () {
                                         let resr = "";
                                         let deData = JSON.parse(data.data);
                                         deData.roleList.forEach((item) => {
-                                            resr += `<img data-level="` + item.level + `" data-role-id="` + mappingRoleId(item.roleId) + `" class="mc-role-impt-item" src="` + item.roleIconUrl + `" alt="` + item.roleName + `">`;
+                                            resr += `<img data-level="` + item.level + `" data-role-id="` + mappingRoleId(item.roleId, item.roleName) + `" data-game-role-id="` + item.roleId + `" class="mc-role-impt-item" src="` + item.roleIconUrl + `" alt="` + item.roleName + `">`;
                                         });
                                         $("#mc-import-role .modal-body-b").html(resr);
                                         $("#mc-import-role").modal("show");
@@ -270,6 +286,7 @@ $(function () {
                 "isImport": true,
                 "level": $(item).attr("data-level"),
                 "roleListId": $(item).attr("data-role-id"),
+                "gameRoleId": $(item).attr("data-game-role-id"),
                 "totalScore": 0.00,
                 "name": $(item).attr("alt"),
                 "cls": mappingRoleImg($(item).attr("data-role-id")),
@@ -325,7 +342,7 @@ $(function () {
                 saveDataToCache(curData);
                 $(".mc-save-box").append(`<div class="mc-role ` + item.cls + `">
                    <p class="mc-role-score">0.00</p>
-                   <span  data-id="` + roleOne.roleId + `" class="mc-role-delete">×</span>
+                   <button type="button" data-id="` + roleOne.roleId + `" class="mc-role-delete" aria-label="删除角色" title="删除角色">×</button>
                </div>`);
                 $(".mc-role-cel").addClass("mc-hide");
             }
@@ -333,7 +350,8 @@ $(function () {
         $('#mc-addrole').modal('hide');
     });
     //点击角色跳转
-    $(".mc-save-box").on("click", ".mc-role", function () {
+    $(".mc-save-box").on("click", ".mc-role", function (event) {
+        if ($(event.target).closest(".mc-role-delete").length) return;
         //拿到点击的角色ID
         let roleid = $(this).find(".mc-role-delete").attr("data-id");
         //判断是否是导入的角色，如果是则跳转到只读页面
@@ -342,7 +360,9 @@ $(function () {
         } else {
             window.open("./mccost.html?roleid=" + roleid, "_self");
         }
-    }).on("click", ".mc-role-delete", function () {
+    }).on("click", ".mc-role-delete", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
         if (!confirm("确定要删除角色吗？(该角色下声骸数据会一并删除)")) {
             return false;
         }
@@ -538,7 +558,7 @@ function cshRoleBox() {
         if (typeof (item.isImport) != "undefined" && item.isImport) {
             res += `<div data-readonly="true" class="mc-role ` + item.cls + `">
                        <p class="mc-role-score">` + item.totalScore + `</p>
-                       <span  data-id="` + item.roleId + `" class="mc-role-delete">×</span>
+                       <button type="button" data-id="` + item.roleId + `" class="mc-role-delete" aria-label="删除角色" title="删除角色">×</button>
                        <p class="mc-role-level">Lv-` + item.level + `</p>`;
             if (index === 0) {
                 res += `<span class="mc-role-rank rankbg01">1</span>`;
@@ -551,7 +571,7 @@ function cshRoleBox() {
         } else {
             res += `<div data-readonly="false" class="mc-role ` + item.cls + `">
                        <p class="mc-role-score">` + item.totalScore + `</p>
-                       <span  data-id="` + item.roleId + `" class="mc-role-delete">×</span>`;
+                       <button type="button" data-id="` + item.roleId + `" class="mc-role-delete" aria-label="删除角色" title="删除角色">×</button>`;
             if (index === 0) {
                 res += `<span class="mc-role-rank rankbg01">1</span>`;
             } else if (index === 1) {
