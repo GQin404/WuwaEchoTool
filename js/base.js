@@ -7675,7 +7675,6 @@ $(function () {
                             <li>本工具前维护者已停止维护，<code class="mc-maintenance-domain">wuwaechotool.com</code> 将于 2026 年底到期。详情请查看 <a href="https://space.bilibili.com/287293445/dynamic" target="_blank" rel="noopener noreferrer">B站主页</a>。</li>
                             <li>目前由本人 <a href="https://space.bilibili.com/1265897372" target="_blank">@炭烤蛋</a> 继续接手维护，希望能让这个工具继续使用下去。</br>由于个人时间与开发进度有限，更新速度可能较慢，还请见谅。</li>
                             <li>原作者在设计时，部分占比主要依据个人判断，目前本人会借助 AI 辅助判断占比，让结果更准确。</li>
-                            <li>爱弥斯、西格莉卡、绯雪、达妮娅、导电漂泊者、秧秧·玄翎、穗穗、清宵、景燃、心已补充0–6链估算评分；露西、丽贝卡、洛瑟菈、锁暝尚未补齐。</li>
                             <li>如果发现任何问题，欢迎留言反馈 <a href="https://space.bilibili.com/1265897372" target="_blank">@炭烤蛋</a>。</li>
                         </ul>
                     </div>
