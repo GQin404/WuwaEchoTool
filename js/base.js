@@ -7654,6 +7654,7 @@ function decrypt(ciphertext) {
 
 // 首次进入当前浏览器会话时显示维护说明。
 $(function () {
+    if (window.RoleRegisterMode) return;
     const maintenanceKey = "mcMaintenanceNoticeShown";
     let hasShown = false;
     try {

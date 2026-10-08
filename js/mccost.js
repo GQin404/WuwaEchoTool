@@ -21,6 +21,7 @@ var fcthz = [
     {"name": "小防御", "property": 0}
 ];
 $(function () {
+    if (window.RoleRegisterMode) return;
     //获取当前编辑角色ID
     roleid = getQueryString("roleid");
     //从缓存取出角色数据

@@ -131,6 +131,12 @@
             }
             const {name:roleName,...identity}=result.role;
             result.role={...identity,nameKey:identity.catalogId==null?null:'characters.'+identity.catalogId,legacy:{name:roleName}};
+            // 仅公开实际生效的模型条件，不改变评分入口或原始配置。
+            const id=Number(role.roleListId);
+            const mode=api.newCharacterModels?.settings?.[id]?api.newCharacterModels.modeFor(role):id===49?(role.damageMode==='fusion'?'fusion':'tune'):id===53?(role.damageMode==='harmony'?'harmony':'fusion'):'default';
+            result.model.parameters={mode};
+            if(id===51)result.model.parameters.extraEnergy=Math.max(0,Math.min(200,Number(role.extraEnergy)||0));
+            if(id===62)result.model.parameters.referenceHealth=Math.max(15000,Math.min(70000,Number(role.referenceHealth)||40000));
             result.model.legacyConfiguration=result.model.configuration;
             delete result.model.configuration;
             result.slots.forEach(slot=>{
