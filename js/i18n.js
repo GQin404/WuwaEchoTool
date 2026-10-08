@@ -60,6 +60,8 @@
         };
     }
     function createBrowser(env){
+        // Classic 固定简体中文，但不读取或覆盖 Register 的语言偏好。
+        if(env.UiView?.state.effective==='classic'&&new URL(env.location.href).searchParams.get('guide')!=='1')return create({document:env.document,language:'zh-CN'});
         let storage;try{storage=env.localStorage;}catch(_){}
         return create({storage,document:env.document,languages:env.navigator?.languages,language:env.navigator?.language,url:env.location?.href});
     }

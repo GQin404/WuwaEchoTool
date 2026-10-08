@@ -249,9 +249,7 @@ $(function () {
         //点击删除一个角色
         let roleId = $(this).attr("data-id");
         //从数据移除该角色并保存数据
-        curData.role = curData.role.filter(item => {
-            return item.roleId != roleId;
-        });
+        CharacterCore.removeRole(curData,roleId);
 
         //如果角色没有了，就初始化BOX
         if (curData.role.length < 1) {

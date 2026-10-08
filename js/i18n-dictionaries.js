@@ -2,6 +2,35 @@
     'use strict';
     // 三种语言使用相同的 key 和插值参数。
     const rows={
+'workspace.previewUnavailable':['頭像暫時無法載入','头像暂时无法加载','Artwork is temporarily unavailable'],
+
+'shell.mobile.characters':['角色','角色','Dock'],
+'shell.mobile.echoLibrary':['聲骸庫','声骸库','Echoes'],
+'shell.mobile.compare':['比較','比较','Compare'],
+'shell.mobile.backup':['備份','备份','Backup'],
+'shell.mobile.tools':['工具','工具','Tools'],
+
+'entry.registerEntrance':['新版入口','新版入口','New workspace'],
+'entry.classicEntrance':['經典入口','经典入口','Classic workspace'],
+'entry.switchRegister':['切換至新版 Register','切换到新版 Register','Switch to Register'],
+'entry.switchClassic':['切換至 Classic','切换到 Classic','Switch to Classic'],
+'shell.settings':['設定','设置','Settings'],
+'shell.breadcrumb':['導覽路徑','导航路径','Breadcrumb'],
+'role.delete':['刪除角色','删除角色','Delete character'],
+'role.deleteConfirm':['刪除「{name}」及其已裝備聲骸？聲骸庫不受影響；相關本地草稿將失去來源，需要重新建立比較。','删除“{name}”及其已装备声骸？声骸库不受影响；相关本地草稿将失去来源，需要重新建立比较。','Delete {name} and their equipped Echoes? The Echo library is unaffected. Related local drafts will lose their source and require a new comparison.'],
+'role.deleted':['角色已刪除。','角色已删除。','Character deleted.'],
+'common.cancel':['取消','取消','Cancel'],
+'common.close':['關閉','关闭','Close'],
+'share.open':['分享養成結果','分享养成结果','Share loadout'],
+'share.title':['角色養成分享','角色养成分享','Loadout snapshot'],
+'share.download':['下載 PNG','下载 PNG','Download PNG'],
+'share.scope':['聲骸配置評分 · 不是 DPS 或完整角色戰力','声骸配置评分 · 不是 DPS 或完整角色战力','Echo loadout score · Not DPS or total character power'],
+'share.conditions':['依目前分析條件產生，僅供展示；不含登入資訊或完整存檔。','按当前分析条件生成，仅供展示；不含登录信息或完整存档。','Generated from current analysis conditions for sharing; contains no credentials or full save data.'],
+'share.imagesMissing':['部分圖片無法載入，輸出仍保留完整讀數。','部分图片无法加载，输出仍保留完整读数。','Some artwork could not load. All readings remain in the output.'],
+'share.failure':['圖片輸出失敗，可直接截取預覽。','图片导出失败，可直接截取预览。','Image export failed. You can capture the preview instead.'],
+'share.summaryComplete':['目前最低貢獻：位置 {positions}；是否值得替換仍需比較候選。','当前最低贡献：位置 {positions}；是否值得替换仍需比较候选。','Lowest contribution: slot {positions}. Replacement value requires a candidate comparison.'],
+'share.summaryIncomplete':['配置資料尚未完整，已知貢獻不代表完整評分。','配置数据尚未完整，已知贡献不代表完整评分。','Loadout data is incomplete. Known contributions are not a complete score.'],
+
 'workspace.resources':['強化資源估算','强化资源估算','Upgrade resource estimate'],
 'workspace.xp':['特級密音筒等值','特级密音筒等值','Premium Sealed Tube equivalents'],
 'workspace.tuners':['調諧器','调谐器','Tuners'],

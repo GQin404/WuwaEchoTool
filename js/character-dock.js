@@ -11,7 +11,7 @@
         return drafts.assess(baseline,draft,current,now);
     }
     function mount(env){
-        if(env.UiView?.state.effective!=='register')return;
+        if(env.UiView?.state.effective!=='register'||new URL(env.location.href).searchParams.get('guide')==='1')return;
         const normalize=RoleViewModel.createAdapter({roleList,costList,suiteAttributeMap,newCharacterModels,getRoleScoreConfig,getScoreDetails,countScores,countMainAttr,countMainAttr2,getRoleEnergyCorrection});
         const i18n=EchoI18n.createBrowser(env),store=RoleDraftStorage.create(localStorage),adoptions=RoleLocalConfiguration.create(localStorage);
         const host=document.createElement('main');host.id='character-dock';document.body.append(host);
@@ -46,7 +46,7 @@
         }
         function roster(){
             const list=records.filter(r=>{const m=models.get(String(r.roleId));return (source==='all'||m.role.source===source)&&i18n.entity('characters',m.role.catalogId,String(m.role.catalogId)).toLowerCase().includes(filter.toLowerCase());});
-            return `<ul class="dock-roster">${list.map(r=>`<li><span>${roleName(models.get(String(r.roleId)))}</span><button type="button" data-dock-role="${esc(r.roleId)}">${t('select')}</button></li>`).join('')}</ul>${list.length?'':'<p>'+t('noMatch')+'</p>'}`;
+            return `<ul class="dock-roster">${list.map(r=>`<li><span>${roleName(models.get(String(r.roleId)))}</span><button type="button" data-dock-role="${esc(r.roleId)}">${t('select')}</button><button type="button" data-delete-role="${esc(r.roleId)}">${tr('role.delete')}</button></li>`).join('')}</ul>${list.length?'':'<p>'+t('noMatch')+'</p>'}`;
         }
         function render(){
             document.title=i18n.t('dock.title');
@@ -61,7 +61,7 @@
                 const own=statuses.filter(x=>x.baseline.role.identity===String(selected.roleId)).sort((a,b)=>b.draft.updatedAt-a.draft.updatedAt).slice(0,1);
                 body=`<div class="dock-stage"><aside class="dock-identity"><p>${t('recent')}</p><h2>${roleName(m)}</h2><p>${tr('role.chain',{chain:m.model.chain})}</p><img src="${asset(Number(m.role.catalogId)===1?'image/register/jinhsi.webp':m.role.portrait)}" alt="${roleName(m)}"><a class="dock-primary" href="${roleUrl(selected)}">${t('continue')}</a></aside><section><h2>${tr('loadout.title')}</h2><p>${t('scale',{max:m.scale.max})}</p><div class="dock-slots">${slots}</div><div class="dock-summary"><span>${tr('summary.score')}</span><strong>${esc(i18n.format.decimal(score))}</strong><span>${tr('state.'+m.summary.status)}</span></div><ul>${m.issues.map(i=>'<li>'+tr('issues.'+i.code,i.params)+'</li>').join('')}</ul>${m.summary.weakestPositions.length?'<p>'+t('weakest',{positions:m.summary.weakestPositions.join(', ')})+'</p>':''}<div class="dock-drafts"><h3>${t('drafts')}</h3>${error==='draftError'?'<p>'+t(error)+'</p>':own.length?'<ul>'+own.map(x=>`<li>${t(x.validity.status==='valid'?(x.adopted?'adopted':'pending'):'invalid',{position:x.draft.targetSlot})} · ${x.validity.status!=='valid'?tr('candidate.'+x.validity.status):''} <a href="${roleUrl(selected,x.validity.status==='valid'?x.draft.id:null)}">${t(x.validity.status==='valid'?'continue':'recompare')}</a></li>`).join('')+'</ul>':'<p>'+t('noDraft')+'</p>'}</div></section></div><details data-dock-picker${open?' open':''}><summary>${t('allRoles',{count:records.length})}</summary><label>${t('search')}<input data-dock-search value="${esc(filter)}"></label><label>${t('source')}<select data-dock-source>${['all','manual','imported'].map(v=>`<option value="${v}"${v===source?' selected':''}>${t(v)}</option>`).join('')}</select></label><div data-dock-roster>${roster()}</div>${actions}</details>`;
             }
-            host.innerHTML=`<header><h1>${t('title')}</h1><a href="register-workspace.html?view=register&mode=library">${tr('nav.echoLibrary')}</a></header>${body}<p><a href="register-workspace.html?view=register&mode=backup">${tr('workspace.backup')}</a> · <a href="register-workspace.html?view=register&mode=compare">${tr('dock.drafts')}</a> · <a href="register-workspace.html?view=register&mode=tools">${tr('nav.tools')}</a></p>`;
+            host.innerHTML=`<header><h1>${t('title')}</h1></header>${body}<p><a href="register-workspace.html?view=register&mode=backup">${tr('workspace.backup')}</a> · <a href="register-workspace.html?view=register&mode=compare">${tr('dock.drafts')}</a> · <a href="register-workspace.html?view=register&mode=tools">${tr('nav.tools')}</a></p>`;
         }
         host.addEventListener('click',async e=>{
             const b=e.target.closest('button');if(!b)return;

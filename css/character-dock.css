@@ -59,3 +59,41 @@ html.dock-page body > .mc-main-page { display:none; }
 html.guide-page body{background:#101718;color:#e2e7e4}.guide-page #character-dock,.guide-page .mc-main-page{display:none!important}#ui-view-choice .guide-options{display:grid;grid-template-columns:1fr 1fr;gap:40px}#ui-view-choice figure{margin:20px 0}#ui-view-choice img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border:1px solid #52605b}#ui-view-choice figcaption{font-size:14px;margin-top:8px}#ui-view-choice li{margin:8px 0}#ui-view-choice .guide-reassurance{border-left:3px solid #a5d2c1;padding-left:20px}#ui-view-controls a{color:inherit;text-decoration:underline}@media(max-width:700px){#ui-view-choice{margin:32px auto;padding:0 20px}#ui-view-choice .guide-options{display:block}}
 
 #ui-view-choice{text-align:left}#ui-view-choice h1{font-size:36px}#ui-view-choice section{display:flex;flex-direction:column}#ui-view-choice section button{align-self:start;margin-top:auto}#ui-view-choice ul{padding-left:22px}
+
+/* 共用 Register 品牌与导航；页面只替换工作区内容。 */
+.register-shell-page body{background:#111718;color:#e7eae5;margin:0}
+#register-shell{box-sizing:border-box;max-width:1600px;margin:auto;padding:24px 48px;display:flex;align-items:center;gap:36px;border-bottom:1px solid #344139;font:14px/1.5 system-ui,sans-serif;position:relative;z-index:25;text-align:left}
+#register-shell a{color:inherit;text-decoration:none}#register-shell a:hover{text-decoration:underline;text-underline-offset:6px}
+.rs-brand,.chooser-brand{display:flex;align-items:center;gap:18px}.rs-brand{flex-shrink:0;font-size:17px;letter-spacing:1px}.rs-brand small,.chooser-brand small{display:block;font-size:10px;letter-spacing:2.6px;margin-top:6px}
+.rs-symbol{display:flex;width:25px;align-items:center;gap:4px;height:38px}.rs-symbol i{display:block;width:2px;height:22px;background:currentColor}.rs-symbol i:nth-child(2){height:34px}.rs-symbol i:nth-child(3){height:17px;align-self:flex-end}
+#register-shell nav{display:flex;align-items:center;gap:24px;flex:1}#register-shell nav a{padding:12px 0;color:#b3beb7}#register-shell nav a[aria-current]{color:#e7eae5;border-bottom:2px solid #9ad5c3}
+.rs-settings{margin-left:auto}.rs-settings summary{cursor:pointer;padding:12px 0}.rs-settings>div{position:absolute;right:48px;top:90%;min-width:230px;background:#192321;padding:24px;border:1px solid #55645d;display:grid;gap:20px}
+#register-shell button,#register-shell select{font:inherit;background:#192321;color:inherit;border:1px solid #6d7e73;padding:8px}#register-shell label{display:flex;align-items:center;justify-content:space-between;gap:16px}
+#register-shell :focus-visible,#ui-view-choice :focus-visible,#classic-interface-switch :focus-visible{outline:2px solid #b3d3c3;outline-offset:5px}
+#classic-interface-switch{display:inline-block;margin-left:20px;font:14px/1.5 system-ui,sans-serif}#classic-interface-switch button{background:transparent;border:1px solid currentColor;color:inherit;padding:6px 12px;cursor:pointer}
+html.guide-page body{background:#111718;color:#e7eae5}.guide-page #character-dock,.guide-page .mc-main-page{display:none!important}
+#ui-view-choice{box-sizing:border-box;min-height:100dvh;max-width:1100px;margin:auto;padding:56px 32px;display:flex;flex-direction:column;justify-content:center;font:16px/1.6 system-ui,sans-serif;text-align:center}
+#ui-view-choice .chooser-brand{justify-content:center;text-align:left;font-size:18px;margin-bottom:24px}#ui-view-choice h1{font:400 32px/1.3 system-ui,sans-serif}
+#ui-view-choice .guide-options{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:32px;align-items:start;text-align:left}
+#ui-view-choice section{display:block;padding:0;border-top:1px solid #65746b}#ui-view-choice .chooser-entry{display:flex;flex-direction:column;align-items:start;gap:18px;padding:28px 0;width:100%;border:0;background:transparent;color:inherit;text-align:left;cursor:pointer;font:inherit}#ui-view-choice .chooser-entry strong{font:400 30px/1.2 Georgia,serif}#ui-view-choice .chooser-entry b{font-weight:500;border-bottom:1px solid #82948a;padding-bottom:6px}
+#ui-view-choice .chooser-preview{max-height:0;visibility:hidden;overflow:hidden;opacity:0;transition:opacity .18s ease}#ui-view-choice section:hover .chooser-preview,#ui-view-choice section:focus-within .chooser-preview{max-height:700px;visibility:visible;opacity:1}
+#ui-view-choice img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;border:0}#ui-view-choice li{margin:6px 0}#ui-view-choice footer{margin-top:32px;color:#b3beb7;font-size:14px}#ui-view-choice select{margin-left:12px;background:#192321;color:inherit;padding:6px;border:1px solid #6d7e73}
+#role-register .rr-breadcrumb{display:flex;flex-wrap:wrap;gap:10px;align-items:center}#role-register .rr-breadcrumb a{padding:0;text-decoration:underline;text-underline-offset:4px}#role-register .rr-breadcrumb a:hover{color:#e7eae5}#role-register .rr-breadcrumb [aria-current]{border:0;color:inherit}
+#register-workspace,#character-dock{max-width:1600px;box-sizing:border-box;padding-left:48px;padding-right:48px}.rw-echo-preview{display:flex;align-items:center;gap:24px;padding:24px 0;border-bottom:1px solid #44524c}.rw-echo-preview img{width:120px;height:120px;object-fit:contain}.rr-role-actions{display:flex;flex-wrap:wrap;gap:16px;margin:18px 0}
+@media(max-width:1099px){
+ #register-shell{padding:20px;gap:16px}#register-shell .rs-brand{font-size:15px}.rs-settings>div{right:20px}
+ #register-shell nav{position:fixed;inset:auto 0 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;background:#172020;padding:12px 12px calc(12px + env(safe-area-inset-bottom));height:calc(96px + env(safe-area-inset-bottom));box-sizing:border-box;border-top:1px solid #52605b}
+ #register-shell nav a{font-size:13px;line-height:1.4;padding:8px 0;overflow-wrap:anywhere;text-align:center}
+ #role-register,#character-dock,#register-workspace{padding-left:20px;padding-right:20px;padding-bottom:calc(124px + env(safe-area-inset-bottom))}
+ .register-shell-page #role-register .rr-analysis-actions,#register-workspace .rw-actions{bottom:calc(96px + env(safe-area-inset-bottom))}
+ .register-shell-page #role-register .rr-candidate-surface[data-phase=select]{bottom:calc(96px + env(safe-area-inset-bottom))}
+}
+@media(max-width:700px){#ui-view-choice{padding:32px 20px}#ui-view-choice .guide-options{grid-template-columns:1fr;gap:28px}#ui-view-choice .chooser-preview{max-height:none;visibility:visible;opacity:1}.rw-echo-preview img{width:90px;height:90px}}
+@media(hover:none){#ui-view-choice .chooser-preview{max-height:none;visibility:visible;opacity:1}}
+@media(prefers-reduced-motion:reduce){#ui-view-choice .chooser-preview{transition:none}}
+.rr-dialog{box-sizing:border-box;max-width:min(720px,calc(100vw - 32px));padding:32px;background:#15201c;color:#e2e8e2;border:1px solid #6d7e73;font:16px/1.6 system-ui,sans-serif;text-align:left}.rr-dialog::backdrop{background:rgb(0 0 0 / .75)}.rr-dialog-actions{display:flex;flex-wrap:wrap;gap:18px;justify-content:flex-end;margin-top:24px}.rr-dialog button{font:inherit;padding:10px 18px;background:transparent;color:inherit;border:1px solid #91a89b;cursor:pointer}.rr-dialog :focus-visible{outline:2px solid #badbc9;outline-offset:4px}.rr-share-dialog{max-width:min(1200px,calc(100vw - 32px));width:1200px}.rr-share-dialog canvas{width:100%;height:auto;display:block}.rr-role-actions button{font:inherit;color:inherit;background:transparent;border:0;border-bottom:1px solid #72877a;padding:8px 0;cursor:pointer}
+/* 预览展开不改变入口的顶部位置，避免 hover 引起反复位移。 */
+@media(min-width:701px){#ui-view-choice{justify-content:flex-start;padding-top:clamp(32px,18vh,180px)}}
+#register-shell .rs-nav-short{display:none}
+@media(max-width:1099px){#register-shell .rs-brand{flex:1;min-width:0;flex-shrink:1}#register-shell .rs-brand>span:last-child{min-width:0}#register-shell .rs-brand small{letter-spacing:1.5px}#register-shell .rs-symbol{flex-shrink:0}#register-shell .rs-nav-full{display:none}#register-shell .rs-nav-short{display:inline}}
+#classic-interface-switch{display:block;margin:20px auto 6px;text-align:center;color:#333}

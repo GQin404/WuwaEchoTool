@@ -6,6 +6,11 @@
     const copy=x=>JSON.parse(JSON.stringify(x));
     function createRole(entry,id){return {roleId:id,isImport:false,level:0,roleListId:entry.id,totalScore:0,name:entry.name,cls:entry.cls,dbCritNum:0,attackNum:0,costList:[]};}
     function createEcho(entry,id){return {costId:id,costListId:entry.id,name:entry.name,type:entry.type,imgCode:entry.imgCode,suite:null,mainAtrri:null,sumScores:0,propertyList:[]};}
+    function removeRole(data,id){
+        const matches=data.role.filter(r=>String(r.roleId)===String(id));
+        if(matches.length!==1)throw Error('IDENTITY');
+        data.role=data.role.filter(r=>String(r.roleId)!==String(id));
+    }
     function validate(data){
         if(!data||Array.isArray(data)||!Array.isArray(data.role)||!Array.isArray(data.unusedEchoes||[]))throw Error('INVALID_DATA');
         function safeKeys(value){if(value&&typeof value==='object'){for(const [key,item]of Object.entries(value)){if(['__proto__','prototype','constructor'].includes(key))throw Error('INVALID_DATA');safeKeys(item);}}}
@@ -51,5 +56,5 @@
         return {load,transact,score,saveEcho,removeEcho,equip};
     }
     function restoreData({json,expectedRaw,readRaw,write}){const incoming=validate(JSON.parse(json));if(readRaw()!==expectedRaw)throw Error('SOURCE_CHANGED');write(copy(incoming));return incoming;}
-    return {createRole,createEcho,validate,create,restoreData};
+    return {createRole,createEcho,removeRole,validate,create,restoreData};
 });

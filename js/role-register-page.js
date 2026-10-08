@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded',function(){
             panel.hidden=freshPanel.hidden;panel.setAttribute('aria-label',freshPanel.getAttribute('aria-label'));
             panel.querySelector('.rr-connector').setAttribute('style',freshPanel.querySelector('.rr-connector').getAttribute('style'));
             panel.querySelector('.rr-analysis-content').innerHTML=freshPanel.querySelector('.rr-analysis-content').innerHTML;
-            for(const selector of ['.rr-top','.rr-context','.rr-identity','.rr-loadout-heading','.rr-row-labels','.rr-rail','.rr-evaluation','.rr-conditions','.rr-announcement','.rr-footer']){
+            for(const selector of ['.rr-context','.rr-identity','.rr-loadout-heading','.rr-row-labels','.rr-rail','.rr-evaluation','.rr-conditions','.rr-announcement','.rr-footer']){
                 const current=host.querySelector(selector),fresh=next.querySelector(selector);
                 current.innerHTML=fresh.innerHTML;
                 if(fresh.hasAttribute('aria-label'))current.setAttribute('aria-label',fresh.getAttribute('aria-label'));
@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded',function(){
             lastRecord=serialized;error=null;render();
         }catch(_){controller=null;error='unreadable';candidateSurface?.invalidate();render();}
     }
+    host.addEventListener('click',event=>{if(event.target.closest('[data-rr-share]')&&controller)RegisterShare.open(controller.snapshot().model,i18n);});
     refresh();
     candidateSurface=RoleCandidateSurface.mount({host,i18n,normalize,getController:()=>controller,refresh,catalog:costList});
     if(controller&&params.has('selectedEcho')){
@@ -103,7 +104,8 @@ document.addEventListener('DOMContentLoaded',function(){
             candidateSurface.invalidate('incompatible');
         }
     });
-    i18n.subscribe(()=>render('[data-rr-locale]'));
+    window.addEventListener('wuwa-locale',event=>{if(i18n.locale!==event.detail)i18n.setLocale(event.detail);});
+    i18n.subscribe(()=>render());
     // 编辑返回、其他标签页更新和页面恢复都从存档重读，不触发写入。
     candidateSurface.restore();
     window.addEventListener('pageshow',()=>refresh());
