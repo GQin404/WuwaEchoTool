@@ -4,8 +4,9 @@
     root.RoleCandidateSurface={mount};
     function mount({host,i18n,normalize,getController,refresh,catalog}){
         const adapter=RoleCandidates.createAdapter(normalize),store=RoleDraftStorage.create(localStorage);
+        const local=RoleLocalConfiguration.create(localStorage);
         const MODEL_VERSION='legacy-scoring-2026-10-08';
-        let state=null,epoch=0,busy=false;
+        let state=null,epoch=0,busy=false,renderTicket=0;
         const uid=()=>crypto.randomUUID();
         const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
         const t=(key,params)=>esc(i18n.t('candidate.'+key,params));
@@ -26,7 +27,10 @@
             if(matches.length!==1)throw Error('source');
             const record=matches[0],conditions=snapshot.model.model;
             const role={...record,ming:conditions.chain,damageMode:conditions.parameters.mode,...Object.fromEntries(['extraEnergy','referenceHealth'].filter(k=>conditions.parameters[k]!=null).map(k=>[k,conditions.parameters[k]]))};
-            const baseline=RoleDraftModel.createBaseline(normalize(role),{id:uid(),createdAt:Date.now(),sourceRevision:await digest(record),modelVersion:MODEL_VERSION});
+            const sourceRevision=await digest(record);
+            const latest=(data()?.role||[]).filter(r=>String(r.roleId)===String(snapshot.model.role.id));
+            if(latest.length!==1||RoleDraftModel.canonical(latest[0])!==RoleDraftModel.canonical(record)||RoleDraftModel.canonical(getController()?.snapshot().model.model)!==RoleDraftModel.canonical(conditions))throw Error('source');
+            const baseline=RoleDraftModel.createBaseline(snapshot.model,{id:uid(),createdAt:Date.now(),sourceRevision,modelVersion:MODEL_VERSION});
             return {baseline,role};
         }
         function focus(){host.querySelector('#rr-candidate-title')?.focus();}
@@ -73,6 +77,41 @@
             return `<div class="rr-candidate-editor"><label>${t('echo')}<select data-rc-catalog><option value="">${t('unset')}</option>${unknown}${catalogOptions}</select></label><p>${tr('loadout.cost',{cost:fields.cost})}</p>${row(fields.mainStat,'main',RoleCandidates.MAIN[fields.cost]||[])}${fields.substats.map((s,i)=>row(s,i,RoleCandidates.SUB)).join('')}<p data-rc-check>${t(eligible().reason)}</p><button type="button" data-rc-create>${t('create')}</button></div>`;
         }
         function render(){
+            if(state?.phase!=='context'){paint();return;}
+            const ticket=++renderTicket,origin=state;
+            state.result=null;paint();
+            current().then(fresh=>{
+                if(ticket!==renderTicket||state!==origin)return;
+                const ctx=origin.context;
+                const saved=local.find(ctx.baseline,ctx.draft);
+                origin.conditions=origin.conditions||saved?.conditions||{};
+                origin.adopted=!!saved;
+                const validity=RoleDraftModel.assess(ctx.baseline,ctx.draft,fresh.baseline,Date.now());
+                const resultKey=RoleDraftModel.canonical({revision:fresh.baseline.sourceRevision,conditions:fresh.baseline.conditions,confirmed:origin.conditions,validity});
+                if(origin.resultKey!==resultKey){
+                    origin.cachedResult=RoleCompare.evaluate({baseline:ctx.baseline,draft:ctx.draft,current:fresh.baseline,role:fresh.role,normalize,conditions:origin.conditions});
+                    origin.resultKey=resultKey;
+                }
+                origin.result=origin.cachedResult;
+                origin.role=fresh.role;
+                paint();
+                if(origin.focusCondition){host.querySelector('[data-rc-condition="'+origin.focusCondition+'"]')?.focus();origin.focusCondition=null;}
+            }).catch(()=>{if(ticket===renderTicket&&state===origin){state={...origin,phase:'error',notice:'source'};paint();}});
+        }
+        const ct=(key,params)=>tr('compare.'+key,params);
+        const label=key=>['score','effective'].includes(key)?ct(key):tr('stats.'+key);
+        function compareMarkup(){
+            const r=state.result;if(!r)return `<p role="status">${ct('checking')}</p>`;
+            const ctx=state.context;
+            const number=(n,unit,delta=false)=>esc(unit==='percent'?(delta?i18n.format.percentagePoint(n):i18n.format.percentage(n,1)):i18n.format.decimal(n,2));
+            const rows=items=>items.map(row=>`<tr><th scope="row">${label(row.key)}</th><td>${number(row.current,row.unit)}</td><td>${number(row.candidate,row.unit)}</td><td>${number(row.delta,row.unit,true)}<small>${ct(row.direction)} · ${ct(row.judgement)}</small></td></tr>`).join('');
+            const table=items=>`<table class="rr-compare-table"><thead><tr><th>${ct('metric')}</th><th>${t('current')}</th><th>${t('candidate')}</th><th>${ct('delta')}</th></tr></thead><tbody>${rows(items)}</tbody></table>`;
+            const trade=kind=>`<div><h5>${ct(kind)}</h5><p>${r[kind].length?r[kind].map(label).join(' · '):ct('none')}</p></div>`;
+            const breakdown=()=>['current','candidate'].map(side=>`<h5>${t(side)}</h5><table class="rr-compare-table"><thead><tr><th>${ct('metric')}</th><th>${tr('analysis.actualValue')}</th><th>${ct('weight')}</th><th>${ct('contribution')}</th></tr></thead><tbody>${(r.breakdown?.[side]||[]).map(s=>`<tr><th scope="row">${stat(s)}</th><td>${value(s)}</td><td>${esc(i18n.format.decimal(s.coefficient))}</td><td>${esc(i18n.format.decimal(s.contribution))}</td></tr>`).join('')}</tbody></table>`).join('');
+            return `<div class="rr-decision"><p>${ct('scope')}</p><h4>${ct('conclusion.'+r.conclusion)}</h4><p>${ct('why.'+r.conclusion)}</p>${r.validity.status!=='valid'?'<p>'+t(r.validity.status)+'</p>':''}<p>${ct('path',{position:ctx.targetSlot})} ${name(ctx.candidate.echo)}</p><p>${ct('limits')}</p>${r.rows.length?`<div class="rr-tradeoffs">${trade('gains')}${trade('losses')}${trade('unknown')}</div>${table(r.rows.filter(r=>r.delta!==0))}<details><summary>${ct('details')}</summary>${table(r.rows.filter(r=>r.delta===0))}<p>${ct('basis')}</p>${breakdown()}</details>`:''}${r.missing.length?'<p>'+ct('conditions')+': '+r.missing.map(k=>ct('need.'+k)).join(' · ')+'</p>':''}${state.showConditions?`<fieldset><legend>${ct('conditions')}</legend>${r.requirements.map(k=>`<label class="rr-compare-condition"><input type="checkbox" data-rc-condition="${k}"${state.conditions[k]?' checked':''}>${ct('condition.'+k)}</label>`).join('')}</fieldset>`:''}<p role="status">${state.adopted&&r.validity.status==='valid'?ct('adopted'):''}</p><button type="button" data-rc-decision${busy||(state.adopted&&r.conclusion==='recommended')?' disabled':''}>${ct('action.'+r.conclusion)}</button></div>`;
+        }
+        function paint(){
+            host.classList?.toggle('rr-comparing',state?.phase==='context');
             host.querySelector('.rr-candidate-surface')?.remove();
             if(!state)return;
             const hidden=host.querySelector('.rr-inline-analysis')?.hidden;
@@ -83,12 +122,38 @@
                 if(state.source==='library')body+=state.rows.length?`<ul class="rr-candidate-list">${state.rows.map(row=>`<li>${summary(row.slot.echo)}<span>${t(row.eligibility.reason)}</span><button type="button" data-rc-pick="${row.key}"${row.eligibility.status==='blocked'?' disabled':''}>${t('select')}</button></li>`).join('')}</ul>`:`<p>${t('empty')}</p>`;
                 else body+=editorMarkup();
             }else if(state.phase==='context'){
-                const ctx=state.context;
-                body=`<p>${t('contextReady')}</p><dl class="rr-compare-context"><dt>${t('current')}</dt><dd>${summary(ctx.currentEcho)}</dd><dt>${t('candidate')}</dt><dd>${summary(ctx.candidate.echo)}</dd></dl><p>${t(ctx.eligibility.status==='incomplete'?'incomplete':'ready')}</p><p>${t('noConclusion')}</p><p>${t('draftId',{id:ctx.draft.id})}</p>`;
+                body=compareMarkup();
             }
             const position=state.position;
             parent.insertAdjacentHTML('beforeend',`<section class="rr-candidate-surface" aria-labelledby="rr-candidate-title"><div class="rr-analysis-heading"><h3 id="rr-candidate-title" tabindex="-1">${t(state.phase==='context'?'contextTitle':'title')}${position?' · '+tr('loadout.slot',{position}):''}</h3><button type="button" data-rc-close>${t('close')}</button></div>${state.baseline?'<p>'+tr('role.chain',{chain:state.baseline.conditions.chain})+' · '+tr('register.mode.'+state.baseline.conditions.mode)+'</p>':''}<p role="status">${state.notice?t(state.notice):''}</p>${body}${state.phase==='error'?'<button type="button" data-rc-restart>'+t('restart')+'</button>':''}</section>`);
             if(busy)parent.querySelectorAll('[data-rc-create],[data-rc-pick],[data-rc-source],[data-rc-stat],[data-rc-catalog]').forEach(b=>b.disabled=true);
+        }
+        async function decision(){
+            if(busy||state?.phase!=='context'||!state.result)return;
+            const status=state.result.conclusion;
+            if(status==='keep-current'){close();return;}
+            if(status==='incompatible'){open();return;}
+            if(status==='needs-condition'){state.showConditions=true;paint();host.querySelector('[data-rc-condition]')?.focus();return;}
+            if(status==='insufficient-data'){
+                const origin=state;
+                if(origin.baseline.slots.some(s=>!s.echo||s.echo.completeness!=='complete')){close();host.querySelector('.rr-footer a')?.focus();return;}
+                state={...origin,phase:'select',source:'clone',fields:RoleCandidates.editor(origin.context.candidate.echo),editorIdentity:uid(),rows:[],context:null};render();return;
+            }
+            const origin=state,ticket=epoch;busy=true;paint();
+            try{
+                const write=async()=>{
+                    const fresh=await current();if(ticket!==epoch||state!==origin)return;
+                    const ctx=origin.context,loaded=store.load();
+                    if(!loaded.ok||!loaded.data.drafts.some(d=>RoleDraftModel.canonical(d)===RoleDraftModel.canonical(ctx.draft)))throw Error('storage');
+                    const result=RoleCompare.evaluate({baseline:ctx.baseline,draft:ctx.draft,current:fresh.baseline,role:fresh.role,normalize,conditions:origin.conditions});
+                    origin.result=result;
+                    if(result.conclusion!=='recommended')return;
+                    const saved=local.adopt(ctx.baseline,ctx.draft,fresh.baseline,origin.conditions,result,Date.now());
+                    if(!saved.ok)throw Error('storage');origin.adopted=true;
+                };
+                if(navigator.locks)await navigator.locks.request(RoleLocalConfiguration.KEY,write);else await write();
+            }catch(_){if(state===origin)origin.notice='storage';}
+            finally{if(state===origin){busy=false;render();}}
         }
         async function enter(slot,scope,source){
             if(busy||!state?.baseline)return;
@@ -150,6 +215,7 @@
         host.addEventListener('click',event=>{
             const b=event.target.closest('button');if(!b)return;
             if(b.hasAttribute('data-rr-candidates'))open();
+            else if(b.hasAttribute('data-rc-decision'))decision();
             else if(b.hasAttribute('data-rc-close'))close();
             else if(b.hasAttribute('data-rc-restart'))open();
             else if(b.hasAttribute('data-rc-source')&&state?.phase==='select'){
@@ -167,7 +233,9 @@
             const p=host.querySelector('[data-rc-check]');if(p)p.textContent=i18n.t('candidate.'+eligible().reason);
         });
         host.addEventListener('change',event=>{
-            const el=event.target;if(!state?.fields||state.phase!=='select')return;
+            const el=event.target;
+            if(el.hasAttribute('data-rc-condition')&&state?.phase==='context'&&!busy){state.conditions[el.dataset.rcCondition]=el.checked;state.focusCondition=el.dataset.rcCondition;render();return;}
+            if(!state?.fields||state.phase!=='select')return;
             if(el.hasAttribute('data-rc-catalog')){state.fields.catalogId=el.value;const entry=catalog.find(e=>String(e.id)===el.value);if(entry)state.fields.cost=Number(entry.type.replace('Cost',''));render();host.querySelector('[data-rc-catalog]')?.focus();}
             else if(el.hasAttribute('data-rc-stat')){
                 const stat=el.dataset.rcStat==='main'?state.fields.mainStat:state.fields.substats[Number(el.dataset.rcStat)];stat[el.dataset.rcField]=el.value;
@@ -177,6 +245,6 @@
         host.addEventListener('keydown',event=>{if(event.key==='Escape'&&state){event.preventDefault();event.stopImmediatePropagation();close();}},true);
         return {render,restore,close,active:()=>!!state||busy,
             invalidate(reason='stale'){if(state){epoch++;busy=false;state={...state,phase:'error',context:null,notice:reason};render();}},
-            getContext(){return state?.phase==='context'?{...state.context,locale:i18n.locale}:null;}};
+            getContext(){return state?.phase==='context'?{...state.context,locale:i18n.locale,result:state.result||null}:null;}};
     }
 })(typeof globalThis!=='undefined'?globalThis:this);

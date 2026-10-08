@@ -51,7 +51,7 @@ async function harness(imported=false,locale='en'){
     const host={addEventListener:(type,fn)=>{events.set(type,[...(events.get(type)||[]),fn]);},querySelector:selector=>selector==='.rr-candidate-surface'?{remove(){markup='';}}:selector==='.rr-analysis-content'||selector==='.rr-workspace'?parent:selector==='.rr-inline-analysis'?{hidden:!c.snapshot().selection}:selector==='[data-rc-check]'?{set textContent(_) {}}:{focus(){}}};
     const location={href:'http://localhost/mccost.html?roleid=101&view=register'};
     const i18n=I18n.create({language:locale});
-    const runtime={RoleCandidates:candidates,RoleDraftModel:drafts,RoleDraftStorage:storageModule,localStorage:{getItem:k=>map.get(k)??null,setItem:(k,v)=>{writes.push(k);map.set(k,v);}},crypto:webcrypto,TextEncoder,URL,Date,navigator:{locks:{request:async(_,fn)=>fn()}},location,history:{replaceState:(_,__,url)=>{location.href=new URL(url,location.href).href;}}};
+    const runtime={RoleCompare:require('../js/role-compare.js'),RoleLocalConfiguration:require('../js/role-local-configuration.js'),RoleCandidates:candidates,RoleDraftModel:drafts,RoleDraftStorage:storageModule,localStorage:{getItem:k=>map.get(k)??null,setItem:(k,v)=>{writes.push(k);map.set(k,v);}},crypto:webcrypto,TextEncoder,URL,Date,navigator:{locks:{request:async(_,fn)=>fn()}},location,history:{replaceState:(_,__,url)=>{location.href=new URL(url,location.href).href;}}};
     vm.runInNewContext(read('role-candidate-surface.js'),runtime);
     surface=runtime.RoleCandidateSurface.mount({host,i18n,normalize,getController:()=>c,catalog:env.api.costList,refresh:()=>{c.refresh(JSON.parse(map.get('mcData')).role[0]);}});
     async function settle(){for(let n=0;n<8;n++)await new Promise(resolve=>setTimeout(resolve,2));}
@@ -64,7 +64,8 @@ async function harness(imported=false,locale='en'){
         const dataset={...extra};if(attr==='data-rc-stat')dataset.rcStat=extra.rcStat;
         const target={value,dataset,hasAttribute:k=>k===attr};for(const fn of events.get('change')||[])fn({target});
     }
-    return {map,writes,c,i18n,location,surface,click,inputValue,change,settle,runtime,get markup(){return markup;}};
+    function confirm(key){for(const fn of events.get('change')||[])fn({target:{dataset:{rcCondition:key},checked:true,hasAttribute:k=>k==='data-rc-condition'}});}
+    return {map,writes,c,i18n,location,surface,click,inputValue,change,confirm,settle,runtime,get markup(){return markup;}};
 }
 (async()=>{
     for(const imported of [false,true])for(const locale of ['zh-TW','zh-CN','en']){
@@ -98,6 +99,20 @@ async function harness(imported=false,locale='en'){
     await cancelled.click('data-rr-candidates');await cancelled.click('data-rc-source','clone');await cancelled.click('data-rc-create');
     cancelled.surface.close();await release();await cancelled.settle();assert.equal(cancelled.writes.length,0);assert.equal(cancelled.surface.getContext(),null);
     const keys=Object.keys(dictionary.en).filter(k=>k.startsWith('candidate.'));
+    for(const locale of ['zh-TW','zh-CN','en']){
+        const h=await harness(false,locale),saved=h.map.get('mcData');
+        await h.click('data-rr-candidates');await h.click('data-rc-source','clone');h.inputValue(0,'10.5');await h.click('data-rc-create');await h.settle();
+        assert.equal(h.surface.getContext().result.conclusion,'needs-condition');
+        await h.click('data-rc-decision');h.confirm('equipment');await h.settle();
+        assert.equal(h.surface.getContext().result.conclusion,'recommended');
+        await h.click('data-rc-decision');await h.settle();assert.ok(h.markup.includes(h.i18n.t('compare.adopted')));
+        await h.surface.restore();await h.settle();assert.ok(h.markup.includes(h.i18n.t('compare.adopted')));
+        h.i18n.setLocale('en');h.surface.render();await h.settle();assert.equal(h.surface.getContext().result.conclusion,'recommended');
+        const changed=JSON.parse(saved);changed.role[0].costList[2].propertyList[0].value='9.3%';h.map.set('mcData',JSON.stringify(changed));
+        h.surface.render();await h.settle();assert.equal(h.surface.getContext().result.conclusion,'incompatible');
+        assert.ok(!h.markup.includes(h.i18n.t('compare.adopted')));
+        assert.ok(h.writes.every(k=>k!== 'mcData'));
+    }
     for(const locale of ['zh-TW','zh-CN','en'])for(const key of keys)assert.ok(Object.hasOwn(dictionary[locale],key));
     console.log('PASS: all five slots; manual/import and three locales; library/copy adapters, edited value snapshot, close/return, draft storage isolation, refresh revalidation, stale/incompatible rejection, incomplete without conclusions and immutable contexts.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

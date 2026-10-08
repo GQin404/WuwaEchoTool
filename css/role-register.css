@@ -76,3 +76,20 @@ html.role-register-page{background:#111718;color-scheme:dark}
 #role-register .rr-compare-context{display:grid;grid-template-columns:110px 1fr;gap:16px}
 #role-register .rr-compare-context dd{display:flex;flex-wrap:wrap;gap:16px;margin:0}
 #role-register .rr-candidate-surface :focus-visible{outline:2px solid currentColor;outline-offset:4px}
+/* 比较沿槽位分析向下延伸，使用共同列而不是独立数据卡片。 */
+#role-register .rr-decision { margin-top: 24px; }
+#role-register .rr-decision h4 { font-size: 26px; line-height: 1.35; margin: 12px 0; }
+#role-register .rr-decision p { max-width: 90ch; line-height: 1.65; overflow-wrap: anywhere; }
+#role-register .rr-tradeoffs { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; border-block: 1px solid #42464a; padding: 16px 0; }
+#role-register .rr-tradeoffs h5 { margin: 0; font-size: 16px; }
+#role-register .rr-compare-table { width: 100%; border-collapse: collapse; table-layout: fixed; margin: 20px 0; }
+#role-register .rr-compare-table th, #role-register .rr-compare-table td { text-align: right; padding: 12px 10px; border-bottom: 1px solid #34383b; font-variant-numeric: tabular-nums; vertical-align: top; overflow-wrap: anywhere; }
+#role-register .rr-compare-table th:first-child { text-align: left; width: 30%; }
+#role-register .rr-compare-table small { display: block; margin-top: 6px; line-height: 1.5; }
+#role-register .rr-compare-condition { display: flex; gap: 12px; align-items: baseline; margin: 14px 0; line-height: 1.6; }
+#role-register .rr-decision fieldset { border: 0; border-top: 1px solid #42464a; margin: 24px 0; padding: 18px 0; }
+#role-register .rr-decision summary { cursor: pointer; padding: 12px 0; }
+#role-register.rr-comparing .rr-analysis-content > .rr-substats,
+#role-register.rr-comparing .rr-analysis-content > .rr-analysis-main,
+#role-register.rr-comparing .rr-analysis-content > .rr-analysis-actions,
+#role-register.rr-comparing .rr-analysis-content > p { display: none; }
