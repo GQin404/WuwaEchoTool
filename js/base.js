@@ -7218,7 +7218,8 @@ function setupRoleMechanics(role, onChange) {
 }
 
 //传入词条根据角色自动计算分数,ct词条对象,role角色对象，return分数
-function countScores(ct, role) {
+// Pure calculation details for read-only consumers. Keep the legacy rounded API below.
+function getScoreDetails(ct, role) {
     if (role != null && ct != null) {
         const {rule: curRule, weights: ruleType} = getRoleScoreConfig(role);
         //先确定词条系数
@@ -7284,11 +7285,16 @@ function countScores(ct, role) {
         //先将百分号去除
         let val = ct.value.replace("%", "");
         let score = parseFloat(val) * xs * 100 / ruleType.maxscore;
-        return score.toFixed(2);
-    } else {
-        alert("异常：数据关联角色失败。");
-        return 0;
+        return {coefficient: xs, rawScore: score, score: score.toFixed(2)};
     }
+    return null;
+}
+
+function countScores(ct, role) {
+    const details = getScoreDetails(ct, role);
+    if (details) return details.score;
+    alert("异常：数据关联角色失败。");
+    return 0;
 }
 
 //计分器-传入一个声骸计算返回其总得分-cost声骸对象
