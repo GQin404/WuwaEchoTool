@@ -1,5 +1,7 @@
 # Phase 1 / checkpoint 1A: role view model
 
+> 1A.5 更新：衍生契约现为 schemaVersion:2。属性公开字段改为稳定 `key`，单位为 `percent` / `flat`；原 `property` / `raw` 移入 `legacy`。角色、声骸和套装使用 `nameKey`，原名称保留于 `legacy.name`；模型原始配置改为 `legacyConfiguration`；issues 使用 `{code, params}`。浏览器必须先加载 `stat-keys.js`，可注入 `suiteAttributeMap` 解析已有套装 ID。详细规则见 [i18n-foundation.md](i18n-foundation.md)。以下保留 1A 的计算与边界说明，字段名称以本段及最新代码为准。
+
 Status: data layer only. No page loads this module yet. No HTML, CSS, navigation, selection or expand/collapse events are changed.
 
 ## API and boundaries

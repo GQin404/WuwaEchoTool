@@ -1,14 +1,14 @@
-/* Pure data adapter. No DOM, storage, selection state, or automatic initialization. */
+/* 纯数据转换层，不访问 DOM、存储或选择状态，也不自动初始化。 */
 (function (root, factory) {
-    if (typeof module === 'object' && module.exports) module.exports = factory();
-    else root.RoleViewModel = factory();
-})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+    if (typeof module === 'object' && module.exports) module.exports = factory(require('./stat-keys.js'));
+    else root.RoleViewModel = factory(root.StatKeys);
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (statKeys) {
     'use strict';
     const copy = value => value == null ? null : JSON.parse(JSON.stringify(value));
     const round = value => Number(value.toFixed(2));
     const percentNames = new Set(['暴击','暴伤','大攻击','大生命','大防御','共鸣效率','属伤','治疗','普攻伤害','重击伤害','技能伤害','解放伤害','导电伤害','衍射伤害','湮灭伤害','气动伤害','热熔伤害','冷凝伤害']);
     const flatNames = new Set(['小攻击','小生命','小防御','生命']);
-    // These are the manual main-stat strings explicitly understood by countMainAttr.
+    // 只接受 countMainAttr 明确支持的旧版主词条格式。
     const manualMains = new Set(['暴击22%','暴击22.0%','暴伤44%','暴伤44.0%','生命33%','攻击力33%','防御41.8%','治疗26.4%','攻击力30%','属伤30%','生命30%','共鸣效率32%','防御38%','攻击力18%','攻击18%','生命22.8%','防御18%', ...['导电','衍射','湮灭','气动','热熔','冷凝'].map(x=>x+'伤害30%')]);
     function numeric(value) {
         if (typeof value !== 'string' && typeof value !== 'number') return null;
@@ -38,7 +38,7 @@
         }
         return function normalizeRole(input) {
             if (!input || typeof input !== 'object' || Array.isArray(input)) throw new TypeError('Expected a role record');
-            // Legacy calculators receive a detached copy, never the caller's record.
+            // 旧计算入口只接收副本，不能修改调用方的存档。
             const role = copy(input), issues = [];
             const master = (api.roleList || []).find(x=>String(x.id)===String(role.roleListId));
             let config = null;
@@ -56,7 +56,7 @@
             function withContribution(s) {
                 let detail=null;
                 if (config && s.status==='valid') {
-                    try { detail=api.getScoreDetails({property:s.property,value:String(s.value)+(s.unit==='%'?'%':'')},role); } catch (_) { /* Invalid model is unavailable, not zero. */ }
+                    try { detail=api.getScoreDetails({property:s.property,value:String(s.value)+(s.unit==='%'?'%':'')},role); } catch (_) { /* 模型异常表示无法计算，不等于零分。 */ }
                 }
                 const valid=detail&&Number.isFinite(detail.rawScore)&&Number.isFinite(detail.coefficient)&&Number.isFinite(Number(detail.score));
                 return {...s,contribution:valid?Number(detail.score):null,rawContribution:valid?detail.rawScore:null,coefficient:valid?detail.coefficient:null,
@@ -101,7 +101,7 @@
                     effectiveCount:validWords?substats.filter(x=>x.rawContribution>0).length:null,
                     effectiveScope:'positive-model-contribution-before-loadout-correction',
                     score:{value:score,mainAndFixed:mainContribution,substats:subContribution,cached:numeric(source.sumScores),scope:'role-score-contribution'},
-                    // No level, set identity, active/main echo or cross-import identity is inferred.
+                    // 不推测等级、套装身份、主声骸或跨导入身份。
                     energy:main.status==='valid'&&validWords ? (main.property==='共鸣效率'?main.value:0)+substats.filter(x=>x.property==='共鸣效率').reduce((sum,s)=>sum+s.value,0):null
                 }};
             });
@@ -114,8 +114,8 @@
             const correction=complete&&energy!==null?calculate(()=>api.getRoleEnergyCorrection(role,energy)):null;
             const score=correction!==null?round(knownContribution+correction):null;
             const values=echoes.map(e=>e.score.value).filter(x=>x!==null);
-            return {
-                schemaVersion:1,
+            const result = {
+                schemaVersion:2,
                 role:{id:role.roleId??null,catalogId:role.roleListId??null,name:role.name||master?.name||null,source:role.isImport===true?'imported':'manual',level:numeric(role.level),portrait:master?.cls?'image/characters/'+master.cls.replace('mcr-','')+'.png':null},
                 model:{status:config?'available':'unavailable',chain:Math.max(0,Math.min(6,parseInt(role.ming)||0)),requestedMode:role.damageMode??null,extraEnergy:role.extraEnergy??null,configuration:copy(config)},
                 slots,
@@ -124,6 +124,28 @@
                     weakestPositions:complete&&values.length===5?slots.filter(s=>s.echo.score.value===Math.min(...values)).map(s=>s.position):[]},
                 issues
             };
+            // 中文仅保留在 legacy 审计数据中，公开标识使用稳定 key。
+            function publicStat(s) {
+                const {property,raw,unit,...rest}=s;
+                return {...rest,key:statKeys.fromLegacy(property),unit:unit==='%'?'percent':unit,legacy:{property,raw}};
+            }
+            const {name:roleName,...identity}=result.role;
+            result.role={...identity,nameKey:identity.catalogId==null?null:'characters.'+identity.catalogId,legacy:{name:roleName}};
+            result.model.legacyConfiguration=result.model.configuration;
+            delete result.model.configuration;
+            result.slots.forEach(slot=>{
+                if(!slot.echo)return;
+                const echo=slot.echo;
+                echo.nameKey=echo.catalogId==null?null:'echoes.'+echo.catalogId;
+                echo.legacy={name:echo.name};delete echo.name;
+                const suiteId=api.suiteAttributeMap?.[echo.suite.name]??null;
+                echo.suite={id:suiteId,nameKey:suiteId===null?null:'sets.'+suiteId,icon:echo.suite.icon,legacy:{name:echo.suite.name}};
+                echo.mainStat=publicStat(echo.mainStat);
+                echo.substats=echo.substats.map(publicStat);
+            });
+            result.summary.substatTotals=result.summary.substatTotals.map(publicStat);
+            result.issues=result.issues.map(({code,...params})=>({code,params}));
+            return result;
         };
     }
     return {createAdapter};

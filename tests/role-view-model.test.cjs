@@ -20,7 +20,7 @@ function fixture(id=1, imported=false) {
 }
 const input=freeze(fixture()), before=JSON.stringify(input), out=normalize(input);
 assert.equal(JSON.stringify(input),before);
-assert.deepEqual(out.slots.map(s=>s.echo.id),[500,501,502,503,504]); // Deliberately not Cost sorted.
+assert.deepEqual(out.slots.map(s=>s.echo.id),[500,501,502,503,504]); // 故意使用非 Cost 排序的数据，验证原顺序保持不变。
 assert.equal(out.slots.length,5);
 assert.equal(out.summary.status,'complete');
 assert.notEqual(out.summary.score,999);
@@ -28,16 +28,16 @@ assert.equal(out.summary.cachedScore,999);
 assert.equal(out.slots[0].echo.score.cached,999);
 assert.equal(out.scale.shared,true);
 assert.equal(out.scale.scope,'role-score-contribution');
-assert.equal(out.slots[0].echo.mainStat.property,'大攻击');
-assert.equal(out.slots[0].echo.mainStat.unit,'%');
+assert.equal(out.slots[0].echo.mainStat.key,'atk_percent');
+assert.equal(out.slots[0].echo.mainStat.unit,'percent');
 assert.equal(out.slots[0].echo.substats[4].unit,'flat');
-assert.equal(out.slots[0].echo.suite.name,'光套');
-assert.equal(out.summary.substatTotals.find(s=>s.property==='共鸣效率').value,42);
-assert.deepEqual(normalize(input),out); // Repeatable and independent of a selected slot.
-out.slots[0].echo.substats[0].raw.value='changed';
-out.model.configuration.weights.maxscore=-1;
+assert.equal(out.slots[0].echo.suite.legacy.name,'光套');
+assert.equal(out.summary.substatTotals.find(s=>s.key==='resonance_efficiency').value,42);
+assert.deepEqual(normalize(input),out); // 结果可重复，不依赖选中的槽位。
+out.slots[0].echo.substats[0].legacy.raw.value='changed';
+out.model.legacyConfiguration.weights.maxscore=-1;
 assert.equal(JSON.stringify(input),before);
-assert.ok(normalize(input).model.configuration.weights.maxscore>0);
+assert.ok(normalize(input).model.legacyConfiguration.weights.maxscore>0);
 
 let parityCases=0;
 for(const id of [1,49,51,52,53,...api.newCharacterModels.ids]) {
@@ -55,7 +55,7 @@ for(const id of [1,49,51,52,53,...api.newCharacterModels.ids]) {
             sum+=api.getRoleEnergyCorrection(manual,74);
             near(a.summary.score,sum);
         }
-        assert.equal(b.slots[0].echo.suite.name,null);
+        assert.equal(b.slots[0].echo.suite.legacy.name,null);
         parityCases++;
     }
 }
@@ -95,8 +95,8 @@ const badCost=fixture();badCost.costList[0].type='Cost9';assert.equal(normalize(
 const highCost=fixture();highCost.costList[0].type='Cost4';assert.ok(normalize(highCost).issues.some(x=>x.code==='cost-limit-exceeded'));
 assert.equal(normalize({}).summary.score,null);
 assert.equal(normalize({roleListId:1,costList:[]}).summary.score,null);
-// Browser export works without DOM or loading any UI script.
-const browser={};Object.defineProperty(browser,'document',{get:forbidden});Object.defineProperty(browser,'localStorage',{get:forbidden});
+// 浏览器导出不依赖 DOM 或任何 UI 脚本。
+const browser={StatKeys:require('../js/stat-keys.js')};Object.defineProperty(browser,'document',{get:forbidden});Object.defineProperty(browser,'localStorage',{get:forbidden});
 vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../js/role-view-model.js'),'utf8'),browser);
 assert.equal(typeof browser.RoleViewModel.createAdapter,'function');
 console.log(`PASS: ${parityCases} real-model manual/import pairs; immutable inputs, stable slots, stale-cache replacement, missing/invalid data, unit separation and DOM/storage-free browser export.`);
