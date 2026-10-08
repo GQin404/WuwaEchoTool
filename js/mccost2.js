@@ -68,7 +68,7 @@ $(function () {
                         //第一次进，少属性导致报错
                     }
                     //开始初始化声骸列表
-                    randerCostList(curRole.costList);
+                    randerCostList(curRole.costList, false);
                 }
             });
         } else {
@@ -248,12 +248,12 @@ $(function () {
 });
 
 //初始化声骸列表list-声骸列表
-function randerCostList(list) {
+function randerCostList(list, persist = true) {
     // 切换模态会重新渲染，汇总值必须从零开始。
     fcthz.forEach(item => { item.property = 0; });
     if ([49, 51, 52, 53, ...newCharacterModels.ids].includes(Number(curRole.roleListId))) {
         recalculateMechanicRole(curRole);
-        saveDataToCache(curData);
+        if (persist) saveDataToCache(curData);
     }
     if (list != null && typeof (list) != "undefined" && list.length > 0) {
         let ress = ""

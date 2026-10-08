@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded',function(){
     const normalize=RoleViewModel.createAdapter({roleList,costList,suiteAttributeMap,newCharacterModels,getRoleScoreConfig,getScoreDetails,countScores,countMainAttr,countMainAttr2,getRoleEnergyCorrection});
     const host=document.createElement('div');host.id='role-register';document.body.append(host);
     const url=new URL(location.href),params=url.searchParams,id=params.get('roleid');
-    const legacy=new URL(url);legacy.searchParams.delete('view');legacy.searchParams.delete('selectedPosition');legacy.searchParams.delete('selectedEcho');
+    const legacy=new URL(url);legacy.searchParams.set('view','classic');legacy.searchParams.delete('selectedPosition');legacy.searchParams.delete('selectedEcho');
     legacy.searchParams.delete('draft');
     let controller=null,error=null,lastRecord=null,candidateSurface=null;
     const motion=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded',function(){
         }
     });
     host.addEventListener('change',event=>{
-        if(event.target.matches('[data-rr-locale]'))i18n.setLocale(event.target.value);
+        if(event.target.matches('[data-rr-locale]')){i18n.setLocale(event.target.value);if(window.dispatchEvent)window.dispatchEvent(new CustomEvent('wuwa-locale',{detail:event.target.value}));}
         else if(event.target.matches('[data-rr-model]')&&controller){
             const field=event.target.dataset.rrModel;controller.updateModel(field,event.target.value);render('[data-rr-model="'+field+'"]');
             candidateSurface.invalidate('incompatible');

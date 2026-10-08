@@ -1,0 +1,41 @@
+/* 入口使用角色锚点、连续配置带和分隔线，不使用角色卡片网格。 */
+html.dock-page body { background:#101718; color:#e2e7e4; }
+html.dock-page body > .mc-main-page { display:none; }
+#ui-view-controls { display:flex; flex-wrap:wrap; align-items:center; gap:12px; padding:10px 24px; background:#172020; color:#dce2df; font:14px/1.5 system-ui,sans-serif; }
+#ui-view-controls button, #ui-view-choice button, #character-dock button, #character-dock a { cursor:pointer; }
+#ui-view-controls button { background:transparent; color:inherit; border:0; border-bottom:1px solid #74847e; padding:6px 10px; }
+#ui-view-controls button[aria-pressed=true] { border-bottom:3px solid #a5d2c1; }
+#ui-view-controls label { margin:0 0 0 auto; }
+#ui-view-controls select { margin-left:12px; }
+#ui-view-controls p { flex-basis:100%; margin:0; }
+#ui-view-choice { max-width:1000px; margin:64px auto; padding:0 32px; font:17px/1.65 system-ui,sans-serif; }
+#ui-view-choice section { padding:28px 0; border-top:1px solid #52605b; }
+#ui-view-choice button,#character-dock button { padding:10px 18px; color:inherit; background:transparent; border:1px solid #72817a; }
+#character-dock { max-width:1440px; margin:auto; padding:40px 48px; font:16px/1.6 system-ui,sans-serif; text-align:left; }
+#character-dock header { display:flex; align-items:baseline; justify-content:space-between; gap:24px; border-bottom:1px solid #48534e; padding-bottom:20px; }
+#character-dock h1 { font-size:32px; }
+#character-dock .dock-stage { display:grid; grid-template-columns:250px minmax(0,1fr); gap:44px; margin:40px 0; }
+#character-dock .dock-identity h2 { font-family:Georgia,serif; font-size:44px; }
+#character-dock .dock-identity img { width:100%; height:320px; object-fit:contain; object-position:bottom; }
+#character-dock .dock-slots { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); border-bottom:1px solid #76827d; gap:16px; padding:16px 0 24px; }
+#character-dock .dock-slot { min-width:0; }
+#character-dock .dock-slot img { height:100px; width:100%; object-fit:contain; }
+#character-dock .dock-slot h3 { font-size:16px; min-height:3.2em; overflow-wrap:anywhere; }
+#character-dock .dock-slot p { min-height:3.2em; margin:8px 0; }
+#character-dock .dock-slot strong { font-variant-numeric:tabular-nums; font-size:24px; }
+#character-dock .dock-scale { height:10px; border-bottom:1px solid #64756e; }
+#character-dock .dock-scale i { display:block; height:3px; background:#ccd7d2; }
+#character-dock .dock-summary { display:flex; flex-wrap:wrap; align-items:baseline; gap:24px; padding:24px 0; }
+#character-dock .dock-summary strong { font-size:36px; }
+#character-dock a { color:#c0d7cb; text-decoration:underline; text-underline-offset:5px; }
+#character-dock .dock-primary { display:inline-block; padding:12px 0; font-size:20px; }
+#character-dock .dock-drafts, #character-dock details { padding:20px 0; border-top:1px solid #48534e; }
+#character-dock .dock-drafts li { margin:14px 0; }
+#character-dock details { margin-top:24px; }
+#character-dock summary { cursor:pointer; font-weight:600; }
+#character-dock .dock-roster { list-style:none; padding:0; }
+#character-dock .dock-roster li { display:flex; justify-content:space-between; gap:24px; border-bottom:1px solid #36413c; padding:14px 0; }
+#character-dock input,#character-dock select,#character-dock textarea { background:#192320; color:inherit; border:1px solid #72817a; padding:8px; max-width:100%; }
+#character-dock textarea { display:block; width:100%; min-height:140px; margin:16px 0; }
+#character-dock label { margin:20px 20px 8px 0; }
+#character-dock :focus-visible,#ui-view-controls :focus-visible,#ui-view-choice :focus-visible { outline:2px solid #d9ede2; outline-offset:4px; }

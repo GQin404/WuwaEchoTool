@@ -19,7 +19,13 @@
             loaded.data.items=loaded.data.items.filter(i=>i.draftId!==d.id);loaded.data.items.push(item);
             try{storage.setItem(KEY,JSON.stringify(loaded.data));return {ok:true};}catch(_){return {ok:false};}
         }
-        return {load,find,adopt};
+        function exportData(){const result=load();return result.ok?{ok:true,json:JSON.stringify(result.data)}:result;}
+        function restore(json){
+            // 先用相同校验器检查导入副本，损坏或未知版本不能覆盖现有记录。
+            const incoming=create({getItem:()=>json}).load();if(!incoming.ok||!load().ok)return {ok:false};
+            try{storage.setItem(KEY,JSON.stringify(incoming.data));return {ok:true};}catch(_){return {ok:false};}
+        }
+        return {load,find,adopt,exportData,restore};
     }
     return {KEY,create};
 });

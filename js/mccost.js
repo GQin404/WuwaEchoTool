@@ -56,7 +56,7 @@ $(function () {
                         $("#mc-mzs").html(item.ming);
                     }
                     //开始初始化声骸列表
-                    randerCostList(curRole.costList);
+                    randerCostList(curRole.costList, false);
                 }
             });
         } else {
@@ -253,7 +253,7 @@ $(function () {
 
     //点击跳转到声骸编辑页
     $(".mc-cost-box").on("click", ".mc-cost-list", function () {
-        window.open("./costedit.html?roleid=" + roleid + "&costid=" + $(this).attr("data-id"), "_self");
+        window.open("./costedit.html?view=classic&roleid=" + roleid + "&costid=" + $(this).attr("data-id"), "_self");
     });
     if (getQueryString("registerAdd") === "1") $("#mc-addcost").modal("show");
     //重新过滤Cost
@@ -308,7 +308,7 @@ function loadCost(cst) {
 }
 
 //初始化声骸列表list-声骸列表
-function randerCostList(list) {
+function randerCostList(list, persist = true) {
     fcthz = [
         {"name": "暴击", "property": 0},
         {"name": "暴伤", "property": 0},
@@ -325,7 +325,7 @@ function randerCostList(list) {
         {"name": "小防御", "property": 0}
     ];
     //对角色声骸得分及角色总分进行校准
-    list = scoreAdjust();
+    list = scoreAdjust(persist);
     if (list != null && list.length > 0) {
         let ress = ""
         let ctz = "";
@@ -487,7 +487,7 @@ function byzt(score) {
 }
 
 //对角色声骸得分及角色总分进行校准-返回声骸list
-function scoreAdjust() {
+function scoreAdjust(persist = true) {
     // 新版的新增入口只读取旧配置，避免初始化时排序或回写缓存评分。
     if (getQueryString("registerAdd") === "1") return curRole.costList;
     let shzf = 0;//单个声骸总分
@@ -530,7 +530,7 @@ function scoreAdjust() {
         curData.role.forEach((roles, index) => {
             if (roles.roleId == curRole.roleId) {
                 curData.role[index] = curRole;
-                saveDataToCache(curData);
+                if (persist) saveDataToCache(curData);
             }
         });
     }

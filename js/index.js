@@ -3,6 +3,8 @@ var currentRole = 0;//选择的角色ID
 let curData;//当前在操作的数据JSON
 
 $(function () {
+    // 首次选择和 Dock 不初始化旧页面，避免只读导航写入空存档或弹出旧设置。
+    if (window.UiView && window.UiView.state.effective !== 'classic') return;
     //开始从本地缓存查找是否存在保存的数据
     curData = getDataFromCache("mcData");
     if (curData == null || typeof (curData) === "undefined") {
@@ -42,7 +44,7 @@ $(function () {
             }
         } else {
             //从未设置过，进行询问
-            $("#mc-import-setting").modal("show");
+            if (new URLSearchParams(location.search).get('action') !== 'create') $("#mc-import-setting").modal("show");
             $("#box001").removeClass("mc-hide");
             $("#box002").addClass("mc-hide");
         }
@@ -356,9 +358,9 @@ $(function () {
         let roleid = $(this).find(".mc-role-delete").attr("data-id");
         //判断是否是导入的角色，如果是则跳转到只读页面
         if ($(this).attr("data-readonly") === "true") {
-            window.open("./mccost-readonly.html?roleid=" + roleid, "_self");
+            window.open("./mccost-readonly.html?view=classic&roleid=" + roleid, "_self");
         } else {
-            window.open("./mccost.html?roleid=" + roleid, "_self");
+            window.open("./mccost.html?view=classic&roleid=" + roleid, "_self");
         }
     }).on("click", ".mc-role-delete", function (event) {
         event.preventDefault();

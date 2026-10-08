@@ -68,7 +68,7 @@
         const url=new URLSearchParams({roleid:String(roleId)});
         if(params.get('returnRegister')==='1'){
             url.set('view','register');url.set('selectedPosition',params.get('rrPosition')||'');url.set('selectedEcho',String(echoId));
-        }
+        }else if(params.get('view')==='classic')url.set('view','classic');
         return './mccost.html?'+url;
     }
     return {create,editorReturn};
