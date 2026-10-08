@@ -64,3 +64,15 @@ html.role-register-page{background:#111718;color-scheme:dark}
 @media(prefers-reduced-motion:reduce){#role-register .rr-connector{transition:none}}
 
 #role-register .rr-model-note.rr-changed{border-color:var(--rr-mint);color:var(--rr-mint)}
+#role-register .rr-candidate-surface{margin-top:32px;padding:24px 0;border-top:2px solid var(--rr-line)}
+#role-register .rr-candidate-surface nav{display:flex;gap:24px;margin:20px 0}
+#role-register .rr-candidate-surface button[aria-pressed="true"]{border-bottom:3px solid currentColor;font-weight:700}
+#role-register .rr-candidate-list{padding:0;list-style:none}
+#role-register .rr-candidate-list li{display:grid;grid-template-columns:1.2fr .4fr 1fr 2fr 1fr auto;gap:16px;align-items:start;padding:20px 0;border-bottom:1px solid var(--rr-line);overflow-wrap:anywhere}
+#role-register .rr-candidate-editor{max-width:760px}
+#role-register .rr-candidate-stat{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px;align-items:end;margin:16px 0}
+#role-register .rr-candidate-editor label{display:flex;flex-direction:column;gap:8px}
+#role-register .rr-candidate-editor input,#role-register .rr-candidate-editor select{min-width:0;width:100%;background:var(--rr-bg);color:var(--rr-ink);border:1px solid var(--rr-line);padding:8px}
+#role-register .rr-compare-context{display:grid;grid-template-columns:110px 1fr;gap:16px}
+#role-register .rr-compare-context dd{display:flex;flex-wrap:wrap;gap:16px;margin:0}
+#role-register .rr-candidate-surface :focus-visible{outline:2px solid currentColor;outline-offset:4px}

@@ -53,6 +53,8 @@ for(const input of [manual,imported]){
     const doc={documentElement:{},addEventListener:(event,fn)=>{ready=fn;},createElement:()=>host,body:{append(){}},set title(v){title=v;}};
     const location={href:'http://localhost/mccost.html?view=register&roleid='+input.roleId,search:'?view=register&roleid='+input.roleId};
     const env={...context.api,document:doc,location,localStorage:storage,URL,URLSearchParams,RoleViewModel:{createAdapter},RoleRegisterRenderer:renderer,RoleRegisterController:require('../js/role-register-controller.js'),EchoI18n:i18n};env.window={RoleRegisterMode:true,addEventListener(){},document:doc,location,localStorage:storage,navigator:{language:'en'}};
+    // 候选界面在独立测试中覆盖；本例只验证角色入口与语言写入边界。
+    env.RoleCandidateSurface={mount:()=>({render(){},restore(){},invalidate(){}})};
     vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../js/role-register-page.js'),'utf8'),env);ready();
     assert.equal(writes.length,0);assert.ok(contents.includes('rr-workspace'));assert.ok(title.includes('Character'));
     change({target:{matches:()=>true,value:'zh-CN'}});
