@@ -11,7 +11,7 @@ vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../js/base.js'),'utf8')+
 const normalize=createAdapter(context.api);
 function fixture(imported=false){
     const mains=[['暴击22%','暴击','22%'],['属伤30%','属伤','30%'],['共鸣效率32%','共鸣效率','32%'],['攻击18%','大攻击','18%'],['攻击18%','大攻击','18%']];
-    return {roleId:imported?102:101,roleListId:1,level:90,ming:0,isImport:imported,totalScore:'999',costList:mains.map((m,i)=>({costId:600+i,costListId:[59,51,52,35,39][i],type:['Cost4','Cost3','Cost3','Cost1','Cost1'][i],mainAtrri:imported?{property:m[1],value:m[2]}:m[0],suite:'光套',sumScores:'999',propertyList:(i===2?[['小防御','50'],['大防御','8.1%'],['小生命','320'],['暴击','6.3%'],['共鸣效率','8.4%']]:[['暴击','8.1%'],['暴伤','16.2%'],['大攻击','8.6%'],['技能伤害','8.6%'],['共鸣效率','8.4%']]).map(([property,value])=>({property,value}))}))};
+    return {roleId:imported?102:101,roleListId:1,level:90,ming:0,isImport:imported,totalScore:'999',costList:mains.map((m,i)=>({costId:600+i,imgCode:String([59,51,52,35,39][i]),costListId:[59,51,52,35,39][i],type:['Cost4','Cost3','Cost3','Cost1','Cost1'][i],mainAtrri:imported?{property:m[1],value:m[2]}:m[0],suite:'光套',sumScores:'999',propertyList:(i===2?[['小防御','50'],['大防御','8.1%'],['小生命','320'],['暴击','6.3%'],['共鸣效率','8.4%']]:[['暴击','8.1%'],['暴伤','16.2%'],['大攻击','8.6%'],['技能伤害','8.6%'],['共鸣效率','8.4%']]).map(([property,value])=>({property,value}))}))};
 }
 const manual=fixture(),imported=fixture(true),before=JSON.stringify([manual,imported]);
 const models=[normalize(manual),normalize(imported),normalize({...manual,costList:[]}),normalize({...manual,roleListId:999}),normalize({...manual,costList:manual.costList.slice(0,3)})];
@@ -49,10 +49,10 @@ assert.equal(normalize({...manual,roleListId:51,extraEnergy:999}).model.paramete
 for(const input of [manual,imported]){
     let ready,change,title='',contents='';const writes=[];
     const storage={getItem:key=>key==='mcData'?JSON.stringify({role:[input]}):null,setItem:(...args)=>writes.push(args)};
-    const host={id:'',set innerHTML(v){contents=v;},addEventListener:(event,fn)=>{change=fn;},querySelector:()=>({focus(){}})};
+    const host={id:'',set innerHTML(v){contents=v;},addEventListener:(event,fn)=>{change=fn;},querySelector:()=>null};
     const doc={documentElement:{},addEventListener:(event,fn)=>{ready=fn;},createElement:()=>host,body:{append(){}},set title(v){title=v;}};
     const location={href:'http://localhost/mccost.html?view=register&roleid='+input.roleId,search:'?view=register&roleid='+input.roleId};
-    const env={...context.api,document:doc,location,localStorage:storage,URL,URLSearchParams,RoleViewModel:{createAdapter},RoleRegisterRenderer:renderer,EchoI18n:i18n};env.window={RoleRegisterMode:true,document:doc,location,localStorage:storage,navigator:{language:'en'}};
+    const env={...context.api,document:doc,location,localStorage:storage,URL,URLSearchParams,RoleViewModel:{createAdapter},RoleRegisterRenderer:renderer,RoleRegisterController:require('../js/role-register-controller.js'),EchoI18n:i18n};env.window={RoleRegisterMode:true,addEventListener(){},document:doc,location,localStorage:storage,navigator:{language:'en'}};
     vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../js/role-register-page.js'),'utf8'),env);ready();
     assert.equal(writes.length,0);assert.ok(contents.includes('rr-workspace'));assert.ok(title.includes('Character'));
     change({target:{matches:()=>true,value:'zh-CN'}});

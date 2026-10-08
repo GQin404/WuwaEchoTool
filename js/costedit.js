@@ -246,7 +246,7 @@ $(function () {
                 if (its.roleId == curRole.roleId) {
                     curData.role[index] = curRole;
                     saveDataToCache(curData);
-                    window.open("./mccost.html?roleid=" + roleid, "_self");
+                    window.open(RoleRegisterController.editorReturn(location.search, roleid, costid), "_self");
                 }
             });
         }
@@ -313,7 +313,7 @@ $(function () {
                         curData.role[index] = curRole;
                         saveDataToCache(curData);
                         $('#deleteConfirmModal').modal('hide');
-                        window.open("./mccost.html?roleid=" + roleid, "_self");
+                        window.open(RoleRegisterController.editorReturn(location.search, roleid, costid), "_self");
                     }
                 });
             }
@@ -345,7 +345,7 @@ $(function () {
                             curData.role[index] = curRole;
                             saveDataToCache(curData);
                             $('#deleteConfirmModal').modal('hide');
-                            window.open("./mccost.html?roleid=" + roleid, "_self");
+                            window.open(RoleRegisterController.editorReturn(location.search, roleid, costid), "_self");
                         }
                     });
                 }

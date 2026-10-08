@@ -170,6 +170,11 @@ $(function () {
                 saveDataToCache(curData);
             }
         });
+        if (getQueryString("registerAdd") === "1") {
+            const target = new URLSearchParams({roleid:String(roleid),view:'register',selectedPosition:String(curRole.costList.length),selectedEcho:String(currentCost.costId)});
+            window.open('./mccost.html?' + target, '_self');
+            return;
+        }
         $('.mc-cost-list-null').addClass('mc-hide');
         $('#mc-addcost').modal('hide');
     });
@@ -250,6 +255,7 @@ $(function () {
     $(".mc-cost-box").on("click", ".mc-cost-list", function () {
         window.open("./costedit.html?roleid=" + roleid + "&costid=" + $(this).attr("data-id"), "_self");
     });
+    if (getQueryString("registerAdd") === "1") $("#mc-addcost").modal("show");
     //重新过滤Cost
     $("#mc-filter-value").change(function () {
         loadCost($(this).find("option:selected").val());
@@ -482,6 +488,8 @@ function byzt(score) {
 
 //对角色声骸得分及角色总分进行校准-返回声骸list
 function scoreAdjust() {
+    // 新版的新增入口只读取旧配置，避免初始化时排序或回写缓存评分。
+    if (getQueryString("registerAdd") === "1") return curRole.costList;
     let shzf = 0;//单个声骸总分
     let jszf = 0;//角色声骸总分
     let overOfen = 0;//共鸣效率累计值
