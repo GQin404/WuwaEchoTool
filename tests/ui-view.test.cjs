@@ -7,7 +7,7 @@ for(const preference of [null,'register','classic','invalid'])for(const override
     const url='https://test.invalid/index.html'+(override?'?view='+override:'');
     const result=views.resolve({url,preference,desktop});
     const requested=['register','classic'].includes(override)?override:['register','classic'].includes(preference)?preference:null;
-    assert.equal(result.requested,requested);assert.equal(result.effective,requested==='register'&&!desktop?'classic':requested);
+    assert.equal(result.requested,requested);assert.equal(result.effective,requested);
 }
 assert.equal(views.resolve({url:'https://test.invalid/index.html'}).source,'choice');
 map.set(views.KEY,'register');
@@ -24,4 +24,4 @@ const backup=local.create(storage);const json=backup.exportData().json;
 assert.equal(backup.restore(json).ok,true);const old=map.get(local.KEY);
 assert.equal(backup.restore('{broken').ok,false);assert.equal(map.get(local.KEY),old);
 assert.equal(map.get('mcData'),'original');assert.ok(!writes.includes('mcData'));
-console.log('PASS: 32 routing combinations, first visit, URL precedence, mobile fallback, locale/view isolation, recent roles, Classic editor return and isolated adoption backup.');
+console.log('PASS: 32 routing combinations, first visit, URL precedence, mobile Register, locale/view isolation, recent roles, Classic editor return and isolated adoption backup.');

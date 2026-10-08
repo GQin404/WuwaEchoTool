@@ -7,6 +7,7 @@ var currentRole = 0;
 var tempRole = null;
 let yct = {"property": "", "value": ""};
 $(function () {
+    if(window.UiView?.redirecting)return;
     //初始化角色选单
     let roleRes = `<div class="mc-filter">角色过滤：
                         <select id="mc-filter-select" class="form-control mc-select">
@@ -186,7 +187,7 @@ $(function () {
 
     //返回首页
     $(".mc-btn-backhome").click(() => {
-        window.open("./index.html", "_self");
+        window.open("./index.html?view=classic", "_self");
     });
 });
 
@@ -289,224 +290,21 @@ function checkRepeat(name) {
 
 //词条概率计算：
 function countProbability() {
-    let syqct = ["暴击", "暴伤", "大攻击", "小攻击", "大生命", "小生命", "大防御", "小防御", "共鸣效率", "普攻伤害", "重击伤害", "技能伤害", "解放伤害"];//剩余全词条
-    let lastNum = 96;
-    let sfcts = 28;//剩余可出生防数
-    //0.总词条数104个，排除已出词条类的个数
-    if (currentCost.propertyList.length > 0) {
-        currentCost.propertyList.forEach(item => {
-            syqct = syqct.filter(value => {
-                return value !== item.property;
-            });
-            if (item.property === "暴击") {
-                lastNum = lastNum - 8;
-            } else if (item.property === "暴伤") {
-                lastNum = lastNum - 8;
-            } else if (item.property === "大攻击") {
-                lastNum = lastNum - 8;
-            } else if (item.property === "小防御") {
-                sfcts = sfcts - 4;
-                lastNum = lastNum - 4;
-            } else if (item.property === "大防御") {
-                sfcts = sfcts - 8;
-                lastNum = lastNum - 8;
-            } else if (item.property === "小生命") {
-                sfcts = sfcts - 8;
-                lastNum = lastNum - 8;
-            } else if (item.property === "大生命") {
-                sfcts = sfcts - 8;
-                lastNum = lastNum - 8;
-            } else if (item.property === "共鸣效率") {
-                lastNum = lastNum - 8;
-            } else if (item.property === "小攻击") {
-                lastNum = lastNum - 4;
-            } else {
-                lastNum = lastNum - 8;
-            }
-        });
-    }
-    let bjzlv = 0;//出暴击总概率
-    let bszlv = 0;//出暴伤总概率
-    //1.计算剩余出暴击概率
-    let wln = [];
-    let res = "";
-    let syfbjjd = 0;
-    let gl = 0;
-    if (!syqct.includes("暴击")) {
-        $("#gl-bj").html("已出");
-    } else {
-        for (let i = 0; i < (5 - currentCost.propertyList.length); i++) {
-            syfbjjd = lastNum * (syqct.length - i) / syqct.length;
-            if (i === 0) {
-                gl = backMaxNum("暴击") * 100 / syfbjjd;
-                gl = gl.toFixed(2);
-                bjzlv = parseFloat(bjzlv) + parseFloat(gl);
-            } else if (i > 0) {
-                //第二轮概率-剩余非暴击可能个数
-                gl = backMaxNum("暴击") * 100 / syfbjjd;
-                gl = gl.toFixed(2);
-                if (i === 1) {
-                    bjzlv = parseFloat(bjzlv) + (100 - wln[0]) * gl / 100;
-                }
-                if (i === 2) {
-                    bjzlv = parseFloat(bjzlv) + (100 - wln[0]) * (100 - wln[1]) * gl / 10000;
-                }
-                if (i === 3) {
-                    bjzlv = parseFloat(bjzlv) + (100 - wln[0]) * (100 - wln[1]) * (100 - wln[2]) * gl / 1000000;
-                }
-                if (i === 4) {
-                    bjzlv = parseFloat(bjzlv) + (100 - wln[0]) * (100 - wln[1]) * (100 - wln[2]) * (100 - wln[3]) * gl / 100000000;
-                }
-            }
-            res += "(" + (i + 1) + ")" + gl + "% | ";
-            wln.push(gl);
-        }
-        res += "(总)" + bjzlv.toFixed(2) + "%";
-        $("#gl-bj").html(res);
-    }
-    //2.计算剩余出爆伤概率
-    if (!syqct.includes("暴伤")) {
-        $("#gl-bs").html("已出");
-    } else {
-        wln = [];
-        res = "";
-        syfbjjd = 0;
-        gl = 0;
-        for (let i = 0; i < (5 - currentCost.propertyList.length); i++) {
-            syfbjjd = lastNum * (syqct.length - i) / syqct.length;
-            if (i === 0) {
-                gl = backMaxNum("暴击") * 100 / syfbjjd;
-                gl = gl.toFixed(2);
-                bszlv = parseFloat(bszlv) + parseFloat(gl);
-            } else if (i > 0) {
-                //第二轮概率-剩余非暴击可能个数
-                gl = backMaxNum("暴击") * 100 / syfbjjd;
-                gl = gl.toFixed(2);
-                if (i === 1) {
-                    bszlv = parseFloat(bszlv) + (100 - wln[0]) * gl / 100;
-                }
-                if (i === 2) {
-                    bszlv = parseFloat(bszlv) + (100 - wln[0]) * (100 - wln[1]) * gl / 10000;
-                }
-                if (i === 3) {
-                    bszlv = parseFloat(bszlv) + (100 - wln[0]) * (100 - wln[1]) * (100 - wln[2]) * gl / 1000000;
-                }
-                if (i === 4) {
-                    bszlv = parseFloat(bszlv) + (100 - wln[0]) * (100 - wln[1]) * (100 - wln[2]) * (100 - wln[3]) * gl / 100000000;
-                }
-            }
-            res += "(" + (i + 1) + ")" + gl + "% | ";
-            wln.push(gl);
-        }
-        res += "(总)" + bszlv.toFixed(2) + "%";
-        $("#gl-bs").html(res);
-    }
-    //3.计算剩余出大攻击概率
-    if (!syqct.includes("大攻击")) {
-        $("#gl-gj").html("已出");
-    } else {
-        wln = [];
-        res = "";
-        syfbjjd = 0;
-        gl = 0;
-        let dgjzgl = 0;
-        for (let i = 0; i < (5 - currentCost.propertyList.length); i++) {
-            syfbjjd = lastNum * (syqct.length - i) / syqct.length;
-            if (i === 0) {
-                gl = backMaxNum("大攻击") * 100 / syfbjjd;
-                gl = gl.toFixed(2);
-                dgjzgl = parseFloat(dgjzgl) + parseFloat(gl);
-            } else if (i > 0) {
-                //第二轮概率-剩余非暴击可能个数
-                gl = backMaxNum("大攻击") * 100 / syfbjjd;
-                gl = gl.toFixed(2);
-                if (i === 1) {
-                    dgjzgl = parseFloat(dgjzgl) + (100 - wln[0]) * gl / 100;
-                }
-                if (i === 2) {
-                    dgjzgl = parseFloat(dgjzgl) + (100 - wln[0]) * (100 - wln[1]) * gl / 10000;
-                }
-                if (i === 3) {
-                    dgjzgl = parseFloat(dgjzgl) + (100 - wln[0]) * (100 - wln[1]) * (100 - wln[2]) * gl / 1000000;
-                }
-                if (i === 4) {
-                    dgjzgl = parseFloat(dgjzgl) + (100 - wln[0]) * (100 - wln[1]) * (100 - wln[2]) * (100 - wln[3]) * gl / 100000000;
-                }
-            }
-            res += "(" + (i + 1) + ")" + gl + "% | ";
-            wln.push(gl);
-        }
-        res += "(总)" + dgjzgl.toFixed(2) + "%";
-        $("#gl-gj").html(res);
-    }
-    //4双爆达成概率
-    if (!syqct.includes("暴击") && !syqct.includes("暴伤")) {
-        $("#gl-sb").html("已达成");
-    } else {
-        if (!syqct.includes("暴击")) {
-            //暴击未达成
-            $("#gl-sb").html(bszlv.toFixed(2) + "%");
-        }
-        if (!syqct.includes("暴伤")) {
-            //暴伤未达成
-            $("#gl-sb").html(bjzlv.toFixed(2) + "%");
-        }
-        //均未达成且空位>1
-        if (syqct.includes("暴伤") && syqct.includes("暴击")) {
-            if (currentCost.propertyList.length < 4) {
-                let zgls = bszlv * bjzlv / 100;
-                $("#gl-sb").html(zgls.toFixed(2) + "%");
-            } else {
-                $("#gl-sb").html("0.00%");
-            }
-        }
-
-    }
-    //5下次生防概率
-    if (sfcts > 0) {
-        let sfgl = sfcts * 100 / lastNum;
-        $("#gl-sf").html(sfgl.toFixed(2) + "%");
-    } else {
-        $("#gl-sf").html("0.00%");
-    }
-
-    //6.得分期望，先计算剩余未开词条总得分
-    let sumScoreR = 0;
-    fctValueHJ.forEach(item => {
-        if (syqct.includes(item.property)) {
-            sumScoreR = parseFloat(sumScoreR) + parseFloat(countScores(item, tempRole));
-        }
-    });
-
-    let sumP = sumScoreR * (5 - currentCost.propertyList.length) / lastNum;
-    $("#gl-ysqw").html(sumP.toFixed(2));
-    //获取已获得的总得分
-    let alreadyScore = $("#zonpf").html();
-    //加总得到期望总分
-    sumP = sumP + parseFloat(alreadyScore);
-    $("#zonpf").html(sumP.toFixed(2));
-    countGouliang();
+    const result=EchoToolCore.probability(currentCost.propertyList,s=>countScores(s,tempRole),fctValueHJ);
+    for(const [id,key] of [['bj','crit'],['bs','damage'],['gj','attack']]){const item=result[key];$('#gl-'+id).html(item.present?'已出':item.rounds.map((p,i)=>'('+(i+1)+')'+p.toFixed(2)+'% | ').join('')+'(总)'+item.total.toFixed(2)+'%');}
+    $('#gl-sb').html(result.dual.present?'已达成':result.dual.total.toFixed(2)+'%');
+    $('#gl-sf').html(result.defensive.toFixed(2)+'%');
+    $('#gl-ysqw').html(result.expected.toFixed(2));$('#zonpf').html((result.expected+parseFloat($('#zonpf').html())).toFixed(2));countGouliang();
 }
 
 //根据当前强化级数计算狗粮消耗
 function countGouliang() {
-    let ls = 0
-    if (!currentCost.propertyList.length > 0) {
-        return;
+    if (!currentCost.propertyList.length) return;
+    const result=EchoToolCore.resources(currentCost.propertyList.length,costExperance);
+    for(const [prefix,key] of [['ytr','used'],['hs','recovered'],['ss','lost'],['lm','remaining']]){
+        $('#'+prefix+'01').html((key==='remaining'?result[key].xp.toFixed(2):result[key].xp)+'个');
+        $('#'+prefix+'02').html(result[key].tuners+'个');
     }
-    let cx = costExperance[currentCost.propertyList.length - 1];
-    $("#ytr01").html(cx.gouliang + "个")
-    $("#ytr02").html(cx.dakong + "个")
-
-    $("#hs01").html(cx.gouliang * 0.7 + "个")
-    $("#hs02").html(cx.dakong * 0.3 + "个");
-    $("#ss01").html(cx.gouliang * 0.3 + "个")
-    $("#ss02").html(cx.dakong * 0.7 + "个");
-    ls = costExperance[4].gouliang - cx.gouliang;
-    ls = ls.toFixed(2);
-    $("#lm01").html(ls + "个");
-    ls = costExperance[4].dakong - cx.dakong;
-    $("#lm02").html(ls + "个");
 }
 
 //传入词条名称，返回该词条总数值个数,mc-词条名称

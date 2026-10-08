@@ -3,6 +3,7 @@ var currentRole = 0;//选择的角色ID
 let curData;//当前在操作的数据JSON
 
 $(function () {
+    if(new URLSearchParams(location.search).get("guide")==="1")return;
     // 首次选择和 Dock 不初始化旧页面，避免只读导航写入空存档或弹出旧设置。
     if (window.UiView && window.UiView.state.effective !== 'classic') return;
     //开始从本地缓存查找是否存在保存的数据
@@ -81,39 +82,14 @@ $(function () {
         }
     });
     //点击绑定token
-    $(".mc-btn-box-import2").click(() => {
-        let iptToken = $("#tokenValue").val();
-        if (iptToken == null || iptToken === "") {
-            alert("请先输入token");
-        } else {
-            //开始校验token是否真实有效
-            $.ajax({
-                url: hostName + methodName[2],
-                type: 'POST',
-                headers: completeHeaders2(iptToken),
-                data: "",
-                dataType: 'json',
-                success: function (data) {
-                    // 处理返回的数据
-                    if (data != null && data.success) {
-                        //校验成功，将token存储到本地
-                        localStorage.setItem("kjq_token", iptToken);
-                        token = iptToken;
-                        $("#box002").removeClass("mc-hide");
-                        $("#box001").addClass("mc-hide");
-                        alert("绑定成功！现在输入特征码ID开始导入角色吧~");
-                    } else {
-                        alert("校验token失败，请检查token是否有错误或失效。");
-                    }
-                },
-                error: function (e) {
-                    alert("校验token失败，请检查token是否有错误或失效。");
-                }
-            });
-        }
+    $(".mc-btn-box-import2").click(async () => {
+        const value=$("#tokenValue").val();if(!value){alert(EchoI18n.createBrowser(window).t('workspace.TOKEN_REQUIRED'));return;}
+        const service=ImportService.create({ajax:$.ajax,host:hostName,methods:methodName,headers:completeHeaders,tokenHeaders:completeHeaders2,storage:localStorage});
+        try{await service.bind(value);token=value;$("#box002").removeClass("mc-hide");$("#box001").addClass("mc-hide");alert(EchoI18n.createBrowser(window).t('workspace.bound'));}
+        catch(_){alert(EchoI18n.createBrowser(window).t('workspace.IMPORT_FAILED'));}
     });
     $("#jfgz").click(function () {
-        window.open("./rule.html", "_self");
+        window.open("./rule.html?view=classic", "_self");
     });
     $('[data-toggle="tooltip"]').tooltip("show");
     setTimeout(function () {
@@ -187,115 +163,28 @@ $(function () {
         saveDataToCache(curData);
     });
     //点击导入角色
-    $(".mc-btn-box-import").click(function () {
-        if (token == null || typeof (token) === "undefined") {
-            alert("请先绑定库街区token。");
-            return;
-        }
-        let bat = "";
-        let idz = $("#idValue").val();
-        if (idz !== null && idz !== "") {
-            if (idz.length !== 9) {
-                alert("特征码ID必须是9位数字。")
-                return;
-            }
-            if (!flag) {
-                alert("导入按钮冷却中，冷却时间15秒，稍后再试。")
-                return;
-            }
-            //获取bat
-            let batParams = {
-                "roleId": idz,
-                "serverId": "76402e5b20be2c39f095a152090afddc",
-                "forceRefresh": true
-            }
-            $.ajax({
-                url: hostName + methodName[6],
-                type: 'POST',
-                headers: completeHeaders(),
-                data: batParams,
-                dataType: 'json',
-                success: function (resp) {
-                    bat = JSON.parse(resp.data).accessToken;
-                    localStorage.setItem("kjq_bat", bat);
-                    let headers = completeHeaders(bat, false);
-                    delete headers.token;
-                    let method = hostName + methodName[0];
-                    let params = {
-                        "gameId": 3,
-                        "roleId": idz,
-                        "serverId": "76402e5b20be2c39f095a152090afddc"
-                    }
-                    //发送刷新数据请求
-                    $.ajax({
-                        url: hostName + methodName[3],
-                        type: 'POST',
-                        headers: headers,
-                        data: params,
-                        dataType: 'json',
-                        success: function (rest) {
-                            //开始遍历角色列表
-                            $.ajax({
-                                url: method,
-                                type: 'POST',
-                                headers: completeHeaders(bat, false),
-                                data: params,
-                                dataType: 'json',
-                                success: function (data) {
-                                    // 处理返回的数据
-                                    if (data != null && data.data != null && typeof (data) != "undefined" && (data.code === 200 || data.code === 10902)) {
-                                        curData["tzmId"] = idz;
-                                        let resr = "";
-                                        let deData = JSON.parse(data.data);
-                                        deData.roleList.forEach((item) => {
-                                            resr += `<img data-level="` + item.level + `" data-role-id="` + mappingRoleId(item.roleId, item.roleName) + `" data-game-role-id="` + item.roleId + `" class="mc-role-impt-item" src="` + item.roleIconUrl + `" alt="` + item.roleName + `">`;
-                                        });
-                                        $("#mc-import-role .modal-body-b").html(resr);
-                                        $("#mc-import-role").modal("show");
-                                        flag = false;
-                                        setTimeout(function () {
-                                            flag = true;
-                                        }, 15000);
-                                    } else {
-                                        alert("导入失败：请检查你的库街区是否设置了不公开角色，也可能是token过期了，重新绑定一次试试。");
-                                    }
-                                },
-                                error: function (e) {
-                                    alert("从库街区获取数据失败，请保存截图并联系作者。");
-                                }
-                            });
-                        },
-                        error: function (e) {
-                            alert("刷新游戏数据到库街区失败，请稍后再试。");
-                        }
-                    });
-                },
-                error: function (e) {
-                    alert("获取bat失败，请稍后再试。");
-                    return;
-                }
-            });
-        } else {
-            alert("请先输入特征码ID");
-        }
+    $(".mc-btn-box-import").click(async function () {
+        if (!flag) return;
+        flag = false;
+        const service = ImportService.create({ajax:$.ajax,host:hostName,methods:methodName,headers:completeHeaders,tokenHeaders:completeHeaders2,storage:localStorage});
+        try {
+            const idz = $("#idValue").val();
+            const roles = await service.list(idz);
+            curData.tzmId = idz;
+            const container = $("#mc-import-role .modal-body-b").empty();
+            roles.forEach(item=>container.append($('<img>').attr({'data-level':item.level,'data-role-id':mappingRoleId(item.roleId,item.roleName),'data-game-role-id':item.roleId,src:item.roleIconUrl,alt:item.roleName}).addClass('mc-role-impt-item')));
+            $("#mc-import-role").modal("show");
+        } catch (_) { alert(EchoI18n.createBrowser(window).t('workspace.IMPORT_FAILED')); }
+        finally { setTimeout(()=>{flag=true;},15000); }
     });
     //导入勾选的角色
     $('#dr-btn').click(() => {
         //拿到所有勾选的角色ID和等级
         $("#mc-import-role .mc-active").each((index, item) => {
-            let roleOne = {
-                "roleId": Date.now() + parseInt(index),
-                "isImport": true,
-                "level": $(item).attr("data-level"),
-                "roleListId": $(item).attr("data-role-id"),
-                "gameRoleId": $(item).attr("data-game-role-id"),
-                "totalScore": 0.00,
-                "name": $(item).attr("alt"),
-                "cls": mappingRoleImg($(item).attr("data-role-id")),
-                "dbCritNum": 0,
-                "attackNum": 0,
-                "costList": []
-            }
+            const entry=roleList.find(r=>String(r.id)===$(item).attr('data-role-id'));
+            if(!entry)return;
+            const roleOne=CharacterCore.createRole(entry,Date.now()+index);
+            Object.assign(roleOne,{isImport:true,level:$(item).attr('data-level'),gameRoleId:$(item).attr('data-game-role-id')});
             curData.role.push(roleOne);
         });
         saveDataToCache(curData);
@@ -328,18 +217,7 @@ $(function () {
         roleList.forEach(item => {
             if (item.id == currentRole) {
                 //生成一个角色对象
-                let roleOne = {
-                    "roleId": Date.now(),
-                    "isImport": false,
-                    "level": 0,
-                    "roleListId": item.id,
-                    "totalScore": 0.00,
-                    "name": item.name,
-                    "cls": item.cls,
-                    "dbCritNum": 0,
-                    "attackNum": 0,
-                    "costList": []
-                }
+                let roleOne = CharacterCore.createRole(item, Date.now());
                 curData.role.push(roleOne);
                 saveDataToCache(curData);
                 $(".mc-save-box").append(`<div class="mc-role ` + item.cls + `">
@@ -412,7 +290,7 @@ $(function () {
         const reader = new FileReader();
         reader.onload = function (e) {
             try {
-                curData = JSON.parse(e.target.result);
+                curData = CharacterCore.validate(JSON.parse(e.target.result));
                 saveDataToCache(curData);
                 location.reload();
             } catch (error) {
@@ -427,16 +305,16 @@ $(function () {
     });
     //点击跳转到声骸概率预测页面
     $("#mc-gl-fctgl").click(() => {
-        window.open("./probability.html", "_self");
+        window.open("./probability.html?view=classic", "_self");
     });
     $("#mc-gl-shdb").click(() => {
-        window.open("./compare.html", "_self");
+        window.open("./compare.html?view=classic", "_self");
     });
     $("#mc-gl-mnkk").click(() => {
-        window.open("./imitate.html", "_self");
+        window.open("./imitate.html?view=classic", "_self");
     });
     $("#mc-gl-unusedEchoes").click(() => {
-        window.open("./unusedEchoes.html", "_self");
+        window.open("./unusedEchoes.html?view=classic", "_self");
     });
     $("#mc-gl-jsdp").click(() => {
         alert("数据统计分析中，暂未开放，尽请期待");

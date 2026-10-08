@@ -39,3 +39,23 @@ html.dock-page body > .mc-main-page { display:none; }
 #character-dock textarea { display:block; width:100%; min-height:140px; margin:16px 0; }
 #character-dock label { margin:20px 20px 8px 0; }
 #character-dock :focus-visible,#ui-view-controls :focus-visible,#ui-view-choice :focus-visible { outline:2px solid #d9ede2; outline-offset:4px; }
+
+@media(max-width:1099px){
+ #character-dock{padding:24px 20px 90px}
+ #character-dock header{align-items:start;flex-wrap:wrap}
+ #character-dock .dock-stage{display:block;margin:24px 0}
+ #character-dock .dock-identity{position:relative;min-height:170px;padding-right:120px}
+ #character-dock .dock-identity h2{font-size:36px;margin:8px 0}
+ #character-dock .dock-identity img{position:absolute;right:0;top:0;width:110px;height:160px}
+ #character-dock .dock-slots{gap:8px}
+ #character-dock .dock-slot h3,#character-dock .dock-slot p{display:none}
+ #character-dock .dock-slot img{height:64px}
+ #character-dock .dock-slot strong{font-size:20px}
+ #character-dock .dock-roster li{flex-wrap:wrap}
+ #ui-view-controls{padding:10px 16px;gap:8px}
+ #ui-view-controls small{flex-basis:100%}
+}
+
+html.guide-page body{background:#101718;color:#e2e7e4}.guide-page #character-dock,.guide-page .mc-main-page{display:none!important}#ui-view-choice .guide-options{display:grid;grid-template-columns:1fr 1fr;gap:40px}#ui-view-choice figure{margin:20px 0}#ui-view-choice img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border:1px solid #52605b}#ui-view-choice figcaption{font-size:14px;margin-top:8px}#ui-view-choice li{margin:8px 0}#ui-view-choice .guide-reassurance{border-left:3px solid #a5d2c1;padding-left:20px}#ui-view-controls a{color:inherit;text-decoration:underline}@media(max-width:700px){#ui-view-choice{margin:32px auto;padding:0 20px}#ui-view-choice .guide-options{display:block}}
+
+#ui-view-choice{text-align:left}#ui-view-choice h1{font-size:36px}#ui-view-choice section{display:flex;flex-direction:column}#ui-view-choice section button{align-self:start;margin-top:auto}#ui-view-choice ul{padding-left:22px}

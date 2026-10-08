@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded',function(){
             host.querySelector('.rr-loadout').setAttribute('aria-label',next.querySelector('.rr-loadout').getAttribute('aria-label'));
             const panel=host.querySelector('.rr-inline-analysis'),freshPanel=next.querySelector('.rr-inline-analysis');
             panel.hidden=freshPanel.hidden;panel.setAttribute('aria-label',freshPanel.getAttribute('aria-label'));
-            panel.querySelector('.rr-connector').style.left=freshPanel.querySelector('.rr-connector').style.left;
+            panel.querySelector('.rr-connector').setAttribute('style',freshPanel.querySelector('.rr-connector').getAttribute('style'));
             panel.querySelector('.rr-analysis-content').innerHTML=freshPanel.querySelector('.rr-analysis-content').innerHTML;
             for(const selector of ['.rr-top','.rr-context','.rr-identity','.rr-loadout-heading','.rr-row-labels','.rr-rail','.rr-evaluation','.rr-conditions','.rr-announcement','.rr-footer']){
                 const current=host.querySelector(selector),fresh=next.querySelector(selector);
@@ -82,6 +82,15 @@ document.addEventListener('DOMContentLoaded',function(){
             if(controller.snapshot().evidenceOpen)focus('#rr-evidence',true);
         }else if(button.hasAttribute('data-rr-reset')){controller.resetModel();candidateSurface.invalidate('incompatible');render('[data-rr-reset]');}
     });
+    let touchOrigin=null;
+    host.addEventListener('touchstart',event=>{if(event.target.closest('.rr-loadout')){const point=event.touches[0];touchOrigin={x:point.clientX,y:point.clientY};}},{passive:true});
+    host.addEventListener('touchend',event=>{
+        if(!touchOrigin||!controller)return;const point=event.changedTouches[0],dx=point.clientX-touchOrigin.x,dy=point.clientY-touchOrigin.y;touchOrigin=null;
+        if(Math.abs(dx)<60||Math.abs(dx)<Math.abs(dy))return;
+        const state=controller.snapshot(),position=Math.min(5,Math.max(1,(state.selection?.position||1)+(dx<0?1:-1)));
+        if(state.selection?.position===position)return;
+        candidateSurface.close();controller.select(position,state.identities[position]||null);render();
+    },{passive:true});
     host.addEventListener('keydown',event=>{
         if(event.key==='Escape'&&controller?.snapshot().selection){
             event.preventDefault();const position=controller.snapshot().selection.position;controller.collapse();render('.rr-slot[data-slot-position="'+position+'"] .rr-slot-trigger');

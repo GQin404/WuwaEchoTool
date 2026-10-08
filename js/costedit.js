@@ -2,21 +2,24 @@
 var curRole;
 var costid;
 var curData;
+var editorSource;
 //当前正在被编辑的声骸
 var currentCost;
 // 是否是声骸库的声骸
 var isUnused = getQueryString("roleid") == 0;
 let yct = {"property": "", "value": ""};
 $(function () {
+    if(window.UiView?.redirecting)return;
     //获取当前编辑角色ID
     roleid = getQueryString("roleid");
     //获取当前编辑声骸ID
     costid = getQueryString("costid");
     //从缓存取出角色数据
     curData = getDataFromCache("mcData");
+    editorSource = JSON.stringify(curData);
     if (curData == null || roleid == null || costid == null) {
         alert("没有检查到历史数据或选择编辑的角色ID或声骸ID，请返回首页。");
-        window.open("./index.html", "_self");
+        window.open("./index.html?view=classic", "_self");
         return;
     } else {
         if (curData.role.length > 0 && !isUnused) {
@@ -69,7 +72,7 @@ $(function () {
             }
         } else {
             alert("没有检查到历史数据或选择编辑的角色ID，请返回首页。");
-            window.open("./index.html", "_self");
+            window.open("./index.html?view=classic", "_self");
             return;
         }
     }
@@ -196,59 +199,17 @@ $(function () {
         if (!confirm("确定要保存吗？")) {
             return false;
         }
-        if (isUnused) {
-            curData.unusedEchoes.forEach((e, index) => {
-                if (e.costId == currentCost.costId) {
-                    curData.unusedEchoes[index] = currentCost;
-                    saveDataToCache(curData);
-                    window.open("./unusedEchoes.html", "_self");
-                }
-            })
-        } else {
-            let overOfen = 0;
-            let totalScore = 0;
-            if (curRole.costList.length > 0) {
-                //先将Cost覆盖到角色对象
-                curRole.costList.forEach((item, index) => {
-                    if (item.costId == currentCost.costId) {
-                        curRole.costList[index] = currentCost;
-                    }
-                });
-                //计算共鸣效率溢出量
-                curRole.costList.forEach(item => {
-                    totalScore = parseFloat(totalScore) + parseFloat(item.sumScores);
-                    if (item.propertyList.length > 0) {
-                        if (item.mainAtrri === "共鸣效率32%") {
-                            overOfen = parseFloat(overOfen) + 32;
-                        }
-                        item.propertyList.forEach(its => {
-                            if (its.property === "共鸣效率") {
-                                overOfen = parseFloat(overOfen) + parseFloat(its.value.replace("%", ""));
-                            }
-                        });
-                    }
-                });
-            }
-            //计算角色对象的声骸总分-溢出量
-            if (parseFloat(overOfen) > ruleList[roleList[curRole.roleListId - 1].rule].defenseLimit) {
-                //共鸣效率有溢出
-                let ovf = (ruleList[roleList[curRole.roleListId - 1].rule].efficiency01 - ruleList[roleList[curRole.roleListId - 1].rule].efficiency02) * (ruleList[roleList[curRole.roleListId - 1].rule].defenseLimit - parseFloat(overOfen));
-                ovf = parseFloat(ovf) * 100 / roleList[curRole.roleListId - 1].maxscore + parseFloat(totalScore);
-                curRole.totalScore = ovf.toFixed(2);
-            } else {
-                //无溢出
-                curRole.totalScore = totalScore.toFixed(2);
-            }
-            //新机制角色需按当前链数、模态及整套充能重新计算，避免沿用旧缓存。
-            recalculateMechanicRole(curRole);
-            //将角色覆盖到mcData保存并返回
-            curData.role.forEach((its, index) => {
-                if (its.roleId == curRole.roleId) {
-                    curData.role[index] = curRole;
-                    saveDataToCache(curData);
-                    window.open(RoleRegisterController.editorReturn(location.search, roleid, costid), "_self");
-                }
-            });
+        try {
+            const normalize = RoleViewModel.createAdapter({roleList,costList,newCharacterModels,getRoleScoreConfig,getScoreDetails,countScores,countMainAttr,countMainAttr2,getRoleEnergyCorrection});
+            const core = CharacterCore.create({read:()=>getDataFromCache('mcData'),write:saveDataToCache,normalize});
+            const snapshot = core.load();
+            const savedRole = isUnused ? null : snapshot.role.find(r=>String(r.roleId)===String(roleid));
+            const savedEcho = (isUnused ? snapshot.unusedEchoes : savedRole?.costList || []).filter(e=>String(e.costId)===String(costid));
+            if (savedEcho.length !== 1) throw Error('IDENTITY');
+            core.transact(editorSource, data=>core.saveEcho(data,isUnused?null:roleid,costid,currentCost));
+            window.open(isUnused ? './unusedEchoes.html?view=classic' : RoleRegisterController.editorReturn(location.search,roleid,costid),'_self');
+        } catch (_) {
+            alert(EchoI18n.createBrowser(window).t('workspace.SOURCE_CHANGED'));
         }
     });
     //删除声骸并返回上一页
@@ -293,65 +254,20 @@ $(function () {
                 return false;
             }
             
-            if (isUnused) {
-                // 从unusedEchoes中删除
-                curData.unusedEchoes = curData.unusedEchoes.filter(item => {
-                    return item.costId != costid;
-                });
-                saveDataToCache(curData);
-                $('#deleteConfirmModal').modal('hide');
-                window.open("./unusedEchoes.html", "_self");
-            } else {
-                // 从角色声骸列表中移除
-                curRole.costList = curRole.costList.filter(item => {
-                    return item.costId != costid;
-                });
-                
-                // 保存数据并返回
-                curData.role.forEach((its, index) => {
-                    if (its.roleId == curRole.roleId) {
-                        curData.role[index] = curRole;
-                        saveDataToCache(curData);
-                        $('#deleteConfirmModal').modal('hide');
-                        window.open(RoleRegisterController.editorReturn(location.search, roleid, costid), "_self");
-                    }
-                });
-            }
+            try {const normalize=RoleViewModel.createAdapter({roleList,costList,newCharacterModels,getRoleScoreConfig,getScoreDetails,countScores,countMainAttr,countMainAttr2,getRoleEnergyCorrection});
+            const core=CharacterCore.create({read:()=>getDataFromCache('mcData'),write:saveDataToCache,normalize});
+                core.transact(editorSource,d=>core.removeEcho(d,isUnused?null:roleid,costid));
+                window.open(isUnused?'./unusedEchoes.html?view=classic':RoleRegisterController.editorReturn(location.search,roleid,costid),'_self');
+            }catch(_){alert(EchoI18n.createBrowser(window).t('workspace.SOURCE_CHANGED'));}
         });
-        
-        // 移至声骸库按钮事件（只在非unused时显示）
-        if (!isUnused) {
-            $('#moveToUnused').click(() => {
-                // 找到要移动的声骸
-                let costToMove = curRole.costList.find(item => item.costId == costid);
-                
-                if (costToMove) {
-                    // 初始化unusedEchoes数组（如果不存在）
-                    if (!curData.unusedEchoes) {
-                        curData.unusedEchoes = [];
-                    }
-                    
-                    // 将声骸添加到unusedEchoes
-                    curData.unusedEchoes.push(costToMove);
-                    
-                    // 从角色声骸列表中移除
-                    curRole.costList = curRole.costList.filter(item => {
-                        return item.costId != costid;
-                    });
-                    
-                    // 保存数据并返回
-                    curData.role.forEach((its, index) => {
-                        if (its.roleId == curRole.roleId) {
-                            curData.role[index] = curRole;
-                            saveDataToCache(curData);
-                            $('#deleteConfirmModal').modal('hide');
-                            window.open(RoleRegisterController.editorReturn(location.search, roleid, costid), "_self");
-                        }
-                    });
-                }
-            });
-        }
-        
+        if(!isUnused)$('#moveToUnused').click(()=>{
+            try {const normalize=RoleViewModel.createAdapter({roleList,costList,newCharacterModels,getRoleScoreConfig,getScoreDetails,countScores,countMainAttr,countMainAttr2,getRoleEnergyCorrection});
+            const core=CharacterCore.create({read:()=>getDataFromCache('mcData'),write:saveDataToCache,normalize});
+                core.transact(editorSource,d=>core.removeEcho(d,roleid,costid,true));
+                window.open(RoleRegisterController.editorReturn(location.search,roleid,costid),'_self');
+            }catch(_){alert(EchoI18n.createBrowser(window).t('workspace.SOURCE_CHANGED'));}
+        });
+
         // 模态框隐藏时清理
         $('#deleteConfirmModal').on('hidden.bs.modal', function () {
             $(this).remove();
@@ -359,7 +275,7 @@ $(function () {
     });
     //返回首页
     $(".mc-btn-backhome").click(() => {
-        window.open("./index.html", "_self");
+        window.open("./index.html?view=classic", "_self");
     });
 });
 

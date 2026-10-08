@@ -60,7 +60,7 @@ for(const input of [manual,imported]){
     change({target:{matches:()=>true,value:'zh-CN'}});
     assert.deepEqual(writes,[[i18n.STORAGE_KEY,'zh-CN']]);assert.equal(doc.documentElement.lang,'zh-CN');
 }
-for(const [search,wide,expected] of [['?view=register',true,true],['?view=register',false,false],['',true,false]]){
+for(const [search,wide,expected] of [['?view=register',true,true],['?view=register',false,true],['',true,false]]){
     const env={window:{},location:{search},URLSearchParams,matchMedia:()=>({matches:wide}),document:{documentElement:{classList:{add(){}}}}};
     vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../js/role-register-mode.js'),'utf8'),env);assert.equal(env.window.RoleRegisterMode,expected);
 }

@@ -29,7 +29,7 @@ $(function () {
     //初始化声骸列表
     if (curData == null || roleid == null) {
         alert("没有检查到历史数据或选择编辑的角色ID，请返回首页。");
-        window.open("./index.html", "_self");
+        window.open("./index.html?view=classic", "_self");
         return;
     } else {
         if (curData.role.length > 0) {
@@ -61,7 +61,7 @@ $(function () {
             });
         } else {
             alert("没有检查到历史数据或选择编辑的角色ID，请返回首页。");
-            window.open("./index.html", "_self");
+            window.open("./index.html?view=classic", "_self");
             return;
         }
     }
@@ -89,7 +89,7 @@ $(function () {
     });
     //返回首页
     $(".mc-btn-backhome").click(() => {
-        window.open("./index.html", "_self");
+        window.open("./index.html?view=classic", "_self");
     });
     //添加保存声骸
     $('#qd-btn2').click(() => {
@@ -109,67 +109,12 @@ $(function () {
             return;
         }
         // 执行确定按钮的操作
-        let currentCost = {
-            "costId": Date.now(),
-            "costListId": currentCostId,
-            "name": costList[currentCostId - 1].name,
-            "type": costList[currentCostId - 1].type,
-            "imgCode": costList[currentCostId - 1].imgCode,
-            "suite": null,
-            "mainAtrri": null,
-            "sumScores": 0.00,
-            "propertyList": []
-        }
-        costNum = parseInt(costNum) + parseInt(costList[currentCostId - 1].type.replace("Cost", ""));
-        $(".mc-cost-list2").append(`<div data-id="` + currentCost.costId + `" cost-id="` + currentCostId + `" class="mc-cost-list">
-            <div class="mc-cost-val3">
-                <img class="mc-cost-img" src="` + currentCost.imgCode + `" alt="cost">
-            </div>
-            <div class="mc-cost-val mc-cost-val2">
-                <p>主属性</p>
-                <p>/</p>
-                <p>/</p>
-                <p>总0.00分</p>
-            </div>
-            <div class="mc-cost-val">
-                <p>属性1</p>
-                <p>/</p>
-                <p>/</p>
-                <p>0.00分</p>
-            </div>
-            <div class="mc-cost-val">
-                <p>属性2</p>
-                <p>/</p>
-                <p>/</p>
-                <p>0.00分</p>
-            </div>
-            <div class="mc-cost-val">
-                <p>属性3</p>
-                <p>/</p>
-                <p>/</p>
-                <p>0.00分</p>
-            </div>
-            <div class="mc-cost-val">
-                <p>属性4</p>
-                <p>/</p>
-                <p>/</p>
-                <p>0.00分</p>
-            </div>
-            <div class="mc-cost-val">
-                <p>属性5</p>
-                <p>/</p>
-                <p>/</p>
-                <p>0.00分</p>
-            </div>
-        </div>`);
-
-        curRole.costList.push(currentCost);
-        curData.role.forEach((roles, index) => {
-            if (roles.roleId == curRole.roleId) {
-                curData.role[index] = curRole;
-                saveDataToCache(curData);
-            }
-        });
+        let currentCost = CharacterCore.createEcho(costList[currentCostId - 1], Date.now());
+        try {const normalize=RoleViewModel.createAdapter({roleList,costList,newCharacterModels,getRoleScoreConfig,getScoreDetails,countScores,countMainAttr,countMainAttr2,getRoleEnergyCorrection});
+            const core=CharacterCore.create({read:()=>getDataFromCache('mcData'),write:saveDataToCache,normalize});
+            core.transact(JSON.stringify(core.load()),d=>core.saveEcho(d,roleid,null,currentCost,d.role.find(r=>String(r.roleId)===String(roleid)).costList.length+1));
+            curData=core.load();curRole=curData.role.find(r=>String(r.roleId)===String(roleid));randerCostList(curRole.costList,false);
+        }catch(_){alert(EchoI18n.createBrowser(window).t('workspace.COST_LIMIT'));return;}
         if (getQueryString("registerAdd") === "1") {
             const target = new URLSearchParams({roleid:String(roleid),view:'register',selectedPosition:String(curRole.costList.length),selectedEcho:String(currentCost.costId)});
             window.open('./mccost.html?' + target, '_self');
@@ -226,24 +171,11 @@ $(function () {
             return;
         }
 
-        // 计算Cost数量
-        costNum = parseInt(costNum) + parseInt(selectedCost.type.replace("Cost", ""));
-
-        // 将声骸从unusedEchoes移动到当前角色的costList
-        curData.unusedEchoes = curData.unusedEchoes.filter(item => item.costId != currentImportCostId);
-        curRole.costList.push(selectedCost);
-
-        // 保存数据
-        curData.role.forEach((roles, index) => {
-            if (roles.roleId == curRole.roleId) {
-                curData.role[index] = curRole;
-            }
-        });
-        saveDataToCache(curData);
-
-        // 重新渲染声骸列表
-        randerCostList(curRole.costList);
-        
+        try {const normalize=RoleViewModel.createAdapter({roleList,costList,newCharacterModels,getRoleScoreConfig,getScoreDetails,countScores,countMainAttr,countMainAttr2,getRoleEnergyCorrection});
+            const core=CharacterCore.create({read:()=>getDataFromCache('mcData'),write:saveDataToCache,normalize});
+            core.transact(JSON.stringify(core.load()),d=>core.equip(d,roleid,currentImportCostId));
+            curData=core.load();curRole=curData.role.find(r=>String(r.roleId)===String(roleid));randerCostList(curRole.costList,false);
+        }catch(_){alert(EchoI18n.createBrowser(window).t('workspace.COST_LIMIT'));return;}
         // 隐藏模态框
         $('#mc-importcost').modal('hide');
         

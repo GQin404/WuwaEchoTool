@@ -7654,7 +7654,8 @@ function decrypt(ciphertext) {
 
 // 首次进入当前浏览器会话时显示维护说明。
 $(function () {
-    if (window.RoleRegisterMode) return;
+    // Register 和界面导览不挂载依赖 Classic Bootstrap 的公告弹窗。
+    if (window.RoleRegisterMode || window.UiView && (window.UiView.state.effective !== 'classic' || new URLSearchParams(location.search).get('guide') === '1')) return;
     const maintenanceKey = "mcMaintenanceNoticeShown";
     let hasShown = false;
     try {

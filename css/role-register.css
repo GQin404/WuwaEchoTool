@@ -1,4 +1,4 @@
-/* 所有视觉规则限定在新版入口，旧页面与 Mobile 不受影响。 */
+/* 所有视觉规则限定在新版入口；移动布局使用独立媒体查询。 */
 html.role-register-page{background:#111718;color-scheme:dark}
 .role-register-page body{margin:0;background:#111718}
 .role-register-page body>.mc-main-page{display:none!important}
@@ -93,3 +93,55 @@ html.role-register-page{background:#111718;color-scheme:dark}
 #role-register.rr-comparing .rr-analysis-content > .rr-analysis-main,
 #role-register.rr-comparing .rr-analysis-content > .rr-analysis-actions,
 #role-register.rr-comparing .rr-analysis-content > p { display: none; }
+
+/* 移动端保留五个固定索引，详细读数移到原位分析；不缩小桌面表格。 */
+@media(max-width:1099px){
+ #role-register{padding:0 20px 100px}
+ #role-register .rr-main{display:block}
+ #role-register .rr-identity{min-height:160px;padding-right:120px;margin-bottom:24px}
+ #role-register .rr-identity h1{font-size:36px;margin:8px 0}
+ #role-register .rr-portrait{position:absolute;right:0;top:0;width:120px;height:160px;margin:0}
+ #role-register .rr-portrait img{width:145px;height:185px;left:-10px;top:0}
+ #role-register .rr-identity-caption{padding-top:8px}
+ #role-register .rr-identity-caption p{margin:4px 0}
+ #role-register .rr-top{flex-wrap:wrap;gap:16px;padding:14px 0}
+ #role-register .rr-top nav{position:fixed;bottom:0;left:0;right:0;z-index:20;background:#172020;justify-content:space-around;gap:8px;padding:0 12px;border-top:1px solid #52605b}
+ #role-register nav a{padding:14px 0;min-height:48px;font-size:14px}
+ #role-register .rr-context{padding:16px 0;gap:12px;flex-wrap:wrap}
+ #role-register .rr-loadout-heading{align-items:start}
+ #role-register .rr-loadout{grid-template-columns:repeat(5,minmax(0,1fr))}
+ #role-register .rr-loadout:before{left:0;top:90px}
+ #role-register .rr-row-labels{display:none}
+ #role-register .rr-slot{padding:0 5px;grid-template-rows:26px 64px 36px 22px 52px}
+ #role-register .rr-slot-index{font-size:17px;flex-direction:column;align-items:start;gap:0}
+ #role-register .rr-slot-index small{display:none}
+ #role-register .rr-echo-image img{width:64px;height:64px}
+ #role-register .rr-slot h3,#role-register .rr-main-stat,#role-register .rr-effective{display:none}
+ #role-register .rr-score{font-size:20px;line-height:36px}
+ #role-register .rr-score small{display:none}
+ #role-register .rr-slot-status{font-size:12px}
+ #role-register .rr-connector{left:var(--rr-mobile-anchor)!important}
+ #role-register .rr-rail,#role-register .rr-evaluation{grid-template-columns:1fr;gap:18px}
+ #role-register .rr-rail dl{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #role-register .rr-rail dt{min-height:0;font-size:14px}
+ #role-register .rr-rail p{font-size:13px}
+ #role-register .rr-substats thead,#role-register .rr-compare-table thead{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden}
+ #role-register .rr-substats,#role-register .rr-substats tbody,#role-register .rr-substats tr,#role-register .rr-compare-table,#role-register .rr-compare-table tbody,#role-register .rr-compare-table tr{display:block;width:100%}
+ #role-register .rr-substats tr,#role-register .rr-compare-table tr{padding:12px 0;border-bottom:1px solid var(--rr-line)}
+ #role-register .rr-substats th,#role-register .rr-compare-table th:first-child{display:block;width:100%;padding:8px 0;border:0;font-size:16px}
+ #role-register .rr-substats td,#role-register .rr-compare-table td{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;text-align:right;padding:6px 0;border:0;width:100%;font-size:15px}
+ #role-register td[data-label]:before{content:attr(data-label);text-align:left;color:var(--rr-muted);max-width:55%}
+ #role-register .rr-tradeoffs{grid-template-columns:1fr;gap:18px}
+ #role-register .rr-candidate-list li{grid-template-columns:1fr 1fr}
+ #role-register .rr-candidate-surface nav{flex-wrap:wrap;gap:12px}
+ #role-register .rr-candidate-stat{grid-template-columns:1fr 1fr;gap:12px}
+ #role-register .rr-candidate-stat>label:first-child{grid-column:1/-1}
+ #role-register .rr-analysis-actions{position:sticky;bottom:58px;background:#111718;padding:12px 0;z-index:5}
+ #role-register .rr-analysis-heading{gap:12px}
+ #role-register .rr-analysis-heading h2{font-size:21px}
+ #role-register .rr-footer{flex-wrap:wrap}
+}
+
+#role-register .rr-mobile-reading{display:none}@media(max-width:1099px){#role-register .rr-mobile-reading{display:block;font-size:12px;margin-top:4px}}
+
+@media(max-width:700px){#role-register .rr-candidate-surface[data-phase=select]{position:fixed;inset:auto 0 56px;max-height:72dvh;overflow:auto;z-index:15;background:#172020;padding:20px;margin:0;border-top:2px solid #9ad5c3;overscroll-behavior:contain}#role-register .rr-candidate-surface[data-phase=select]>.rr-analysis-heading{position:sticky;top:-20px;background:#172020;padding:12px 0;z-index:1}}

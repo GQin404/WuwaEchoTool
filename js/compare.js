@@ -16,6 +16,7 @@ var costid = 0;
 var currentUnusedCostId = "000"; // 当前选中的未使用声骸ID
 var currentImportTarget = "A"; // 当前导入目标：A 或 B
 $(function () {
+    if(window.UiView?.redirecting)return;
     curData = getDataFromCache("mcData");
     //初始化角色选单
     let roleRes = `<div class="mc-filter">角色过滤：
@@ -367,7 +368,7 @@ $(function () {
 
     //返回首页
     $(".mc-btn-backhome").click(() => {
-        window.open("./index.html", "_self");
+        window.open("./index.html?view=classic", "_self");
     });
 });
 

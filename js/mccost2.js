@@ -28,7 +28,7 @@ $(function () {
     //初始化声骸列表
     if (curData == null || roleid == null) {
         alert("没有检查到历史数据或选择编辑的角色ID，请返回首页。");
-        window.open("./index.html", "_self");
+        window.open("./index.html?view=classic", "_self");
         return;
     } else {
         if (curData.role.length > 0) {
@@ -73,176 +73,32 @@ $(function () {
             });
         } else {
             alert("没有检查到历史数据或选择编辑的角色ID，请返回首页。");
-            window.open("./index.html", "_self");
+            window.open("./index.html?view=classic", "_self");
             return;
         }
     }
 
     //返回首页
     $(".mc-btn-backhome").click(() => {
-        window.open("./index.html", "_self");
+        window.open("./index.html?view=classic", "_self");
     });
 
     //点击导入角色数据
-    $(".mc-character-addbtn2").click(() => {
-        if (!flag) {
-            alert("导入按钮冷却中，冷却时间30秒，稍后再试。")
-            return;
-        }
-        if (!confirm("确定要从官方导出数据到本页面吗？")) {
-            return;
-        }
-        //拿到特征码
-        if (curData.tzmId != null) {
-            //有特征码，开始查询
-            if (curData.tzmId.length !== 9) {
-                alert("特征码ID必须是9位数字。")
-                return;
-            }
-            let method = hostName + methodName[1];
-            let params = {
-                "gameId": 3,
-                "roleId": curData.tzmId,
-                "serverId": "76402e5b20be2c39f095a152090afddc",
-                "channelId": 19,
-                "countryCode": 1,
-                "id": curRole.gameRoleId || mappingRoleId(curRole.roleListId)
-            }
-            //发送刷新数据请求
-            $.ajax({
-                url: hostName + methodName[3],
-                type: 'POST',
-                headers: completeHeaders(localStorage.getItem("kjq_bat"), false),
-                data: params,
-                dataType: 'json',
-                success: function (rest) {
-                    //查询角色数据
-                    $.ajax({
-                        url: method,
-                        type: 'POST',
-                        headers: completeHeaders(localStorage.getItem("kjq_bat"), false),
-                        data: params,
-                        dataType: 'json',
-                        success: function (res) {
-
-                            // 处理返回的数据
-                            if (res != null && typeof (res) != "undefined" && (res.code === 200 || res.code === 10902)) {
-                                fcthz = [
-                                    {"name": "暴击", "property": 0},
-                                    {"name": "暴伤", "property": 0},
-                                    {"name": "大攻击", "property": 0},
-                                    {"name": "小攻击", "property": 0},
-                                    {"name": "共鸣效率", "property": 0},
-                                    {"name": "普攻伤害", "property": 0},
-                                    {"name": "技能伤害", "property": 0},
-                                    {"name": "重击伤害", "property": 0},
-                                    {"name": "解放伤害", "property": 0},
-                                    {"name": "大生命", "property": 0},
-                                    {"name": "小生命", "property": 0},
-                                    {"name": "大防御", "property": 0},
-                                    {"name": "小防御", "property": 0}
-                                ];
-                                let deData = JSON.parse(res.data);
-                                let info01 = "Lv" + deData.level;
-                                curRole["level"] = deData.level;
-                                //先处理等级-共鸣链
-                                let mz = 0;
-                                if (deData.chainList == null) {
-                                    alert("在UID-" + curData.tzmId + "下没有查到该角色的数据。");
-                                    return;
-                                }
-                                deData.chainList.forEach((item, index) => {
-                                    if (item.unlocked) {
-                                        mz++;
-                                    }
-                                });
-                                info01 += "-" + mz + "命";
-                                curRole["ming"] = mz;
-                                $("#role-info").html(info01);
-                                //处理武器
-                                curRole["weaponImg"] = deData.weaponData.weapon.weaponIcon;
-                                curRole["weaponStar"] = deData.weaponData.weapon.weaponStarLevel;
-                                curRole["weaponlevel"] = deData.weaponData.level;
-                                curRole["weaponReson"] = deData.weaponData.resonLevel;
-                                $(".mc-weapon-img").attr("src", curRole.weaponImg).addClass("mc-weapon-bg" + curRole.weaponStar);
-                                $(".mc-weapon-info").html("Lv" + curRole.weaponlevel + "-精" + curRole.weaponReson);
-                                //处理技能
-                                let rskill = "";
-                                let skillList = [];
-                                deData.skillList.forEach((item, index) => {
-                                    if (index < 5) {
-                                        let skl = {
-                                            "img": item.skill.iconUrl,
-                                            "level": item.level
-                                        }
-                                        skillList.push(skl);
-                                        rskill += `<div class="mc-role-skill-item">
-                                            <img class="mc-role-skill-img" src="` + item.skill.iconUrl + `" alt="技能图片">
-                                            <span class="mc-role-skill-level">` + skillName[index] + `-` + item.level + `</span>
-                                        </div>`;
-                                    }
-                                });
-                                curRole["skillList"] = skillList;
-                                $(".mc-role-skill").html(rskill);
-                                //处理声骸
-                                //先清空旧数据
-                                curRole.costList = [];
-                                if (deData.phantomData.equipPhantomList != null && deData.phantomData.equipPhantomList.length > 0) {
-                                    deData.phantomData.equipPhantomList.forEach((item) => {
-                                        if (item != null) {
-                                            curRole.costList.push(convertPhantomData(item));
-                                        }
-                                    });
-                                }
-                                //计算总分
-                                let sumScore = 0;
-                                let overOfen = 0;
-                                curRole.costList.forEach(iic => {
-                                    if (iic.mainAtrri.property.includes("效")) {
-                                        overOfen = parseFloat(overOfen) + parseFloat(iic.mainAtrri.value.replace("%", ""));
-                                    }
-                                    iic.propertyList.forEach((ipt) => {
-                                        if (ipt.property.includes("效")) {
-                                            overOfen = parseFloat(overOfen) + parseFloat(ipt.value.replace("%", ""));
-                                        }
-                                    });
-                                    sumScore = parseFloat(sumScore) + parseFloat(iic.sumScores);
-                                });
-                                const maxScore = getRoleEnergyCorrection(curRole, overOfen);
-                                sumScore = parseFloat(sumScore) + parseFloat(maxScore);
-                                curRole.totalScore = sumScore.toFixed(2);
-                                //保存数据到本地
-                                curData.role.forEach((roles, index) => {
-                                    if (roles.roleId == curRole.roleId) {
-                                        curData.role[index] = curRole;
-                                        saveDataToCache(curData);
-                                    }
-                                });
-                                //刷新声骸列表
-                                randerCostList(curRole.costList);
-                                flag = false;
-                                alert("导入成功！");
-                                setTimeout(function () {
-                                    flag = true;
-                                }, 30000);
-                            } else {
-                                alert("ID" + curData.tzmId + "下未查到该角色：请检查你的库街区是否设置了不公开角色，也可能是token过期了，重新绑定一次试试。");
-                            }
-                        },
-                        error: function (e) {
-                            alert("从库街区获取数据失败，请保存截图并联系作者。");
-                        }
-                    });
-                },
-                error: function (e) {
-                    alert("刷新游戏数据到库街区失败，请稍后再试。");
-                }
-            });
-
-        } else {
-            alert("没有查询到你的特征码，请重新录入一次。");
-            window.open("./index.html", "_self");
-        }
+    $(".mc-character-addbtn2").click(async () => {
+        if (!flag || !confirm("确定要从官方导出数据到本页面吗？")) return;
+        flag=false;
+        const source=JSON.stringify(getDataFromCache('mcData'));
+        const service=ImportService.create({ajax:$.ajax,host:hostName,methods:methodName,headers:completeHeaders,tokenHeaders:completeHeaders2,storage:localStorage,convert:(echo,role)=>RoleImportCore.convertPhantomData(echo,role,{guifan,countMainAttr2,sumCostScores})});
+        try {
+            const updated=await service.detail(String(curData.tzmId||''),{...curRole,gameRoleId:curRole.gameRoleId||mappingRoleId(curRole.roleListId)});
+            if(JSON.stringify(getDataFromCache('mcData'))!==source)throw Error('SOURCE_CHANGED');
+            const normalize=RoleViewModel.createAdapter({roleList,costList,newCharacterModels,getRoleScoreConfig,getScoreDetails,countScores,countMainAttr,countMainAttr2,getRoleEnergyCorrection});
+            const core=CharacterCore.create({read:()=>getDataFromCache('mcData'),write:saveDataToCache,normalize});
+            core.score(updated);
+            core.transact(source,data=>{const index=data.role.findIndex(r=>r.roleId===curRole.roleId);if(index<0)throw Error('SOURCE_CHANGED');data.role[index]=updated;});
+            location.reload();
+        }catch(_){alert(EchoI18n.createBrowser(window).t('workspace.IMPORT_FAILED'));}
+        finally{setTimeout(()=>{flag=true;},30000);}
     });
 
 });
@@ -423,41 +279,7 @@ function jianhua(zt) {
 }
 
 //将官方词条规范成我的标准
-function guifan(zt, value) {
-    if (/^(衍射|气动|热熔|冷凝|湮灭|导电)伤害加成$/.test(zt)) return zt.replace('加成', '');
-    if (zt === "普攻伤害加成") {
-        return "普攻伤害";
-    } else if (zt === "重击伤害加成") {
-        return "重击伤害";
-    } else if (zt === "共鸣技能伤害加成") {
-        return "技能伤害";
-    } else if (zt === "共鸣解放伤害加成") {
-        return "解放伤害";
-    } else if (zt === "暴击伤害") {
-        return "暴伤";
-    } else if (zt === "治疗效果加成") {
-        return "治疗";
-    } else if (zt === "攻击") {
-        if (value.includes('%')) {
-            return "大攻击";
-        }
-        return "小攻击";
-    } else if (zt === "生命") {
-        if (value.includes('%')) {
-            return "大生命";
-        }
-        return "小生命";
-    } else if (zt === "防御") {
-        if (value.includes('%')) {
-            return "大防御";
-        }
-        return "小防御";
-    } else if (zt === "衍射伤害加成" || zt === "气动伤害加成" || zt === "热熔伤害加成" || zt === "冷凝伤害加成" || zt === "湮灭伤害加成" || zt === "导电伤害加成") {
-        return "属伤";
-    } else {
-        return zt;
-    }
-}
+function guifan(zt,value){return RoleImportCore.guifan(zt,value);}
 
 function guifan2(zt) {
     if (zt === "大攻击" || zt === "小攻击") {
@@ -506,33 +328,4 @@ function byzt(score) {
 }
 
 //将官方格式的声骸剥离成我的格式-ycost官方格式
-function convertPhantomData(ycost) {
-    let newCost = {
-        "costId": Date.now() + ycost.phantomProp.phantomPropId,
-        "costListId": ycost.phantomProp.phantomPropId,
-        "name": ycost.phantomProp.name,
-        "type": "Cost" + ycost.phantomProp.cost,
-        "imgCode": ycost.phantomProp.iconUrl,
-        "suite": ycost.fetterDetail.iconUrl,
-        "mainAtrri": {
-            "property": guifan(ycost.mainProps[0].attributeName === "攻击" ? "大攻击" : ycost.mainProps[0].attributeName, ycost.mainProps[0].attributeValue),
-            "value": ycost.mainProps[0].attributeValue
-        },
-        "sumScores": 0,
-        "propertyList": []
-    }
-    if (ycost.subProps != null && ycost.subProps.length > 0) {
-        ycost.subProps.forEach(its => {
-            //副词条转化
-            newCost.propertyList.push({
-                "property": guifan(its.attributeName, its.attributeValue),
-                "value": its.attributeValue
-            });
-        });
-    }
-    newCost.sumScores = countMainAttr2(newCost, curRole);
-    newCost.sumScores = parseFloat(newCost.sumScores) + parseFloat(sumCostScores(newCost, curRole));
-    newCost.sumScores = newCost.sumScores.toFixed(2);
-    return newCost;
-}
-
+function convertPhantomData(ycost) { return RoleImportCore.convertPhantomData(ycost,curRole,{guifan,countMainAttr2,sumCostScores}); }

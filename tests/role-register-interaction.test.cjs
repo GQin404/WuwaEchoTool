@@ -31,7 +31,7 @@ for(const imported of [false,true]){
             assert.doesNotMatch(result.html,/\{(?:state|id|value|position)\}/);
             assert.equal(calculations,beforeCalculations);
             assert.equal(c.snapshot().selection.position,position);
-            assert.equal(result.html.includes('returnRegister'),!imported);
+            assert.equal(result.html.includes('mode=echo'),!imported);
         }
         c.select(position,token);assert.equal(c.snapshot().selection,null);
     }

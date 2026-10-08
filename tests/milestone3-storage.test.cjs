@@ -1,0 +1,18 @@
+const assert=require('node:assert/strict');
+const Core=require('../js/character-core.js'),History=require('../js/role-history.js'),Drafts=require('../js/role-draft-storage.js'),Local=require('../js/role-local-configuration.js');
+const map=new Map([['mcData','original']]);let failOnce=false;
+const storage={getItem:k=>map.get(k)??null,setItem:(k,v)=>{if(failOnce&&k===Local.KEY){failOnce=false;throw Error('quota');}map.set(k,v);},removeItem:k=>map.delete(k)};
+const orphan={draftId:'removed',baselineId:'removed',signature:'snapshot',conditions:{},adoptedAt:1};
+map.set(Local.KEY,JSON.stringify({schemaVersion:1,items:[orphan]}));
+const before=new Map(map);failOnce=true;
+assert.equal(History.create(storage).prune().ok,false);assert.deepEqual(map,before);
+assert.equal(History.create(storage).prune().ok,true);assert.equal(Local.create(storage).load().data.items.length,0);assert.equal(map.get('mcData'),'original');
+map.set(Drafts.KEY,'{broken');const corrupt=new Map(map);assert.equal(History.create(storage).remove('missing').ok,false);assert.deepEqual(map,corrupt);
+let raw='{broken',writes=0;
+const restore=json=>Core.restoreData({json,expectedRaw:'{broken',readRaw:()=>raw,write:x=>{writes++;raw=JSON.stringify(x);}});
+assert.throws(()=>restore('{broken'));assert.throws(()=>restore('{"role":null}'));assert.equal(writes,0);
+restore('{"role":[],"unusedEchoes":[]}');assert.equal(writes,1);assert.throws(()=>restore('{"role":[]}'),/SOURCE_CHANGED/);assert.equal(writes,1);
+const views=require('../js/ui-view.js');assert.match(views.nativeUrl('https://local/register-workspace.html?mode=echo&roleid=1&view=classic','classic'),/^\/costedit.html\?/);assert.match(views.nativeUrl('https://local/register-workspace.html?mode=create&view=classic','classic'),/action=create/);
+const messages=require('../js/i18n-dictionaries.js');
+for(const key of Object.keys(messages.en).filter(k=>/^(workspace|entry|dock)\./.test(k)))for(const locale of ['zh-TW','zh-CN','en'])assert.ok(messages[locale][key],locale+': '+key);
+console.log('PASS: orphan cleanup, two-namespace rollback, corrupt history protection, explicit corrupt-core restore, source conflict, reverse Classic routes, complete workspace/guide/dock dictionaries.');

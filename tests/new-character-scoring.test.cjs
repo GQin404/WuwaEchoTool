@@ -77,6 +77,7 @@ for(const id of model.ids) assert.equal(api.mappingRoleId(999999,api.roleList[id
 assert.equal(api.mappingRoleId(999999,'漂泊者-女-导电'),57);
 assert.equal(api.mappingRoleId(999999,'漂泊者-男-导电'),58);
 assert.equal(api.mappingRoleId(999999,'漂泊者'),0); // Never guess sex/element from an ambiguous name.
+vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../js/role-import-core.js'),'utf8'),ctx);
 vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../js/mccost2.js'),'utf8')+'\n;globalThis.normalize=guifan;',ctx);
 for(const element of ['导电','衍射','湮灭','气动','热熔','冷凝']) assert.equal(ctx.normalize(element+'伤害加成','30%'),element+'伤害');
 console.log('PASS: 91 new chain/scenario profiles, reference scores, gender parity, mixed elements, fixed crit, HP caps, healing and import/manual parity.');

@@ -1,6 +1,9 @@
 var curData;
 $(function () {
-    curData = getDataFromCache("mcData");
+    if(window.UiView?.redirecting)return;
+    const normalize=RoleViewModel.createAdapter({roleList,costList,newCharacterModels,getRoleScoreConfig,getScoreDetails,countScores,countMainAttr,countMainAttr2,getRoleEnergyCorrection});
+    const core=CharacterCore.create({read:()=>getDataFromCache('mcData'),write:saveDataToCache,normalize});
+    curData=core.load();
     //初始化声骸选单默认加载Cost4
     loadCost("Cost4");
     //重新过滤Cost
@@ -23,47 +26,32 @@ $(function () {
             return;
         }
         // 执行确定按钮的操作
-        let currentCost = {
-            "costId": Date.now(),
-            "costListId": currentCostId,
-            "name": costList[currentCostId - 1].name,
-            "type": costList[currentCostId - 1].type,
-            "imgCode": costList[currentCostId - 1].imgCode,
-            "suite": null,
-            "mainAtrri": null,
-            "sumScores": 0.00,
-            "propertyList": []
-        }
+        let currentCost = CharacterCore.createEcho(costList[currentCostId - 1], Date.now());
 
-        if(curData.unusedEchoes == null || typeof(curData.unusedEchoes) == "undefined"){
-            curData.unusedEchoes = [];
-        }
-        curData.unusedEchoes.push(currentCost);
-        saveDataToCache(curData);
+        try{core.transact(JSON.stringify(curData),d=>core.saveEcho(d,null,null,currentCost));curData=core.load();}
+        catch(_){alert(EchoI18n.createBrowser(window).t('workspace.SOURCE_CHANGED'));return;}
         renderCostList(curData.unusedEchoes);
         $('.mc-cost-list-null').addClass('mc-hide');
         $('#mc-addcost').modal('hide');
     });
     //点击跳转到声骸编辑页 - 使用事件委托
     $(document).on("click", ".mc-unused-cost-img", function () {
-        window.open("./costedit.html?roleid=0&costid=" + $(this).parent().parent().attr("data-id"), "_self");
+        window.open("./costedit.html?view=classic&roleid=0&costid=" + $(this).parent().parent().attr("data-id"), "_self");
     });
     //点击删除声骸 - 使用事件委托
     $(document).on("click", ".mc-cost-delete", function () {
         if (!confirm("确定要删除吗？")) {
             return false;
         }
-        curData.unusedEchoes = curData.unusedEchoes.filter(item => {
-            return item.costId != $(this).attr("data-id");
-        });
-        saveDataToCache(curData);
+        try{core.transact(JSON.stringify(curData),d=>core.removeEcho(d,null,$(this).attr('data-id')));curData=core.load();}
+        catch(_){alert(EchoI18n.createBrowser(window).t('workspace.SOURCE_CHANGED'));return;}
         $(this).parent().remove();
         //重新渲染声骸列表
         renderCostList(curData.unusedEchoes);
     });
     //返回首页
     $(".mc-btn-backhome").click(() => {
-        window.open("./index.html", "_self");
+        window.open("./index.html?view=classic", "_self");
     });
     
 });

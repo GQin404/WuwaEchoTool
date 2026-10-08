@@ -75,3 +75,7 @@ Classic 保留完整原体验。抽出共用 service / controller / adapter，�
 - Mobile 专用体验、备份边界与最终 rollout 回归完成。真实玩家数据可用后补 1D.5，仍独立标记 Real-data Acceptance Pending。
 
 整个 Milestone 3 一次完成后统一验收，不为 Interface Guide 或其他上述工作另拆小 checkpoint。本次仅更新 scope，不开始 UI 实作。
+
+## Milestone 3 实现记录（2026-10-08）
+
+完整 Register workspace、共享 Core/Import/Tool 服务、Mobile 专用编排与 Interface Guide 已实现。移除临时 Mobile Classic fallback；URL override 仍不覆盖永久偏好。Classic 内部导航显式保留 Classic。详细验收证据、人工确认进度和发布边界见 `milestone3-acceptance.md`。未部署，完成最后验收后才决定正式 rollout；真实玩家验收继续独立保留为 1D.5。
