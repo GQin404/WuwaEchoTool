@@ -1,5 +1,7 @@
 # Register / Classic 双界面发布计划
 
+> RC2 当前规则（覆盖下方里程碑历史方案）：根目录及不带合法 view 的 index.html 每次显示双入口，不读取历史偏好自动进入。明确的 ?view=register / ?view=classic 用于内部界面导航；不需要 hosting redirect。Classic 固定简体中文，Register 和 chooser 三语。当前实现及验收见 [RC2 验收](rc2-acceptance.md)。
+
 ## Milestone 1
 
 Decision-first Compare。保留 `view=register` 预览；不切换默认入口。Phase 1 为 Engineering Complete / Real-data Acceptance Pending，真实玩家数据可用后补 1D.5，不重做架构。

@@ -17,7 +17,9 @@
     const KEY='wuwa.ui.view',RECENT='wuwa.ui.recentRoles.v1';
     const valid=x=>['register','classic'].includes(x);
     function resolve({url,preference,desktop=true}){
-        const override=new URL(url,'https://local.invalid').searchParams.get('view');
+        const parsed=new URL(url,'https://local.invalid'),override=parsed.searchParams.get('view');
+        // 根入口始终询问界面；历史偏好仅用于非入口的兼容导航。
+        if(/\/(?:index.html)?$/.test(parsed.pathname)&&!valid(override))return {requested:null,effective:null,fallback:false,source:'choice'};
         const requested=valid(override)?override:valid(preference)?preference:null;
         return {requested,effective:requested,fallback:false,source:valid(override)?'url':valid(preference)?'preference':'choice'};
     }
@@ -55,7 +57,7 @@
         function render(){
             if(guide){
                 document.title=i18n.t('entry.welcome');
-                target.innerHTML='<div class="chooser-brand">'+brand()+'</div><h1>'+t('entry.welcome')+'</h1><p>'+t('entry.shared')+'</p><div class="guide-options">'+['register','classic'].map(v=>'<section><button class="chooser-entry" data-ui-view="'+v+'" aria-describedby="chooser-'+v+'"><span>'+t('entry.'+v+'Entrance')+'</span><strong>'+(v==='register'?'Resonance Register':'Classic View')+'</strong><span>'+t('entry.'+v+'Description')+'</span><b>'+t(v==='register'?'entry.useRegister':'entry.useClassic')+' ↗</b></button><div class="chooser-preview" id="chooser-'+v+'"><img src="image/register/guide-'+v+'.png" alt="'+t('entry.'+v+'Preview')+'"><ul>'+(v==='register'?['integrated','inline','compare','drafts','future']:['familiar','supported','sameCore']).map(k=>'<li>'+t('entry.'+k)+'</li>').join('')+'</ul></div></section>').join('')+'</div><footer><p>'+t('entry.switchLater')+'</p>'+language()+'</footer>';
+                target.innerHTML='<div class="chooser-language">'+language()+'</div><div class="chooser-brand">'+brand()+'</div><h1>'+t('entry.welcome')+'</h1><p>'+t('entry.shared')+'</p><div class="guide-options">'+['register','classic'].map(v=>'<section><button class="chooser-entry" data-ui-view="'+v+'" aria-describedby="chooser-'+v+'"><strong>'+t('entry.'+v+'Entrance')+'</strong><span class="chooser-description">'+t('entry.'+v+'Description')+'</span><span class="chooser-arrow" aria-hidden="true">↗</span></button><div class="chooser-preview" id="chooser-'+v+'"><img src="image/register/guide-'+v+'.png" alt="'+t('entry.'+v+'Preview')+'"><ul>'+(v==='register'?['integrated','inline','compare','drafts','future']:['familiar','supported','sameCore']).map(k=>'<li>'+t('entry.'+k)+'</li>').join('')+'</ul></div></section>').join('')+'</div>';
                 return;
             }
             if(state.effective!=='register'){target.innerHTML='<button type="button" data-ui-view="register">'+t('entry.switchRegister')+'</button>';return;}

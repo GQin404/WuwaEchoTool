@@ -14,7 +14,7 @@
         function line(x,y,x2){ctx.strokeStyle='#53645c';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x2,y);ctx.stroke();}
         let missing=false;
         async function picture(src,x,y,w,h){if(!src)return;try{const image=await new Promise((resolve,reject)=>{const img=new Image();const timer=setTimeout(()=>reject(Error()),4000);img.crossOrigin='anonymous';img.onload=()=>{clearTimeout(timer);resolve(img);};img.onerror=()=>{clearTimeout(timer);reject(Error());};img.src=src;});const scale=Math.min(w/image.width,h/image.height);ctx.drawImage(image,x+(w-image.width*scale)/2,y+(h-image.height*scale)/2,image.width*scale,image.height*scale);}catch(_){missing=true;}}
-        ctx.fillStyle='#e2e8e2';[[0,16,26],[8,0,44],[16,22,22]].forEach(([x,y,h])=>ctx.fillRect(48+x,40+y,2,h));text('RESONANCE REGISTER',90,65,20);text(t('share.scope'),48,115,22,'#b5c2b9');
+        ctx.fillStyle='#e2e8e2';[[0,12,20],[8,0,44],[16,12,20]].forEach(([x,y,h])=>ctx.fillRect(48+x,40+y,2,h));text('RESONANCE REGISTER',90,65,20);text(t('share.scope'),48,115,22,'#b5c2b9');
         await picture(Number(data.role.catalogId)===1?'image/register/jinhsi.webp':data.role.portrait,48,160,210,270);
         text(i18n.entity('characters',data.role.catalogId,data.role.legacy?.name||data.role.catalogId),290,210,48,'#eef0e9',1080);
         text(t('role.chain',{chain:data.model.chain})+' · '+(data.model.status==='available'?t('register.mode.'+(data.model.parameters.mode||'default')):t('issues.model-unavailable')),290,260,22);

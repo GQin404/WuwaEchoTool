@@ -6,7 +6,7 @@ const storage={getItem:k=>map.get(k)??null,setItem:(k,v)=>{writes.push(k);map.se
 for(const preference of [null,'register','classic','invalid'])for(const override of [null,'register','classic','invalid'])for(const desktop of [true,false]){
     const url='https://test.invalid/index.html'+(override?'?view='+override:'');
     const result=views.resolve({url,preference,desktop});
-    const requested=['register','classic'].includes(override)?override:['register','classic'].includes(preference)?preference:null;
+    const requested=['register','classic'].includes(override)?override:null;
     assert.equal(result.requested,requested);assert.equal(result.effective,requested);
 }
 assert.equal(views.resolve({url:'https://test.invalid/index.html'}).source,'choice');

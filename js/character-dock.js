@@ -44,29 +44,37 @@
                 statuses=results.filter(Boolean);render();
             }catch(_){if(ticket===generation){records=[];selected=null;error='dataError';render();}}
         }
+        function draftStatus(record){
+            const own=statuses.filter(x=>x.baseline.role.identity===String(record.roleId)).sort((a,b)=>b.draft.updatedAt-a.draft.updatedAt)[0];
+            if(!own)return '';
+            return '<span class="dock-draft-state">'+t(own.validity.status==='valid'?(own.adopted?'adopted':'pending'):'invalid',{position:own.draft.targetSlot})+(own.validity.status==='valid'?'':' · '+tr('candidate.'+own.validity.status))+'</span>';
+        }
         function roster(){
             const list=records.filter(r=>{const m=models.get(String(r.roleId));return (source==='all'||m.role.source===source)&&i18n.entity('characters',m.role.catalogId,String(m.role.catalogId)).toLowerCase().includes(filter.toLowerCase());});
-            return `<ul class="dock-roster">${list.map(r=>`<li><span>${roleName(models.get(String(r.roleId)))}</span><button type="button" data-dock-role="${esc(r.roleId)}">${t('select')}</button><button type="button" data-delete-role="${esc(r.roleId)}">${tr('role.delete')}</button></li>`).join('')}</ul>${list.length?'':'<p>'+t('noMatch')+'</p>'}`;
+            return '<ul class="dock-roster">'+list.map(r=>{
+                const m=models.get(String(r.roleId)),count=m.slots.filter(s=>s.echo).length;
+                return '<li><a class="dock-character-link" href="'+roleUrl(r)+'"><img src="'+asset(m.role.portrait)+'" alt=""><span class="dock-character-name"><strong>'+roleName(m)+'</strong><small>'+tr('role.source.'+m.role.source)+'</small></span><span class="dock-completeness"><span>'+tr('loadout.title')+'</span><b>'+count+' / 5</b><span class="dock-presence" aria-hidden="true">'+m.slots.map(s=>'<i'+(s.echo?' class="filled"':'')+'></i>').join('')+'</span></span><span class="dock-reading"><b>'+esc(i18n.format.score(m.summary.score))+'</b><small>'+tr('state.'+m.summary.status)+'</small></span><span class="dock-row-context">'+draftStatus(r)+'</span><span class="dock-enter" aria-hidden="true">↗</span></a><button type="button" data-delete-role="'+esc(r.roleId)+'">'+tr('role.delete')+'</button></li>';
+            }).join('')+'</ul>'+(list.length?'':'<p>'+t('noMatch')+'</p>');
         }
         function render(){
             document.title=i18n.t('dock.title');
             const open=host.querySelector('[data-dock-picker]')?.open;
-            const actions=`<a href="register-workspace.html?view=register&mode=import&lang=${i18n.locale}">${t('import')}</a> · <a href="register-workspace.html?view=register&mode=create&lang=${i18n.locale}">${t('create')}</a>`;
+            const actions='<div class="dock-create-actions"><a href="register-workspace.html?view=register&mode=import&lang='+i18n.locale+'">'+t('import')+'</a><a href="register-workspace.html?view=register&mode=create&lang='+i18n.locale+'">'+t('create')+'</a></div>';
             let body='';
-            if(error==='dataError')body=`<p role="alert">${t(error)}</p>`;
-            else if(!selected)body=`<section><h2>${t('emptyTitle')}</h2><p>${t('emptyBody')}</p>${actions}</section>`;
+            if(error==='dataError')body='<p role="alert">'+t(error)+'</p>';
+            else if(!selected)body='<section class="dock-empty"><h2>'+t('emptyTitle')+'</h2><p>'+t('emptyBody')+'</p></section>';
             else {
-                const m=models.get(String(selected.roleId)),score=m.summary.score;
-                const slots=m.slots.map(s=>`<div class="dock-slot"><span>${String(s.position).padStart(2,'0')}</span>${s.echo?`<span> · ${tr('loadout.cost',{cost:s.echo.cost??'—'})}</span><img src="${asset(s.echo.image)}" alt=""><h3>${echoName(s.echo)}</h3><p>${s.echo.mainStat.key?tr('stats.'+s.echo.mainStat.key):tr('register.unknownStat')}<br>${esc(s.echo.mainStat.unit==='percent'?i18n.format.percentage(s.echo.mainStat.value):i18n.format.decimal(s.echo.mainStat.value))}</p><strong>${esc(i18n.format.decimal(s.echo.score.value))}</strong><div class="dock-scale"><i style="width:${Math.max(0,Math.min(100,(s.echo.score.value||0)/m.scale.max*100))}%"></i></div>`:`<h3>${tr('loadout.empty')}</h3><p>${tr('state.empty')}</p><strong>—</strong><div class="dock-scale"></div>`}</div>`).join('');
-                const own=statuses.filter(x=>x.baseline.role.identity===String(selected.roleId)).sort((a,b)=>b.draft.updatedAt-a.draft.updatedAt).slice(0,1);
-                body=`<div class="dock-stage"><aside class="dock-identity"><p>${t('recent')}</p><h2>${roleName(m)}</h2><p>${tr('role.chain',{chain:m.model.chain})}</p><img src="${asset(Number(m.role.catalogId)===1?'image/register/jinhsi.webp':m.role.portrait)}" alt="${roleName(m)}"><a class="dock-primary" href="${roleUrl(selected)}">${t('continue')}</a></aside><section><h2>${tr('loadout.title')}</h2><p>${t('scale',{max:m.scale.max})}</p><div class="dock-slots">${slots}</div><div class="dock-summary"><span>${tr('summary.score')}</span><strong>${esc(i18n.format.decimal(score))}</strong><span>${tr('state.'+m.summary.status)}</span></div><ul>${m.issues.map(i=>'<li>'+tr('issues.'+i.code,i.params)+'</li>').join('')}</ul>${m.summary.weakestPositions.length?'<p>'+t('weakest',{positions:m.summary.weakestPositions.join(', ')})+'</p>':''}<div class="dock-drafts"><h3>${t('drafts')}</h3>${error==='draftError'?'<p>'+t(error)+'</p>':own.length?'<ul>'+own.map(x=>`<li>${t(x.validity.status==='valid'?(x.adopted?'adopted':'pending'):'invalid',{position:x.draft.targetSlot})} · ${x.validity.status!=='valid'?tr('candidate.'+x.validity.status):''} <a href="${roleUrl(selected,x.validity.status==='valid'?x.draft.id:null)}">${t(x.validity.status==='valid'?'continue':'recompare')}</a></li>`).join('')+'</ul>':'<p>'+t('noDraft')+'</p>'}</div></section></div><details data-dock-picker${open?' open':''}><summary>${t('allRoles',{count:records.length})}</summary><label>${t('search')}<input data-dock-search value="${esc(filter)}"></label><label>${t('source')}<select data-dock-source>${['all','manual','imported'].map(v=>`<option value="${v}"${v===source?' selected':''}>${t(v)}</option>`).join('')}</select></label><div data-dock-roster>${roster()}</div>${actions}</details>`;
+                const m=models.get(String(selected.roleId)),own=statuses.filter(x=>x.baseline.role.identity===String(selected.roleId)).sort((a,b)=>b.draft.updatedAt-a.draft.updatedAt)[0];
+                const resume=own?.validity.status==='valid'?own.draft.id:null;
+                const slots=m.slots.map(s=>'<span class="dock-recent-slot"><small>'+String(s.position).padStart(2,'0')+'</small>'+(s.echo?'<img src="'+asset(s.echo.image)+'" alt="'+echoName(s.echo)+'">':'<span aria-label="'+tr('loadout.empty')+'">—</span>')+'</span>').join('');
+                body='<section class="dock-recent"><div class="dock-recent-identity"><p>'+t('recent')+'</p><h2>'+roleName(m)+'</h2><p>'+tr('role.chain',{chain:m.model.chain})+'</p><a href="'+roleUrl(selected,resume)+'">'+t(own&&own.validity.status!=='valid'?'recompare':'continue')+' ↗</a></div><div class="dock-recent-loadout"><h3>'+tr('loadout.title')+'</h3><div class="dock-recent-slots">'+slots+'</div></div><div class="dock-recent-reading"><span>'+tr('summary.score')+'</span><strong>'+esc(i18n.format.decimal(m.summary.score))+'</strong><p>'+tr('state.'+m.summary.status)+'</p>'+draftStatus(selected)+'</div></section>';
+                if(m.issues.length)body+='<p class="dock-findings">'+tr('issues.'+m.issues[0].code,m.issues[0].params)+'</p>';
+                body+='<section class="dock-index"><div class="dock-index-heading"><h2>'+t('allRoles',{count:records.length})+'</h2><details data-dock-picker'+(open?' open':'')+'><summary>'+t('filter')+'</summary><div class="dock-filters"><label>'+t('search')+'<input data-dock-search value="'+esc(filter)+'"></label><label>'+t('source')+'<select data-dock-source>'+['all','manual','imported'].map(v=>'<option value="'+v+'"'+(v===source?' selected':'')+'>'+t(v)+'</option>').join('')+'</select></label></div></details></div><div data-dock-roster>'+roster()+'</div></section>';
+                if(error==='draftError')body+='<p role="alert">'+t(error)+'</p>';
             }
-            host.innerHTML=`<header><h1>${t('title')}</h1></header>${body}<p><a href="register-workspace.html?view=register&mode=backup">${tr('workspace.backup')}</a> · <a href="register-workspace.html?view=register&mode=compare">${tr('dock.drafts')}</a> · <a href="register-workspace.html?view=register&mode=tools">${tr('nav.tools')}</a></p>`;
+            host.innerHTML='<header class="register-page-heading"><h1>'+t('title')+'</h1>'+actions+'</header>'+body;
         }
-        host.addEventListener('click',async e=>{
-            const b=e.target.closest('button');if(!b)return;
-            if(b.dataset.dockRole){selected=records.find(r=>String(r.roleId)===b.dataset.dockRole);UiView.recent(localStorage,selected.roleId);render();host.querySelector('.dock-primary')?.focus();}
-        });
+        host.addEventListener('error',e=>{if(e.target.tagName==='IMG')e.target.style.visibility='hidden';},true);
         host.addEventListener('input',e=>{if(e.target.matches('[data-dock-search]')){filter=e.target.value;host.querySelector('[data-dock-roster]').innerHTML=roster();}});
         host.addEventListener('change',e=>{if(e.target.matches('[data-dock-source]')){source=e.target.value;host.querySelector('[data-dock-roster]').innerHTML=roster();}});
         env.addEventListener('wuwa-locale',e=>i18n.setLocale(e.detail));i18n.subscribe(render);
