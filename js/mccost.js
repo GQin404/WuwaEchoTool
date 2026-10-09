@@ -42,9 +42,10 @@ $(function () {
                         randerCostList(curRole.costList);
                     });
                     //初始化角色头像
-                    if (item.cls != "" && item.cls != null) {
+                    if (roleList.some(r => r.id == item.roleListId)) {
                         let rlItem = roleList.find(r => r.id == item.roleListId);
-                        $(".mc-character-img").attr("src", "image/characters/" + rlItem.cls.replace("mcr-", "") + ".png");
+                        $(".mc-character-img").attr("src", CharacterPortraits.resolve(rlItem)).attr("alt", rlItem?.name || "角色");
+                        $(".mc-character-name").text(rlItem?.name || "未知角色");
                     }
                     //初始化命座
                     if (typeof (item.ming) === "undefined") {

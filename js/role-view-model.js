@@ -1,8 +1,8 @@
 /* 纯数据转换层，不访问 DOM、存储或选择状态，也不自动初始化。 */
 (function (root, factory) {
-    if (typeof module === 'object' && module.exports) module.exports = factory(require('./stat-keys.js'));
-    else root.RoleViewModel = factory(root.StatKeys);
-})(typeof globalThis !== 'undefined' ? globalThis : this, function (statKeys) {
+    if (typeof module === 'object' && module.exports) module.exports = factory(require('./stat-keys.js'),require('./character-portraits.js'));
+    else root.RoleViewModel = factory(root.StatKeys,root.CharacterPortraits);
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (statKeys,portraits) {
     'use strict';
     const copy = value => value == null ? null : JSON.parse(JSON.stringify(value));
     const round = value => Number(value.toFixed(2));
@@ -116,7 +116,7 @@
             const values=echoes.map(e=>e.score.value).filter(x=>x!==null);
             const result = {
                 schemaVersion:2,
-                role:{id:role.roleId??null,catalogId:role.roleListId??null,name:role.name||master?.name||null,source:role.isImport===true?'imported':'manual',level:numeric(role.level),portrait:master?.cls?'image/characters/'+master.cls.replace('mcr-','')+'.png':null},
+                role:{id:role.roleId??null,catalogId:role.roleListId??null,name:role.name||master?.name||null,source:role.isImport===true?'imported':'manual',level:numeric(role.level),portrait:portraits.resolve(master)},
                 model:{status:config?'available':'unavailable',chain:Math.max(0,Math.min(6,parseInt(role.ming)||0)),requestedMode:role.damageMode??null,extraEnergy:role.extraEnergy??null,configuration:copy(config)},
                 slots,
                 scale:{min:0,max:Math.max(100,Math.ceil(Math.max(0,...values)/10)*10),unit:'score-points',scope:'role-score-contribution',shared:true},

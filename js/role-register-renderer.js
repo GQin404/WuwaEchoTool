@@ -31,14 +31,13 @@
             const target=model.slots.find(s=>s.position===issue.params.position);
             return `<li>${target?`<button type="button" ${slotAction(target)}>${label}</button>`:label}</li>`;
         }).join('');
-        const portrait=model.role.catalogId===1?'image/register/jinhsi.webp':asset(model.role.portrait);
+        const portrait=asset(model.role.portrait);
         const scales=model.scale;
         function slotMarkup(slot){
             const echo=slot.echo;
             if(!echo)return `<section class="rr-slot rr-empty${selected(slot)?' rr-selected':''}" data-slot-position="${slot.position}" aria-label="${t('loadout.slot',{position:f.integer(slot.position)})}">${trigger(slot)}<div class="rr-slot-index">${escape(f.integer(slot.position).padStart(2,'0'))}</div><div class="rr-echo-image rr-placeholder" aria-hidden="true">—</div><h3>${t('loadout.empty')}</h3><div class="rr-main-stat"><span>${t('state.missing')}</span><b>—</b></div><div class="rr-score">—</div><div class="rr-scale rr-scale-empty" aria-hidden="true"></div><div class="rr-effective">—</div><span class="rr-slot-status">${selected(slot)?t('loadout.selected')+' · ':''}${t('state.empty')}</span></section>`;
             const name=entity(echo.nameKey,'register.echoId',echo.catalogId);
-            const localImages={59:'059',51:'051',52:'052',35:'035',39:'039'};
-            const image=localImages[echo.catalogId]?'image/register/echo-'+echo.catalogId+'.png':asset(echo.image);
+            const image=asset(echo.image);
             const score=echo.score.value;
             const width=score===null?0:Math.min(100,Math.max(0,(score-scales.min)/(scales.max-scales.min)*100));
             const weakest=model.summary.weakestPositions.includes(slot.position);

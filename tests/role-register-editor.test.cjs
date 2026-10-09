@@ -25,7 +25,7 @@ for(const preview of [false,true]){
             };
         }});return node;
     }
-    const context={$:()=>{},document:{},console:{log(){}},URLSearchParams,confirm:()=>confirmation,alert:message=>{throw Error(message);},location:{search:preview?'?returnRegister=1&rrPosition=2':''},window:{open:url=>navigations.push(url)},RoleRegisterController:controller,CharacterCore:require("../js/character-core.js"),RoleViewModel:require("../js/role-view-model.js")};
+    const context={$:()=>{},document:{},console:{log(){}},URLSearchParams,confirm:()=>confirmation,alert:message=>{throw Error(message);},location:{search:preview?'?returnRegister=1&rrPosition=2':''},window:{open:url=>navigations.push(url)},RoleRegisterController:controller,CharacterPortraits:require("../js/character-portraits.js"),CharacterCore:require("../js/character-core.js"),RoleViewModel:require("../js/role-view-model.js")};
     vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../js/base.js'),'utf8'),context);
     Object.assign(context,{$:jquery,getQueryString:key=>({roleid:'101',costid:'601'})[key],getDataFromCache:()=>JSON.parse(JSON.stringify(writes.at(-1)||JSON.parse(before))),saveDataToCache:data=>writes.push(JSON.parse(JSON.stringify(data)))});
     vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../js/costedit.js'),'utf8'),context);

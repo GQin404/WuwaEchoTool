@@ -433,8 +433,9 @@ function cshRoleBox() {
     let res = "";
     curData.role.sort((a, b) => parseFloat(b.totalScore) - parseFloat(a.totalScore));
     curData.role.forEach((item, index) => {
+        const portraitClass = roleList.find(r => String(r.id) === String(item.roleListId))?.cls || item.cls;
         if (typeof (item.isImport) != "undefined" && item.isImport) {
-            res += `<div data-readonly="true" class="mc-role ` + item.cls + `">
+            res += `<div data-readonly="true" class="mc-role ` + portraitClass + `">
                        <p class="mc-role-score">` + item.totalScore + `</p>
                        <button type="button" data-id="` + item.roleId + `" class="mc-role-delete" aria-label="删除角色" title="删除角色">×</button>
                        <p class="mc-role-level">Lv-` + item.level + `</p>`;
@@ -447,7 +448,7 @@ function cshRoleBox() {
             }
             res += `<span class="mc-role-ming">` + (typeof (item.ming) !== "undefined" ? item.ming : 0) + `</span></div>`;
         } else {
-            res += `<div data-readonly="false" class="mc-role ` + item.cls + `">
+            res += `<div data-readonly="false" class="mc-role ` + portraitClass + `">
                        <p class="mc-role-score">` + item.totalScore + `</p>
                        <button type="button" data-id="` + item.roleId + `" class="mc-role-delete" aria-label="删除角色" title="删除角色">×</button>`;
             if (index === 0) {

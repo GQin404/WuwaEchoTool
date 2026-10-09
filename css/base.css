@@ -2112,3 +2112,14 @@ body {
         font-size: 14px;
     }
 }
+
+/* 姓名独立于图片，旧版角色卡和选择器均保留可读名称。 */
+.mc-role[class*="mcr-"] { margin-bottom:29px; }
+.mc-role[class*="mcr-"]::after { position:absolute; left:-1px; right:-1px; top:100%; min-height:24px; padding:3px 2px; background:#272b30; color:#fff; border:1px solid #555; font:12px/1.4 "Microsoft YaHei",sans-serif; text-align:center; overflow-wrap:anywhere; }
+#mc-addrole .mc-role[class*="mcr-"] { margin-bottom:32px; }
+.mc-character .mc-character-portrait { position:absolute; left:12%; top:5px; width:60px; margin:0; }
+.mc-character .mc-character-portrait>.mc-character-img { position:static; width:100%; height:78px; object-fit:contain; transform:none; border-radius:3px 3px 0 0; }
+.mc-character .mc-character-name { background:#272b30; color:white; font:12px/1.4 "Microsoft YaHei",sans-serif; padding:3px 2px; text-align:center; overflow-wrap:anywhere; }
+.mc-character .mc-character-portrait.mc-character-read-img { left:4%; top:-4px; width:80px; }
+@media(min-width:768px){.mc-character-custom .mc-character-portrait { width:96px; max-width:24%; left:15%; top:50%; transform:translate(-50%,-50%); }.mc-character-custom .mc-character-portrait>.mc-character-img { height:125px; }}
+.mc-character .mc-character-portrait .mc-character-lvm { position:static; width:100%; margin:0; }
