@@ -243,7 +243,16 @@
             }
         });
         host.addEventListener('keydown',event=>{if(event.key==='Escape'&&state){event.preventDefault();event.stopImmediatePropagation();close();}},true);
-        return {render,restore,close,active:()=>!!state||busy,
+        async function fromLibrary(identity){
+            await open();
+            if(state?.phase!=='select')return;
+            const matches=state.rows.filter(row=>String(row.slot.echo?.id)===String(identity));
+            if(matches.length!==1){state.notice='identity';render();return;}
+            const row=matches[0];
+            if(row.eligibility.status==='blocked'){state.notice=row.eligibility.reason;render();return;}
+            await enter(row.slot,row.scope,'inventory');
+        }
+        return {render,restore,close,fromLibrary,active:()=>!!state||busy,
             invalidate(reason='stale'){if(state){epoch++;busy=false;state={...state,phase:'error',context:null,notice:reason};render();}},
             getContext(){return state?.phase==='context'?{...state.context,locale:i18n.locale,result:state.result||null}:null;}};
     }

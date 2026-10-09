@@ -107,7 +107,10 @@ document.addEventListener('DOMContentLoaded',function(){
     window.addEventListener('wuwa-locale',event=>{if(i18n.locale!==event.detail)i18n.setLocale(event.detail);});
     i18n.subscribe(()=>render());
     // 编辑返回、其他标签页更新和页面恢复都从存档重读，不触发写入。
-    candidateSurface.restore();
+    if(params.has('libraryCandidate')){
+        const candidate=params.get('libraryCandidate');params.delete('libraryCandidate');history.replaceState(null,'',url.pathname+url.search);
+        candidateSurface.fromLibrary(candidate);
+    }else candidateSurface.restore();
     window.addEventListener('pageshow',()=>refresh());
     window.addEventListener('focus',()=>refresh());
     window.addEventListener('storage',event=>{if(event.key==='mcData'||event.key===null)refresh();});

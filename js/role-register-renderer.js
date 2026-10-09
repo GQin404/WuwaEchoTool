@@ -17,7 +17,7 @@
         function statName(stat){return stat?.key?t('stats.'+stat.key):t('register.unknownStat');}
         function value(stat){return escape(stat?.value==null?f.decimal(null):stat.unit==='percent'?f.percentage(stat.value,1):f.decimal(stat.value));}
         const navigation='';
-        const footer=`<footer class="rr-footer"><span>${t('register.checkpoint')}</span><a href="${escape(legacyUrl)}">${t('register.legacy')}</a></footer>`;
+        const footer=`<footer class="rr-footer"><span>${t('register.checkpoint')}</span><a href="index.html?view=classic" data-ui-view="classic"><span aria-hidden="true">⇆</span> ${t('entry.switchClassic')}</a></footer>`;
         if(error||!model)return {html:`${navigation}<main class="rr-error"><h1>${t('register.noRecord')}</h1><p>${t('register.error.'+(error||'missing'))}</p><a href="index.html">${t('register.backCharacters')}</a></main>${footer}`,usedKeys:[...usedKeys]};
         const roleName=entity(model.role.nameKey,'register.characterId',model.role.catalogId);
         const selection=interaction.selection;

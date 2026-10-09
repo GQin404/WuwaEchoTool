@@ -1,0 +1,194 @@
+[
+  {
+    "lang": "zh-TW",
+    "w": 1440,
+    "mode": "library",
+    "scroll": 1425,
+    "title": "聲骸庫",
+    "width": 1440
+  },
+  {
+    "lang": "zh-TW",
+    "w": 1440,
+    "mode": "compare",
+    "scroll": 1425,
+    "title": "比較記錄",
+    "width": 1440
+  },
+  {
+    "lang": "zh-TW",
+    "w": 1440,
+    "mode": "backup",
+    "scroll": 1425,
+    "title": "資料管理",
+    "width": 1440
+  },
+  {
+    "lang": "zh-TW",
+    "w": 1440,
+    "mode": "tools",
+    "scroll": 1425,
+    "title": "分析工具",
+    "width": 1440
+  },
+  {
+    "lang": "zh-TW",
+    "w": 390,
+    "mode": "library",
+    "scroll": 375,
+    "title": "聲骸庫",
+    "width": 390
+  },
+  {
+    "lang": "zh-TW",
+    "w": 390,
+    "mode": "compare",
+    "scroll": 375,
+    "title": "比較記錄",
+    "width": 390
+  },
+  {
+    "lang": "zh-TW",
+    "w": 390,
+    "mode": "backup",
+    "scroll": 375,
+    "title": "資料管理",
+    "width": 390
+  },
+  {
+    "lang": "zh-TW",
+    "w": 390,
+    "mode": "tools",
+    "scroll": 375,
+    "title": "分析工具",
+    "width": 390
+  },
+  {
+    "lang": "zh-CN",
+    "w": 1440,
+    "mode": "library",
+    "scroll": 1425,
+    "title": "声骸库",
+    "width": 1440
+  },
+  {
+    "lang": "zh-CN",
+    "w": 1440,
+    "mode": "compare",
+    "scroll": 1425,
+    "title": "比较记录",
+    "width": 1440
+  },
+  {
+    "lang": "zh-CN",
+    "w": 1440,
+    "mode": "backup",
+    "scroll": 1425,
+    "title": "数据管理",
+    "width": 1440
+  },
+  {
+    "lang": "zh-CN",
+    "w": 1440,
+    "mode": "tools",
+    "scroll": 1425,
+    "title": "分析工具",
+    "width": 1440
+  },
+  {
+    "lang": "zh-CN",
+    "w": 390,
+    "mode": "library",
+    "scroll": 375,
+    "title": "声骸库",
+    "width": 390
+  },
+  {
+    "lang": "zh-CN",
+    "w": 390,
+    "mode": "compare",
+    "scroll": 375,
+    "title": "比较记录",
+    "width": 390
+  },
+  {
+    "lang": "zh-CN",
+    "w": 390,
+    "mode": "backup",
+    "scroll": 375,
+    "title": "数据管理",
+    "width": 390
+  },
+  {
+    "lang": "zh-CN",
+    "w": 390,
+    "mode": "tools",
+    "scroll": 375,
+    "title": "分析工具",
+    "width": 390
+  },
+  {
+    "lang": "en",
+    "w": 1440,
+    "mode": "library",
+    "scroll": 1425,
+    "title": "Echo library",
+    "width": 1440
+  },
+  {
+    "lang": "en",
+    "w": 1440,
+    "mode": "compare",
+    "scroll": 1425,
+    "title": "Comparison history",
+    "width": 1440
+  },
+  {
+    "lang": "en",
+    "w": 1440,
+    "mode": "backup",
+    "scroll": 1425,
+    "title": "Data management",
+    "width": 1440
+  },
+  {
+    "lang": "en",
+    "w": 1440,
+    "mode": "tools",
+    "scroll": 1425,
+    "title": "Analysis tools",
+    "width": 1440
+  },
+  {
+    "lang": "en",
+    "w": 390,
+    "mode": "library",
+    "scroll": 375,
+    "title": "Echo library",
+    "width": 390
+  },
+  {
+    "lang": "en",
+    "w": 390,
+    "mode": "compare",
+    "scroll": 375,
+    "title": "Comparison history",
+    "width": 390
+  },
+  {
+    "lang": "en",
+    "w": 390,
+    "mode": "backup",
+    "scroll": 375,
+    "title": "Data management",
+    "width": 390
+  },
+  {
+    "lang": "en",
+    "w": 390,
+    "mode": "tools",
+    "scroll": 375,
+    "title": "Analysis tools",
+    "width": 390
+  }
+]

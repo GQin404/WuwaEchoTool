@@ -1,6 +1,13 @@
 const assert=require('node:assert/strict');
 const views=require('../js/ui-view.js'),i18n=require('../js/i18n.js'),messages=require('../js/i18n-dictionaries.js');
 const local=require('../js/role-local-configuration.js'),controller=require('../js/role-register-controller.js');
+// 首页切换保留部署目录，且清除角色、草稿和导览参数。
+for(const base of ['file:///C:/Users/user/Downloads/WuwaEchoTool/','https://test.invalid/tools/wuwa/','https://test.invalid/']){
+    for(const page of ['index.html?guide=1','mccost.html?roleid=101&view=classic','register-workspace.html?mode=echo&draft=abc']){
+        assert.equal(views.homeUrl(base+page,'register','en'),base+'index.html?view=register&lang=en');
+        assert.equal(views.homeUrl(base+page,'classic','en'),base+'index.html?view=classic');
+    }
+}
 const map=new Map([['mcData','original']]),writes=[];
 const storage={getItem:k=>map.get(k)??null,setItem:(k,v)=>{writes.push(k);map.set(k,v);}};
 for(const preference of [null,'register','classic','invalid'])for(const override of [null,'register','classic','invalid'])for(const desktop of [true,false]){

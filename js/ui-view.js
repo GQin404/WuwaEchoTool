@@ -40,6 +40,7 @@
         return u.pathname+u.search;
     }
     function url(href,view,locale){const u=new URL(href,'https://local.invalid');u.searchParams.set('view',view);if(locale)u.searchParams.set('lang',locale);return u.pathname+u.search+u.hash;}
+    function homeUrl(href,view,locale){const next=new URL('index.html',href);next.searchParams.set('view',view);if(view==='register'&&locale)next.searchParams.set('lang',locale);return next.href;}
     function recent(storage,id){try{const old=JSON.parse(storage.getItem(RECENT)||'[]');const ids=Array.isArray(old)?old.filter(x=>typeof x==='string'):[];if(id!=null){const next=[String(id),...ids.filter(x=>x!==String(id))].slice(0,20);storage.setItem(RECENT,JSON.stringify(next));return next;}return ids;}catch(_){return [];}}
     function mount(env){
         const state=env.UiView.state,index=/\/(?:index.html)?$/.test(location.pathname);
@@ -50,7 +51,17 @@
         target.id=guide?'ui-view-choice':state.effective==='register'?'register-shell':'classic-interface-switch';
         if(guide){document.documentElement.classList.add('guide-page');document.body.append(target);}
         else if(state.effective==='register'){document.documentElement.classList.add('register-shell-page');document.body.prepend(target);}
-        else (document.querySelector('.mc-main-page')||document.body).append(target);
+        else {
+            const title=document.querySelector('.mc-title');
+            if(title){
+                title.classList.add('mc-classic-header');
+                const actions=document.createElement('div');
+                actions.className='mc-classic-header-actions';
+                const notice=title.querySelector('.mc-notice-open');
+                if(notice)actions.append(notice);
+                actions.append(target);title.append(actions);
+            }else (document.querySelector('.mc-main-page')||document.body).prepend(target);
+        }
         const brand=()=>'<span class="rs-symbol" aria-hidden="true"><i></i><i></i><i></i></span><span>'+t('register.brand')+'<small>'+t('register.brandLatin')+'</small></span>';
         const language=()=>'<label>'+t('common.language')+'<select data-ui-locale>'+['zh-TW','zh-CN','en'].map(l=>'<option value="'+l+'"'+(l===i18n.locale?' selected':'')+'>'+t('register.locale.'+l)+'</option>').join('')+'</select></label>';
         const guideUrl='index.html?guide=1&return='+encodeURIComponent(location.pathname+location.search);
@@ -60,22 +71,18 @@
                 target.innerHTML='<div class="chooser-language">'+language()+'</div><div class="chooser-brand">'+brand()+'</div><h1>'+t('entry.welcome')+'</h1><p>'+t('entry.shared')+'</p><div class="guide-options">'+['register','classic'].map(v=>'<section><button class="chooser-entry" data-ui-view="'+v+'" aria-describedby="chooser-'+v+'"><strong>'+t('entry.'+v+'Entrance')+'</strong><span class="chooser-description">'+t('entry.'+v+'Description')+'</span><span class="chooser-arrow" aria-hidden="true">↗</span></button><div class="chooser-preview" id="chooser-'+v+'"><img src="image/interface/guide-'+v+'.png" alt="'+t('entry.'+v+'Preview')+'"><ul>'+(v==='register'?['integrated','inline','compare','drafts','future']:['familiar','supported','sameCore']).map(k=>'<li>'+t('entry.'+k)+'</li>').join('')+'</ul></div></section>').join('')+'</div>';
                 return;
             }
-            if(state.effective!=='register'){target.innerHTML='<button type="button" data-ui-view="register">'+t('entry.switchRegister')+'</button>';return;}
-            const modes=[['characters','index.html?view=register'],['echoLibrary','register-workspace.html?view=register&mode=library'],['compare','register-workspace.html?view=register&mode=compare'],['backup','register-workspace.html?view=register&mode=backup'],['tools','register-workspace.html?view=register&mode=tools']];
+            if(state.effective!=='register'){target.innerHTML='<button type="button" data-ui-view="register"><span aria-hidden="true">⇆</span> '+t('entry.switchRegister')+'</button>';return;}
+            const modes=[['characters','index.html?view=register'],['echoLibrary','register-workspace.html?view=register&mode=library'],['compare','register-workspace.html?view=register&mode=compare'],['tools','register-workspace.html?view=register&mode=tools'],['backup','register-workspace.html?view=register&mode=backup']];
             const mode=new URL(location.href).searchParams.get('mode');const active=index||/mccost/.test(location.pathname)||mode==='create'||mode==='import'?'characters':mode==='library'||mode==='echo'?'echoLibrary':mode==='compare'?'compare':mode==='backup'?'backup':'tools';
-            target.innerHTML='<a class="rs-brand" href="index.html?view=register">'+brand()+'</a><nav aria-label="'+t('register.navigation')+'">'+modes.map(([key,href])=>'<a href="'+href+'"'+(key===active?' aria-current="page"':'')+' aria-label="'+t(key==='backup'?'workspace.backup':'nav.'+key)+'"><span class="rs-nav-full">'+t(key==='backup'?'workspace.backup':'nav.'+key)+'</span><span class="rs-nav-short" aria-hidden="true">'+t('shell.mobile.'+key)+'</span></a>').join('')+'</nav><details class="rs-settings"><summary>'+t('shell.settings')+'</summary><div>'+language()+'<a href="'+guideUrl+'">'+t('entry.guide')+'</a><button data-ui-view="classic">'+t('entry.switchClassic')+'</button></div></details>';
+            target.innerHTML='<a class="rs-brand" href="index.html?view=register">'+brand()+'</a><nav aria-label="'+t('register.navigation')+'">'+modes.map(([key,href])=>'<a href="'+href+'"'+(key===active?' aria-current="page"':'')+' aria-label="'+t(key==='backup'?'workspace.backup':'nav.'+key)+'"><span class="rs-nav-full">'+t(key==='backup'?'workspace.backup':'nav.'+key)+'</span><span class="rs-nav-short" aria-hidden="true">'+t('shell.mobile.'+key)+'</span></a>').join('')+'</nav><details class="rs-settings"><summary>'+t('shell.settings')+'</summary><div>'+language()+'<a href="'+guideUrl+'">'+t('entry.guide')+'</a><button data-ui-view="classic"><span aria-hidden="true">⇆</span> '+t('entry.switchClassic')+'</button></div></details>';
         }
         function choose(view){
             try{env.localStorage.setItem(KEY,view);}catch(_){}
-            const back=new URL(location.href).searchParams.get('return');
-            const safe=back&&/^\/(?:index|mccost|mccost-readonly|register-workspace)\.html(?:\?|$)/.test(back)?back:null;
-            const next=new URL(url(safe||(index||/mccost/.test(location.pathname)?location.href:'index.html'),view,i18n.locale),location.href);
-            next.searchParams.delete('guide');next.searchParams.delete('return');
-            if(view==='classic'){for(const k of ['draft','selectedPosition','selectedEcho','lang'])next.searchParams.delete(k);}
-            location.assign(next.href);
+            // 切换界面统一进入目标首页，不携带角色或编辑上下文。
+            location.assign(homeUrl(location.href,view,i18n.locale));
         }
         document.addEventListener('click',e=>{
-            const button=e.target.closest('[data-ui-view]');if(button){choose(button.dataset.uiView);return;}
+            const button=e.target.closest('[data-ui-view]');if(button){e.preventDefault();choose(button.dataset.uiView);return;}
             const link=e.target.closest('a[href]');if(!link)return;
             const next=new URL(link.href,location.href);if(next.origin!==location.origin)return;
             const selected=valid(next.searchParams.get('view'))?next.searchParams.get('view'):state.requested;
@@ -89,5 +96,5 @@
         const roleId=new URL(location.href).searchParams.get('roleid');if(roleId&&!guide)recent(env.localStorage,roleId);
         if(index&&state.effective==='classic'&&!guide&&new URL(location.href).searchParams.get('action')==='create')env.jQuery?.('#mc-addrole').modal('show');
     }
-    return {KEY,RECENT,resolve,nativeUrl,url,recent,mount};
+    return {KEY,RECENT,resolve,nativeUrl,url,homeUrl,recent,mount};
 });
