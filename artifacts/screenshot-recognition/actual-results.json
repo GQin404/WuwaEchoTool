@@ -1,0 +1,102 @@
+[
+  {
+    "name": "原圖辨識名稱： 共鳴迴響。天演溯心",
+    "fields": {
+      "catalogId": "181",
+      "detectedCost": "4",
+      "suite": "",
+      "main.key": "crit_damage",
+      "main.value": "44",
+      "sub0.key": "crit_rate",
+      "sub0.value": "7.5",
+      "sub1.key": "atk_flat",
+      "sub1.value": "30",
+      "sub2.key": "resonance_skill_damage",
+      "sub2.value": "9.4",
+      "sub3.key": "heavy_attack_damage",
+      "sub3.value": "10.1",
+      "sub4.key": "def_flat",
+      "sub4.value": "40"
+    }
+  },
+  {
+    "name": "原圖辨識名稱： 解形煞",
+    "fields": {
+      "catalogId": "184",
+      "detectedCost": "3",
+      "suite": "",
+      "main.key": "electro_damage",
+      "main.value": "30",
+      "sub0.key": "def_percent",
+      "sub0.value": "8.1",
+      "sub1.key": "crit_rate",
+      "sub1.value": "6.3",
+      "sub2.key": "crit_damage",
+      "sub2.value": "18.6",
+      "sub3.key": "resonance_skill_damage",
+      "sub3.value": "10.9",
+      "sub4.key": "hp_percent",
+      "sub4.value": "7.9"
+    }
+  },
+  {
+    "name": "原圖辨識名稱： 絕息魄",
+    "fields": {
+      "catalogId": "183",
+      "detectedCost": "3",
+      "suite": "",
+      "main.key": "electro_damage",
+      "main.value": "30",
+      "sub0.key": "hp_flat",
+      "sub0.value": "470",
+      "sub1.key": "def_percent",
+      "sub1.value": "9",
+      "sub2.key": "resonance_skill_damage",
+      "sub2.value": "6.4",
+      "sub3.key": "crit_rate",
+      "sub3.value": "10.5",
+      "sub4.key": "basic_attack_damage",
+      "sub4.value": "7.9"
+    }
+  },
+  {
+    "name": "原圖辨識名稱： 玉冥蛇",
+    "fields": {
+      "catalogId": "186",
+      "detectedCost": "1",
+      "suite": "",
+      "main.key": "atk_percent",
+      "main.value": "18",
+      "sub0.key": "resonance_efficiency",
+      "sub0.value": "10",
+      "sub1.key": "resonance_skill_damage",
+      "sub1.value": "10.1",
+      "sub2.key": "crit_damage",
+      "sub2.value": "15",
+      "sub3.key": "resonance_liberation_damage",
+      "sub3.value": "10.1",
+      "sub4.key": "crit_rate",
+      "sub4.value": "7.5"
+    }
+  },
+  {
+    "name": "原圖辨識名稱： 圳息獸尊‧首",
+    "fields": {
+      "catalogId": "",
+      "detectedCost": "1",
+      "suite": "",
+      "main.key": "atk_percent",
+      "main.value": "18",
+      "sub0.key": "hp_flat",
+      "sub0.value": "470",
+      "sub1.key": "crit_damage",
+      "sub1.value": "15",
+      "sub2.key": "def_flat",
+      "sub2.value": "40",
+      "sub3.key": "atk_percent",
+      "sub3.value": "10.1",
+      "sub4.key": "crit_rate",
+      "sub4.value": "6.3"
+    }
+  }
+]
