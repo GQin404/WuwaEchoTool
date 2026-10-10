@@ -63,3 +63,7 @@ html.register-shell-page,html.guide-page{scrollbar-gutter:stable;color-scheme:da
 .rr-dialog{box-sizing:border-box;max-width:min(720px,calc(100vw - 32px));padding:32px;background:#15201c;color:#e2e8e2;border:1px solid #6d7e73;font:16px/1.6 system-ui,sans-serif;text-align:left}.rr-dialog::backdrop{background:rgb(0 0 0 / .75)}.rr-dialog-actions{display:flex;flex-wrap:wrap;gap:18px;justify-content:flex-end;margin-top:24px}.rr-dialog button{font:inherit;padding:10px 18px;background:transparent;color:inherit;border:1px solid #91a89b;cursor:pointer}.rr-dialog :focus-visible{outline:2px solid #badbc9;outline-offset:4px}.rr-share-dialog{max-width:min(1200px,calc(100vw - 32px));width:1200px}.rr-share-dialog canvas{width:100%;height:auto;display:block}.rr-role-actions button{font:inherit;color:inherit;background:transparent;border:0;border-bottom:1px solid #72877a;padding:8px 0;cursor:pointer}
 
 #character-dock .dock-findings{padding:12px 0;color:#a8b4ad;font-size:12px}
+
+.rr-share-dialog.rr-share-choosing{width:520px}.rr-share-choices{display:grid;gap:14px;margin:24px 0}.rr-share-choices button{text-align:left;padding:20px}.rr-share-dialog [hidden]{display:none!important}.rr-share-dialog{max-height:calc(100dvh - 32px);overflow:auto}.rr-share-dialog button:disabled{opacity:.5;cursor:wait}@media(max-width:600px){.rr-share-dialog{padding:20px}.rr-share-dialog .rr-dialog-actions{gap:10px}.rr-share-dialog .rr-dialog-actions button{flex:1 1 auto}}
+
+.rr-share-dialog canvas{width:auto;max-width:100%;max-height:65dvh;object-fit:contain;margin-inline:auto}
