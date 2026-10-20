@@ -10,10 +10,11 @@ document.addEventListener('DOMContentLoaded',function(){
     legacy.searchParams.delete('draft');
     let controller=null,error=null,lastRecord=null,candidateSurface=null;
     let modelPersistence='modelAutoSave';
-    let managementOpen=window.matchMedia?window.matchMedia('(min-width: 1100px)').matches:true;
+    // 新配置管理入口保持可见，旧高级管理默认收合，避免侧栏把右侧拉出大面积留白。
+    let managementOpen=false;
     host.addEventListener('toggle',event=>{if(event.target.matches?.('.rr-role-management')&&event.target.isConnected)managementOpen=event.target.open;},true);
     let modelGuard=null,modelRevision=null;
-    const navigation=RegisterNavigation.create(sessionStorage),analysisKey='analysis:'+id;
+    const navigation=RegisterNavigation.create(sessionStorage),analysisKey='analysis:'+id+':'+(new URL(location.href).searchParams.get('configuration')||'active');
     const operationNotice=navigation.takeNotice('role:'+id);
     function rememberAnalysis(){const selection=controller?.snapshot().selection;if(!controller)return;navigation.save(analysisKey,{position:selection?.position||null,echo:selection?.kind==='echo'?controller.snapshot().model.slots[selection.position-1].echo?.id:null,scroll:scrollY});}
     let configInput=null,metadataExpected=null,planTicket=0,configGuard=null,configNotice=null;
@@ -29,33 +30,34 @@ document.addEventListener('DOMContentLoaded',function(){
         const loaded=RegisterMetadata.create(localStorage).load(),record=read(),caption=host.querySelector('.rr-identity-caption');if(!record||!caption)return;
         if(!loaded.ok)configNotice={key:'ops.nameUnavailable',error:true};
         if(configInput===null)metadataExpected=loaded.raw;
-        if(!configGuard){configGuard=RegisterUnsaved.create({scope:'config-name:'+id,get:()=>configInput,apply:value=>configInput=typeof value==='string'?value:null,revision:()=>metadataExpected,i18n});configGuard.recover();}
-        const label=RegisterMetadata.roleName({role:JSON.parse(localStorage.getItem('mcData')).role},record,i18n,loaded.data);
+        if(!configGuard){configGuard=RegisterUnsaved.create({scope:'config-name:'+id+':'+(read()?.activeConfigurationId||'legacy'),get:()=>configInput,apply:value=>configInput=typeof value==='string'?value:null,revision:()=>metadataExpected,i18n});configGuard.recover();}
+        const label=record.configurations?MultiConfig.active(record).name||i18n.t('mc.defaultName'):RegisterMetadata.roleName({role:JSON.parse(localStorage.getItem('mcData')).role},record,i18n,loaded.data);
         host.querySelector('.rr-identity h1')?.insertAdjacentHTML('afterend','<p class="op-current-config">'+escapeOps(label)+'</p>');
         host.querySelector('[data-summary-config]')?.replaceChildren(document.createTextNode(label));
         caption.insertAdjacentHTML('beforeend','<form class="op-rename" data-op-rename-role novalidate><label for="rr-config-name">'+escapeOps(i18n.t('ops.name'))+'</label><input id="rr-config-name" maxlength="80" aria-describedby="rr-config-status" data-op-config-name value="'+escapeOps(configInput??label)+'"><button type="submit">'+escapeOps(i18n.t('ops.rename'))+'</button><p id="rr-config-status" aria-live="polite" aria-atomic="true" data-op-name-status></p></form><section class="op-plan-management"><h2>'+escapeOps(i18n.t('ops.plans'))+'</h2><div data-op-plans></div></section>');
         showConfigNotice();
         const back=host.querySelector('.rr-breadcrumb a');if(back)back.href=RegisterNavigation.back(new URL(location.href).searchParams,i18n.locale);
         const ticket=++planTicket;
-        crypto.subtle.digest('SHA-256',new TextEncoder().encode(RoleDraftModel.canonical(record))).then(bytes=>{
-            if(ticket!==planTicket||RoleDraftModel.canonical(read())!==RoleDraftModel.canonical(record))return;
+        crypto.subtle.digest('SHA-256',new TextEncoder().encode(RoleDraftModel.canonical(RoleDraftModel.source(record)))).then(bytes=>{
+            if(ticket!==planTicket||RoleDraftModel.canonical(RoleDraftModel.source(read()))!==RoleDraftModel.canonical(RoleDraftModel.source(record)))return;
             const revision=Array.from(new Uint8Array(bytes),n=>n.toString(16).padStart(2,'0')).join(''),current=RoleDraftModel.createBaseline(controller.snapshot().model,{id:'plans-current',createdAt:Date.now(),sourceRevision:revision,modelVersion:'legacy-scoring-2026-10-08'}),drafts=RoleDraftStorage.create(localStorage).load();if(!drafts.ok)return;
-            const rows=drafts.data.drafts.filter(d=>drafts.data.baselines.find(b=>b.id===d.baseline.id)?.role.identity===String(record.roleId));
-            const inventory=JSON.parse(localStorage.getItem('mcData')).unusedEchoes||[],adapter=RoleCandidates.createAdapter(normalize),activeDraft=new URL(location.href).searchParams.get('draft');
+            const rows=drafts.data.drafts.filter(d=>{const b=drafts.data.baselines.find(b=>b.id===d.baseline.id);return b?.role.identity===String(record.roleId)&&(!b.role.configurationId||b.role.configurationId===record.activeConfigurationId);});
+            const inventory=MultiConfig.entities(JSON.parse(localStorage.getItem('mcData'))),adapter=RoleCandidates.createAdapter(normalize),activeDraft=new URL(location.href).searchParams.get('draft');
             const html=rows.map(d=>{const baseline=drafts.data.baselines.find(b=>b.id===d.baseline.id),valid=RoleDraftModel.assess(baseline,d,current,Date.now()).status==='valid'&&adapter.assessSource(d,inventory,record).status==='valid',adopted=valid&&RoleLocalConfiguration.create(localStorage).find(baseline,d),u=new URL(location.href);u.searchParams.set('draft',d.id);return '<p><a'+(d.id===activeDraft?' aria-current="true"':'')+' href="'+escapeOps(u.pathname+u.search)+'">'+escapeOps(RegisterMetadata.draftName(d,i18n,loaded.data))+'</a><small> · '+escapeOps(i18n.t(valid?(adopted?'ops.adopted':'ops.saved'):'ops.recompare'))+'</small></p>';}).join('');
             host.querySelector('[data-op-plans]')?.replaceChildren();if(host.querySelector('[data-op-plans]'))host.querySelector('[data-op-plans]').innerHTML=html||'<p>'+escapeOps(i18n.t('ops.noPlans'))+'</p>';
         }).catch(()=>{});
     }
+    window.MultiConfigLeave=fn=>configGuard?configGuard.leave(()=>modelGuard?modelGuard.leave(()=>candidateSurface?.active()?candidateSurface.close(fn):fn()):fn()):fn();
     host.addEventListener('input',event=>{if(event.target.matches('[data-op-config-name]')){configInput=event.target.value;configNotice=null;showConfigNotice();}});
     host.addEventListener('submit',event=>{
         if(!event.target.matches('[data-op-rename-role]'))return;event.preventDefault();
         // 只保存既有 roles 名称映射；不新增装备方案，也不触碰 mcData。
         let result;
-        try{result=read()?RegisterMetadata.create(localStorage).rename('roles',id,configInput??event.target.querySelector('input').value,metadataExpected):{ok:false,code:'SOURCE_CHANGED'};}
+        try{result=read()?.configurations?MultiConfigUI.rename(id,configInput??event.target.querySelector('input').value):read()?RegisterMetadata.create(localStorage).rename('roles',id,configInput??event.target.querySelector('input').value,metadataExpected):{ok:false,code:'SOURCE_CHANGED'};}
         catch(_){result={ok:false,code:'SAVE_FAILED'};}
         const loaded=RegisterMetadata.create(localStorage).load();
         if(result.ok&&loaded.ok){
-            const label=loaded.data.roles[id];configInput=null;metadataExpected=loaded.raw;configGuard?.markSaved();
+            const label=read()?.configurations?MultiConfig.active(read()).name:loaded.data.roles[id];configInput=null;metadataExpected=loaded.raw;configGuard?.markSaved();
             host.querySelectorAll('.op-current-config,[data-summary-config]').forEach(node=>node.textContent=label);
             event.target.querySelector('input').value=label;
             configNotice={key:'ops.nameSaved',params:{name:label}};
@@ -176,7 +178,7 @@ document.addEventListener('DOMContentLoaded',function(){
         focus('#rr-config-name',true);
     }
     modelRevision=lastRecord;
-    modelGuard=RegisterUnsaved.create({scope:'model:'+id,get:()=>controller?.modelChanges()||{},apply:changes=>{if(controller&&changes&&typeof changes==='object')for(const [field,value]of Object.entries(changes))controller.updateModel(field,value);},revision:()=>modelRevision,i18n});
+    modelGuard=RegisterUnsaved.create({scope:'model:'+id+':'+(read()?.activeConfigurationId||'legacy'),get:()=>controller?.modelChanges()||{},apply:changes=>{if(controller&&changes&&typeof changes==='object')for(const [field,value]of Object.entries(changes))controller.updateModel(field,value);},revision:()=>modelRevision,i18n});
     if(modelGuard.recover()&&controller?.snapshot().modelChanged){modelPersistence='modelSaveFailed';render();}
     candidateSurface=RoleCandidateSurface.mount({host,i18n,normalize,getController:()=>controller,refresh,catalog:costList});
     if(controller&&params.has('selectedEcho')){

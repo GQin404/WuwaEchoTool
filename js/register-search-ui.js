@@ -6,7 +6,6 @@
   {key:'library',search:'[data-library-filter="search"]',group:'.rw-filters',reset:'[data-library-reset]',count:'[data-library-count]'},
   {key:'candidate',search:'[data-rc-filter="search"]',group:'.op-filters',reset:'[data-rc-reset]',count:'.rr-candidate-surface .op-count'},
   {key:'history',search:'[data-history-filter="search"]',group:'.op-filters',reset:'[data-history-reset]',count:'.op-count'},
-  {key:'inventory',search:'[data-picker-search]',group:'.rw-picker-filters'},
   {key:'import',search:'#ri-search'}
  ];
  function isDefault(el){const key=el.dataset.libraryFilter||el.dataset.libraryField||el.dataset.rcFilter||el.dataset.historyFilter||(['source','status','sort'].find(k=>el.hasAttribute('data-dock-'+k)))||'';const def=key==='sort'?'recent':key==='source'||key==='status'?'all':'';return el.type==='checkbox'?!el.checked:el.multiple?![...el.selectedOptions].some(o=>o.value!==def):el.value===def;}

@@ -24,7 +24,7 @@
         const echoName=e=>esc(i18n.entity('echoes',e.catalogId,e.legacy?.name||i18n.t('register.echoId',{id:e.catalogId})));
         const asset=s=>typeof s==='string'&&/^(image\/|https?:\/\/)/.test(s)?esc(s):'';
         function roleUrl(record,draft){const u=new URL(record.isImport?'mccost-readonly.html':'mccost.html',location.href);u.searchParams.set('roleid',record.roleId);u.searchParams.set('view','register');u.searchParams.set('lang',i18n.locale);if(draft)u.searchParams.set('draft',draft);return esc(u.pathname+u.search);}
-        async function digest(record){const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(drafts.canonical(record)));return Array.from(new Uint8Array(bytes),n=>n.toString(16).padStart(2,'0')).join('');}
+        async function digest(record){const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(drafts.canonical(drafts.source(record))));return Array.from(new Uint8Array(bytes),n=>n.toString(16).padStart(2,'0')).join('');}
         async function refresh(){
             const ticket=++generation;error=null;statuses=[];
             try{

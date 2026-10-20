@@ -116,7 +116,7 @@
             const values=echoes.map(e=>e.score.value).filter(x=>x!==null);
             const result = {
                 schemaVersion:2,
-                role:{id:role.roleId??null,catalogId:role.roleListId??null,name:role.name||master?.name||null,source:role.isImport===true?'imported':'manual',level:numeric(role.level),portrait:portraits.resolve(master)},
+                role:{...(role.activeConfigurationId?{configurationId:role.activeConfigurationId,configurationName:role.configurations?.find(c=>c.id===role.activeConfigurationId)?.name||''}:{}),id:role.roleId??null,catalogId:role.roleListId??null,name:role.name||master?.name||null,source:role.isImport===true?'imported':'manual',level:numeric(role.level),portrait:portraits.resolve(master)},
                 model:{status:config?'available':'unavailable',chain:Math.max(0,Math.min(6,parseInt(role.ming)||0)),requestedMode:role.damageMode??null,extraEnergy:role.extraEnergy??null,configuration:copy(config)},
                 slots,
                 scale:{min:0,max:Math.max(100,Math.ceil(Math.max(0,...values)/10)*10),unit:'score-points',scope:'role-score-contribution',shared:true},

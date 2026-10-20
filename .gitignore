@@ -28,3 +28,9 @@ node_modules/
 /artifacts/**/preview/
 /artifacts/**/qa/
 /artifacts/cleanup-*.json
+
+# 本轮多配置交付、截图及封装暂存
+/artifacts/multiconfig-20261020/
+
+# 背包共享修复的实际截图、报告及封装暂存
+/artifacts/inventory-fix-20261020/

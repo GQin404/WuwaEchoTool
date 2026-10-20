@@ -7052,7 +7052,19 @@ function numToChinese(num) {
 }
 
 //将JSON数据保存到本地浏览器缓存,data-JSON格式
-function saveDataToCache(data) {
+function saveDataToCache(data, options) {
+    if(typeof MultiConfig!=='undefined'&&data?.loadoutVersion===2){
+        const raw=localStorage.getItem('mcData'),previous=raw?JSON.parse(raw):null;
+        const next=MultiConfig.reconcile(data,previous);
+        if(typeof UiView!=='undefined'&&UiView.state.effective==='classic'&&previous?.loadoutVersion===2){
+            const value=e=>{const v={...e};delete v.sumScores;return JSON.stringify(v);},affected=[];
+            for(const e of next.echoes){const old=previous.echoes.find(x=>String(x.costId)===String(e.costId));if(old&&value(old)!==value(e)){const refs=MultiConfig.references(previous,e.costId);if(refs.length>1)affected.push(...refs);}}
+            if(affected.length&&typeof EchoI18n!=='undefined'){const language=EchoI18n.create({language:'zh-CN'}),message=language.t('mc.editConfirm')+'\n'+language.t('mc.editImpact',{count:affected.length})+'\n'+affected.map(r=>language.entity('characters',r.roleListId,r.roleName)+' · '+(r.name||language.t('mc.defaultName'))).join('\n');if(!confirm(message))return false;}
+        }
+        const removedEchoIds=(previous?.echoes||[]).filter(e=>!next.echoes.some(x=>String(x.costId)===String(e.costId))).map(e=>e.costId);
+        MultiConfig.commit(localStorage,next,{...options,removedEchoIds});
+        if(options?.resetRoles?.length&&typeof MultiConfigUI!=='undefined')MultiConfigUI.clearSessions?.(options.resetRoles);return;
+    }
     localStorage.setItem("mcData", JSON.stringify(data));
 }
 
@@ -7061,6 +7073,7 @@ function getDataFromCache(key) {
     let data2 = localStorage.getItem(key);
     if (data2 != null && typeof (data2) !== "undefined") {
         data2 = JSON.parse(data2);
+        if(key==='mcData'&&data2?.loadoutVersion===2&&typeof UiView!=='undefined'&&UiView.state.effective==='classic')data2.role.forEach(r=>r.costList=r.costList.filter(Boolean));
     }
     return data2;
 }

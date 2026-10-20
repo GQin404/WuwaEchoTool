@@ -68,7 +68,7 @@
         const heroScale=detailed?1.15:1,heroGap=20,heroInner=pageWidth-pad*2-heroGap*2;
         const identityWidth=heroInner*.38,scoreWidth=heroInner*.30,radarWidth=heroInner*.32;
         const identityX=pad,scoreX=identityX+identityWidth+heroGap,radarX=scoreX+scoreWidth+heroGap;
-        const titleSize=38*heroScale,identityHeight=height(characterName,titleSize,identityWidth-40),portraitHeight=285*heroScale;
+        const titleSize=38*heroScale,configurationName=data.role.configurationId?(data.role.configurationName||t('mc.defaultName')):'',configurationHeight=configurationName?height(configurationName,22*heroScale,identityWidth-40)+10:0,identityHeight=height(characterName,titleSize,identityWidth-40)+configurationHeight,portraitHeight=285*heroScale;
         const badgeSize=18*heroScale,chainName=t('role.chain',{chain:data.model.chain});
         measure.font=badgeSize+'px system-ui, sans-serif';
         const chainWidth=Math.min(identityWidth-40,measure.measureText(chainName).width+28),modeWidth=Math.min(identityWidth-40,measure.measureText(modeName).width+28);
@@ -108,6 +108,7 @@
         picture(data.role.portrait,portraitX,heroTop+12,portraitW,portraitHeight);boxes.push({kind:'portrait',x:portraitX,y:heroTop+12,w:portraitW,h:portraitHeight});
         const titleTop=heroTop+portraitHeight+22;
         text(characterName,cx,titleTop,titleSize,'#f1f3ec',identityWidth-40,'center');
+        if(configurationName)text(configurationName,cx,titleTop+identityHeight-configurationHeight,22*heroScale,'#a8d9ce',identityWidth-40,'center');
         const badgeTop=titleTop+identityHeight+12,totalBadgeWidth=chainWidth+modeWidth+8;
         const badge=(label,x,y,w)=>{panel(x,y,w,badgeHeight,Math.min(16,badgeHeight/2),'#1c3233','#395552');text(label,x+w/2,y+6,badgeSize,'#c4d6cf',w-24,'center');};
         if(badgeStack){badge(chainName,cx-chainWidth/2,badgeTop,chainWidth);badge(modeName,cx-modeWidth/2,badgeTop+badgeHeight+8,modeWidth);}else{badge(chainName,cx-totalBadgeWidth/2,badgeTop,chainWidth);badge(modeName,cx-totalBadgeWidth/2+chainWidth+8,badgeTop,modeWidth);}

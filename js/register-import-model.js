@@ -1,5 +1,5 @@
 /* Register batch workflow. Preview is memory only; one shared-core transaction commits mcData. */
-(function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory(require('./character-core.js'));else root.RegisterImportModel=factory(root.CharacterCore);})(typeof globalThis!=='undefined'?globalThis:this,function(Core){
+(function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory(require('./character-core.js'),require('./multi-config.js'));else root.RegisterImportModel=factory(root.CharacterCore,root.MultiConfig);})(typeof globalThis!=='undefined'?globalThis:this,function(Core,MultiConfig){
 'use strict';
 const SERVER=Core.IMPORT_SERVER,copy=x=>JSON.parse(JSON.stringify(x));
 function uniqueId(){const bytes=new Uint32Array(2);globalThis.crypto.getRandomValues(bytes);return (bytes[0]&0xffff)*4294967296+bytes[1];}
@@ -7,7 +7,7 @@ const accountKey=Core.accountKey;
 function sameSource(a,b){return a?.version===1&&a.server===b.server&&a.accountKey===b.accountKey&&String(a.gameRoleId)===String(b.gameRoleId);}
 function create({service,core,catalog,mapRole,normalize,storage,searchName=()=>'',onChange=()=>{},lock=fn=>fn()}){
     let epoch=0,controller=null,baseline=core.load(),credential=null;
-    const state={phase:'connect',credential:'empty',busy:false,operation:null,rows:[],selected:new Set(),search:'',completed:0,total:0,current:null,error:null,result:null};
+    const state={phase:'connect',credential:'empty',busy:false,operation:null,rows:[],selected:new Set(),search:'',page:0,overwriteAcknowledged:false,completed:0,total:0,current:null,error:null,result:null};
     const emit=()=>onChange(state),snapshot=()=>state;
     function stop(){epoch++;controller?.abort();controller=null;state.busy=false;state.operation=null;state.current=null;for(const row of state.rows)if(['pending','loading'].includes(row.status))row.status='cancelled';}
     function invalidate(){stop();credential=null;state.rows=[];state.selected.clear();state.result=null;state.phase='connect';state.error=null;state.credential='modified';emit();}
@@ -22,8 +22,8 @@ function create({service,core,catalog,mapRole,normalize,storage,searchName=()=>'
         return {exact,candidates:[...exact,...legacy]};
     }
     function propose(row){const {exact,candidates}=matches(row);row.candidates=candidates.map(copy);row.target=null;row.original=null;
-        if(exact.length===1){row.action='update';row.target=String(exact[0].roleId);row.original=copy(exact[0]);}
-        else row.action=candidates.length?'resolve':'add';
+        if(exact.length===1){row.action=baseline.loadoutVersion===2?'skip':'update';row.target=String(exact[0].roleId);row.original=copy(exact[0]);}
+        else row.action=candidates.length?(baseline.loadoutVersion===2?'skip':'resolve'):'add';
     }
     async function connect(uid,token){
         if(state.busy)return false;
@@ -59,21 +59,22 @@ function create({service,core,catalog,mapRole,normalize,storage,searchName=()=>'
             row.target=String(record.roleId);row.original=copy(record);
         }else if(!['add','skip','resolve'].includes(action))throw Error('IDENTITY');
         else {row.target=null;row.original=null;}
-        row.action=action;if(row.preview)prepare(row);emit();
+        row.action=action;state.overwriteAcknowledged=false;if(row.preview)prepare(row);emit();
     }
     function prepare(row){
         const next=copy(row.preview);
         if(row.original){
             next.roleId=row.original.roleId;
             // Preserve local scoring conditions. Chain and official equipment come from detail.
-            for(const key of ['damageMode','extraEnergy','referenceHealth'])if(Object.hasOwn(row.original,key))next[key]=row.original[key];
+            if(baseline.loadoutVersion!==2)for(const key of ['damageMode','extraEnergy','referenceHealth'])if(Object.hasOwn(row.original,key))next[key]=row.original[key];
         }
         next.importSource=copy(row.source);row.commit=core.score(next);row.view=normalize(next);
         row.previous=row.original?normalize(row.original):null;
     }
     async function read(retry=false){
         if(state.busy||!credential)return false;
-        const rows=state.rows.filter(r=>r.known&&state.selected.has(r.key)&&(retry?['failed','cancelled'].includes(r.status):r.status!=='done'));
+        const rows=state.rows.filter(r=>r.known&&state.selected.has(r.key)&&(baseline.loadoutVersion!==2||r.action!=='skip')&&(retry?['failed','cancelled'].includes(r.status):r.status!=='done'));
+        if(!rows.length&&baseline.loadoutVersion===2&&state.selected.size){state.phase='preview';emit();return true;}
         if(!rows.length)return false;
         stop();const ticket=epoch;controller=new AbortController();const signal=controller.signal;
         state.busy=true;state.operation='read';state.phase='preview';state.error=null;state.total=rows.length;state.completed=0;
@@ -92,7 +93,7 @@ function create({service,core,catalog,mapRole,normalize,storage,searchName=()=>'
         if(ticket===epoch){state.busy=false;state.operation=null;state.current=null;emit();}return true;
     }
     function cancel(){const verifying=state.credential==='validating';stop();if(verifying){try{state.credential=storage.getItem('kjq_token')?'saved':'modified';}catch(_){state.credential='modified';}}state.error=Error('CANCELLED');emit();}
-    function counts(){const rows=state.rows.filter(r=>state.selected.has(r.key));return {add:rows.filter(r=>r.status==='done'&&r.action==='add').length,update:rows.filter(r=>r.status==='done'&&r.action==='update').length,skip:rows.filter(r=>r.action==='skip').length,failed:rows.filter(r=>['failed','cancelled'].includes(r.status)&&r.action!=='skip').length,resolve:rows.filter(r=>r.action==='resolve'&&r.status==='done').length};}
+    function counts(){const rows=state.rows.filter(r=>state.selected.has(r.key));return {add:rows.filter(r=>(baseline.loadoutVersion===2||r.status==='done')&&r.action==='add').length,update:rows.filter(r=>(baseline.loadoutVersion===2||r.status==='done')&&r.action==='update').length,skip:rows.filter(r=>r.action==='skip').length,failed:rows.filter(r=>['failed','cancelled'].includes(r.status)&&r.action!=='skip').length,resolve:rows.filter(r=>r.action==='resolve'&&r.status==='done').length};}
     function reconcile(latest){
         for(const row of state.rows.filter(r=>r.known)){
             const previousMatches=matches(row,baseline),freshMatches=matches(row,latest);
@@ -106,7 +107,12 @@ function create({service,core,catalog,mapRole,normalize,storage,searchName=()=>'
     }
     async function save(){
         if(state.busy||state.result)return false;
-        const totals=counts();if(totals.resolve||!totals.add&&!totals.update)return false;
+        const totals=counts();if(totals.resolve||baseline.loadoutVersion!==2&&!totals.add&&!totals.update)return false;
+        if(baseline.loadoutVersion===2){
+            const selected=state.rows.filter(r=>r.known&&state.selected.has(r.key)&&r.action!=='skip');
+            if(selected.some(r=>r.status!=='done')||totals.update&&!state.overwriteAcknowledged)return false;
+            if(!selected.length){state.result={...totals,roles:[]};state.phase='result';emit();return true;}
+        }
         const rows=state.rows.filter(r=>state.selected.has(r.key)&&r.status==='done'&&['add','update'].includes(r.action));
         const ticket=epoch;state.busy=true;state.operation='save';state.error=null;emit();
         try{return await lock(()=>{
@@ -124,10 +130,10 @@ function create({service,core,catalog,mapRole,normalize,storage,searchName=()=>'
                     }
                     for(const echo of next.costList){while(ids.has(String(echo.costId)))echo.costId=uniqueId();ids.add(String(echo.costId));}
                     if(row.action==='add')data.role.push(next);
-                    else {const index=data.role.findIndex(r=>String(r.roleId)===row.target);if(index<0||!data.role[index].isImport)throw Error('IDENTITY');data.role[index]=next;}
+                    else {const index=data.role.findIndex(r=>String(r.roleId)===row.target);if(index<0||!data.role[index].isImport)throw Error('IDENTITY');if(data.loadoutVersion===2)MultiConfig.overwrite(data,row.target,next);else data.role[index]=next;}
                     savedIds.set(row.key,next.roleId);
                 }
-            });
+            },{resetRoles:rows.filter(r=>r.action==='update').map(r=>r.target)});
             for(const row of rows)row.savedId=savedIds.get(row.key);
             state.result={...totals,roles:rows.map(r=>({key:r.key,id:r.savedId,action:r.action}))};state.phase='result';baseline=core.load();return true;
         });}catch(error){if(ticket===epoch)state.error=['SOURCE_CHANGED','IDENTITY','CANCELLED','INVALID_DATA'].includes(error.message)?error:Error('SAVE_FAILED');return false;}

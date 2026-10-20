@@ -56,7 +56,7 @@
         requireValue(exact(b,['schemaVersion','id','version','createdAt','expiresAt','sourceRevision','modelVersion','viewModelVersion','role','conditions','modelStatus','identityState','slots']),'INVALID_BASELINE');
         requireValue(b.schemaVersion===SCHEMA_VERSION&&token(b.id)&&b.version===1&&timestamp(b.createdAt)&&
             (b.expiresAt===null||timestamp(b.expiresAt)&&b.expiresAt>b.createdAt)&&token(b.sourceRevision)&&token(b.modelVersion)&&b.viewModelVersion===2,'INVALID_BASELINE_VERSION');
-        requireValue(exact(b.role,['identity','catalogId','source'])&&token(b.role.identity)&&token(b.role.catalogId)&&['manual','imported'].includes(b.role.source),'INVALID_ROLE_IDENTITY');
+        requireValue((exact(b.role,['identity','catalogId','source'])||exact(b.role,['identity','catalogId','source','configurationId'])&&token(b.role.configurationId))&&token(b.role.identity)&&token(b.role.catalogId)&&['manual','imported'].includes(b.role.source),'INVALID_ROLE_IDENTITY');
         requireValue(validConditions(b.conditions)&&['available','unavailable'].includes(b.modelStatus)&&['reliable','ambiguous'].includes(b.identityState),'INVALID_MODEL');
         requireValue(Array.isArray(b.slots)&&b.slots.length===5&&b.slots.every((s,i)=>exact(s,['position','echo'])&&s.position===i+1&&(s.echo===null||validEcho(s.echo))),'INVALID_SLOTS');
         if(b.identityState==='reliable')requireValue(reliable(b),'AMBIGUOUS_IDENTITY');
@@ -67,7 +67,7 @@
         const parameters=model.model.parameters;
         const b={schemaVersion:SCHEMA_VERSION,id:options.id,version:1,createdAt:options.createdAt,expiresAt:options.expiresAt??null,
             sourceRevision:options.sourceRevision,modelVersion:options.modelVersion,viewModelVersion:model.schemaVersion,
-            role:{identity:id(model.role.id),catalogId:id(model.role.catalogId),source:model.role.source},
+            role:{...(model.role.configurationId?{configurationId:model.role.configurationId}:{}),identity:id(model.role.id),catalogId:id(model.role.catalogId),source:model.role.source},
             conditions:{chain:model.model.chain,mode:parameters.mode,extraEnergy:parameters.extraEnergy??null,referenceHealth:parameters.referenceHealth??null},
             modelStatus:model.model.status,identityState:'reliable',slots:model.slots.map(s=>({position:s.position,echo:s.echo?echoFromView(s.echo,s.status):null}))};
         if(!reliable(b)||model.issues.some(i=>['duplicate-cost-id','extra-slots'].includes(i.code)))b.identityState='ambiguous';
@@ -127,5 +127,6 @@
         const slots=copy(b.slots);slots[d.targetSlot-1].echo=copy(d.candidate.echo);
         return freeze({role:copy(b.role),modelVersion:b.modelVersion,conditions:copy(d.modelConditions),slots});
     }
-    return {SCHEMA_VERSION,canonical,createBaseline,createCandidate,createDraft,updateDraft,validateBaseline,validateCandidate,validateDraft,assess,materialize};
+    function source(record){if(!record?.configurations)return record;const next={...record};for(const k of ['configurations','activeConfigurationId','defaultConfigurationId'])delete next[k];return next;}
+    return {SCHEMA_VERSION,canonical,source,createBaseline,createCandidate,createDraft,updateDraft,validateBaseline,validateCandidate,validateDraft,assess,materialize};
 });

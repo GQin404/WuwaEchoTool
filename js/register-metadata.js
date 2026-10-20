@@ -8,7 +8,7 @@ function create(storage){
  return {load,rename};
 }
 function atomic(storage,changes,expected){const keys=Object.keys(changes),old={},written=[];try{for(const key of keys){old[key]=storage.getItem(key);if(expected&&Object.hasOwn(expected,key)&&expected[key]!==old[key])return {ok:false,code:'SOURCE_CHANGED'};}}catch(_){return {ok:false,code:'SAVE_FAILED'};}try{for(const key of keys){changes[key]===null?storage.removeItem(key):storage.setItem(key,changes[key]);written.push(key);}return {ok:true};}catch(_){let failed=false;for(const key of written.reverse()){try{old[key]===null?storage.removeItem(key):storage.setItem(key,old[key]);}catch(_){failed=true;}}return {ok:false,code:failed?'ROLLBACK_FAILED':'SAVE_FAILED'};}}
-function roleName(data,role,i18n,metadata=empty()){return metadata?.roles?.[role.roleId]||i18n.t('ops.configuration',{number:data.role.filter(r=>String(r.roleListId)===String(role.roleListId)).findIndex(r=>String(r.roleId)===String(role.roleId))+1});}
+function roleName(data,role,i18n,metadata=empty()){return (role.configurations?(role.configurations.find(c=>c.id===role.activeConfigurationId)?.name||i18n.t('mc.defaultName')):metadata?.roles?.[role.roleId])||i18n.t('ops.configuration',{number:data.role.filter(r=>String(r.roleListId)===String(role.roleListId)).findIndex(r=>String(r.roleId)===String(role.roleId))+1});}
 function draftName(draft,i18n,metadata=empty()){return metadata?.drafts?.[draft.id]||i18n.t('ops.planDefault',{slot:draft.targetSlot,date:i18n.format.dateTime(draft.createdAt)})+' · '+String(draft.id).slice(-4);}
 return {KEY,empty,validate,create,atomic,roleName,draftName};
 });

@@ -8,7 +8,7 @@
         const MODEL_VERSION='legacy-scoring-2026-10-08';
         let state=null,epoch=0,busy=false,renderTicket=0;
         let filters=RegisterCollections.defaults(),listScroll=0,detailsOpen=false,nameInput=null,nameExpected=null;
-        const editorGuard=RegisterUnsaved.create({scope:()=> 'candidate:'+new URL(location.href).searchParams.get('roleid')+':'+state?.position+':'+state?.source,get:()=>state?.fields||null,apply:value=>{if(state)state.fields=value;},revision:()=>state?.baseline?.sourceRevision+':'+RoleDraftModel.canonical(state?.baseline?.conditions||null),serialize:v=>RoleDraftModel.canonical(v&&{...v,catalogId:String(v.catalogId||''),mainStat:{...v.mainStat,value:String(v.mainStat.value??'')},substats:v.substats.map(s=>({...s,value:String(s.value??'')}))}),i18n});editorGuard.pause();
+        const editorGuard=RegisterUnsaved.create({scope:()=> 'candidate:'+new URL(location.href).searchParams.get('roleid')+':'+getController()?.snapshot().model.role.configurationId+':'+state?.position+':'+state?.source,get:()=>state?.fields||null,apply:value=>{if(state)state.fields=value;},revision:()=>state?.baseline?.sourceRevision+':'+RoleDraftModel.canonical(state?.baseline?.conditions||null),serialize:v=>RoleDraftModel.canonical(v&&{...v,catalogId:String(v.catalogId||''),mainStat:{...v.mainStat,value:String(v.mainStat.value??'')},substats:v.substats.map(s=>({...s,value:String(s.value??'')}))}),i18n});editorGuard.pause();
         let activeNameId=null;const nameGuard=RegisterUnsaved.create({scope:()=> 'plan-name:'+state?.context?.draft?.id,get:()=>nameInput,apply:v=>nameInput=typeof v==='string'?v:null,revision:()=>nameExpected,i18n});nameGuard.pause();
         const uid=()=>crypto.randomUUID();
         const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -19,7 +19,7 @@
         const stat=s=>s?.key?tr('stats.'+s.key):tr('register.unknownStat');
         function data(){return JSON.parse(localStorage.getItem('mcData')||'null');}
         async function digest(record){
-            const bytes=new TextEncoder().encode(RoleDraftModel.canonical(record));
+            const bytes=new TextEncoder().encode(RoleDraftModel.canonical(RoleDraftModel.source(record)));
             const hash=await crypto.subtle.digest('SHA-256',bytes);
             return Array.from(new Uint8Array(hash),n=>n.toString(16).padStart(2,'0')).join('');
         }
@@ -32,7 +32,7 @@
             const role={...record,ming:conditions.chain,damageMode:conditions.parameters.mode,...Object.fromEntries(['extraEnergy','referenceHealth'].filter(k=>conditions.parameters[k]!=null).map(k=>[k,conditions.parameters[k]]))};
             const sourceRevision=await digest(record);
             const latest=(data()?.role||[]).filter(r=>String(r.roleId)===String(snapshot.model.role.id));
-            if(latest.length!==1||RoleDraftModel.canonical(latest[0])!==RoleDraftModel.canonical(record)||RoleDraftModel.canonical(getController()?.snapshot().model.model)!==RoleDraftModel.canonical(conditions))throw Error('source');
+            if(latest.length!==1||RoleDraftModel.canonical(RoleDraftModel.source(latest[0]))!==RoleDraftModel.canonical(RoleDraftModel.source(record))||RoleDraftModel.canonical(getController()?.snapshot().model.model)!==RoleDraftModel.canonical(conditions))throw Error('source');
             const baseline=RoleDraftModel.createBaseline(snapshot.model,{id:uid(),createdAt:Date.now(),sourceRevision,modelVersion:MODEL_VERSION});
             return {baseline,role};
         }
@@ -55,7 +55,7 @@
         }
         function library(){
             if(!state?.baseline)return;
-            const records=data()?.unusedEchoes||[];
+            const records=(typeof MultiConfig!=='undefined'?MultiConfig.entities(data()||{}):data()?.unusedEchoes||[]);
             if(!Array.isArray(records))throw Error('source');
             const scope=records.map(e=>e?.costId);
             state.rows=records.map(record=>{
@@ -94,7 +94,7 @@
             current().then(fresh=>{
                 if(ticket!==renderTicket||state!==origin)return;
                 const ctx=origin.context;
-                const source=adapter.assessSource(ctx.draft,data()?.unusedEchoes||[],fresh.role);
+                const source=adapter.assessSource(ctx.draft,(typeof MultiConfig!=='undefined'?MultiConfig.entities(data()||{}):data()?.unusedEchoes||[]),fresh.role);
                 if(source.status!=='valid'){origin.phase='error';origin.context=null;origin.notice=source.reason;paint();return;}
                 const savedDrafts=store.load();
                 if(!savedDrafts.ok||!savedDrafts.data.drafts.some(d=>RoleDraftModel.canonical(d)===RoleDraftModel.canonical(ctx.draft))){origin.phase='error';origin.context=null;origin.notice='storage';paint();return;}
@@ -167,7 +167,7 @@
                     const fresh=await current();if(ticket!==epoch||state!==origin)return;
                     const ctx=origin.context,loaded=store.load();
                     if(!loaded.ok||!loaded.data.drafts.some(d=>RoleDraftModel.canonical(d)===RoleDraftModel.canonical(ctx.draft)))throw Error('storage');
-                    const source=adapter.assessSource(ctx.draft,data()?.unusedEchoes||[],fresh.role);
+                    const source=adapter.assessSource(ctx.draft,(typeof MultiConfig!=='undefined'?MultiConfig.entities(data()||{}):data()?.unusedEchoes||[]),fresh.role);
                     if(source.status!=='valid'){origin.phase='error';origin.context=null;origin.notice=source.reason;return;}
                     const result=RoleCompare.evaluate({baseline:ctx.baseline,draft:ctx.draft,current:fresh.baseline,role:fresh.role,normalize,conditions:origin.conditions});
                     origin.result=result;
@@ -184,7 +184,7 @@
             busy=true;const ticket=epoch,origin=state;render();
             try{
                 if(source==='inventory'){
-                    const records=data()?.unusedEchoes||[],matches=records.filter(e=>String(e?.costId)===String(slot.echo.id));
+                    const records=(typeof MultiConfig!=='undefined'?MultiConfig.entities(data()||{}):data()?.unusedEchoes||[]),matches=records.filter(e=>String(e?.costId)===String(slot.echo.id));
                     if(matches.length!==1||RoleDraftModel.canonical(adapter.fromRecord(matches[0],origin.role).echo)!==RoleDraftModel.canonical(slot.echo)){
                         origin.notice='candidateChanged';return;
                     }
@@ -201,7 +201,7 @@
                     const lockedCurrent=await current();if(ticket!==epoch)return {ok:false,code:'CANCELLED'};
                     const validity=RoleDraftModel.assess(origin.baseline,draft,lockedCurrent.baseline,Date.now());
                     if(validity.status!=='valid')return {ok:false,validity};
-                    const sourceCheck=adapter.assessSource(draft,data()?.unusedEchoes||[],lockedCurrent.role);
+                    const sourceCheck=adapter.assessSource(draft,(typeof MultiConfig!=='undefined'?MultiConfig.entities(data()||{}):data()?.unusedEchoes||[]),lockedCurrent.role);
                     if(sourceCheck.status!=='valid')return {ok:false,validity:sourceCheck};
                     const loaded=store.load();return loaded.ok?store.save(origin.baseline,draft,loaded.data.revision):loaded;
                 };
@@ -233,7 +233,7 @@
                     for(const key of ['extraEnergy','referenceHealth'])if(baseline.conditions[key]!=null&&present.parameters[key]!==baseline.conditions[key])c.updateModel(key,baseline.conditions[key]);
                 }
                 const fresh=await current();if(ticket!==epoch)return;
-                const sourceCheck=adapter.assessSource(draft,data()?.unusedEchoes||[],fresh.role);
+                const sourceCheck=adapter.assessSource(draft,(typeof MultiConfig!=='undefined'?MultiConfig.entities(data()||{}):data()?.unusedEchoes||[]),fresh.role);
                 if(sourceCheck.status!=='valid'){state={baseline,position:draft.targetSlot,phase:'error',notice:sourceCheck.reason};refresh(true);render();return;}
                 c.restore(draft.targetSlot,draft.originalEchoIdentity);
                 const slot=adapter.fromEditor(RoleCandidates.editor(draft.candidate.echo),fresh.role,draft.candidate.echo.identity);
