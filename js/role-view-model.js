@@ -94,7 +94,7 @@
                 if (!complete) issues.push({code:'slot-incomplete',position:index+1});
                 const image = typeof source.imgCode==='string' && /^https?:\/\//.test(source.imgCode) ? source.imgCode : catalog?.imgCode || null;
                 return {key,position:index+1,status:complete?'complete':'incomplete',echo:{
-                    id:source.costId??null,catalogId:source.costListId??null,name:source.name||catalog?.name||null,cost,image,
+                    id:source.costId??null,catalogId:source.costListId??null,name:typeof source.name==='string'&&source.name.trim()&&!/^\[[^\]]+\]$/.test(source.name.trim())?source.name:catalog?.name||null,cost,image,
                     suite:typeof source.suite==='string'&&/^https?:\/\//.test(source.suite)?{name:null,icon:source.suite}:{name:source.suite||null,icon:null},
                     mainStat:main,substats,openedCount:words.length,
                     positiveContributionCount:validWords?substats.filter(x=>x.contribution>0).length:null,

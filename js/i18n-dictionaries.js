@@ -2,6 +2,15 @@
     'use strict';
     // 三种语言使用相同的 key 和插值参数。
     const rows={
+"mc.default":["預設配置", "默认配置", "Default loadout"],
+"mc.menu":["管理", "管理", "Manage"],
+"mc.bothEmpty":["兩側皆為空槽", "两侧均为空槽", "Both slots empty"],
+"mc.firstEmpty":["A 為空槽", "A 为空槽", "A is empty"],
+"mc.secondEmpty":["B 為空槽", "B 为空槽", "B is empty"],
+"mc.cost":["Cost {cost}", "Cost {cost}", "Cost {cost}"],
+"mc.partialDelta":["B − A 已知貢獻差異", "B − A 已知贡献差异", "B − A known contribution difference"],
+"role.deleteSharedConfirm":["刪除「{name}」及其所有配置、角色專屬草稿與名稱？聲骸實體保留，其他角色共用的聲骸不受影響。", "删除“{name}”及其所有配置、角色专属草稿与名称？声骸实体保留，其他角色共用的声骸不受影响。", "Delete {name}, all their loadouts, character-specific drafts and name? Echo entities are kept, including Echoes shared with other characters."],
+
 "workspace.inventoryFilters":["篩選", "筛选", "Filters"],
 "workspace.inventoryHideUsed":["隱藏已使用聲骸", "隐藏已使用声骸", "Hide used Echoes"],
 "workspace.inventoryCollapse":["收起", "收起", "Collapse"],
