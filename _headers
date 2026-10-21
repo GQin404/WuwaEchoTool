@@ -4,3 +4,11 @@
 /image/convene-current/*
   ! Cache-Control
   Cache-Control: no-cache, must-revalidate
+
+# 稳定文件名的武器映射与素材更新后需要重新验证缓存
+/js/weapon-catalog.js
+  Cache-Control: no-cache, must-revalidate
+
+/image/weapons/*
+  ! Cache-Control
+  Cache-Control: no-cache, must-revalidate

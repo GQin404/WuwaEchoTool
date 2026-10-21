@@ -1,3 +1,3 @@
 # 5星武器图片
 
-注册表已有50件该星级识别资料，正式图片仍待补，文件名建议见js/weapon-catalog.js的fileName。合法透明图放本目录后，设置同条目的image路径；不要把name自动拼路径，也不要登记不存在的图片。缺图继续显示类别占位。维护及逐项清单见docs/weapon-artwork.md与docs/weapon-missing-assets.json。
+放入「现有官方简体中文名称.webp」的真实静态 WebP，优先透明。运行 npm run assets:weapons 自动登记；npm start / npm test / npm run check:static 前也会自动同步。缺图继续显示类别 SVG。不要用繁体、英文或近似名称另建武器身份。冲突时使用缺图清单给出的 --resourceId 后缀。详见 docs/weapon-artwork.md 和 docs/weapon-missing-assets.json。

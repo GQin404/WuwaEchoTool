@@ -7,6 +7,11 @@
     "check:static": "node tests/ui-ux-static.cjs",
     "start": "node scripts/serve.cjs",
     "test:convene:browser": "node tests/convene-player-browser.cjs",
-    "test:convene:themes": "node tests/convene-theme-browser.cjs"
+    "test:convene:themes": "node tests/convene-theme-browser.cjs",
+    "assets:weapons": "node scripts/sync-weapon-art.cjs",
+    "check:weapons": "node scripts/sync-weapon-art.cjs --check",
+    "prestart": "node scripts/sync-weapon-art.cjs",
+    "pretest": "node scripts/sync-weapon-art.cjs",
+    "precheck:static": "node scripts/sync-weapon-art.cjs"
   }
 }

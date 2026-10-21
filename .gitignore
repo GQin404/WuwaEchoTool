@@ -34,3 +34,18 @@ node_modules/
 
 # 背包共享修复的实际截图、报告及封装暂存
 /artifacts/inventory-fix-20261020/
+
+# 发布维护：仅排除开发产物目录中的可重新生成截图/测试输出
+/artifacts/**/*.png
+/artifacts/**/*.jpg
+/artifacts/**/*.jpeg
+/artifacts/**/*.webp
+/screenshots/
+/evidence/
+/test-results/
+/playwright-report/
+/blob-report/
+/coverage/
+/tmp/
+/.cache/
+# 正式 image/、测试源码及文档不在上述忽略范围内

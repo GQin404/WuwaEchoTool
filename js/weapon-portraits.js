@@ -6,8 +6,8 @@ function create(config={version:1,weapons:[]}){
  if(config.version!==1||!Array.isArray(config.weapons))throw Error('INVALID_WEAPON_CATALOG');
  const ids=new Map(),aliases=new Map();
  for(const raw of config.weapons){
-  if(!raw||!raw.names||typeof raw.names!=='object'||Array.isArray(raw.names)||raw.aliases!=null&&!Array.isArray(raw.aliases)||!/^\d{1,12}$/.test(String(raw.id))||ids.has(String(raw.id))||![3,4,5].includes(raw.rarity)||!['sword','broadblade','pistols','gauntlets','rectifier','unknown'].includes(raw.category||'unknown'))throw Error('INVALID_WEAPON_CATALOG');
-  if(raw.image!=null&&!/^image\/weapons\/[345]star\/[a-z0-9_-]+\.(?:webp|png|avif|svg)$/.test(raw.image))throw Error('INVALID_WEAPON_PATH');
+  if(!raw||!raw.names||typeof raw.names!=='object'||Array.isArray(raw.names)||raw.aliases!=null&&!Array.isArray(raw.aliases)||!/^\d{1,12}$/.test(String(raw.id))||ids.has(String(raw.id))||![1,2,3,4,5].includes(raw.rarity)||!['sword','broadblade','pistols','gauntlets','rectifier','unknown'].includes(raw.category||'unknown'))throw Error('INVALID_WEAPON_CATALOG');
+  if(raw.image!=null&&(!raw.image.startsWith('image/weapons/'+raw.rarity+'star/')||!raw.image.endsWith('.webp')||/[\\<>:"|?*\x00-\x1f]/.test(raw.image)||raw.image.split('/').length!==4||raw.image.split('/')[3].startsWith('.')||raw.image.includes('..')))throw Error('INVALID_WEAPON_PATH');
   const entry=Object.freeze({...raw,id:String(raw.id),names:Object.freeze({...raw.names}),aliases:Object.freeze([...(raw.aliases||[])])});ids.set(entry.id,entry);
   for(const name of [...Object.values(entry.names),...entry.aliases]){if(typeof name!=='string')throw Error('INVALID_WEAPON_CATALOG');const key=normalize(name);if(!key)continue;if(!aliases.has(key))aliases.set(key,new Set());aliases.get(key).add(entry.id);}
  }
