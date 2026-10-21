@@ -1,0 +1,65 @@
+/* 共用 Register 视觉变量；旧版不使用这些展示规则。 */
+:root{--register-bg:#111718;--register-ink:#edf0eb;--register-muted:#b8c4bd;--register-line:#344139;--register-accent:#9ad5c3;--register-surface:#1a2627;--register-panel-radius:14px;--register-card-radius:10px;--register-control-radius:8px;--register-danger-bg:#35282b;--register-danger-line:#775151;--register-danger-ink:#e4bbb6;--register-warning:#d5b58a;--register-control-height:44px;--register-text-small:14px;--register-text-body:16px}
+.register-shell-page body{background:var(--register-bg);color:var(--register-ink)}
+.register-shell-page #register-workspace,.register-shell-page #character-dock{color:var(--register-ink)}
+.register-shell-page :is(#register-workspace,#character-dock,#role-register) :is(input:not([type=checkbox]),select,textarea){border:1px solid #48564d;border-radius:var(--register-control-radius);background:#1b2420;color:var(--register-ink);font:inherit;max-width:100%}
+.register-shell-page :is(#register-workspace,#character-dock) button{border-radius:var(--register-control-radius);box-shadow:none;border-color:var(--register-line);color:var(--register-ink)}
+.register-shell-page :is(#register-workspace,#character-dock) .rw-primary{background:var(--register-accent);color:var(--register-bg);border-color:var(--register-accent)}
+.register-shell-page :is(#register-workspace,#character-dock,#role-register) :focus-visible{outline:2px solid var(--register-accent);outline-offset:4px}
+.register-shell-page #register-workspace :is(nav,fieldset,section){border-color:var(--register-line)}
+.register-shell-page :is(#register-workspace,#character-dock) :is(h1,h2,h3){font-weight:500;overflow-wrap:anywhere}
+.register-shell-page #register-workspace :is(a,p,label,li,small){overflow-wrap:anywhere}
+.register-shell-page #register-workspace :is(.rw-actions,.rw-backup-actions){gap:12px}
+@media(prefers-reduced-motion:reduce){.register-shell-page *{scroll-behavior:auto!important;transition:none!important}}
+
+/* 共用输入、读数及弹窗状态，避免各页面重复定义。 */
+.register-shell-page{color-scheme:dark}
+.register-shell-page :is(#register-workspace,#character-dock,#role-register){font-variant-numeric:tabular-nums}
+.register-shell-page :is(#register-workspace,#character-dock,#role-register) :is(input:not([type=checkbox]),select,textarea){min-height:var(--register-control-height);background:var(--register-surface)}
+.register-shell-page :is(#register-workspace,#character-dock,#role-register) :is(button:not(.rr-slot-trigger),summary,.rr-action){min-height:var(--register-control-height);box-sizing:border-box}
+.register-shell-page :is(#register-workspace,#character-dock,#role-register) input[type=checkbox]{accent-color:var(--register-accent);width:18px;height:18px;flex-shrink:0}
+.register-shell-page :is(#register-workspace,#character-dock,#role-register) :is(input,select,textarea):disabled{opacity:.55;cursor:not-allowed}
+.register-shell-page :is(#register-workspace,#character-dock,#role-register) :is(input,select,textarea):focus-visible{border-color:var(--register-accent)}
+.register-shell-page :is(#register-workspace,#character-dock,#role-register) [role=status]:empty{display:none}
+.register-shell-page .rr-dialog{border-color:var(--register-line);background:var(--register-bg);color:var(--register-ink);max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain}
+.register-shell-page .rr-dialog :is(h2,p,button){overflow-wrap:anywhere}
+.register-shell-page .rr-dialog button{min-height:var(--register-control-height)}
+.register-shell-page .rr-dialog button:disabled{opacity:.5;cursor:not-allowed}
+.register-shell-page .rr-dialog [aria-busy=true] button:disabled{cursor:wait}
+.register-shell-page .rr-dialog [role=status]{color:var(--register-muted);min-height:1.6em}
+.register-shell-page .rr-share-dialog .rr-dialog-actions{position:sticky;bottom:-32px;background:var(--register-bg);padding:16px 0;margin-top:16px;border-top:1px solid var(--register-line)}
+.register-shell-page .rr-share-dialog canvas[aria-busy=true]{visibility:hidden}
+@media(max-width:600px){.register-shell-page .rr-share-dialog .rr-dialog-actions{bottom:-20px}.register-shell-page .rr-dialog{padding:20px}.register-shell-page .rr-dialog-actions{gap:10px}.register-shell-page .rr-dialog-actions button{flex:1 1 auto}}
+
+/* 次要信息保持可读，与主要读数形成明确层级。 */
+.register-shell-page :is(#character-dock,#register-workspace) :is(.dock-config-name,.dock-score-reason,.dock-findings,.dock-draft-state,.dock-character-name small,.dock-reading small,.dock-completeness>span:first-child,.dock-recent-identity p,.dock-recent-reading>span,.dock-recent-reading p,.rw-main-reading small,.rw-completeness,.rw-echo-row small,.rt-eyebrow,.rt-metrics dt,.rt-context p,.rr-overview-hint,.rr-overview-bands small,.rr-overview-info){font-size:var(--register-text-small);color:var(--register-muted);line-height:1.55}
+.register-shell-page :is(#character-dock,#register-workspace) :is(.dock-plans a,.rw-index-substats,.rw-index-substats .rw-stat-cell,.rw-echo-row .rw-index-substats :is(span,b),.sf-results){font-size:var(--register-text-small)}
+.register-shell-page :is(#character-dock,#register-workspace) .register-page-heading .dock-create-actions :is(a,button){padding:10px 16px;border:1px solid var(--register-accent);border-radius:var(--register-control-radius);background:rgba(154,213,195,.1);color:var(--register-ink);min-height:44px;line-height:1.4;box-sizing:border-box}
+.register-shell-page :is(#character-dock,#register-workspace) .register-page-heading .dock-create-actions :is(a,button):not(:disabled):not([aria-disabled=true]):hover{background:rgba(154,213,195,.18);border-color:var(--register-accent);color:var(--register-ink)}
+.register-shell-page :is(#character-dock,#register-workspace) .register-page-heading .dock-create-actions :is(a,button):focus-visible{outline-offset:4px}
+
+/* 仅匹配 Register 的真实内容面板，保留原页面布局与 Classic。 */
+.register-shell-page #register-workspace :is(.rw-inspector,.rw-backup-row,.rw-history-group,.rw-tool-content,.rt-panel,.rw-plan-card){background:var(--register-surface);border:1px solid var(--register-line);border-radius:var(--register-panel-radius);padding:20px;box-sizing:border-box;min-width:0}
+.register-shell-page #register-workspace .rw-echo-index{display:grid;gap:10px;align-content:start}
+.register-shell-page #register-workspace .rw-echo-entry{border:1px solid var(--register-line);border-radius:var(--register-card-radius);background:var(--register-surface);overflow:hidden}
+.register-shell-page #register-workspace .rw-list>li{border:1px solid var(--register-line);border-radius:var(--register-card-radius);padding:18px;margin:12px 0;background:var(--register-surface)}
+.register-shell-page #register-workspace #rw-tools :is(.rt-input,.rt-result){border:1px solid var(--register-line);border-radius:var(--register-panel-radius);background:#142223;padding:18px;min-width:0}
+.register-shell-page #register-workspace .rw-echo-row{border:1px solid var(--register-line);border-radius:var(--register-card-radius);background:var(--register-surface);margin:0;box-sizing:border-box}
+.register-shell-page #register-workspace .rw-echo-row[aria-pressed=true]{border-color:var(--register-accent);background:#203735;padding-left:12px}
+.register-shell-page #register-workspace :is(.rw-echo-row,button):not(:disabled):hover{border-color:#739b93;background:#253b39}
+.register-shell-page #register-workspace .rw-primary:not(:disabled):hover{background:#b5e5d7;color:#112723}
+.register-shell-page #register-workspace :is(.rw-file-button,.rw-actions a){border-radius:var(--register-control-radius)}
+.register-shell-page #register-workspace :is(.rw-danger button,[data-delete-draft]){background:var(--register-danger-bg);border-color:var(--register-danger-line);color:var(--register-danger-ink)}
+.register-shell-page #character-dock :is(.dock-character,.dock-recent,.rr-overview-bands>div){border-radius:var(--register-panel-radius)}
+.register-shell-page #character-dock .dock-roster{display:grid;gap:10px}
+.register-shell-page #character-dock .dock-roster>li{background:var(--register-surface);border:1px solid var(--register-line);border-radius:var(--register-card-radius)}
+.register-shell-page .rr-dialog{border-radius:var(--register-panel-radius)}
+.register-shell-page .rr-dialog button{border:1px solid var(--register-line);border-radius:var(--register-control-radius);background:var(--register-surface);color:var(--register-ink);padding:10px 16px}
+.register-shell-page .rr-dialog button:hover:not(:disabled){border-color:var(--register-accent);background:#253b39}
+.register-shell-page .rr-share-choices button:first-child,.register-shell-page .rr-share-dialog .rr-dialog-actions button:nth-child(2){background:var(--register-accent);color:var(--register-bg)}
+@media(max-width:700px){.register-shell-page #register-workspace :is(.rw-backup-row,.rw-history-group,.rw-tool-content,.rt-panel,.rw-plan-card){padding:16px}.register-shell-page #register-workspace .rw-inspector{padding:18px 14px}}
+
+/* 图表技术说明只出现在网页中，不进入导出画布。 */
+.register-shell-page .rr-share-chart-help{margin-top:14px;padding:8px 12px;border:1px solid var(--register-line);border-radius:8px;color:var(--register-muted);font-size:14px}
+.register-shell-page .rr-share-chart-help summary{cursor:pointer;min-height:36px;display:flex;align-items:center}
+.register-shell-page .rr-share-chart-help p{margin:8px 0;line-height:1.6}

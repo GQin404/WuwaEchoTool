@@ -1,0 +1,1 @@
+PASS 12 final Windows guide layouts: first-screen copy, real clipboard/download parity, logs backup, no fake video.

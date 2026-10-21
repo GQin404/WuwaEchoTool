@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-10-21",
+  "characters": [
+    {
+      "id": "1511",
+      "names": {
+        "zh-CN": "露西",
+        "zh-TW": "露西",
+        "en": "Lucy"
+      },
+      "image": "image/characters/luxi.webp",
+      "exists": true,
+      "identitySource": "encore-snapshot-20261021"
+    },
+    {
+      "id": "1308",
+      "names": {
+        "zh-CN": "丽贝卡",
+        "zh-TW": "蕾貝卡",
+        "en": "Rebecca"
+      },
+      "image": "image/characters/leibeika.webp",
+      "exists": true,
+      "identitySource": "encore-snapshot-20261021"
+    }
+  ],
+  "weapons": [
+    {
+      "id": "21030056",
+      "names": {
+        "zh-CN": "蜃影",
+        "zh-TW": "蜃影",
+        "en": "Spectral Trigger"
+      },
+      "image": null,
+      "fallback": "image/weapons/fallback-pistols.svg",
+      "suggestedPath": "image/weapons/5star/spectral-trigger.webp"
+    },
+    {
+      "id": "21030066",
+      "names": {
+        "zh-CN": "碎骨",
+        "zh-TW": "碎骨",
+        "en": "Skull Thrasher"
+      },
+      "image": null,
+      "fallback": "image/weapons/fallback-pistols.svg",
+      "suggestedPath": "image/weapons/5star/skull-thrasher.webp"
+    }
+  ],
+  "allWeaponImagesMissing": 114,
+  "officialAPIValidated": false
+}

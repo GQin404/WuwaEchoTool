@@ -1,0 +1,113 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "formulaCollapsed": true,
+      "tiersOutsideFormula": true,
+      "unknownInterval": true,
+      "PNGParity": true,
+      "dataUnchanged": true
+    },
+    {
+      "width": 1440,
+      "locale": "zh-TW",
+      "formulaCollapsed": true,
+      "tiersOutsideFormula": true,
+      "unknownInterval": true,
+      "PNGParity": true,
+      "dataUnchanged": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "formulaCollapsed": true,
+      "tiersOutsideFormula": true,
+      "unknownInterval": true,
+      "PNGParity": true,
+      "dataUnchanged": true
+    },
+    {
+      "width": 768,
+      "locale": "zh-CN",
+      "formulaCollapsed": true,
+      "tiersOutsideFormula": true,
+      "unknownInterval": true,
+      "PNGParity": true,
+      "dataUnchanged": true
+    },
+    {
+      "width": 768,
+      "locale": "zh-TW",
+      "formulaCollapsed": true,
+      "tiersOutsideFormula": true,
+      "unknownInterval": true,
+      "PNGParity": true,
+      "dataUnchanged": true
+    },
+    {
+      "width": 768,
+      "locale": "en",
+      "formulaCollapsed": true,
+      "tiersOutsideFormula": true,
+      "unknownInterval": true,
+      "PNGParity": true,
+      "dataUnchanged": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "formulaCollapsed": true,
+      "tiersOutsideFormula": true,
+      "unknownInterval": true,
+      "PNGParity": true,
+      "dataUnchanged": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-TW",
+      "formulaCollapsed": true,
+      "tiersOutsideFormula": true,
+      "unknownInterval": true,
+      "PNGParity": true,
+      "dataUnchanged": true
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "formulaCollapsed": true,
+      "tiersOutsideFormula": true,
+      "unknownInterval": true,
+      "PNGParity": true,
+      "dataUnchanged": true
+    },
+    {
+      "width": 360,
+      "locale": "zh-CN",
+      "formulaCollapsed": true,
+      "tiersOutsideFormula": true,
+      "unknownInterval": true,
+      "PNGParity": true,
+      "dataUnchanged": true
+    },
+    {
+      "width": 360,
+      "locale": "zh-TW",
+      "formulaCollapsed": true,
+      "tiersOutsideFormula": true,
+      "unknownInterval": true,
+      "PNGParity": true,
+      "dataUnchanged": true
+    },
+    {
+      "width": 360,
+      "locale": "en",
+      "formulaCollapsed": true,
+      "tiersOutsideFormula": true,
+      "unknownInterval": true,
+      "PNGParity": true,
+      "dataUnchanged": true
+    }
+  ],
+  "pageErrors": []
+}

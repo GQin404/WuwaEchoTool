@@ -1,0 +1,167 @@
+[
+  {
+    "path": "js/convene-ui.js",
+    "beforeSha256": "be014c72148baf4f42ae82135add5af39c396b4454cb8e20d9660f293f380c79",
+    "afterSha256": "b130efab2c64f0a4c933412e39570bc43668573ed34bf1e750f66f9b883be284"
+  },
+  {
+    "path": "js/convene-service.js",
+    "beforeSha256": "19113811ba6b052d30844009060ef854305625fb5b8ca2bf8cc0b75c4f6c3639",
+    "afterSha256": "bc57574c27601d03d17aed9553257e925dd6b71f76eae752c771a0ee13f4ef59"
+  },
+  {
+    "path": "js/convene-share.js",
+    "beforeSha256": "de439e39cd766b68fce97a9e4909b50168c57451782b266e8905c0cce8c7e332",
+    "afterSha256": "cb6b215d7b8bbb665795b3ed34d4858c8141cdf8992629dea72bb1aeb8d8b006"
+  },
+  {
+    "path": "js/convene-visuals.js",
+    "beforeSha256": "cc2209fd4fe94f87825344a228eb4c2320241774056eb7e9aaf249d8f9411ed2",
+    "afterSha256": "b10bd631cf4aea004b4c7ed884b939ccf789b4925d13d83c0267df831e413074"
+  },
+  {
+    "path": "js/convene-i18n.js",
+    "beforeSha256": "5c5f2344b99c584d98eeb49e76ce7178d4d2c3ff42283df9dfc50ba573d730a2",
+    "afterSha256": "8f4bd30d05ec2197eaf4eaacc4030c67b33c821b5ed6c212b38fd585f7c3fb8f"
+  },
+  {
+    "path": "css/convene.css",
+    "beforeSha256": "56acb843b7092ba40a60c4735f1cb7aa2aca518cc8e7b7c55ab56627abd75a84",
+    "afterSha256": "ab71f8ce76e50491cc6a8f8e050d408a49bf0cbb0c151baf6d46fe7b7ac4a34f"
+  },
+  {
+    "path": "image/convene/badges/character-abyss.svg",
+    "afterSha256": "feedeaf91b81b3a12738f4fccef211b57da85994989df26da7d8ad3417939e09",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "image/convene/badges/character-fate.svg",
+    "afterSha256": "6c5371561fd2c0b4ac78291e0bb04885b657149c7cf5081916ae0c8d2f875b1b",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "image/convene/badges/character-headwind.svg",
+    "afterSha256": "4aa84e24ba9e6beb8042646293fe11d089c468e6360fa38e3464b7f7894a1738",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "image/convene/badges/character-lucky.svg",
+    "afterSha256": "85e127920155b6a1bdb5d807dc5b5a41e6f0c933e51359400f5e04a45a6ff208",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "image/convene/badges/character-observing.svg",
+    "afterSha256": "c70ddc26539f747f2d44ee88181e0fd0f76168880d68f479e712ced45144de17",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "image/convene/badges/character-star.svg",
+    "afterSha256": "86278a19708ce60127b15b64719d6da47fdf2a947e0027392f699dfd09965aac",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "image/convene/badges/character-steady.svg",
+    "afterSha256": "7daff565adaca90f8c0c19b875788c92dc1a2be72c5c35dffc4f87cab718bb3e",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "image/convene/badges/overall-abyss.svg",
+    "afterSha256": "2920237af5f70e8532f4d39b3c37c5d45d47b02c90c139f7f6f3c761f90fbbb4",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "image/convene/badges/overall-fate.svg",
+    "afterSha256": "39711ed5a6a884116fbe8e780788e76ca57a672a57000d779911d42ea043c437",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "image/convene/badges/overall-headwind.svg",
+    "afterSha256": "36c62616342cb89adb1b1e4ce2b69ba054d0740fade528b8b27b69e802b6be9a",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "image/convene/badges/overall-lucky.svg",
+    "afterSha256": "3ed9e392ab59f81cebcc932a2ff41e770978d079d31be6f9255742bbc42f0629",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "image/convene/badges/overall-observing.svg",
+    "afterSha256": "c80e4039020d7cb3dcf583fd96891d2a20c385cdc82fe5aa24b85d830cb8f156",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "image/convene/badges/overall-star.svg",
+    "afterSha256": "098134853a09523e9cb54d8f6730a4004b44601ed55df190c3e1f358381e7acc",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "image/convene/badges/overall-steady.svg",
+    "afterSha256": "7f1fb7066ee3befe77376114445660b72c2eac4cbb4f26c34bbf71da4f51e2aa",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "image/convene/weapon-emblem.svg",
+    "afterSha256": "c34870f7d964020cefbf59289ad329cb7ea88a042aeffed9bba3dbe6c4cd5db9",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "tests/convene-ui-reference.test.cjs",
+    "afterSha256": "78b8a0ff71045d820e8de8fd2e06f12a3f06c253743705737ae68e1af5809efb",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "tests/convene-ui-reference-browser.cjs",
+    "afterSha256": "1c4a23b6f3d05787e81a80f77064a4e735a9172146bb6771d63ec6a07f4474ab",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "tests/convene-target-browser.cjs",
+    "afterSha256": "4d07c28bda8551cf6aff4a120d1d42bdc8cd1e86f54c4001fa33ff47e008c5bf",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "tests/convene-edge-browser.cjs",
+    "afterSha256": "cb656768ebf85c4d8a7b124c72608cd0ec0ed7294e54105b1e57d5b103e511f5",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "docs/convene-reference-rework.md",
+    "afterSha256": "6b07db374d2e7ac5bda3e4dd5605d6ce4816e56ef4e7a7035132e258040de0f2",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "docs/ui-reference/01_desktop_overview.png",
+    "afterSha256": "498b06690bf6be9bd975377c94d9c1b508b89bd1b17742d3d1ff522786ecb103",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "docs/ui-reference/01_desktop_overview.svg",
+    "afterSha256": "607135e010ed385ebb64d9ac6bb76827f3aa93cf9ad9a52e66ccf3a9cdf0b50a",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "docs/ui-reference/02_character_analysis.png",
+    "afterSha256": "be0b2a7e007be4ac1982289c6a3adc7edb3ac717e70075f9d955037914be6d0d",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "docs/ui-reference/02_character_analysis.svg",
+    "afterSha256": "fd52fbf9dccc53ebeb228b1d4d16149c21e356c58aa2dc357c5c1821ca6a9567",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "docs/ui-reference/03_share_and_mobile.png",
+    "afterSha256": "3885673ed90860397b1d80a6283052e629d37f9d9ada74b8c6aa815b5a58552b",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "docs/ui-reference/03_share_and_mobile.svg",
+    "afterSha256": "b7d1953f5b0629ae93e823a7293760269fda81d8ecafad5ce3caf22c281fa4a7",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  },
+  {
+    "path": "docs/ui-reference/README.md",
+    "afterSha256": "121cdaab41f0f7d028414c3a824e257228882b79a8d79c836a7bcee84587ecd1",
+    "baseline": "preexisting badge assets or new/updated tests/docs; original task baseline for these omitted, no invented before hash"
+  }
+]

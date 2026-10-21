@@ -1,0 +1,431 @@
+{
+  "isolated": true,
+  "officialAccountVerified": false,
+  "reports": [
+    {
+      "width": 1440,
+      "locale": "zh-TW",
+      "scenario": "reported three characters: official simplified names, selectable, preview, explicit save and source identity",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "scenario": "reported three characters: official simplified names, selectable, preview, explicit save and source identity",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "scenario": "reported three characters: official simplified names, selectable, preview, explicit save and source identity",
+      "passed": true
+    },
+    {
+      "width": 320,
+      "locale": "zh-TW",
+      "scenario": "reported three characters: official simplified names, selectable, preview, explicit save and source identity",
+      "passed": true
+    },
+    {
+      "width": 320,
+      "locale": "zh-CN",
+      "scenario": "reported three characters: official simplified names, selectable, preview, explicit save and source identity",
+      "passed": true
+    },
+    {
+      "width": 320,
+      "locale": "en",
+      "scenario": "reported three characters: official simplified names, selectable, preview, explicit save and source identity",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "locale": "zh-TW",
+      "flow": "connect → multi-select/search → block partial commit → retry failed → atomic save → analyze",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "flow": "connect → multi-select/search → block partial commit → retry failed → atomic save → analyze",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "flow": "connect → multi-select/search → block partial commit → retry failed → atomic save → analyze",
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "locale": "zh-TW",
+      "flow": "connect → multi-select/search → block partial commit → retry failed → atomic save → analyze",
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "locale": "zh-CN",
+      "flow": "connect → multi-select/search → block partial commit → retry failed → atomic save → analyze",
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "locale": "en",
+      "flow": "connect → multi-select/search → block partial commit → retry failed → atomic save → analyze",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-TW",
+      "flow": "connect → multi-select/search → block partial commit → retry failed → atomic save → analyze",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "flow": "connect → multi-select/search → block partial commit → retry failed → atomic save → analyze",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "flow": "connect → multi-select/search → block partial commit → retry failed → atomic save → analyze",
+      "passed": true
+    },
+    {
+      "width": 360,
+      "locale": "zh-TW",
+      "flow": "connect → multi-select/search → block partial commit → retry failed → atomic save → analyze",
+      "passed": true
+    },
+    {
+      "width": 360,
+      "locale": "zh-CN",
+      "flow": "connect → multi-select/search → block partial commit → retry failed → atomic save → analyze",
+      "passed": true
+    },
+    {
+      "width": 360,
+      "locale": "en",
+      "flow": "connect → multi-select/search → block partial commit → retry failed → atomic save → analyze",
+      "passed": true
+    },
+    {
+      "scenario": "empty",
+      "passed": true
+    },
+    {
+      "scenario": "saved",
+      "passed": true
+    },
+    {
+      "scenario": "unknown",
+      "passed": true
+    },
+    {
+      "scenario": "invalid",
+      "passed": true
+    },
+    {
+      "scenario": "verification",
+      "passed": true
+    },
+    {
+      "scenario": "unknownEcho",
+      "passed": true
+    },
+    {
+      "scenario": "dataToken",
+      "passed": true
+    },
+    {
+      "scenario": "incomplete",
+      "passed": true
+    },
+    {
+      "scenario": "cancel, changed UID, stale response, storage failure/retry, update conflict, stable ID and original return",
+      "passed": true
+    },
+    {
+      "scenario": "empty-save entry, invalid UID, missing Token, keyboard-sized viewport, keyboard checkbox, account mismatch and navigation cancellation",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "locale": "zh-TW",
+      "scenario": "create, Echo save, library favorite/compare, stale draft, roster/overview, tools, full backup restore, Classic score/official refresh",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "scenario": "create, Echo save, library favorite/compare, stale draft, roster/overview, tools, full backup restore, Classic score/official refresh",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "scenario": "create, Echo save, library favorite/compare, stale draft, roster/overview, tools, full backup restore, Classic score/official refresh",
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "locale": "zh-TW",
+      "scenario": "create, Echo save, library favorite/compare, stale draft, roster/overview, tools, full backup restore, Classic score/official refresh",
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "locale": "zh-CN",
+      "scenario": "create, Echo save, library favorite/compare, stale draft, roster/overview, tools, full backup restore, Classic score/official refresh",
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "locale": "en",
+      "scenario": "create, Echo save, library favorite/compare, stale draft, roster/overview, tools, full backup restore, Classic score/official refresh",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-TW",
+      "scenario": "create, Echo save, library favorite/compare, stale draft, roster/overview, tools, full backup restore, Classic score/official refresh",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "scenario": "create, Echo save, library favorite/compare, stale draft, roster/overview, tools, full backup restore, Classic score/official refresh",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "scenario": "create, Echo save, library favorite/compare, stale draft, roster/overview, tools, full backup restore, Classic score/official refresh",
+      "passed": true
+    },
+    {
+      "width": 360,
+      "locale": "zh-TW",
+      "scenario": "create, Echo save, library favorite/compare, stale draft, roster/overview, tools, full backup restore, Classic score/official refresh",
+      "passed": true
+    },
+    {
+      "width": 360,
+      "locale": "zh-CN",
+      "scenario": "create, Echo save, library favorite/compare, stale draft, roster/overview, tools, full backup restore, Classic score/official refresh",
+      "passed": true
+    },
+    {
+      "width": 360,
+      "locale": "en",
+      "scenario": "create, Echo save, library favorite/compare, stale draft, roster/overview, tools, full backup restore, Classic score/official refresh",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "1024-en-analysis.png",
+    "1024-en-blocked-partial-save.png",
+    "1024-en-connect.png",
+    "1024-en-partial-preview.png",
+    "1024-en-select.png",
+    "1024-zh-CN-analysis.png",
+    "1024-zh-CN-blocked-partial-save.png",
+    "1024-zh-CN-connect.png",
+    "1024-zh-CN-partial-preview.png",
+    "1024-zh-CN-select.png",
+    "1024-zh-TW-analysis.png",
+    "1024-zh-TW-blocked-partial-save.png",
+    "1024-zh-TW-connect.png",
+    "1024-zh-TW-partial-preview.png",
+    "1024-zh-TW-select.png",
+    "1440-en-analysis.png",
+    "1440-en-blocked-partial-save.png",
+    "1440-en-connect.png",
+    "1440-en-partial-preview.png",
+    "1440-en-reported-characters.png",
+    "1440-en-select.png",
+    "1440-zh-CN-analysis.png",
+    "1440-zh-CN-blocked-partial-save.png",
+    "1440-zh-CN-connect.png",
+    "1440-zh-CN-partial-preview.png",
+    "1440-zh-CN-reported-characters.png",
+    "1440-zh-CN-select.png",
+    "1440-zh-TW-analysis.png",
+    "1440-zh-TW-blocked-partial-save.png",
+    "1440-zh-TW-connect.png",
+    "1440-zh-TW-partial-preview.png",
+    "1440-zh-TW-reported-characters.png",
+    "1440-zh-TW-select.png",
+    "320-en-reported-characters.png",
+    "320-zh-CN-reported-characters.png",
+    "320-zh-TW-reported-characters.png",
+    "360-en-analysis.png",
+    "360-en-blocked-partial-save.png",
+    "360-en-connect.png",
+    "360-en-partial-preview.png",
+    "360-en-select.png",
+    "360-zh-CN-analysis.png",
+    "360-zh-CN-blocked-partial-save.png",
+    "360-zh-CN-connect.png",
+    "360-zh-CN-partial-preview.png",
+    "360-zh-CN-select.png",
+    "360-zh-TW-analysis.png",
+    "360-zh-TW-blocked-partial-save.png",
+    "360-zh-TW-connect.png",
+    "360-zh-TW-partial-preview.png",
+    "360-zh-TW-select.png",
+    "390-en-analysis.png",
+    "390-en-blocked-partial-save.png",
+    "390-en-connect.png",
+    "390-en-partial-preview.png",
+    "390-en-select.png",
+    "390-zh-CN-analysis.png",
+    "390-zh-CN-blocked-partial-save.png",
+    "390-zh-CN-connect.png",
+    "390-zh-CN-partial-preview.png",
+    "390-zh-CN-select.png",
+    "390-zh-TW-analysis.png",
+    "390-zh-TW-blocked-partial-save.png",
+    "390-zh-TW-connect.png",
+    "390-zh-TW-partial-preview.png",
+    "390-zh-TW-select.png",
+    "state-account-mismatch-mobile.png",
+    "state-cancel-desktop.png",
+    "state-dataToken-mobile.png",
+    "state-empty-mobile.png",
+    "state-incomplete-mobile.png",
+    "state-invalid-mobile.png",
+    "state-invalid-uid-mobile.png",
+    "state-keyboard-viewport-mobile.png",
+    "state-keyboard-visible-viewport.png",
+    "state-missing-token-mobile.png",
+    "state-saved-mobile.png",
+    "state-storage-failed-desktop.png",
+    "state-unknown-mobile.png",
+    "state-unknownEcho-mobile.png",
+    "state-update-conflict-desktop.png",
+    "state-verification-mobile.png",
+    "unified-1024-en-backup.png",
+    "unified-1024-en-candidate.png",
+    "unified-1024-en-classic.png",
+    "unified-1024-en-create.png",
+    "unified-1024-en-echo.png",
+    "unified-1024-en-library.png",
+    "unified-1024-en-overview.png",
+    "unified-1024-en-roles.png",
+    "unified-1024-en-stale-draft.png",
+    "unified-1024-en-tools.png",
+    "unified-1024-zh-CN-backup.png",
+    "unified-1024-zh-CN-candidate.png",
+    "unified-1024-zh-CN-classic.png",
+    "unified-1024-zh-CN-create.png",
+    "unified-1024-zh-CN-echo.png",
+    "unified-1024-zh-CN-library.png",
+    "unified-1024-zh-CN-overview.png",
+    "unified-1024-zh-CN-roles.png",
+    "unified-1024-zh-CN-stale-draft.png",
+    "unified-1024-zh-CN-tools.png",
+    "unified-1024-zh-TW-backup.png",
+    "unified-1024-zh-TW-candidate.png",
+    "unified-1024-zh-TW-classic.png",
+    "unified-1024-zh-TW-create.png",
+    "unified-1024-zh-TW-echo.png",
+    "unified-1024-zh-TW-library.png",
+    "unified-1024-zh-TW-overview.png",
+    "unified-1024-zh-TW-roles.png",
+    "unified-1024-zh-TW-stale-draft.png",
+    "unified-1024-zh-TW-tools.png",
+    "unified-1440-en-backup.png",
+    "unified-1440-en-candidate.png",
+    "unified-1440-en-classic.png",
+    "unified-1440-en-create.png",
+    "unified-1440-en-echo.png",
+    "unified-1440-en-library.png",
+    "unified-1440-en-overview.png",
+    "unified-1440-en-roles.png",
+    "unified-1440-en-stale-draft.png",
+    "unified-1440-en-tools.png",
+    "unified-1440-zh-CN-backup.png",
+    "unified-1440-zh-CN-candidate.png",
+    "unified-1440-zh-CN-classic.png",
+    "unified-1440-zh-CN-create.png",
+    "unified-1440-zh-CN-echo.png",
+    "unified-1440-zh-CN-library.png",
+    "unified-1440-zh-CN-overview.png",
+    "unified-1440-zh-CN-roles.png",
+    "unified-1440-zh-CN-stale-draft.png",
+    "unified-1440-zh-CN-tools.png",
+    "unified-1440-zh-TW-backup.png",
+    "unified-1440-zh-TW-candidate.png",
+    "unified-1440-zh-TW-classic.png",
+    "unified-1440-zh-TW-create.png",
+    "unified-1440-zh-TW-echo.png",
+    "unified-1440-zh-TW-library.png",
+    "unified-1440-zh-TW-overview.png",
+    "unified-1440-zh-TW-roles.png",
+    "unified-1440-zh-TW-stale-draft.png",
+    "unified-1440-zh-TW-tools.png",
+    "unified-360-en-backup.png",
+    "unified-360-en-candidate.png",
+    "unified-360-en-classic.png",
+    "unified-360-en-create.png",
+    "unified-360-en-echo.png",
+    "unified-360-en-library.png",
+    "unified-360-en-overview.png",
+    "unified-360-en-roles.png",
+    "unified-360-en-stale-draft.png",
+    "unified-360-en-tools.png",
+    "unified-360-zh-CN-backup.png",
+    "unified-360-zh-CN-candidate.png",
+    "unified-360-zh-CN-classic.png",
+    "unified-360-zh-CN-create.png",
+    "unified-360-zh-CN-echo.png",
+    "unified-360-zh-CN-library.png",
+    "unified-360-zh-CN-overview.png",
+    "unified-360-zh-CN-roles.png",
+    "unified-360-zh-CN-stale-draft.png",
+    "unified-360-zh-CN-tools.png",
+    "unified-360-zh-TW-backup.png",
+    "unified-360-zh-TW-candidate.png",
+    "unified-360-zh-TW-classic.png",
+    "unified-360-zh-TW-create.png",
+    "unified-360-zh-TW-echo.png",
+    "unified-360-zh-TW-library.png",
+    "unified-360-zh-TW-overview.png",
+    "unified-360-zh-TW-roles.png",
+    "unified-360-zh-TW-stale-draft.png",
+    "unified-360-zh-TW-tools.png",
+    "unified-390-en-backup.png",
+    "unified-390-en-candidate.png",
+    "unified-390-en-classic.png",
+    "unified-390-en-create.png",
+    "unified-390-en-echo.png",
+    "unified-390-en-library.png",
+    "unified-390-en-overview.png",
+    "unified-390-en-roles.png",
+    "unified-390-en-stale-draft.png",
+    "unified-390-en-tools.png",
+    "unified-390-zh-CN-backup.png",
+    "unified-390-zh-CN-candidate.png",
+    "unified-390-zh-CN-classic.png",
+    "unified-390-zh-CN-create.png",
+    "unified-390-zh-CN-echo.png",
+    "unified-390-zh-CN-library.png",
+    "unified-390-zh-CN-overview.png",
+    "unified-390-zh-CN-roles.png",
+    "unified-390-zh-CN-stale-draft.png",
+    "unified-390-zh-CN-tools.png",
+    "unified-390-zh-TW-backup.png",
+    "unified-390-zh-TW-candidate.png",
+    "unified-390-zh-TW-classic.png",
+    "unified-390-zh-TW-create.png",
+    "unified-390-zh-TW-echo.png",
+    "unified-390-zh-TW-library.png",
+    "unified-390-zh-TW-overview.png",
+    "unified-390-zh-TW-roles.png",
+    "unified-390-zh-TW-stale-draft.png",
+    "unified-390-zh-TW-tools.png"
+  ],
+  "pageErrors": []
+}

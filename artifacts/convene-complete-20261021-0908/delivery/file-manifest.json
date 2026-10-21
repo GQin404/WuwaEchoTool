@@ -1,0 +1,1974 @@
+{
+  "files": [
+    {
+      "path": "changed-source/_headers",
+      "bytes": 167,
+      "sha256": "fff6fb4dedaff21ea2619f309e81cf7894c0cc1d006eb66d28482d52adf94fa6"
+    },
+    {
+      "path": "changed-source/convene.html",
+      "bytes": 1639,
+      "sha256": "10bb6e8a603d7d272f8f7f19ae133f64bef64da73d30c5e8ad3ab6332562de54"
+    },
+    {
+      "path": "changed-source/css/convene.css",
+      "bytes": 52543,
+      "sha256": "6cc0fb59210f83ed42dd175ab9fd4547bb7548844c0c05b1a7dec4efbcdb70db"
+    },
+    {
+      "path": "changed-source/docs/convene-optimization.md",
+      "bytes": 3759,
+      "sha256": "c7be9f9585a385691e001d6429662af07537c0fe64bc3fa44f1ca2fc0d035119"
+    },
+    {
+      "path": "changed-source/docs/convene-resource-audit.json",
+      "bytes": 33611,
+      "sha256": "bdfb77462d1126c0183e36efe91dcc46f0858cc350ee3a74367f95782c8b4c10"
+    },
+    {
+      "path": "changed-source/docs/convene-resource-management.md",
+      "bytes": 4882,
+      "sha256": "9e210d07c54420c1059f9831e4932a334bab2c4883b8cc0cb8e6c3e5ac7dc112"
+    },
+    {
+      "path": "changed-source/docs/weapon-artwork.md",
+      "bytes": 2326,
+      "sha256": "7b8834c01d45300b6de819c33d6de2411cf08d9173091ff19ddff97e367a20f6"
+    },
+    {
+      "path": "changed-source/docs/weapon-missing-assets.json",
+      "bytes": 32488,
+      "sha256": "d8053e9a86b01d8bbc78c66c1a5f7a929c7def34d3dc388d518533e60f2b88e5"
+    },
+    {
+      "path": "changed-source/functions/api/convene.js",
+      "bytes": 3857,
+      "sha256": "92838d782017bf55b58271db25d49fe35c3dc792532d0bdcc1d383a94b9f5725"
+    },
+    {
+      "path": "changed-source/image/convene/badges/character-abyss.svg",
+      "bytes": 1282,
+      "sha256": "a72cb35ec6637dfa300db1ad08cfa55e7545a27571d2b8fd305dcc74ade4fb15"
+    },
+    {
+      "path": "changed-source/image/convene/badges/character-fate.svg",
+      "bytes": 3916,
+      "sha256": "2306fb223961494971ffd1d71a8b03146c5945a319e1181b56f6828c3516cadf"
+    },
+    {
+      "path": "changed-source/image/convene/badges/character-headwind.svg",
+      "bytes": 1671,
+      "sha256": "4f928ae63eedeb351d9fd62dff2e4b06683b15a4d62565e363ae639f2a4b3b4c"
+    },
+    {
+      "path": "changed-source/image/convene/badges/character-lucky.svg",
+      "bytes": 2688,
+      "sha256": "c2abc32c4ecbc8edc9ef69ac2e5d3d17bb3590b374935175263ea35c96b01036"
+    },
+    {
+      "path": "changed-source/image/convene/badges/character-observing.svg",
+      "bytes": 745,
+      "sha256": "71018eb8ce4c3a9fbf7dd5e6812488dae93a80fb39c11f84526646372ee83fe2"
+    },
+    {
+      "path": "changed-source/image/convene/badges/character-star.svg",
+      "bytes": 3070,
+      "sha256": "5db9bb965d26e9c14d21fa096e23c06479c640ae20f5524ebeff06d5368e58f1"
+    },
+    {
+      "path": "changed-source/image/convene/badges/character-steady.svg",
+      "bytes": 2133,
+      "sha256": "0b5f41e593d43b5d16fc692a4eb0a67ca0380d0c87fce4e12da0b3aa5842bfcd"
+    },
+    {
+      "path": "changed-source/image/convene/badges/overall-abyss.svg",
+      "bytes": 1271,
+      "sha256": "c7b6a2b2c42dfe970e44118cf8d3a66dfd5cd12da07d3c7dcb6a1760ec759320"
+    },
+    {
+      "path": "changed-source/image/convene/badges/overall-fate.svg",
+      "bytes": 3889,
+      "sha256": "f64d5b9b60e55436eb911ff72df2de11d4d039b91c981f266322b92e31f56744"
+    },
+    {
+      "path": "changed-source/image/convene/badges/overall-headwind.svg",
+      "bytes": 1632,
+      "sha256": "4de2c8b397be61c78afe64c654a8ced40f5b40d74e9592e42a0836e143f6d3f0"
+    },
+    {
+      "path": "changed-source/image/convene/badges/overall-lucky.svg",
+      "bytes": 2704,
+      "sha256": "94b3e47848562e2c7d658640dbee6f836311d914c7fb56002c03559560ab21cc"
+    },
+    {
+      "path": "changed-source/image/convene/badges/overall-observing.svg",
+      "bytes": 741,
+      "sha256": "6ef43dbdb3d2fed8006b2647f8ef5bc640b5f9094f7d34e96ffc4b425ee70a67"
+    },
+    {
+      "path": "changed-source/image/convene/badges/overall-star.svg",
+      "bytes": 3082,
+      "sha256": "18b102746df31befbfff52ebb8a5a36192f001fbed80abe3a075af19cfa15166"
+    },
+    {
+      "path": "changed-source/image/convene/badges/overall-steady.svg",
+      "bytes": 2151,
+      "sha256": "ec6eee2be6627c1ef2ce7930016ff80e8c420d5a37e920c3f63dc305696ca024"
+    },
+    {
+      "path": "changed-source/image/convene-current/featured-character.webp",
+      "bytes": 99862,
+      "sha256": "e8750ae24f55a2e4207865276932047d5c624080fe4f22c31d14f877b1138957"
+    },
+    {
+      "path": "changed-source/image/convene-current/featured-weapon.webp",
+      "bytes": 151496,
+      "sha256": "150560dd3f44fc9cef37c5268991b4bead20e656c7c8d812d6fa2e7704d62d02"
+    },
+    {
+      "path": "changed-source/image/convene-current/README.md",
+      "bytes": 1411,
+      "sha256": "a37830a9461598d2c3a0caaf0150175093eed3df11111983ebc59701a4f51095"
+    },
+    {
+      "path": "changed-source/image/weapons/3star/README.md",
+      "bytes": 389,
+      "sha256": "90520c7a82d0fea3e2122576c380966a0e7569049e4f0793dd953b0121d68184"
+    },
+    {
+      "path": "changed-source/image/weapons/4star/README.md",
+      "bytes": 389,
+      "sha256": "32d54af5067af15ecc06718a9872a20feb5e2c8b6a9f52ac58235852ab9a2293"
+    },
+    {
+      "path": "changed-source/image/weapons/5star/README.md",
+      "bytes": 389,
+      "sha256": "97b5682fee0f93140d2a98820e9b63fc07c693f8b19770b2299ac574a3c842b5"
+    },
+    {
+      "path": "changed-source/js/character-catalog.js",
+      "bytes": 16742,
+      "sha256": "ace0a59f828fe52df1c52275c11fd6eb139f3f89ee013015e5fbf4b202480cee"
+    },
+    {
+      "path": "changed-source/js/convene-assets.js",
+      "bytes": 1793,
+      "sha256": "7c11c649bddcc91f512a643e572917a21c0e7d87f69352d80341d1ded56cafd3"
+    },
+    {
+      "path": "changed-source/js/convene-covers.js",
+      "bytes": 737,
+      "sha256": "a4c7e13a02a823f437524bfcfaa127fbf2ea390f7de190f87ca63a4853e1ea6d"
+    },
+    {
+      "path": "changed-source/js/convene-i18n.js",
+      "bytes": 60165,
+      "sha256": "dcf6c4a90ab26d1424d1f5a514b0fb5fa971482c4002ab2ae5f375921eb52f48"
+    },
+    {
+      "path": "changed-source/js/convene-service.js",
+      "bytes": 6859,
+      "sha256": "8bd1ace61cfb1c4625acb19af91e479a9d665f385e77da8aef03c7d807c2d6e6"
+    },
+    {
+      "path": "changed-source/js/convene-ui.js",
+      "bytes": 41599,
+      "sha256": "693dcfa785e1236d5d8a609cc563f2acea0f94a136a6ddebec3b377d076ea132"
+    },
+    {
+      "path": "changed-source/js/convene-visuals.js",
+      "bytes": 6641,
+      "sha256": "c7e4d0bcde1bdfd9ffbfc9630ccf2865e92c031e584951dc5d9d0f4786918bb7"
+    },
+    {
+      "path": "changed-source/js/convene-windows.js",
+      "bytes": 3366,
+      "sha256": "29f5662f588b110a2d917ca53e92deef3ceca9d3ca089aa55fb5f0f7ffaf08be"
+    },
+    {
+      "path": "changed-source/js/weapon-catalog.js",
+      "bytes": 44359,
+      "sha256": "52296fdd3627fa5c04c826db6a4adf22b33a6c9317d1a1e16eb2b796e20075d7"
+    },
+    {
+      "path": "changed-source/scripts/check-convene-art.cjs",
+      "bytes": 1302,
+      "sha256": "8013b7db33ed79d5452cc55af3b32514a74755c9ccabcfb668ada8f8078ef9d0"
+    },
+    {
+      "path": "changed-source/tests/convene-artwork.test.cjs",
+      "bytes": 5024,
+      "sha256": "5d0f2a9232a551c8fb904e3072e5268c525758d4c2ab0f47758354e24c7d17bf"
+    },
+    {
+      "path": "changed-source/tests/convene-complete-browser.cjs",
+      "bytes": 12434,
+      "sha256": "15c5880bfa7e30e1ae7c6e1d147eb56fe4cb8ec2745238d123850e98c4f3db13"
+    },
+    {
+      "path": "changed-source/tests/convene-guide-browser.cjs",
+      "bytes": 3082,
+      "sha256": "1c26d6dcf871215cf0545882bb9550aaafd5264f9376e95fb5f2a960edc63508"
+    },
+    {
+      "path": "changed-source/tests/convene-optimization-browser.cjs",
+      "bytes": 12615,
+      "sha256": "6a65f86f7e5b25f3f68979407e8e0666056c8c6a2f6982994b78c72859305d44"
+    },
+    {
+      "path": "changed-source/tests/convene-resource-registry.test.cjs",
+      "bytes": 7959,
+      "sha256": "9ec7437ab3e430d7528383a5420487d301b6c291d0ada95406944b180ef4503d"
+    },
+    {
+      "path": "changed-source/tests/convene-target-browser.cjs",
+      "bytes": 11689,
+      "sha256": "63020b885de558d5293d63b1d1ae1e83a60a0e98107d63252a1fa4e1b738e3ad"
+    },
+    {
+      "path": "changed-source/tests/convene-windows-reader.test.cjs",
+      "bytes": 1944,
+      "sha256": "8e04aa45d27dd3d6a2520e03d63cd943e3f74344269010225bf991d337abd1b0"
+    },
+    {
+      "path": "CHANGED_FILES.md",
+      "bytes": 3657,
+      "sha256": "24d423fe488b306d5f98d0a23f6a4b37a375776c8c95dbb7e854fb2f186ef3ec"
+    },
+    {
+      "path": "changes.json",
+      "bytes": 11998,
+      "sha256": "a454a98b6dd27164b33e664d8c948d0e79a3e3eb2b2a1894d9210910b78ee55f"
+    },
+    {
+      "path": "evidence/art.txt",
+      "bytes": 141,
+      "sha256": "06d1c1017d5123e55e21114648e3efa396ed40abba18a5a14f55a224771bdfb8"
+    },
+    {
+      "path": "evidence/browser--guide-results.json",
+      "bytes": 2849,
+      "sha256": "e2f2a44c123a5a3d81f6d06707fc74591d0ec616019177a366c35cc84d69fc6d"
+    },
+    {
+      "path": "evidence/browser--results.json",
+      "bytes": 4374,
+      "sha256": "0c893f048feda7776dd496ad9aec3ecc9c34cbee33be067cd726d288ddf514a8"
+    },
+    {
+      "path": "evidence/browser.txt",
+      "bytes": 191,
+      "sha256": "432f1841cddc0d4ecee84d1540279e39dca91054e3fa28be81e0448f71029578"
+    },
+    {
+      "path": "evidence/convene-browser.txt",
+      "bytes": 128,
+      "sha256": "ebd79a639c21575320f8d8468a7e7e32551cda5ccaa722a53356653e069fd984"
+    },
+    {
+      "path": "evidence/convene-regression--edge-results.json",
+      "bytes": 2817,
+      "sha256": "5e07d37bba625adcf7f3e90c835d4b164d3ecf6c7cb822a14b5c9e179c319f73"
+    },
+    {
+      "path": "evidence/convene-regression--results.json",
+      "bytes": 4400,
+      "sha256": "8361347419415bc29c8248e4db84bab0c697a9a1ba3e1af99e595e357e7ed887"
+    },
+    {
+      "path": "evidence/diff-check.txt",
+      "bytes": 102,
+      "sha256": "53e4f87d2e05f22b4e2b0b0887cad465090ff889efc1b7bf7a953cb65bf65af9"
+    },
+    {
+      "path": "evidence/edge-browser.txt",
+      "bytes": 168,
+      "sha256": "df674c0f0cfb8583220e196c8d45249635e0dd14dc275122ebf6dca48fd631c4"
+    },
+    {
+      "path": "evidence/fallback-browser.txt",
+      "bytes": 262,
+      "sha256": "7638b558efbb21e4de76572989664182fb5b4bb17b8b05cc2ae8a4305b300efa"
+    },
+    {
+      "path": "evidence/fallback-regression--results.json",
+      "bytes": 3354,
+      "sha256": "ca5f4ec08569d398a240a142e001b581ade4709c535da94ad4edacd1a9fd30e8"
+    },
+    {
+      "path": "evidence/guide-browser.txt",
+      "bytes": 117,
+      "sha256": "552c70cd52619b42ab766ea0093aac94096da26d7ad648d3a6d5304475ea2f5a"
+    },
+    {
+      "path": "evidence/static.txt",
+      "bytes": 174,
+      "sha256": "e3eae99d43be28d3f1c30f22c6dafa93563903dea961f4792c8e12705f5b4770"
+    },
+    {
+      "path": "evidence/target-browser.txt",
+      "bytes": 183,
+      "sha256": "f4c0fda3e5fc60253acca7d8f2bcbb1d8e45125904784c17175e53d35614e201"
+    },
+    {
+      "path": "evidence/target-regression--results.json",
+      "bytes": 3498,
+      "sha256": "909e4fea4719ffc2092045d75aa523962755fbaefad61abb8be34f1e23032a57"
+    },
+    {
+      "path": "evidence/unit.txt",
+      "bytes": 20338,
+      "sha256": "1da188853f6a9c098bc4bd26491f4a839d2aa09d9da44356e313b0a1c663e2f4"
+    },
+    {
+      "path": "GALLERY.html",
+      "bytes": 69749,
+      "sha256": "7d503e8256ba54d06338bb5fba40da2c787763e41305e59a5825f2b712310695"
+    },
+    {
+      "path": "preview/badge-preview.html",
+      "bytes": 90147,
+      "sha256": "43fda9b3c1dd796c9184d6cba5d30ae545cc7db01e9bba6d350af612f3b44657"
+    },
+    {
+      "path": "preview/WuwaEchoTool-read-history.ps1",
+      "bytes": 2855,
+      "sha256": "38c3518a62c25fc96f2a94905cb0b4e2489606fd6dee96e28e8c87bcbdd59004"
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 10691,
+      "sha256": "57acb6baf66b059965051b8bbbe8ce31e7cb7625889ba21e4310fa7d3929170b"
+    },
+    {
+      "path": "resource-status.json",
+      "bytes": 33611,
+      "sha256": "bdfb77462d1126c0183e36efe91dcc46f0858cc350ee3a74367f95782c8b4c10"
+    },
+    {
+      "path": "screenshots/1440-en-account-changed-same-manual-cover.png",
+      "bytes": 1011606,
+      "sha256": "3f6fb3a7a0961fcbbb30d27a1b77ae5ea23aa448ae9d18b1c4c2d2597ce4fd1f"
+    },
+    {
+      "path": "screenshots/1440-en-character-analysis.png",
+      "bytes": 985079,
+      "sha256": "af0387daeb491ab5f5434f606cabebab6007c31749dfe4a78ca6a968e4479f01"
+    },
+    {
+      "path": "screenshots/1440-en-character-badge-atlas.png",
+      "bytes": 411403,
+      "sha256": "3bb476c7045492a2bbefe1bdd0056916d0a0f7e0d6029b8ce2340723544c661e"
+    },
+    {
+      "path": "screenshots/1440-en-character-compact.png",
+      "bytes": 905025,
+      "sha256": "16bee7625cc5d8eeb4a99d292ff38dbaee243e761bbb3e1a25cda2f16f7fc3f1"
+    },
+    {
+      "path": "screenshots/1440-en-character-detailed.png",
+      "bytes": 1178385,
+      "sha256": "f2dbccd1942d295772f77b244c09b1108f46219ac3c17c79caa1aae907084317"
+    },
+    {
+      "path": "screenshots/1440-en-character-full-uid.png",
+      "bytes": 1179889,
+      "sha256": "d890091e0aa9046645a3556aae41dcb58bdf6ae09d7d52c3d85becb662134d6f"
+    },
+    {
+      "path": "screenshots/1440-en-historical-Lingyang.png",
+      "bytes": 888740,
+      "sha256": "550a42fca86440b98be0a990b4652c89b0ebc2cfca4ed88a9a29ae42b8ba7d74"
+    },
+    {
+      "path": "screenshots/1440-en-history-filters.png",
+      "bytes": 1530679,
+      "sha256": "290cd4b4653e836596e94cd4d0e961a0ef8f6643faa34e58c59cebc2bca9b9d0"
+    },
+    {
+      "path": "screenshots/1440-en-import.png",
+      "bytes": 126288,
+      "sha256": "5aeeaf7dea978398a17744cfc0279b5c424db395db25b7d49285ad51888384cc"
+    },
+    {
+      "path": "screenshots/1440-en-manual-cover-missing-fallback.png",
+      "bytes": 1086729,
+      "sha256": "58b84e0c674084a3fbd13c3ad4482427c7228347cddab39e8bf957363312a3a0"
+    },
+    {
+      "path": "screenshots/1440-en-manual-covers.png",
+      "bytes": 1131277,
+      "sha256": "eea8c778ff44b4318c6cce39ed6575a300f778102f992dd13f4db9b45ab42277"
+    },
+    {
+      "path": "screenshots/1440-en-overall-badge-atlas.png",
+      "bytes": 244124,
+      "sha256": "bd08c611e52ae57de0306bed4e8eb6b8a50c224641080e39ab430692faf12c47"
+    },
+    {
+      "path": "screenshots/1440-en-overall-compact.png",
+      "bytes": 863672,
+      "sha256": "a75ea36134d0d47583b6ab8496aa089d2ac69f0ff3f315e888ecc97e530ba942"
+    },
+    {
+      "path": "screenshots/1440-en-overall-detailed.png",
+      "bytes": 1156235,
+      "sha256": "cf0c80bd7822d7c464e4e3180f89b4c89f94d33d6b060cf94245cf00a204d217"
+    },
+    {
+      "path": "screenshots/1440-en-overall-full-uid.png",
+      "bytes": 1157604,
+      "sha256": "8fad5b2f3762671daf474e8c11f375edb65fc63736373a4453d6f47192637128"
+    },
+    {
+      "path": "screenshots/1440-en-overview-full.png",
+      "bytes": 1131277,
+      "sha256": "eea8c778ff44b4318c6cce39ed6575a300f778102f992dd13f4db9b45ab42277"
+    },
+    {
+      "path": "screenshots/1440-en-pool-1.png",
+      "bytes": 1573253,
+      "sha256": "1ea5cbbb22976a1115ae5f8fc3eb4f75dcc0f0c1047db930e0fcccd5ab60ac23"
+    },
+    {
+      "path": "screenshots/1440-en-pool-2.png",
+      "bytes": 579778,
+      "sha256": "533d42dddb2f2514430def454d0f00209c54a368794781c4ebc8c2c40a06b5dc"
+    },
+    {
+      "path": "screenshots/1440-en-share-preview-character-compact.png",
+      "bytes": 390175,
+      "sha256": "b9ade6accd8acdef929dfedecec5bc0b8c4e662b6e0e1952a838f5b834e375ca"
+    },
+    {
+      "path": "screenshots/1440-en-share-preview-character-detailed.png",
+      "bytes": 369627,
+      "sha256": "b7108c9d7ca9108bdffd9ea1e7427e144151e63a6e77143fa7a9821721f33731"
+    },
+    {
+      "path": "screenshots/1440-en-share-preview-overall-compact.png",
+      "bytes": 386633,
+      "sha256": "b721a9faab118d0de130fd7f93f6f7cc0adaaa17b3c3957370b08bf764c8433f"
+    },
+    {
+      "path": "screenshots/1440-en-share-preview-overall-detailed.png",
+      "bytes": 399238,
+      "sha256": "6243d73022c5cad1ad27a502168d7558fce7d109638abe073343e4bd66d574b0"
+    },
+    {
+      "path": "screenshots/1440-en-unknown-character-fallback.png",
+      "bytes": 716554,
+      "sha256": "ef396f6ee4ec7e6f0b44bde7509c1e4cc611b017bd86984729f0ec6fa16cb436"
+    },
+    {
+      "path": "screenshots/1440-en-windows-command.png",
+      "bytes": 91782,
+      "sha256": "41308af5b1888cce65122918f475e64386b15ef1dfcef436d4120ef83e8c0f6a"
+    },
+    {
+      "path": "screenshots/1440-en-windows-guide.png",
+      "bytes": 145358,
+      "sha256": "87d68045e78cce1ed51af59d81ba45cc5cca1db75f84f44d9214b27446685b84"
+    },
+    {
+      "path": "screenshots/1440-en-windows-log-alternative.png",
+      "bytes": 77439,
+      "sha256": "e9f98f07bbb5ee95496eeaea252eb24fe0278065d7681d1396468f19390c3908"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-account-changed-same-manual-cover.png",
+      "bytes": 995551,
+      "sha256": "c3a26a68d440a9fa42805df1305845a4b4383831b2285e5e7a3e7f21206fede0"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-character-analysis.png",
+      "bytes": 964433,
+      "sha256": "461d821c5e4ffec812f01775cafd8da8535892b41ea10e6c3dc4e8c33606576b"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-character-badge-atlas.png",
+      "bytes": 406028,
+      "sha256": "28fa23b4e54a5c0d23aeb1e38c0070f4fde65ab25a98ee37f788080d51cfaf22"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-character-compact.png",
+      "bytes": 901648,
+      "sha256": "15a633f60a17852d9296d3ba382182dffeb28e286d51906014eebfb685aebc22"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-character-detailed.png",
+      "bytes": 1165408,
+      "sha256": "54688479720285535868476cc69bdc9b011c21736efac0ed694c02eaaf9f3d1f"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-character-full-uid.png",
+      "bytes": 1166946,
+      "sha256": "bf86d2d2c74bfdaa81875fc1a73d48533f8ae9ec311e141273edd793b4ef51df"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-historical-Lingyang.png",
+      "bytes": 870356,
+      "sha256": "a5a05f423086be805bba52fac73c5a077131cf1338e2bc1354359a9851352e65"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-history-filters.png",
+      "bytes": 1525842,
+      "sha256": "655ee6d7c9f27e3042e317a33b63c6fee7bb7b86a1a083dc229b8dd97d357a72"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-import.png",
+      "bytes": 122622,
+      "sha256": "8e521d2687ba2d0cdfc4a7d50d11b8d1bea4dc203aa5c742e6a0e505e8f1a451"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-manual-cover-missing-fallback.png",
+      "bytes": 1067338,
+      "sha256": "00fe3d1d7325920b836367574303e727fff947d3c60a7d2d460b18b9eb958db8"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-manual-covers.png",
+      "bytes": 1114415,
+      "sha256": "a123b9332ba5a7bde4a696268655b88fffd0e5d81c8c57f9e08f9b736e5d22a6"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-overall-badge-atlas.png",
+      "bytes": 242406,
+      "sha256": "45a4cf8fa1256dbe7443ad4d4ff01726b808baa8d9025ecd08bec368a5376f68"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-overall-compact.png",
+      "bytes": 844057,
+      "sha256": "c915a826fab89627f8c8464b138012a44217a7dae4af55272459b856b777b02a"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-overall-detailed.png",
+      "bytes": 1121917,
+      "sha256": "4a1cd318ac79ea13848f1618b952ab32ac378a3b44c43b71cfe88b6fad66c1cb"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-overall-full-uid.png",
+      "bytes": 1123276,
+      "sha256": "0169e08135218b0336992b0425f7f4be8a2872083614897d4e649345e5ce7887"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-overview-full.png",
+      "bytes": 1114415,
+      "sha256": "a123b9332ba5a7bde4a696268655b88fffd0e5d81c8c57f9e08f9b736e5d22a6"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-pool-1.png",
+      "bytes": 1559504,
+      "sha256": "abfb9c50b44d4c20b08912ef137b68fde64491432b4f83a2623ea98b852b6195"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-pool-2.png",
+      "bytes": 570544,
+      "sha256": "72e4dfcd30c8e473c563e479c472a9a737836cc33dcb2af8fd0d58f7ddc8279e"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-same-filename-replacement.png",
+      "bytes": 1110401,
+      "sha256": "009ba24ca9256066c16070906cf9bffba27580708ac7de7de2a7d3f06f86c356"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-share-preview-character-compact.png",
+      "bytes": 385250,
+      "sha256": "ff32211cb4644b262c476ca74737382192ab48961fc77b15ba4aac51d1cf5e19"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-share-preview-character-detailed.png",
+      "bytes": 374986,
+      "sha256": "f666ceeb59e0f5b8846cea50167c43c768e6e656ccd741f1f8b7405194d77edd"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-share-preview-overall-compact.png",
+      "bytes": 374688,
+      "sha256": "45a720eed0209d5047fa7f43866d4ce1ecb003dbcc83dd2d4ae2d052d8b323c2"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-share-preview-overall-detailed.png",
+      "bytes": 386406,
+      "sha256": "e1d60ac43fe3fec48a88623d4e8a9fc8613fa14f4e2449421b849965eaa067de"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-target-R0.png",
+      "bytes": 907688,
+      "sha256": "7ebc3f8c1280186353e7352422533e051ca2d6fcd54ba517f0733fd056123c77"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-target-R1.png",
+      "bytes": 908918,
+      "sha256": "313cc45b131d5452fe9cb4b89787b4ef21183de51c5abe0f0b613f3f56e00fc3"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-target-R2.png",
+      "bytes": 908790,
+      "sha256": "5f969ebea4624042b4c16e4beca939bec68b8a2aac8b15f102035d0142661a24"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-target-R3.png",
+      "bytes": 908942,
+      "sha256": "c5731695ee6515b584be609dbec84d282fbffa2d2ac785c91cc3cd6c1bb43b6f"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-target-R4.png",
+      "bytes": 908394,
+      "sha256": "e70c7eb5a03ecdb25310921beec05cb6dbc12a7b2941dd5ac3f854e6c5e9953d"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-target-R5.png",
+      "bytes": 908632,
+      "sha256": "838dcb7f2f52a92a1d6dca5ee9ce0785984eebf7c62765181172ca0a3e50068a"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-target-R6.png",
+      "bytes": 909920,
+      "sha256": "d2cf1237c47c5636812999bfcc954375f74b7d7d4d213b57eef20d8d99eb5a8c"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-unknown-character-fallback.png",
+      "bytes": 703840,
+      "sha256": "314aac3458cc0f2c507932411923139ea6dda8e5e585a2f805fd507d41deaf74"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-windows-command.png",
+      "bytes": 91529,
+      "sha256": "cd284628bebf20a649c12e4c500edf152cb9a4e8d4801fb6e8446934ccb22512"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-windows-guide.png",
+      "bytes": 146613,
+      "sha256": "32582515cf8cd9cf45fe0cd4d5e1e4f07371ebfe0c1247a6cc9c70912d68de66"
+    },
+    {
+      "path": "screenshots/1440-zh-CN-windows-log-alternative.png",
+      "bytes": 76714,
+      "sha256": "9c6740737c30857e28583e565ae65d1bf1d38c6d0deb6b6c573a12ec27b575a5"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-account-changed-same-manual-cover.png",
+      "bytes": 998650,
+      "sha256": "2f1c14e83d5fb57f717fc6f217e065d6d8da2020606651f53e9f97f7fe850b3a"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-character-analysis.png",
+      "bytes": 967262,
+      "sha256": "1ad55763b8439716270c346ce8ff163281ff5aa3e13a52eaf30700d3e4dae6c0"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-character-badge-atlas.png",
+      "bytes": 401084,
+      "sha256": "dbb5d238095388a9022a422c8c7090f2d15a21cb1aaecc61243019c24c1aab78"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-character-compact.png",
+      "bytes": 903365,
+      "sha256": "3c4d333dd4d1c639c12438e0a0dd7937b1533c50ae46699ed6fd78cf57206e45"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-character-detailed.png",
+      "bytes": 1167150,
+      "sha256": "3cb50cc83f3dc424a7ca038f9b9c27818b86c49313dd8d716f9bc127021d667f"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-character-full-uid.png",
+      "bytes": 1168709,
+      "sha256": "e73bb84f8e9686871ccee001ca5b7fb61c32852c767a70fce9c3ddb84cedf53d"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-historical-Lingyang.png",
+      "bytes": 873862,
+      "sha256": "fe3dfd30f24e8fa81e9677280f6f09a636ba592afc8dfd2e22956cb81b78b0f5"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-history-filters.png",
+      "bytes": 1532157,
+      "sha256": "24ccfa0a38bfcfb7a87037079006494299fd655e100aa1658d94230397fa9113"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-import.png",
+      "bytes": 127020,
+      "sha256": "1142c721e1883f73b20af9d97a0367599facd34232333d4353ea08fab1f1391d"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-manual-cover-missing-fallback.png",
+      "bytes": 1070835,
+      "sha256": "c1ebd67b7640b69d45dee482f81c11313863b069a3cbc18fb578d3115b5eb1fd"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-manual-covers.png",
+      "bytes": 1117934,
+      "sha256": "4b922d697ab621edfdbe223bafda585ce39bcce18536487c7ab94e14368c5bf2"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-overall-badge-atlas.png",
+      "bytes": 238974,
+      "sha256": "8fc0863350eac9974a716396e0054a969d0e7faeca7db87121262da14d73cf34"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-overall-compact.png",
+      "bytes": 846780,
+      "sha256": "d7b39f4065361c390799afb9dd293fedc5dc45c86c6949e51a5067fef0555db4"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-overall-detailed.png",
+      "bytes": 1124867,
+      "sha256": "e3e7e7b36f0d4c9566d4ccf9e357ddb303ce7da92e1a760e6bc0f2e7a5f55b86"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-overall-full-uid.png",
+      "bytes": 1126263,
+      "sha256": "5d3fd885c81cf6fbd24949ac54c6318c0476bfb32e36295c12147131fcc19f78"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-overview-full.png",
+      "bytes": 1117934,
+      "sha256": "4b922d697ab621edfdbe223bafda585ce39bcce18536487c7ab94e14368c5bf2"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-pool-1.png",
+      "bytes": 1562612,
+      "sha256": "fd28f474c2c8c0e3ace88d8356ddd9df019528ab785afc8811bf48b4213b919e"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-pool-2.png",
+      "bytes": 573772,
+      "sha256": "048a98d05519fbd257bc20acb9df1a7ce358034bd2c84762123ce6edd0f8285f"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-share-preview-character-compact.png",
+      "bytes": 387815,
+      "sha256": "08367886da5250d1e27a1490b3449b466beb3d78d211fe541d211581ef5a2084"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-share-preview-character-detailed.png",
+      "bytes": 377449,
+      "sha256": "a772c1556404a71ada53ddf4bad2bbb710ba338d416839aae1453382f850c5d7"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-share-preview-overall-compact.png",
+      "bytes": 377288,
+      "sha256": "5e62cc050d8887e27da2d48ea8e2ff3355b263def115ae9ffbb96db0c124e9f5"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-share-preview-overall-detailed.png",
+      "bytes": 388701,
+      "sha256": "6bfbc6634b7ca0c93730a1aa64006b338ff47defe09718b530b8f32a1d3f4f6a"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-unknown-character-fallback.png",
+      "bytes": 707033,
+      "sha256": "99894caaf6a211b5c8d3a70b3b20729a3e876195983feb902f7081b5d2b5dd11"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-windows-command.png",
+      "bytes": 93688,
+      "sha256": "d55d5ae6ef6be0e8b0a29a9179fea497474040d197782a548a6667013f5bdee1"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-windows-guide.png",
+      "bytes": 149005,
+      "sha256": "7ffacb49a0d98509fc3ea58f9b8b6d2e3341049ea323d4a29ce56b64dbd65ee9"
+    },
+    {
+      "path": "screenshots/1440-zh-TW-windows-log-alternative.png",
+      "bytes": 78265,
+      "sha256": "34c3afcb602cbb6b485928cb08c6a8e8fc32f3e09637dc529bfabff3f262dbc0"
+    },
+    {
+      "path": "screenshots/360-en-account-changed-same-manual-cover.png",
+      "bytes": 634120,
+      "sha256": "52a8205692e944e616c63514dc420de55f03d5f4c1e99950b44d521cc3b6f7d7"
+    },
+    {
+      "path": "screenshots/360-en-character-analysis.png",
+      "bytes": 563850,
+      "sha256": "2e6a6279f39a0c67b4028a920b77f6ec4171fbc88e79279864f640443df8cbb5"
+    },
+    {
+      "path": "screenshots/360-en-character-badge-atlas.png",
+      "bytes": 147709,
+      "sha256": "a3b8ad550aeaa9f3ceb8011b876738bceac36c8c9a0f571fc477e9a56ebcf002"
+    },
+    {
+      "path": "screenshots/360-en-character-compact.png",
+      "bytes": 905025,
+      "sha256": "16bee7625cc5d8eeb4a99d292ff38dbaee243e761bbb3e1a25cda2f16f7fc3f1"
+    },
+    {
+      "path": "screenshots/360-en-character-detailed.png",
+      "bytes": 1178385,
+      "sha256": "f2dbccd1942d295772f77b244c09b1108f46219ac3c17c79caa1aae907084317"
+    },
+    {
+      "path": "screenshots/360-en-character-full-uid.png",
+      "bytes": 1179889,
+      "sha256": "d890091e0aa9046645a3556aae41dcb58bdf6ae09d7d52c3d85becb662134d6f"
+    },
+    {
+      "path": "screenshots/360-en-historical-Lingyang.png",
+      "bytes": 405797,
+      "sha256": "46cc75165bd3e0ae019f1abe8b4465b1407081b1e1cb8a708157d21c8e5b62d0"
+    },
+    {
+      "path": "screenshots/360-en-history-filters.png",
+      "bytes": 633568,
+      "sha256": "d1b52db6d3daf98a54b24814eef51a1a41c25ac348ec2be3cfe0926776d7538e"
+    },
+    {
+      "path": "screenshots/360-en-import.png",
+      "bytes": 77229,
+      "sha256": "ba4965ed6dc103be6bf1aa49ed9d08db20f833378caec3bb2604a8063bf474ce"
+    },
+    {
+      "path": "screenshots/360-en-manual-cover-missing-fallback.png",
+      "bytes": 745008,
+      "sha256": "dfe02f969eaa79620053052da2b3952af531486e43f6ce78057f53f4969880f2"
+    },
+    {
+      "path": "screenshots/360-en-manual-covers.png",
+      "bytes": 779649,
+      "sha256": "fa8320058c49457fa60240d8c835305b406b031c2c8bdb3e45cbf880504c8b8b"
+    },
+    {
+      "path": "screenshots/360-en-overall-badge-atlas.png",
+      "bytes": 70097,
+      "sha256": "cacb880be207cb85496c3fd1c83480206873e7ac3ed47f38630a39db131272b8"
+    },
+    {
+      "path": "screenshots/360-en-overall-compact.png",
+      "bytes": 863672,
+      "sha256": "a75ea36134d0d47583b6ab8496aa089d2ac69f0ff3f315e888ecc97e530ba942"
+    },
+    {
+      "path": "screenshots/360-en-overall-detailed.png",
+      "bytes": 1156235,
+      "sha256": "cf0c80bd7822d7c464e4e3180f89b4c89f94d33d6b060cf94245cf00a204d217"
+    },
+    {
+      "path": "screenshots/360-en-overall-full-uid.png",
+      "bytes": 1157604,
+      "sha256": "8fad5b2f3762671daf474e8c11f375edb65fc63736373a4453d6f47192637128"
+    },
+    {
+      "path": "screenshots/360-en-overview-full.png",
+      "bytes": 779649,
+      "sha256": "fa8320058c49457fa60240d8c835305b406b031c2c8bdb3e45cbf880504c8b8b"
+    },
+    {
+      "path": "screenshots/360-en-pool-1.png",
+      "bytes": 596910,
+      "sha256": "b3a2ecc2e38ab2482e6b35eaba3e46626e8e8effc521194bf229dffbe587e29e"
+    },
+    {
+      "path": "screenshots/360-en-pool-2.png",
+      "bytes": 226748,
+      "sha256": "123a8d0d5f259a1d09ec04d2f20f8a3810e188caab7ea1411dbaebf8972cb8b1"
+    },
+    {
+      "path": "screenshots/360-en-share-preview-character-compact.png",
+      "bytes": 81753,
+      "sha256": "391202318539dba59e8f501db32a7340ecd7f9aa5664257f3e29bde72704fec7"
+    },
+    {
+      "path": "screenshots/360-en-share-preview-character-detailed.png",
+      "bytes": 96846,
+      "sha256": "a03a17b7d9e945b46366d731a4acb536f8392a53dadba8b7ce26fce460da19fa"
+    },
+    {
+      "path": "screenshots/360-en-share-preview-overall-compact.png",
+      "bytes": 83567,
+      "sha256": "4176fa15a47b56fbb8dc0f6e52a8a821bae43ce4edd8e9473e3400f6dc62b55e"
+    },
+    {
+      "path": "screenshots/360-en-share-preview-overall-detailed.png",
+      "bytes": 86853,
+      "sha256": "c7fa8167104ac540191a28a423651142250be3e23bb0f69e4ae55b5b236161df"
+    },
+    {
+      "path": "screenshots/360-en-unknown-character-fallback.png",
+      "bytes": 387485,
+      "sha256": "14c3a15580abf844137a6c299aed6c6799838ee595d1b9e15757ea8323ede022"
+    },
+    {
+      "path": "screenshots/360-en-windows-command.png",
+      "bytes": 49511,
+      "sha256": "08ac57125789094ed67fb0dcaf4c24a12d43bc664debce016b2593a603b2e921"
+    },
+    {
+      "path": "screenshots/360-en-windows-guide.png",
+      "bytes": 76617,
+      "sha256": "f47086b0c888eb3f614da4d674f7c46fc148f39bc4c3b209565cb6d5a2d19691"
+    },
+    {
+      "path": "screenshots/360-en-windows-log-alternative.png",
+      "bytes": 42539,
+      "sha256": "a2d5f699061ec37f1e9e9c5ade718b24de558fc8186837f97f2d880ec49f50a8"
+    },
+    {
+      "path": "screenshots/360-zh-CN-account-changed-same-manual-cover.png",
+      "bytes": 608637,
+      "sha256": "4b66d8f644cd8cb202af72d33f4710d9d0601937a0a291f7a8b637f969263b2f"
+    },
+    {
+      "path": "screenshots/360-zh-CN-character-analysis.png",
+      "bytes": 533252,
+      "sha256": "53db703c36f583cac77bc5f09a62b5759941788b1e4ef90a42b2990a4007393d"
+    },
+    {
+      "path": "screenshots/360-zh-CN-character-badge-atlas.png",
+      "bytes": 154422,
+      "sha256": "cdc6b2d4ee6b44b7f8f379a54e309795e799117ac3829b3ab1b469ab8173d813"
+    },
+    {
+      "path": "screenshots/360-zh-CN-character-compact.png",
+      "bytes": 901648,
+      "sha256": "15a633f60a17852d9296d3ba382182dffeb28e286d51906014eebfb685aebc22"
+    },
+    {
+      "path": "screenshots/360-zh-CN-character-detailed.png",
+      "bytes": 1165408,
+      "sha256": "54688479720285535868476cc69bdc9b011c21736efac0ed694c02eaaf9f3d1f"
+    },
+    {
+      "path": "screenshots/360-zh-CN-character-full-uid.png",
+      "bytes": 1166946,
+      "sha256": "bf86d2d2c74bfdaa81875fc1a73d48533f8ae9ec311e141273edd793b4ef51df"
+    },
+    {
+      "path": "screenshots/360-zh-CN-historical-Lingyang.png",
+      "bytes": 382044,
+      "sha256": "4d61ad8543039400d3bc370852f25b33333bb82ab4691c9f3730345cde2e90e7"
+    },
+    {
+      "path": "screenshots/360-zh-CN-history-filters.png",
+      "bytes": 618755,
+      "sha256": "4fa9b4b18a889095d696f846d78fc0d114b1227e21135c2145d88bba592c203d"
+    },
+    {
+      "path": "screenshots/360-zh-CN-import.png",
+      "bytes": 70656,
+      "sha256": "d12055662801ecde4487fff06c76a2db406ee184da281471dd575d86f0c423cb"
+    },
+    {
+      "path": "screenshots/360-zh-CN-manual-cover-missing-fallback.png",
+      "bytes": 716021,
+      "sha256": "9efc97cb7569858862c4f679f7a508a6d8f2074613d45308c29881ff8c65e6f8"
+    },
+    {
+      "path": "screenshots/360-zh-CN-manual-covers.png",
+      "bytes": 749820,
+      "sha256": "500d38fc8201397fdfec0b85d9b664d8ec0e178660ab57d5a9e7ae91f175f194"
+    },
+    {
+      "path": "screenshots/360-zh-CN-overall-badge-atlas.png",
+      "bytes": 74985,
+      "sha256": "01bc862e528cf7ea1a475f4e7b400395e49bad1cf133abb4c4a47a6e5daf133f"
+    },
+    {
+      "path": "screenshots/360-zh-CN-overall-compact.png",
+      "bytes": 844057,
+      "sha256": "c915a826fab89627f8c8464b138012a44217a7dae4af55272459b856b777b02a"
+    },
+    {
+      "path": "screenshots/360-zh-CN-overall-detailed.png",
+      "bytes": 1121917,
+      "sha256": "4a1cd318ac79ea13848f1618b952ab32ac378a3b44c43b71cfe88b6fad66c1cb"
+    },
+    {
+      "path": "screenshots/360-zh-CN-overall-full-uid.png",
+      "bytes": 1123276,
+      "sha256": "0169e08135218b0336992b0425f7f4be8a2872083614897d4e649345e5ce7887"
+    },
+    {
+      "path": "screenshots/360-zh-CN-overview-full.png",
+      "bytes": 749820,
+      "sha256": "500d38fc8201397fdfec0b85d9b664d8ec0e178660ab57d5a9e7ae91f175f194"
+    },
+    {
+      "path": "screenshots/360-zh-CN-pool-1.png",
+      "bytes": 596313,
+      "sha256": "125b754d53e6a1af8ecf65920a0d82a4c2b3553afb697b2ca8bb854b84105e52"
+    },
+    {
+      "path": "screenshots/360-zh-CN-pool-2.png",
+      "bytes": 230352,
+      "sha256": "6da7912ac5763dcaa8dc650f07a358c3ce23473468d64fe516ae9540bfe506e3"
+    },
+    {
+      "path": "screenshots/360-zh-CN-share-preview-character-compact.png",
+      "bytes": 79665,
+      "sha256": "3cb5e31b500c3bfb61e6465c4b9cf524647c00059f1355963508809070c44275"
+    },
+    {
+      "path": "screenshots/360-zh-CN-share-preview-character-detailed.png",
+      "bytes": 93438,
+      "sha256": "6b0b946252d07fad3ad0f7767d24617e5fd320b4e501710a1005ccd7f84c3d42"
+    },
+    {
+      "path": "screenshots/360-zh-CN-share-preview-overall-compact.png",
+      "bytes": 78952,
+      "sha256": "4b6f708764544f33fd84f5dd0a7acabf2f03b4e444902cde555365b9446a69bb"
+    },
+    {
+      "path": "screenshots/360-zh-CN-share-preview-overall-detailed.png",
+      "bytes": 81108,
+      "sha256": "38b1717f3bea4e4b38abf8ba7cf63b8d4a0ac28ab6cb8cc981f958115ac99671"
+    },
+    {
+      "path": "screenshots/360-zh-CN-unknown-character-fallback.png",
+      "bytes": 363688,
+      "sha256": "67b9a8af6e9486e52cbeefb72473a90dc3b642e3262ba645d06b2649d6f2feb9"
+    },
+    {
+      "path": "screenshots/360-zh-CN-windows-command.png",
+      "bytes": 52278,
+      "sha256": "1d5c83215c9270e5965bae5909b305c6dc181d60b736b77c4c5b19bafdb11cf6"
+    },
+    {
+      "path": "screenshots/360-zh-CN-windows-guide.png",
+      "bytes": 77963,
+      "sha256": "fafaf3ed869733d549e4a621f5834005082635711f3e70015af5eaef7b7a595c"
+    },
+    {
+      "path": "screenshots/360-zh-CN-windows-log-alternative.png",
+      "bytes": 45470,
+      "sha256": "83c1cdbccdd99a34849a8e54bd8b53d7c58f0752ba7a940ae9af380a50f668b1"
+    },
+    {
+      "path": "screenshots/360-zh-TW-account-changed-same-manual-cover.png",
+      "bytes": 611741,
+      "sha256": "a841734fe699f5c747182ed892c1cd17a2df243b681ce755f895a43b634579fb"
+    },
+    {
+      "path": "screenshots/360-zh-TW-character-analysis.png",
+      "bytes": 534728,
+      "sha256": "6f336b987bf91335580c3dc43551b14e58e5d30753c125f038228ab6ac3644f1"
+    },
+    {
+      "path": "screenshots/360-zh-TW-character-badge-atlas.png",
+      "bytes": 154560,
+      "sha256": "c3b431e44c770034fe70c9adf6394cfebc08e002b2bf00a37fc48662bceee974"
+    },
+    {
+      "path": "screenshots/360-zh-TW-character-compact.png",
+      "bytes": 903365,
+      "sha256": "3c4d333dd4d1c639c12438e0a0dd7937b1533c50ae46699ed6fd78cf57206e45"
+    },
+    {
+      "path": "screenshots/360-zh-TW-character-detailed.png",
+      "bytes": 1167150,
+      "sha256": "3cb50cc83f3dc424a7ca038f9b9c27818b86c49313dd8d716f9bc127021d667f"
+    },
+    {
+      "path": "screenshots/360-zh-TW-character-full-uid.png",
+      "bytes": 1168709,
+      "sha256": "e73bb84f8e9686871ccee001ca5b7fb61c32852c767a70fce9c3ddb84cedf53d"
+    },
+    {
+      "path": "screenshots/360-zh-TW-historical-Lingyang.png",
+      "bytes": 385176,
+      "sha256": "9542f0705ff67fe485f9cdb860e3d3ae6eed9e903e628521e27cf7722c3d4693"
+    },
+    {
+      "path": "screenshots/360-zh-TW-history-filters.png",
+      "bytes": 621801,
+      "sha256": "7aeb701bfa9d6e616182efaf5c3957a37bfddce047a6f49d30e22a85a29f7478"
+    },
+    {
+      "path": "screenshots/360-zh-TW-import.png",
+      "bytes": 73626,
+      "sha256": "82952806e86f54ea0447f7f225a4910f0d53e6bd14104caa4935b9babafd0176"
+    },
+    {
+      "path": "screenshots/360-zh-TW-manual-cover-missing-fallback.png",
+      "bytes": 718805,
+      "sha256": "522413745a3d240fdd4aee4892860198799c5ebf84248f48e00541fbb3af489d"
+    },
+    {
+      "path": "screenshots/360-zh-TW-manual-covers.png",
+      "bytes": 753291,
+      "sha256": "7b12d213f46abcd4b7db98a7ffd60a29761b637d1d41c05658506f8d570dd53c"
+    },
+    {
+      "path": "screenshots/360-zh-TW-overall-badge-atlas.png",
+      "bytes": 75759,
+      "sha256": "7bd85c91f83e74152f376dee3f9d036d9c828bda1ec555bbb75121689bd194dc"
+    },
+    {
+      "path": "screenshots/360-zh-TW-overall-compact.png",
+      "bytes": 846780,
+      "sha256": "d7b39f4065361c390799afb9dd293fedc5dc45c86c6949e51a5067fef0555db4"
+    },
+    {
+      "path": "screenshots/360-zh-TW-overall-detailed.png",
+      "bytes": 1124867,
+      "sha256": "e3e7e7b36f0d4c9566d4ccf9e357ddb303ce7da92e1a760e6bc0f2e7a5f55b86"
+    },
+    {
+      "path": "screenshots/360-zh-TW-overall-full-uid.png",
+      "bytes": 1126263,
+      "sha256": "5d3fd885c81cf6fbd24949ac54c6318c0476bfb32e36295c12147131fcc19f78"
+    },
+    {
+      "path": "screenshots/360-zh-TW-overview-full.png",
+      "bytes": 753291,
+      "sha256": "7b12d213f46abcd4b7db98a7ffd60a29761b637d1d41c05658506f8d570dd53c"
+    },
+    {
+      "path": "screenshots/360-zh-TW-pool-1.png",
+      "bytes": 598138,
+      "sha256": "f7a4b37a314ecd671be83ed0c9921aae07e292a302bc353d9099ca8951a82b80"
+    },
+    {
+      "path": "screenshots/360-zh-TW-pool-2.png",
+      "bytes": 232822,
+      "sha256": "5d20df6eef7470240966fa8e38843e457e8ef771b65b8da599049724803f3f80"
+    },
+    {
+      "path": "screenshots/360-zh-TW-share-preview-character-compact.png",
+      "bytes": 80453,
+      "sha256": "75b9764a2c3aec367e8cdda44ee2f953f31acf66b0e401436296f38a05e5eedc"
+    },
+    {
+      "path": "screenshots/360-zh-TW-share-preview-character-detailed.png",
+      "bytes": 93953,
+      "sha256": "52ed80442972ec9bab5a4a08943273a248bba96e23470d5e3c762789a2a98ffc"
+    },
+    {
+      "path": "screenshots/360-zh-TW-share-preview-overall-compact.png",
+      "bytes": 79142,
+      "sha256": "cbd332de2d30acc5f78e3f91e5e5e4f38c369c16dc38124716bb4fdea4215400"
+    },
+    {
+      "path": "screenshots/360-zh-TW-share-preview-overall-detailed.png",
+      "bytes": 81525,
+      "sha256": "bbd9c9b4f98ddd990472dfb3c38ccf23375351c25732e9721b177e604cfa0c60"
+    },
+    {
+      "path": "screenshots/360-zh-TW-unknown-character-fallback.png",
+      "bytes": 365576,
+      "sha256": "9760c83e999dd78dc1269d9651254c6318a14ee01f8bda4153f5bd879fcc9bbe"
+    },
+    {
+      "path": "screenshots/360-zh-TW-windows-command.png",
+      "bytes": 53025,
+      "sha256": "598ccc95798c7370e361cb7eb7e7f5f7b35553bfb897eb2341784789d48de07c"
+    },
+    {
+      "path": "screenshots/360-zh-TW-windows-guide.png",
+      "bytes": 79067,
+      "sha256": "83be1ba1fd5e72c663fd74b5c08a85cdbf3abc0516f57473fde2d7bc33d64b69"
+    },
+    {
+      "path": "screenshots/360-zh-TW-windows-log-alternative.png",
+      "bytes": 46723,
+      "sha256": "b9b0ee53413c3a7209d85eef7d870cd98395d1e8d8ce90f0d31723fa99b3f2ee"
+    },
+    {
+      "path": "screenshots/390-en-account-changed-same-manual-cover.png",
+      "bytes": 665146,
+      "sha256": "5ea65b25c2389bfc00e64951496a2e08a930855ff13ce78e5d6a4739d19cacf0"
+    },
+    {
+      "path": "screenshots/390-en-character-analysis.png",
+      "bytes": 585442,
+      "sha256": "799af038542d243741e957f04d096ce9b21c68bad9784aa52851ee3c72f7969f"
+    },
+    {
+      "path": "screenshots/390-en-character-badge-atlas.png",
+      "bytes": 156551,
+      "sha256": "d77b51ab581f8a27bca7767db37c2e788a4501db63546ab5af0710397aa3079d"
+    },
+    {
+      "path": "screenshots/390-en-character-compact.png",
+      "bytes": 905025,
+      "sha256": "16bee7625cc5d8eeb4a99d292ff38dbaee243e761bbb3e1a25cda2f16f7fc3f1"
+    },
+    {
+      "path": "screenshots/390-en-character-detailed.png",
+      "bytes": 1178385,
+      "sha256": "f2dbccd1942d295772f77b244c09b1108f46219ac3c17c79caa1aae907084317"
+    },
+    {
+      "path": "screenshots/390-en-character-full-uid.png",
+      "bytes": 1179889,
+      "sha256": "d890091e0aa9046645a3556aae41dcb58bdf6ae09d7d52c3d85becb662134d6f"
+    },
+    {
+      "path": "screenshots/390-en-historical-Lingyang.png",
+      "bytes": 429920,
+      "sha256": "115c556a9590bb1d77ecf931d1e40592a5df1caf1be342ec289a1d59e4d4842d"
+    },
+    {
+      "path": "screenshots/390-en-history-filters.png",
+      "bytes": 656332,
+      "sha256": "3f123cedf464515979ff433eea3c7533bee032b2b35006e34b0e82dbed143d50"
+    },
+    {
+      "path": "screenshots/390-en-import.png",
+      "bytes": 76820,
+      "sha256": "1cc6fd8ca16905c683a285e16c4041c79ea6d2cabca49d3c78fde59b9f4fd8ad"
+    },
+    {
+      "path": "screenshots/390-en-manual-cover-missing-fallback.png",
+      "bytes": 779900,
+      "sha256": "001fe50727193028a4674f48aefb4bfa94f72a764ce55cdb38c03bd9950fbace"
+    },
+    {
+      "path": "screenshots/390-en-manual-covers.png",
+      "bytes": 819219,
+      "sha256": "18479f48fa6c826e06c647b621720446bee0787cf9da0e944884d72ff6da7484"
+    },
+    {
+      "path": "screenshots/390-en-overall-badge-atlas.png",
+      "bytes": 72642,
+      "sha256": "20b095fffaf6f6aa53bdc570815b1c2f0138fc819a9ecd694a5b5b28fd1bfcc4"
+    },
+    {
+      "path": "screenshots/390-en-overall-compact.png",
+      "bytes": 863672,
+      "sha256": "a75ea36134d0d47583b6ab8496aa089d2ac69f0ff3f315e888ecc97e530ba942"
+    },
+    {
+      "path": "screenshots/390-en-overall-detailed.png",
+      "bytes": 1156235,
+      "sha256": "cf0c80bd7822d7c464e4e3180f89b4c89f94d33d6b060cf94245cf00a204d217"
+    },
+    {
+      "path": "screenshots/390-en-overall-full-uid.png",
+      "bytes": 1157604,
+      "sha256": "8fad5b2f3762671daf474e8c11f375edb65fc63736373a4453d6f47192637128"
+    },
+    {
+      "path": "screenshots/390-en-overview-full.png",
+      "bytes": 819219,
+      "sha256": "18479f48fa6c826e06c647b621720446bee0787cf9da0e944884d72ff6da7484"
+    },
+    {
+      "path": "screenshots/390-en-pool-1.png",
+      "bytes": 624702,
+      "sha256": "18b46ea58987be60dc3f500f8a5a122bcabd4e06bd0a690ae2129f7d26a1ded9"
+    },
+    {
+      "path": "screenshots/390-en-pool-2.png",
+      "bytes": 239183,
+      "sha256": "90d28f1101d1c5ff5e8cfba88b6a58b9dd79e897acc32622f8b1438827667736"
+    },
+    {
+      "path": "screenshots/390-en-share-preview-character-compact.png",
+      "bytes": 91654,
+      "sha256": "5f54bffaa79c0e16e14c6a677a1b9757113fed2af6d4d360ffdc71026fd56ea8"
+    },
+    {
+      "path": "screenshots/390-en-share-preview-character-detailed.png",
+      "bytes": 108115,
+      "sha256": "ec64456bf3bcc13e3c53fba52018bb820a050fd7214dcc048f4b55c0d9939a88"
+    },
+    {
+      "path": "screenshots/390-en-share-preview-overall-compact.png",
+      "bytes": 91600,
+      "sha256": "dc1b5172df850a3ee42c47138659b40782d14075ad16752bd9aa25e12c9d4905"
+    },
+    {
+      "path": "screenshots/390-en-share-preview-overall-detailed.png",
+      "bytes": 97230,
+      "sha256": "2526f44312b400661638cedebb991eebcc71622bf213b14d5afb5a8eb5e96020"
+    },
+    {
+      "path": "screenshots/390-en-unknown-character-fallback.png",
+      "bytes": 408675,
+      "sha256": "76fa19157f0a641dc318060187fcf25c47d95a286a85163f30f197860d6ad434"
+    },
+    {
+      "path": "screenshots/390-en-windows-command.png",
+      "bytes": 51988,
+      "sha256": "0b565660526006e688d60ef1532b6ad8affac3811300c0ed8a3cec7c3ad7c3f0"
+    },
+    {
+      "path": "screenshots/390-en-windows-guide.png",
+      "bytes": 80256,
+      "sha256": "5afae7580b2c032c0d9324612b4d720ba812a8c036cbc9fbf8fd6f72aae3bf92"
+    },
+    {
+      "path": "screenshots/390-en-windows-log-alternative.png",
+      "bytes": 46128,
+      "sha256": "9362b1e16cb7aef9ce5119aeb1d0dd55134535619d89fe48ec00241a3a0ceb68"
+    },
+    {
+      "path": "screenshots/390-zh-CN-account-changed-same-manual-cover.png",
+      "bytes": 642744,
+      "sha256": "6f59b5f64ba244b732e52dd8e19d434dab37f186ef4a4c92ae669dc9b852d91d"
+    },
+    {
+      "path": "screenshots/390-zh-CN-character-analysis.png",
+      "bytes": 556041,
+      "sha256": "50ea086c71807221b7da7d1011659dda098a4f927acffa965852fc6858f88954"
+    },
+    {
+      "path": "screenshots/390-zh-CN-character-badge-atlas.png",
+      "bytes": 162743,
+      "sha256": "384ed25a379ab964572cf298c6533ea0d0793a57fde9ace57e51a162cc936063"
+    },
+    {
+      "path": "screenshots/390-zh-CN-character-compact.png",
+      "bytes": 901648,
+      "sha256": "15a633f60a17852d9296d3ba382182dffeb28e286d51906014eebfb685aebc22"
+    },
+    {
+      "path": "screenshots/390-zh-CN-character-detailed.png",
+      "bytes": 1165408,
+      "sha256": "54688479720285535868476cc69bdc9b011c21736efac0ed694c02eaaf9f3d1f"
+    },
+    {
+      "path": "screenshots/390-zh-CN-character-full-uid.png",
+      "bytes": 1166946,
+      "sha256": "bf86d2d2c74bfdaa81875fc1a73d48533f8ae9ec311e141273edd793b4ef51df"
+    },
+    {
+      "path": "screenshots/390-zh-CN-historical-Lingyang.png",
+      "bytes": 404531,
+      "sha256": "d0bb6952afcf2c53f80e3f001a31e3e8d56d4eae1f5aefcf188cb1f9d791fe75"
+    },
+    {
+      "path": "screenshots/390-zh-CN-history-filters.png",
+      "bytes": 642545,
+      "sha256": "217b5f32c797fbd8389481533cccbe3c08c5db55ade4c2f4645e0cd3456d45f4"
+    },
+    {
+      "path": "screenshots/390-zh-CN-import.png",
+      "bytes": 73330,
+      "sha256": "30b3517f5fbed0a740e4463c8e8adee255ce43daaeb23f99fbcad4c65306188e"
+    },
+    {
+      "path": "screenshots/390-zh-CN-manual-cover-missing-fallback.png",
+      "bytes": 746216,
+      "sha256": "1654bb13ffe8a3b4dddb13a4e3558ee6ef310e9e04cda8a84663cb2b701ffc2b"
+    },
+    {
+      "path": "screenshots/390-zh-CN-manual-covers.png",
+      "bytes": 785855,
+      "sha256": "f89e3473e317322681d24a1509c5c49d5a719055a030495a2c829d06315cc93c"
+    },
+    {
+      "path": "screenshots/390-zh-CN-overall-badge-atlas.png",
+      "bytes": 92665,
+      "sha256": "eedcbd3f5f855d52973b055d2e9fa9c6acbcf0d5a51eacade90b16d5378a5c45"
+    },
+    {
+      "path": "screenshots/390-zh-CN-overall-compact.png",
+      "bytes": 844057,
+      "sha256": "c915a826fab89627f8c8464b138012a44217a7dae4af55272459b856b777b02a"
+    },
+    {
+      "path": "screenshots/390-zh-CN-overall-detailed.png",
+      "bytes": 1121917,
+      "sha256": "4a1cd318ac79ea13848f1618b952ab32ac378a3b44c43b71cfe88b6fad66c1cb"
+    },
+    {
+      "path": "screenshots/390-zh-CN-overall-full-uid.png",
+      "bytes": 1123276,
+      "sha256": "0169e08135218b0336992b0425f7f4be8a2872083614897d4e649345e5ce7887"
+    },
+    {
+      "path": "screenshots/390-zh-CN-overview-full.png",
+      "bytes": 785855,
+      "sha256": "f89e3473e317322681d24a1509c5c49d5a719055a030495a2c829d06315cc93c"
+    },
+    {
+      "path": "screenshots/390-zh-CN-pool-1.png",
+      "bytes": 621110,
+      "sha256": "987c9805d786755a1c66b9be30c1f358eca77ec63b00d513ae3b1dbb5f0df22e"
+    },
+    {
+      "path": "screenshots/390-zh-CN-pool-2.png",
+      "bytes": 239436,
+      "sha256": "5f85082fd2ef215efe9bc0003f578f240065404d8269362738de14b48fde24fd"
+    },
+    {
+      "path": "screenshots/390-zh-CN-share-preview-character-compact.png",
+      "bytes": 89743,
+      "sha256": "88ed3cb15840f3ccf68b2dfdaec2631f20105569e5c0e9a31ed9a24cf1bb0b1a"
+    },
+    {
+      "path": "screenshots/390-zh-CN-share-preview-character-detailed.png",
+      "bytes": 107044,
+      "sha256": "aa4310350842e55ed741d3a6e77d972f51a072a3e16f03e83a342435135d7f83"
+    },
+    {
+      "path": "screenshots/390-zh-CN-share-preview-overall-compact.png",
+      "bytes": 86116,
+      "sha256": "b31762f4b1b3a963804e680713dd56c5927557f677cec868334e3af414479c75"
+    },
+    {
+      "path": "screenshots/390-zh-CN-share-preview-overall-detailed.png",
+      "bytes": 93158,
+      "sha256": "60a70388262b843873c54f70ae7a0083696a149f7942af4a29ac98018d57e7ce"
+    },
+    {
+      "path": "screenshots/390-zh-CN-unknown-character-fallback.png",
+      "bytes": 388078,
+      "sha256": "5bf265192a67c14b3ac201bad61be775bb6a0226f1d86ad1dfc68fdeff83f767"
+    },
+    {
+      "path": "screenshots/390-zh-CN-windows-command.png",
+      "bytes": 52416,
+      "sha256": "dad34df6cb93aa2da170d15c1f4ffb1ccc110999802d6d22513fe2a84e93a40f"
+    },
+    {
+      "path": "screenshots/390-zh-CN-windows-guide.png",
+      "bytes": 79878,
+      "sha256": "9d404ff232dc182f0caa17f40fd6e27d4be4e189c83569c575b482dc020ec1f8"
+    },
+    {
+      "path": "screenshots/390-zh-CN-windows-log-alternative.png",
+      "bytes": 44770,
+      "sha256": "6ac24d8320b2a570e315102ea60186d3ab8902c8b8e1658ebbfeab6941dc76c7"
+    },
+    {
+      "path": "screenshots/390-zh-TW-account-changed-same-manual-cover.png",
+      "bytes": 645710,
+      "sha256": "bbee2132d634cffbab3243206b7b65eca94bc46d3e54a9a264e8607f8f261ade"
+    },
+    {
+      "path": "screenshots/390-zh-TW-character-analysis.png",
+      "bytes": 557801,
+      "sha256": "e24c70299d9eb0726e572623a1a4b450e8c6f3b19c9d543e409d1af417420989"
+    },
+    {
+      "path": "screenshots/390-zh-TW-character-badge-atlas.png",
+      "bytes": 162942,
+      "sha256": "c4ba193bdfa262d805de4af6103073ad2ad65cc2ae434e670d3982c6a44d60a5"
+    },
+    {
+      "path": "screenshots/390-zh-TW-character-compact.png",
+      "bytes": 903365,
+      "sha256": "3c4d333dd4d1c639c12438e0a0dd7937b1533c50ae46699ed6fd78cf57206e45"
+    },
+    {
+      "path": "screenshots/390-zh-TW-character-detailed.png",
+      "bytes": 1167150,
+      "sha256": "3cb50cc83f3dc424a7ca038f9b9c27818b86c49313dd8d716f9bc127021d667f"
+    },
+    {
+      "path": "screenshots/390-zh-TW-character-full-uid.png",
+      "bytes": 1168709,
+      "sha256": "e73bb84f8e9686871ccee001ca5b7fb61c32852c767a70fce9c3ddb84cedf53d"
+    },
+    {
+      "path": "screenshots/390-zh-TW-historical-Lingyang.png",
+      "bytes": 407540,
+      "sha256": "f5d7b1cc43d12c7104636d9e6ec2be02ea92fec6e2410ed644e54c0096078fd9"
+    },
+    {
+      "path": "screenshots/390-zh-TW-history-filters.png",
+      "bytes": 645872,
+      "sha256": "3523e9a837daf8e2348d162fb956166dfd6ba260af20f37af281d22012e95740"
+    },
+    {
+      "path": "screenshots/390-zh-TW-import.png",
+      "bytes": 76311,
+      "sha256": "f902d54cc8d8de96a19590277d1933cb8a9a80c04b80af28132b9cfe1af0a21a"
+    },
+    {
+      "path": "screenshots/390-zh-TW-manual-cover-missing-fallback.png",
+      "bytes": 748873,
+      "sha256": "d58f5984ea33ce72e5141d12383622ec0d557da3d909a5f4ca2e8f56c8da789a"
+    },
+    {
+      "path": "screenshots/390-zh-TW-manual-covers.png",
+      "bytes": 788474,
+      "sha256": "6f179d2f3255df86593057bced1a4dba72faf96dd81856dc5cbb8c60f41fae86"
+    },
+    {
+      "path": "screenshots/390-zh-TW-overall-badge-atlas.png",
+      "bytes": 93544,
+      "sha256": "4d780d5cca271b3fcb53267ccb96161350456f032c8779abb553324d74af86f2"
+    },
+    {
+      "path": "screenshots/390-zh-TW-overall-compact.png",
+      "bytes": 846780,
+      "sha256": "d7b39f4065361c390799afb9dd293fedc5dc45c86c6949e51a5067fef0555db4"
+    },
+    {
+      "path": "screenshots/390-zh-TW-overall-detailed.png",
+      "bytes": 1124867,
+      "sha256": "e3e7e7b36f0d4c9566d4ccf9e357ddb303ce7da92e1a760e6bc0f2e7a5f55b86"
+    },
+    {
+      "path": "screenshots/390-zh-TW-overall-full-uid.png",
+      "bytes": 1126263,
+      "sha256": "5d3fd885c81cf6fbd24949ac54c6318c0476bfb32e36295c12147131fcc19f78"
+    },
+    {
+      "path": "screenshots/390-zh-TW-overview-full.png",
+      "bytes": 788474,
+      "sha256": "6f179d2f3255df86593057bced1a4dba72faf96dd81856dc5cbb8c60f41fae86"
+    },
+    {
+      "path": "screenshots/390-zh-TW-pool-1.png",
+      "bytes": 623164,
+      "sha256": "6f9e7456a039f717ce32929bae6e82f02ce7c1ebcd4ffe549e170df29d42acbb"
+    },
+    {
+      "path": "screenshots/390-zh-TW-pool-2.png",
+      "bytes": 241349,
+      "sha256": "c0bf64ab8ebab074dc184b68dc1efc2e3b93d7b37508e26ac139f9fecdf9f54d"
+    },
+    {
+      "path": "screenshots/390-zh-TW-share-preview-character-compact.png",
+      "bytes": 90575,
+      "sha256": "74e8db86540b07e7c6030f4cb092eb76b8cf4a6b813bc34cd2cf239f4012df7f"
+    },
+    {
+      "path": "screenshots/390-zh-TW-share-preview-character-detailed.png",
+      "bytes": 107631,
+      "sha256": "4196ad2d662a66720e698d040bc1abbfea4321dacf33190caad81cafb5aeac56"
+    },
+    {
+      "path": "screenshots/390-zh-TW-share-preview-overall-compact.png",
+      "bytes": 86272,
+      "sha256": "afa8529e588e5d6df30d8c5db5e87c864dff9a5d41192e1704db90c5ad42a99b"
+    },
+    {
+      "path": "screenshots/390-zh-TW-share-preview-overall-detailed.png",
+      "bytes": 93464,
+      "sha256": "29d71133e28906f284bea9ee73522a091621f4f05b2223cd6feedec8cd09d979"
+    },
+    {
+      "path": "screenshots/390-zh-TW-unknown-character-fallback.png",
+      "bytes": 390245,
+      "sha256": "533bff2d2926d267885a08949459b4f39c6a0d3c9e2322b2b1c3fdf2b89fa980"
+    },
+    {
+      "path": "screenshots/390-zh-TW-windows-command.png",
+      "bytes": 53462,
+      "sha256": "44d05075546149ac0c5047651b546f97b58c76850ef0c38d19296dfdc6e7e5e7"
+    },
+    {
+      "path": "screenshots/390-zh-TW-windows-guide.png",
+      "bytes": 80743,
+      "sha256": "e4deb7fef6434cd5cc072a5dfdb0bd74c32a2c256c179301c2bfc4587a3db8bd"
+    },
+    {
+      "path": "screenshots/390-zh-TW-windows-log-alternative.png",
+      "bytes": 46035,
+      "sha256": "bf618640132f791bcfba932c1612b2b60bba323ce00ab193846725e7413d8374"
+    },
+    {
+      "path": "screenshots/768-en-account-changed-same-manual-cover.png",
+      "bytes": 612820,
+      "sha256": "7078c25e3e526dd05858379047d21e542b25bf43edfc263f14bcd0d94219fc79"
+    },
+    {
+      "path": "screenshots/768-en-character-analysis.png",
+      "bytes": 702911,
+      "sha256": "be0dec3c6e676df1dd02f11f7a24d6fb46114904613065a693dddf68b7d1b8b8"
+    },
+    {
+      "path": "screenshots/768-en-character-badge-atlas.png",
+      "bytes": 295971,
+      "sha256": "21b2549d87f5df84505b6c5f73f85f2580da9d7b62fc3e8b2ab132e6a0799122"
+    },
+    {
+      "path": "screenshots/768-en-character-compact.png",
+      "bytes": 905025,
+      "sha256": "16bee7625cc5d8eeb4a99d292ff38dbaee243e761bbb3e1a25cda2f16f7fc3f1"
+    },
+    {
+      "path": "screenshots/768-en-character-detailed.png",
+      "bytes": 1178385,
+      "sha256": "f2dbccd1942d295772f77b244c09b1108f46219ac3c17c79caa1aae907084317"
+    },
+    {
+      "path": "screenshots/768-en-character-full-uid.png",
+      "bytes": 1179889,
+      "sha256": "d890091e0aa9046645a3556aae41dcb58bdf6ae09d7d52c3d85becb662134d6f"
+    },
+    {
+      "path": "screenshots/768-en-historical-Lingyang.png",
+      "bytes": 581340,
+      "sha256": "9d9d3a6556111d3a1cdd6e22279d00389876930cdcdabc66d34089b23e43e9d2"
+    },
+    {
+      "path": "screenshots/768-en-history-filters.png",
+      "bytes": 971589,
+      "sha256": "fcd96a75d895c03dd8af5a90f40b556f4840f7798c3b0aee66a1c100948164c4"
+    },
+    {
+      "path": "screenshots/768-en-import.png",
+      "bytes": 104949,
+      "sha256": "fb4d767ac7053420343071505efa657d4fd7c8704e4edcc4db4b8af03ed908c5"
+    },
+    {
+      "path": "screenshots/768-en-manual-cover-missing-fallback.png",
+      "bytes": 710489,
+      "sha256": "2546044f27c62bc950db723e8209bbec602a8533de04badbe587f2fa127b7c39"
+    },
+    {
+      "path": "screenshots/768-en-manual-covers.png",
+      "bytes": 722470,
+      "sha256": "6425f663661105fb65b46813a31d11bf417101b02e57e2a49f9412e1518fb032"
+    },
+    {
+      "path": "screenshots/768-en-overall-badge-atlas.png",
+      "bytes": 143820,
+      "sha256": "f5beff7a28c847749f22b00ddb2a6fc98f37c7ced2c61f68e043018f8a6225ef"
+    },
+    {
+      "path": "screenshots/768-en-overall-compact.png",
+      "bytes": 863672,
+      "sha256": "a75ea36134d0d47583b6ab8496aa089d2ac69f0ff3f315e888ecc97e530ba942"
+    },
+    {
+      "path": "screenshots/768-en-overall-detailed.png",
+      "bytes": 1156235,
+      "sha256": "cf0c80bd7822d7c464e4e3180f89b4c89f94d33d6b060cf94245cf00a204d217"
+    },
+    {
+      "path": "screenshots/768-en-overall-full-uid.png",
+      "bytes": 1157604,
+      "sha256": "8fad5b2f3762671daf474e8c11f375edb65fc63736373a4453d6f47192637128"
+    },
+    {
+      "path": "screenshots/768-en-overview-full.png",
+      "bytes": 722470,
+      "sha256": "6425f663661105fb65b46813a31d11bf417101b02e57e2a49f9412e1518fb032"
+    },
+    {
+      "path": "screenshots/768-en-pool-1.png",
+      "bytes": 957957,
+      "sha256": "a71cd34428a1517de4304b10424e5afa4d2534bed2444346c7e4ca35a48eb054"
+    },
+    {
+      "path": "screenshots/768-en-pool-2.png",
+      "bytes": 370394,
+      "sha256": "1e6ecbbed78dcae4d5ae4993c04e6093cd071e70bf2aee63cd7936e53234d585"
+    },
+    {
+      "path": "screenshots/768-en-share-preview-character-compact.png",
+      "bytes": 275287,
+      "sha256": "fa2c9fb25375c7e5e96fd4eda340e78e902c54ba1669e3f864f5caa80a43f4f8"
+    },
+    {
+      "path": "screenshots/768-en-share-preview-character-detailed.png",
+      "bytes": 263707,
+      "sha256": "b7050d0be0c2ace13a619bd4859b1403d283ab92a42effe4bca8b09e0190f4a2"
+    },
+    {
+      "path": "screenshots/768-en-share-preview-overall-compact.png",
+      "bytes": 252950,
+      "sha256": "439f2b81afa92dc24d8d9a17f13ea72d5e83af8215151f4de9fdb4bed9da04d0"
+    },
+    {
+      "path": "screenshots/768-en-share-preview-overall-detailed.png",
+      "bytes": 282068,
+      "sha256": "b83ebf3974b0bf5bdfaf353e73623ca323f5c409e608d490a24f1a66ca992737"
+    },
+    {
+      "path": "screenshots/768-en-unknown-character-fallback.png",
+      "bytes": 541782,
+      "sha256": "41694e7a5b01fc117c1b83656286a80d36770c4d6d3f3eedc0d43da3f42012f8"
+    },
+    {
+      "path": "screenshots/768-en-windows-command.png",
+      "bytes": 68202,
+      "sha256": "d4e37241574b45aadf9239168e912f50248919157a9cc1ff0aad8e55b1657f8f"
+    },
+    {
+      "path": "screenshots/768-en-windows-guide.png",
+      "bytes": 112149,
+      "sha256": "01f313f5216cb207236948b660ec31a5f853064f0d7ac001854ed9521e9f705f"
+    },
+    {
+      "path": "screenshots/768-en-windows-log-alternative.png",
+      "bytes": 55856,
+      "sha256": "269a8152e66f758e7e39a3d890931f52fbbcc68ead89035746192c80abef1cac"
+    },
+    {
+      "path": "screenshots/768-zh-CN-account-changed-same-manual-cover.png",
+      "bytes": 573780,
+      "sha256": "8835530dcac6cfb431bffd0b0890642a83050fb6a7f9efacfe14c397f6d8f52a"
+    },
+    {
+      "path": "screenshots/768-zh-CN-character-analysis.png",
+      "bytes": 648131,
+      "sha256": "eb6ab94f6b780a6aba02aee16b429c1f37e58e3a078cbaec589d06eb7b7e2fc9"
+    },
+    {
+      "path": "screenshots/768-zh-CN-character-badge-atlas.png",
+      "bytes": 298888,
+      "sha256": "8fe2f547be886c411a9cdcef8ff4338eeb50daeee352f1dafc8a85f51a73f5e3"
+    },
+    {
+      "path": "screenshots/768-zh-CN-character-compact.png",
+      "bytes": 901648,
+      "sha256": "15a633f60a17852d9296d3ba382182dffeb28e286d51906014eebfb685aebc22"
+    },
+    {
+      "path": "screenshots/768-zh-CN-character-detailed.png",
+      "bytes": 1165408,
+      "sha256": "54688479720285535868476cc69bdc9b011c21736efac0ed694c02eaaf9f3d1f"
+    },
+    {
+      "path": "screenshots/768-zh-CN-character-full-uid.png",
+      "bytes": 1166946,
+      "sha256": "bf86d2d2c74bfdaa81875fc1a73d48533f8ae9ec311e141273edd793b4ef51df"
+    },
+    {
+      "path": "screenshots/768-zh-CN-historical-Lingyang.png",
+      "bytes": 522516,
+      "sha256": "24490a69ea9555326ca936e6f9b963be6867feed138d6c72c99041a53ba8b05e"
+    },
+    {
+      "path": "screenshots/768-zh-CN-history-filters.png",
+      "bytes": 953059,
+      "sha256": "b4457987c77bf5a3120151a1b2fa3321f9ff377f11bada2572ae9e1a1322fc50"
+    },
+    {
+      "path": "screenshots/768-zh-CN-import.png",
+      "bytes": 100879,
+      "sha256": "53ac2137d90c7062771ef094f0675b9308966aea094bc8eabb978e16bdab1536"
+    },
+    {
+      "path": "screenshots/768-zh-CN-manual-cover-missing-fallback.png",
+      "bytes": 684237,
+      "sha256": "a739814f7005666c429106f27b6eba3c989609c490feb98e0f4099140ddf7155"
+    },
+    {
+      "path": "screenshots/768-zh-CN-manual-covers.png",
+      "bytes": 691749,
+      "sha256": "3e1192b1acf6926d811f8f6661c03ee35246a5748f94a51d452b8885bf93c2a8"
+    },
+    {
+      "path": "screenshots/768-zh-CN-overall-badge-atlas.png",
+      "bytes": 169920,
+      "sha256": "c627f3d7b40fc575d34dd0790af3f5704faa161a9c0b9c255a91f324fc4ad87d"
+    },
+    {
+      "path": "screenshots/768-zh-CN-overall-compact.png",
+      "bytes": 844057,
+      "sha256": "c915a826fab89627f8c8464b138012a44217a7dae4af55272459b856b777b02a"
+    },
+    {
+      "path": "screenshots/768-zh-CN-overall-detailed.png",
+      "bytes": 1121917,
+      "sha256": "4a1cd318ac79ea13848f1618b952ab32ac378a3b44c43b71cfe88b6fad66c1cb"
+    },
+    {
+      "path": "screenshots/768-zh-CN-overall-full-uid.png",
+      "bytes": 1123276,
+      "sha256": "0169e08135218b0336992b0425f7f4be8a2872083614897d4e649345e5ce7887"
+    },
+    {
+      "path": "screenshots/768-zh-CN-overview-full.png",
+      "bytes": 696410,
+      "sha256": "dd58e6827b33147c632151bbd04f055c04de6bb8b725292409aede9611eee635"
+    },
+    {
+      "path": "screenshots/768-zh-CN-pool-1.png",
+      "bytes": 939045,
+      "sha256": "cae32bfea0a9ab11cdc5f04c86ec5633f8854e28e1cbf6582f950510ad3b0fcc"
+    },
+    {
+      "path": "screenshots/768-zh-CN-pool-2.png",
+      "bytes": 361189,
+      "sha256": "0875857b98bf18b20cce2244bb23b61ecc4f78b20759c863eaf0a687697b99bd"
+    },
+    {
+      "path": "screenshots/768-zh-CN-share-preview-character-compact.png",
+      "bytes": 272202,
+      "sha256": "cc58f505bda9f6f5337ac7af4b4f551ed209cba8052fdad36f87497f2f5e71e2"
+    },
+    {
+      "path": "screenshots/768-zh-CN-share-preview-character-detailed.png",
+      "bytes": 262747,
+      "sha256": "e1d53bc6c85922023ef731f20581c9c985f6d3620ebd6e07c289fa702622a7ff"
+    },
+    {
+      "path": "screenshots/768-zh-CN-share-preview-overall-compact.png",
+      "bytes": 245956,
+      "sha256": "8e9170fd0c3afb67f8fa92afa167b5dbc8379a14018728a4bf894bff25004ac1"
+    },
+    {
+      "path": "screenshots/768-zh-CN-share-preview-overall-detailed.png",
+      "bytes": 273224,
+      "sha256": "ae4a69c15d4fa0019a3920c075f612b046fe2e5962e485023a9c832a0f44ce07"
+    },
+    {
+      "path": "screenshots/768-zh-CN-unknown-character-fallback.png",
+      "bytes": 489211,
+      "sha256": "08e03087f6d2a1a09fbee18ad54efcf9d2f75ba4bfe63ca31ad3c97d24fc327a"
+    },
+    {
+      "path": "screenshots/768-zh-CN-windows-command.png",
+      "bytes": 68597,
+      "sha256": "2f49fe2a3ebc25a6f5719abe4a29fee853549350eb2fdddbc5247f8f4fdacf93"
+    },
+    {
+      "path": "screenshots/768-zh-CN-windows-guide.png",
+      "bytes": 114160,
+      "sha256": "5d6c0c7b91986294e3cdf5878bd6b69eba9691b8cdb1e4645ab305c663fbece0"
+    },
+    {
+      "path": "screenshots/768-zh-CN-windows-log-alternative.png",
+      "bytes": 53688,
+      "sha256": "cea42054306cbf2454176990c2e77677475f37ee55747394e64435eafb442bb4"
+    },
+    {
+      "path": "screenshots/768-zh-TW-account-changed-same-manual-cover.png",
+      "bytes": 576885,
+      "sha256": "cd8c67b4fc0cb7049e2f01ec97d994f25f88549e0620d11b44c9d73929f0c82b"
+    },
+    {
+      "path": "screenshots/768-zh-TW-character-analysis.png",
+      "bytes": 650042,
+      "sha256": "22d023cffbc9a5c9313e012dd338074872bb8a683954ec732bf77e91c2353bfb"
+    },
+    {
+      "path": "screenshots/768-zh-TW-character-badge-atlas.png",
+      "bytes": 299001,
+      "sha256": "76a15d2c221639f969ae3417ec31319009c8d213c39240e74e97d5e2a746aae8"
+    },
+    {
+      "path": "screenshots/768-zh-TW-character-compact.png",
+      "bytes": 903365,
+      "sha256": "3c4d333dd4d1c639c12438e0a0dd7937b1533c50ae46699ed6fd78cf57206e45"
+    },
+    {
+      "path": "screenshots/768-zh-TW-character-detailed.png",
+      "bytes": 1167150,
+      "sha256": "3cb50cc83f3dc424a7ca038f9b9c27818b86c49313dd8d716f9bc127021d667f"
+    },
+    {
+      "path": "screenshots/768-zh-TW-character-full-uid.png",
+      "bytes": 1168709,
+      "sha256": "e73bb84f8e9686871ccee001ca5b7fb61c32852c767a70fce9c3ddb84cedf53d"
+    },
+    {
+      "path": "screenshots/768-zh-TW-historical-Lingyang.png",
+      "bytes": 525066,
+      "sha256": "3e54d4c2e1fec02d35f8c5f280433a0791f7e2eb05101adc8fb02f6b48a5ffaf"
+    },
+    {
+      "path": "screenshots/768-zh-TW-history-filters.png",
+      "bytes": 957402,
+      "sha256": "06601d2ae539f543cbbe0169ccc3fccbd3cac40d1fa9c657c44172b00a58863b"
+    },
+    {
+      "path": "screenshots/768-zh-TW-import.png",
+      "bytes": 104581,
+      "sha256": "5ad08f385286b59c8e87d69b8838bf974a85d0eb7e9505272849e88a3a4a41c0"
+    },
+    {
+      "path": "screenshots/768-zh-TW-manual-cover-missing-fallback.png",
+      "bytes": 687871,
+      "sha256": "d397878a42eb947daa39a81df72ba0c49b41afdc43a7bffc583ec9749b8db9fe"
+    },
+    {
+      "path": "screenshots/768-zh-TW-manual-covers.png",
+      "bytes": 700102,
+      "sha256": "c76f028f9fecbf0d0551c9a764e7a8ca0da820b1f5a586575aeb1a065c3731d5"
+    },
+    {
+      "path": "screenshots/768-zh-TW-overall-badge-atlas.png",
+      "bytes": 170891,
+      "sha256": "8316279c8ce99caf4b19a2de6e95b451810dbd2deb019020df49c52e244284cd"
+    },
+    {
+      "path": "screenshots/768-zh-TW-overall-compact.png",
+      "bytes": 846780,
+      "sha256": "d7b39f4065361c390799afb9dd293fedc5dc45c86c6949e51a5067fef0555db4"
+    },
+    {
+      "path": "screenshots/768-zh-TW-overall-detailed.png",
+      "bytes": 1124867,
+      "sha256": "e3e7e7b36f0d4c9566d4ccf9e357ddb303ce7da92e1a760e6bc0f2e7a5f55b86"
+    },
+    {
+      "path": "screenshots/768-zh-TW-overall-full-uid.png",
+      "bytes": 1126263,
+      "sha256": "5d3fd885c81cf6fbd24949ac54c6318c0476bfb32e36295c12147131fcc19f78"
+    },
+    {
+      "path": "screenshots/768-zh-TW-overview-full.png",
+      "bytes": 695690,
+      "sha256": "0df7f68f3438c338d5f503148f86efcccdff464a7a5432367cb9e63ec8fcfddb"
+    },
+    {
+      "path": "screenshots/768-zh-TW-pool-1.png",
+      "bytes": 940145,
+      "sha256": "d7a545edd611aa751c2137af68f78987069a8e774dc92e2fbd550ca9653a935f"
+    },
+    {
+      "path": "screenshots/768-zh-TW-pool-2.png",
+      "bytes": 364724,
+      "sha256": "bf4be0a6a6b5ce396dc5dfdd5d49802471de681a17bf930d5d9e89cf79a2b1d2"
+    },
+    {
+      "path": "screenshots/768-zh-TW-share-preview-character-compact.png",
+      "bytes": 273577,
+      "sha256": "d5abe54c99dd2e8a6dfa4d7511a50276c6862914cdc2b9bf0a53306578b95784"
+    },
+    {
+      "path": "screenshots/768-zh-TW-share-preview-character-detailed.png",
+      "bytes": 263802,
+      "sha256": "c4826a37429406ac50255f30ff39d2b1a1c0ac26d23322b59959f4e1a3f6c85d"
+    },
+    {
+      "path": "screenshots/768-zh-TW-share-preview-overall-compact.png",
+      "bytes": 247311,
+      "sha256": "7cb46180742fb1f7939dc8aebfd01836dd269a46d184558a69acb58512c34d52"
+    },
+    {
+      "path": "screenshots/768-zh-TW-share-preview-overall-detailed.png",
+      "bytes": 274676,
+      "sha256": "9db49ba3935661f962ccc9d3f0d98a202d21de1367f5bca456a8e484cac793ff"
+    },
+    {
+      "path": "screenshots/768-zh-TW-unknown-character-fallback.png",
+      "bytes": 491135,
+      "sha256": "611426b5f8f14b6ba2419e2e0c0ac150c0f56d7efa7bb8d26130121d3844ffc1"
+    },
+    {
+      "path": "screenshots/768-zh-TW-windows-command.png",
+      "bytes": 69945,
+      "sha256": "252aa4be32d13952a4253bd83337db27397a0f908b30ef2d7016d6331806b513"
+    },
+    {
+      "path": "screenshots/768-zh-TW-windows-guide.png",
+      "bytes": 115474,
+      "sha256": "648bb3cc6e96af2b5ae0f907bdc9a82344e05e88b08fde6ebc23e7c934851023"
+    },
+    {
+      "path": "screenshots/768-zh-TW-windows-log-alternative.png",
+      "bytes": 55020,
+      "sha256": "0eec6fd16c0fa2a89bf9a9658cdfcfa8ecbd0a4ce675d0352e0330c071ee81c0"
+    },
+    {
+      "path": "screenshots/both-six-tier-families.png",
+      "bytes": 600271,
+      "sha256": "a1fd1f0d30125941872a1294e4414afe2b2b4f4f0d758cf8bd236e4bd93b76f9"
+    },
+    {
+      "path": "source-guard.json",
+      "bytes": 972,
+      "sha256": "1b0eb4a6417f792e80f4568eda386428ecc3d9dc04f47ade1364e5f6ddaf0206"
+    },
+    {
+      "path": "SOURCE_TREE_MESSAGE.txt",
+      "bytes": 356,
+      "sha256": "e96f094d3092b993222c85dfae80b2fb5435416ee17bcbc01ab714f2e074a00b"
+    },
+    {
+      "path": "test-results.json",
+      "bytes": 3322,
+      "sha256": "096936ee4c7af2886dffe1586a7760e60c82eb8fff5692ed6caab5ce5bffc41d"
+    }
+  ],
+  "excludedFromManifest": [
+    "file-manifest.json",
+    "SHA256SUMS.txt"
+  ],
+  "allPathsRelativeToDeliveryRoot": true
+}

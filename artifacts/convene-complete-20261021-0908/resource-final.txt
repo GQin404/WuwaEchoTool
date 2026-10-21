@@ -1,0 +1,18 @@
+✔ all 64 existing character portraits retain their filenames and three locale names resolve to one identity (11.4006ms)
+✔ historical localized names include canonical Lingyang and old project nicknames without stealing identities (0.103ms)
+✔ Rover genders and elemental forms remain distinct; unverifiable new gender IDs stay unmapped (0.1137ms)
+✔ all 114 historical weapon identities have three translations, explicit types/ranks and independent missing art (0.7771ms)
+✔ manual fixed cover is independent from latest pull; ordered fallback retains real records without modification (1.3578ms)
+✔ six badge ranks preserve every preceding structural primitive within two different families (3.3653ms)
+✔ copy-normalized Fragment links preserve Global/CN identity and ignore legal varying gacha IDs (1.4699ms)
+✔ overall tier boundaries have no overlap and remain unchanged by visual work (0.1155ms)
+✔ explicit API expiration is classified without exposing raw messages or retrying a valid-link rejection (12.903ms)
+✔ proxy propagates only the safe expiration enum and never reflects upstream authorization text (3.9757ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 150.3034

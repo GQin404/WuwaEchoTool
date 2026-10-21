@@ -1,0 +1,70 @@
+{
+  "completedAt": "2026-10-20T20:58:04.153074+08:00",
+  "environment": {
+    "node": "24.13.0",
+    "npm": "11.6.2",
+    "playwright": "1.62.1",
+    "browser": "Microsoft Edge headless",
+    "widths": [
+      1440,
+      390
+    ],
+    "languages": [
+      "zh-CN",
+      "zh-TW",
+      "en"
+    ]
+  },
+  "unit": {
+    "passed": 139,
+    "failed": 0,
+    "skipped": 0,
+    "originalTestsPreserved": 124
+  },
+  "static": {
+    "dependencies": 283,
+    "scripts": 131,
+    "failed": 0
+  },
+  "browser": {
+    "target": 6,
+    "convene": 6,
+    "multiConfig": 6,
+    "configUI": 6,
+    "sharedInventory": 6,
+    "totalFlows": 30,
+    "pageErrors": 0,
+    "canvasLayoutCases": 51,
+    "convenePNGs": 72,
+    "legacyEchoPNGsGenerated": 12,
+    "inventoryGroupsPerFlow": 17,
+    "faultInjection": "quota, multi-account, unavailable storage, Canvas, font/image fallback"
+  },
+  "screenshotsDelivered": 103,
+  "pngSamplesDelivered": 72,
+  "svgAssets": 14,
+  "changedFiles": 28,
+  "modifiedExisting": 9,
+  "newFiles": 19,
+  "realOfficialAPI": false,
+  "realDevice": false,
+  "cloudflareProduction": false,
+  "actualBannerInvestmentKnown": false,
+  "characterRating": "explicit opt-in verified recorded-window efficiency; actual banner investment remains unknown/observing",
+  "sourceSchemaChanged": false,
+  "protectedFilesUnchanged": [
+    "js/base.js",
+    "js/multi-config.js",
+    "js/multi-config-browser.js",
+    "js/character-core.js",
+    "js/register-workspace.js",
+    "js/register-share.js",
+    "js/register-backup.js",
+    "js/convene-store.js",
+    "convene-worker/index.js",
+    "convene-worker/wrangler.toml",
+    "js/import-service.js",
+    "js/role-view-model.js",
+    "package.json"
+  ]
+}

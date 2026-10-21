@@ -1,0 +1,1 @@
+PASS 0 real catalog entries, 7 category fallbacks; no invented assets; missing real weapon catalog explicitly documented.

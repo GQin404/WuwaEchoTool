@@ -1,0 +1,16 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),crypto=require('node:crypto');
+const env={$:()=>{},crypto,localStorage:{getItem:()=> 'synthetic-token'},alert:()=>assert.fail('unexpected alert'),window:{},console:{log(){}}};
+vm.runInNewContext(fs.readFileSync('js/base.js','utf8')+';globalThis.builders={completeHeaders,completeHeaders2};',env);
+const b=env.builders;
+const bind=b.completeHeaders2('synthetic-bind');
+const auth=b.completeHeaders();
+const detail=b.completeHeaders('synthetic-bat',false);
+assert.equal(bind.token,'synthetic-bind');
+assert.equal(auth.token,'synthetic-token');
+assert.equal(Object.hasOwn(detail,'token'),false);
+assert.equal(detail['b-at'],'synthetic-bat');
+assert.notEqual(auth,detail);
+assert.equal(Object.hasOwn(b.completeHeaders(),'b-at'),false);
+assert.equal(Object.hasOwn(b.completeHeaders2('new-token'),'b-at'),false);
+assert.equal(bind.token,'synthetic-bind');
+console.log('PASS: login and data headers are isolated; no token or b-at leakage in either direction.');

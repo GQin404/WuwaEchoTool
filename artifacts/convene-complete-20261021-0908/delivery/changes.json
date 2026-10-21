@@ -1,0 +1,278 @@
+[
+  {
+    "path": "_headers",
+    "beforeSHA256": "ddd995eaf894530140c8e6b42a030661f5baeba211d94f1fb08c879b4ba8935b",
+    "afterSHA256": "fff6fb4dedaff21ea2619f309e81cf7894c0cc1d006eb66d28482d52adf94fa6",
+    "baseline": "task-start source hash"
+  },
+  {
+    "path": "convene.html",
+    "beforeSHA256": "0706dcd371e98f796b1a10cd01e59bc926a5f9c58aa2baafb4d8c8afa39c8140",
+    "afterSHA256": "10bb6e8a603d7d272f8f7f19ae133f64bef64da73d30c5e8ad3ab6332562de54",
+    "baseline": "task-start source hash"
+  },
+  {
+    "path": "css/convene.css",
+    "beforeSHA256": "5d7106533dccb888bf2980021eeedbfe289abefc19dee8b1b9e92eef00f8800e",
+    "afterSHA256": "6cc0fb59210f83ed42dd175ab9fd4547bb7548844c0c05b1a7dec4efbcdb70db",
+    "baseline": "task-start source hash"
+  },
+  {
+    "path": "docs/convene-optimization.md",
+    "beforeSHA256": null,
+    "afterSHA256": "c7be9f9585a385691e001d6429662af07537c0fe64bc3fa44f1ca2fc0d035119",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "docs/convene-resource-audit.json",
+    "beforeSHA256": null,
+    "afterSHA256": "bdfb77462d1126c0183e36efe91dcc46f0858cc350ee3a74367f95782c8b4c10",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "docs/convene-resource-management.md",
+    "beforeSHA256": null,
+    "afterSHA256": "9e210d07c54420c1059f9831e4932a334bab2c4883b8cc0cb8e6c3e5ac7dc112",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "docs/weapon-artwork.md",
+    "beforeSHA256": null,
+    "afterSHA256": "7b8834c01d45300b6de819c33d6de2411cf08d9173091ff19ddff97e367a20f6",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "docs/weapon-missing-assets.json",
+    "beforeSHA256": null,
+    "afterSHA256": "d8053e9a86b01d8bbc78c66c1a5f7a929c7def34d3dc388d518533e60f2b88e5",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "functions/api/convene.js",
+    "beforeSHA256": "1eb35ed5c82d1c3903fdb97dadeae7a5d00388577dff48921b0fb2ba233f5486",
+    "afterSHA256": "92838d782017bf55b58271db25d49fe35c3dc792532d0bdcc1d383a94b9f5725",
+    "baseline": "task-start source hash"
+  },
+  {
+    "path": "image/convene-current/README.md",
+    "beforeSHA256": null,
+    "afterSHA256": "a37830a9461598d2c3a0caaf0150175093eed3df11111983ebc59701a4f51095",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/convene-current/featured-character.webp",
+    "beforeSHA256": null,
+    "afterSHA256": "e8750ae24f55a2e4207865276932047d5c624080fe4f22c31d14f877b1138957",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/convene-current/featured-weapon.webp",
+    "beforeSHA256": null,
+    "afterSHA256": "150560dd3f44fc9cef37c5268991b4bead20e656c7c8d812d6fa2e7704d62d02",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/convene/badges/character-abyss.svg",
+    "beforeSHA256": null,
+    "afterSHA256": "a72cb35ec6637dfa300db1ad08cfa55e7545a27571d2b8fd305dcc74ade4fb15",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/convene/badges/character-fate.svg",
+    "beforeSHA256": null,
+    "afterSHA256": "2306fb223961494971ffd1d71a8b03146c5945a319e1181b56f6828c3516cadf",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/convene/badges/character-headwind.svg",
+    "beforeSHA256": null,
+    "afterSHA256": "4f928ae63eedeb351d9fd62dff2e4b06683b15a4d62565e363ae639f2a4b3b4c",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/convene/badges/character-lucky.svg",
+    "beforeSHA256": null,
+    "afterSHA256": "c2abc32c4ecbc8edc9ef69ac2e5d3d17bb3590b374935175263ea35c96b01036",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/convene/badges/character-observing.svg",
+    "beforeSHA256": null,
+    "afterSHA256": "71018eb8ce4c3a9fbf7dd5e6812488dae93a80fb39c11f84526646372ee83fe2",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/convene/badges/character-star.svg",
+    "beforeSHA256": null,
+    "afterSHA256": "5db9bb965d26e9c14d21fa096e23c06479c640ae20f5524ebeff06d5368e58f1",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/convene/badges/character-steady.svg",
+    "beforeSHA256": null,
+    "afterSHA256": "0b5f41e593d43b5d16fc692a4eb0a67ca0380d0c87fce4e12da0b3aa5842bfcd",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/convene/badges/overall-abyss.svg",
+    "beforeSHA256": null,
+    "afterSHA256": "c7b6a2b2c42dfe970e44118cf8d3a66dfd5cd12da07d3c7dcb6a1760ec759320",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/convene/badges/overall-fate.svg",
+    "beforeSHA256": null,
+    "afterSHA256": "f64d5b9b60e55436eb911ff72df2de11d4d039b91c981f266322b92e31f56744",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/convene/badges/overall-headwind.svg",
+    "beforeSHA256": null,
+    "afterSHA256": "4de2c8b397be61c78afe64c654a8ced40f5b40d74e9592e42a0836e143f6d3f0",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/convene/badges/overall-lucky.svg",
+    "beforeSHA256": null,
+    "afterSHA256": "94b3e47848562e2c7d658640dbee6f836311d914c7fb56002c03559560ab21cc",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/convene/badges/overall-observing.svg",
+    "beforeSHA256": null,
+    "afterSHA256": "6ef43dbdb3d2fed8006b2647f8ef5bc640b5f9094f7d34e96ffc4b425ee70a67",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/convene/badges/overall-star.svg",
+    "beforeSHA256": null,
+    "afterSHA256": "18b102746df31befbfff52ebb8a5a36192f001fbed80abe3a075af19cfa15166",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/convene/badges/overall-steady.svg",
+    "beforeSHA256": null,
+    "afterSHA256": "ec6eee2be6627c1ef2ce7930016ff80e8c420d5a37e920c3f63dc305696ca024",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/weapons/3star/README.md",
+    "beforeSHA256": null,
+    "afterSHA256": "90520c7a82d0fea3e2122576c380966a0e7569049e4f0793dd953b0121d68184",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/weapons/4star/README.md",
+    "beforeSHA256": null,
+    "afterSHA256": "32d54af5067af15ecc06718a9872a20feb5e2c8b6a9f52ac58235852ab9a2293",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "image/weapons/5star/README.md",
+    "beforeSHA256": null,
+    "afterSHA256": "97b5682fee0f93140d2a98820e9b63fc07c693f8b19770b2299ac574a3c842b5",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "js/character-catalog.js",
+    "beforeSHA256": null,
+    "afterSHA256": "ace0a59f828fe52df1c52275c11fd6eb139f3f89ee013015e5fbf4b202480cee",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "js/convene-assets.js",
+    "beforeSHA256": "310b6489b4593927e937e04ad6668d4ba64b70c33166b0b4df9133e0ceba9455",
+    "afterSHA256": "7c11c649bddcc91f512a643e572917a21c0e7d87f69352d80341d1ded56cafd3",
+    "baseline": "task-start source hash"
+  },
+  {
+    "path": "js/convene-covers.js",
+    "beforeSHA256": null,
+    "afterSHA256": "a4c7e13a02a823f437524bfcfaa127fbf2ea390f7de190f87ca63a4853e1ea6d",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "js/convene-i18n.js",
+    "beforeSHA256": "7a49e476f3ddd0ed9ad12fc1bf1951f91814cc8609137c2f9477617b9d63bd7d",
+    "afterSHA256": "dcf6c4a90ab26d1424d1f5a514b0fb5fa971482c4002ab2ae5f375921eb52f48",
+    "baseline": "task-start source hash"
+  },
+  {
+    "path": "js/convene-service.js",
+    "beforeSHA256": "bc57574c27601d03d17aed9553257e925dd6b71f76eae752c771a0ee13f4ef59",
+    "afterSHA256": "8bd1ace61cfb1c4625acb19af91e479a9d665f385e77da8aef03c7d807c2d6e6",
+    "baseline": "task-start source hash"
+  },
+  {
+    "path": "js/convene-ui.js",
+    "beforeSHA256": "58b75feecc64e8996f07771f938eeb3bd44ae59976653749de27a0528afccafa",
+    "afterSHA256": "693dcfa785e1236d5d8a609cc563f2acea0f94a136a6ddebec3b377d076ea132",
+    "baseline": "task-start source hash"
+  },
+  {
+    "path": "js/convene-visuals.js",
+    "beforeSHA256": "d3df15ed0d4a620e5d03b7f334d0aa808bd7ce5e04b62f969c16447da9117d71",
+    "afterSHA256": "c7e4d0bcde1bdfd9ffbfc9630ccf2865e92c031e584951dc5d9d0f4786918bb7",
+    "baseline": "task-start source hash"
+  },
+  {
+    "path": "js/convene-windows.js",
+    "beforeSHA256": null,
+    "afterSHA256": "29f5662f588b110a2d917ca53e92deef3ceca9d3ca089aa55fb5f0f7ffaf08be",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "js/weapon-catalog.js",
+    "beforeSHA256": "3c025f935768bbaf28f96135416d86354a24eefc99ca0b372c6dcdd9a15bbe97",
+    "afterSHA256": "52296fdd3627fa5c04c826db6a4adf22b33a6c9317d1a1e16eb2b796e20075d7",
+    "baseline": "task-start source hash"
+  },
+  {
+    "path": "scripts/check-convene-art.cjs",
+    "beforeSHA256": "64949038d6303b9b0e2c79d39a6deb4c56d3f8eea31285c8e9ed4c009bf9a66a",
+    "afterSHA256": "8013b7db33ed79d5452cc55af3b32514a74755c9ccabcfb668ada8f8078ef9d0",
+    "baseline": "task-start source hash"
+  },
+  {
+    "path": "tests/convene-artwork.test.cjs",
+    "beforeSHA256": "67ce5304d3a627373b880df4cd3bf1546323bb45abf7777615c7221863dee946",
+    "afterSHA256": "5d0f2a9232a551c8fb904e3072e5268c525758d4c2ab0f47758354e24c7d17bf",
+    "baseline": "task-start source hash"
+  },
+  {
+    "path": "tests/convene-complete-browser.cjs",
+    "beforeSHA256": null,
+    "afterSHA256": "15c5880bfa7e30e1ae7c6e1d147eb56fe4cb8ec2745238d123850e98c4f3db13",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "tests/convene-guide-browser.cjs",
+    "beforeSHA256": null,
+    "afterSHA256": "1c26d6dcf871215cf0545882bb9550aaafd5264f9376e95fb5f2a960edc63508",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "tests/convene-optimization-browser.cjs",
+    "beforeSHA256": "c4e646691f65f05e5cb52825a7122410167ed9d872b08e0729395c750101dc39",
+    "afterSHA256": "6a65f86f7e5b25f3f68979407e8e0666056c8c6a2f6982994b78c72859305d44",
+    "baseline": "task-start source hash"
+  },
+  {
+    "path": "tests/convene-resource-registry.test.cjs",
+    "beforeSHA256": null,
+    "afterSHA256": "9ec7437ab3e430d7528383a5420487d301b6c291d0ada95406944b180ef4503d",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  },
+  {
+    "path": "tests/convene-target-browser.cjs",
+    "beforeSHA256": "4d07c28bda8551cf6aff4a120d1d42bdc8cd1e86f54c4001fa33ff47e008c5bf",
+    "afterSHA256": "63020b885de558d5293d63b1d1ae1e83a60a0e98107d63252a1fa4e1b738e3ad",
+    "baseline": "task-start source hash"
+  },
+  {
+    "path": "tests/convene-windows-reader.test.cjs",
+    "beforeSHA256": null,
+    "afterSHA256": "8e04aa45d27dd3d6a2520e03d63cd943e3f74344269010225bf991d337abd1b0",
+    "baseline": "new or regenerated/documented task resource; prior hash not captured"
+  }
+]

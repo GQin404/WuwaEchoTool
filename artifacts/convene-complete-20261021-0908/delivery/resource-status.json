@@ -1,0 +1,1307 @@
+{
+  "retrievedAt": "2026-10-21",
+  "source": "Encore public data service, community-extracted game records; cross-check historical ID facts with yuhkix/wuwa-ids. Not official authenticated API verification. No image downloads.",
+  "sources": [
+    {
+      "url": "https://api-v2.encore.moe/api/zh-Hans/character",
+      "sha256": "78d4cff93b2539764817724848c5e0fbd27ef2b58f416e620c2b58b88bc6a3ea"
+    },
+    {
+      "url": "https://api-v2.encore.moe/api/zh-Hans/weapon",
+      "sha256": "cd5a4cd0ec56dcf67ed4997413ca40b6c6f466f66dace9619f4824792d48031a"
+    },
+    {
+      "url": "https://api-v2.encore.moe/api/zh-Hant/character",
+      "sha256": "6d6a9f57dd30f1f63abfcc709693a71ba2d5328f525b1546a94fc3b7673f3ac7"
+    },
+    {
+      "url": "https://api-v2.encore.moe/api/zh-Hant/weapon",
+      "sha256": "6c36bc03532ed82862d842ba793521624b0293b02837574ef47a771065e85c89"
+    },
+    {
+      "url": "https://api-v2.encore.moe/api/en/character",
+      "sha256": "1a234b30a95298a3660ce6900b750f4dc251fea2f97aa73b88010ee7f07a8173"
+    },
+    {
+      "url": "https://api-v2.encore.moe/api/en/weapon",
+      "sha256": "ee4fb68462ff045884446773d733f5fe0ed75cd09bba301f9f5ab2c600478fee"
+    }
+  ],
+  "localCharacters": 64,
+  "registeredCharacters": 64,
+  "existingImagesMatched": 64,
+  "resourceIdsMatched": 62,
+  "characterMappingsPending": [
+    {
+      "internalId": 57,
+      "name": "漂泊者·导电（女）",
+      "reason": "1309/1310 exist in source, but gender correspondence has not been independently verified; name-only exact qualified variant accepted"
+    },
+    {
+      "internalId": 58,
+      "name": "漂泊者·导电（男）",
+      "reason": "1309/1310 exist in source, but gender correspondence has not been independently verified; name-only exact qualified variant accepted"
+    }
+  ],
+  "sourceWeapons": 124,
+  "registeredWeapons": 114,
+  "excludedRarity1And2": 10,
+  "weaponImagesPresent": 0,
+  "weaponsMissingImages": [
+    {
+      "id": "21010013",
+      "names": {
+        "zh-CN": "暗夜长刃·玄明",
+        "zh-TW": "暗夜長刃·玄明",
+        "en": "Broadblade of Night"
+      },
+      "rarity": 3,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/3star/broadblade-of-night.webp"
+    },
+    {
+      "id": "21010015",
+      "names": {
+        "zh-CN": "浩境粼光",
+        "zh-TW": "浩境粼光",
+        "en": "Lustrous Razor"
+      },
+      "rarity": 5,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/5star/lustrous-razor.webp"
+    },
+    {
+      "id": "21010016",
+      "names": {
+        "zh-CN": "苍鳞千嶂",
+        "zh-TW": "蒼鱗千嶂",
+        "en": "Verdant Summit"
+      },
+      "rarity": 5,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/5star/verdant-summit.webp"
+    },
+    {
+      "id": "21010023",
+      "names": {
+        "zh-CN": "源能长刃·测壹",
+        "zh-TW": "源能長刃·測壹",
+        "en": "Originite: Type I"
+      },
+      "rarity": 3,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/3star/originite-type-i.webp"
+    },
+    {
+      "id": "21010024",
+      "names": {
+        "zh-CN": "异响空灵",
+        "zh-TW": "異響空靈",
+        "en": "Discord"
+      },
+      "rarity": 4,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/4star/discord.webp"
+    },
+    {
+      "id": "21010026",
+      "names": {
+        "zh-CN": "时和岁稔",
+        "zh-TW": "時和歲稔",
+        "en": "Ages of Harvest"
+      },
+      "rarity": 5,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/5star/ages-of-harvest.webp"
+    },
+    {
+      "id": "21010034",
+      "names": {
+        "zh-CN": "重破刃-41型",
+        "zh-TW": "重破刃-41型",
+        "en": "Broadblade#41"
+      },
+      "rarity": 4,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/4star/broadblade-41.webp"
+    },
+    {
+      "id": "21010036",
+      "names": {
+        "zh-CN": "焰痕",
+        "zh-TW": "焰痕",
+        "en": "Wildfire Mark"
+      },
+      "rarity": 5,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/5star/wildfire-mark.webp"
+    },
+    {
+      "id": "21010043",
+      "names": {
+        "zh-CN": "远行者长刃·辟路",
+        "zh-TW": "遠行者長刃·闢路",
+        "en": "Broadblade of Voyager"
+      },
+      "rarity": 3,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/3star/broadblade-of-voyager.webp"
+    },
+    {
+      "id": "21010044",
+      "names": {
+        "zh-CN": "永夜长明",
+        "zh-TW": "永夜長明",
+        "en": "Dauntless Evernight"
+      },
+      "rarity": 4,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/4star/dauntless-evernight.webp"
+    },
+    {
+      "id": "21010045",
+      "names": {
+        "zh-CN": "源能机锋",
+        "zh-TW": "源能機鋒",
+        "en": "Radiance Cleaver"
+      },
+      "rarity": 5,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/5star/radiance-cleaver.webp"
+    },
+    {
+      "id": "21010046",
+      "names": {
+        "zh-CN": "驭冕铸雷之权",
+        "zh-TW": "馭冕鑄雷之權",
+        "en": "Thunderflare Dominion"
+      },
+      "rarity": 5,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/5star/thunderflare-dominion.webp"
+    },
+    {
+      "id": "21010053",
+      "names": {
+        "zh-CN": "戍关长刃·定军",
+        "zh-TW": "戍關長刃·定軍",
+        "en": "Guardian Broadblade"
+      },
+      "rarity": 3,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/3star/guardian-broadblade.webp"
+    },
+    {
+      "id": "21010056",
+      "names": {
+        "zh-CN": "昙切",
+        "zh-TW": "曇切",
+        "en": "Kumokiri"
+      },
+      "rarity": 5,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/5star/kumokiri.webp"
+    },
+    {
+      "id": "21010063",
+      "names": {
+        "zh-CN": "钧天正音",
+        "zh-TW": "鈞天正音",
+        "en": "Beguiling Melody"
+      },
+      "rarity": 3,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/3star/beguiling-melody.webp"
+    },
+    {
+      "id": "21010064",
+      "names": {
+        "zh-CN": "东落",
+        "zh-TW": "東落",
+        "en": "Helios Cleaver"
+      },
+      "rarity": 4,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/4star/helios-cleaver.webp"
+    },
+    {
+      "id": "21010066",
+      "names": {
+        "zh-CN": "宙算仪轨",
+        "zh-TW": "宙算儀軌",
+        "en": "Starfield Calibrator"
+      },
+      "rarity": 5,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/5star/starfield-calibrator.webp"
+    },
+    {
+      "id": "21010074",
+      "names": {
+        "zh-CN": "纹秋",
+        "zh-TW": "紋秋",
+        "en": "Autumntrace"
+      },
+      "rarity": 4,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/4star/autumntrace.webp"
+    },
+    {
+      "id": "21010076",
+      "names": {
+        "zh-CN": "千般渡",
+        "zh-TW": "千般渡",
+        "en": "Thousandfold Deliverance"
+      },
+      "rarity": 5,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/5star/thousandfold-deliverance.webp"
+    },
+    {
+      "id": "21010084",
+      "names": {
+        "zh-CN": "凋亡频移",
+        "zh-TW": "凋亡頻移",
+        "en": "Waning Redshift"
+      },
+      "rarity": 4,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/4star/waning-redshift.webp"
+    },
+    {
+      "id": "21010094",
+      "names": {
+        "zh-CN": "容赦的沉思录",
+        "zh-TW": "容赦的沉思錄",
+        "en": "Meditations on Mercy"
+      },
+      "rarity": 4,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/4star/meditations-on-mercy.webp"
+    },
+    {
+      "id": "21010104",
+      "names": {
+        "zh-CN": "金穹",
+        "zh-TW": "金穹",
+        "en": "Aureate Zenith"
+      },
+      "rarity": 4,
+      "category": "broadblade",
+      "suggestedPath": "image/weapons/4star/aureate-zenith.webp"
+    },
+    {
+      "id": "21020013",
+      "names": {
+        "zh-CN": "暗夜迅刀·黑闪",
+        "zh-TW": "暗夜迅刀·黑閃",
+        "en": "Sword of Night"
+      },
+      "rarity": 3,
+      "category": "sword",
+      "suggestedPath": "image/weapons/3star/sword-of-night.webp"
+    },
+    {
+      "id": "21020015",
+      "names": {
+        "zh-CN": "千古洑流",
+        "zh-TW": "千古洑流",
+        "en": "Emerald of Genesis"
+      },
+      "rarity": 5,
+      "category": "sword",
+      "suggestedPath": "image/weapons/5star/emerald-of-genesis.webp"
+    },
+    {
+      "id": "21020016",
+      "names": {
+        "zh-CN": "赫奕流明",
+        "zh-TW": "赫奕流明",
+        "en": "Blazing Brilliance"
+      },
+      "rarity": 5,
+      "category": "sword",
+      "suggestedPath": "image/weapons/5star/blazing-brilliance.webp"
+    },
+    {
+      "id": "21020017",
+      "names": {
+        "zh-CN": "心之锚",
+        "zh-TW": "心之錨",
+        "en": "Somnoire Anchor"
+      },
+      "rarity": 4,
+      "category": "sword",
+      "suggestedPath": "image/weapons/4star/somnoire-anchor.webp"
+    },
+    {
+      "id": "21020023",
+      "names": {
+        "zh-CN": "源能迅刀·测贰",
+        "zh-TW": "源能迅刀·測貳",
+        "en": "Originite: Type II"
+      },
+      "rarity": 3,
+      "category": "sword",
+      "suggestedPath": "image/weapons/3star/originite-type-ii.webp"
+    },
+    {
+      "id": "21020024",
+      "names": {
+        "zh-CN": "行进序曲",
+        "zh-TW": "行進序曲",
+        "en": "Overture"
+      },
+      "rarity": 4,
+      "category": "sword",
+      "suggestedPath": "image/weapons/4star/overture.webp"
+    },
+    {
+      "id": "21020026",
+      "names": {
+        "zh-CN": "裁春",
+        "zh-TW": "裁春",
+        "en": "Red Spring"
+      },
+      "rarity": 5,
+      "category": "sword",
+      "suggestedPath": "image/weapons/5star/red-spring.webp"
+    },
+    {
+      "id": "21020034",
+      "names": {
+        "zh-CN": "瞬斩刀-18型",
+        "zh-TW": "瞬斬刀-18型",
+        "en": "Sword#18"
+      },
+      "rarity": 4,
+      "category": "sword",
+      "suggestedPath": "image/weapons/4star/sword-18.webp"
+    },
+    {
+      "id": "21020036",
+      "names": {
+        "zh-CN": "不灭航路",
+        "zh-TW": "不滅航路",
+        "en": "Unflickering Valor"
+      },
+      "rarity": 5,
+      "category": "sword",
+      "suggestedPath": "image/weapons/5star/unflickering-valor.webp"
+    },
+    {
+      "id": "21020043",
+      "names": {
+        "zh-CN": "远行者迅刀·旅迹",
+        "zh-TW": "遠行者迅刀·旅跡",
+        "en": "Sword of Voyager"
+      },
+      "rarity": 3,
+      "category": "sword",
+      "suggestedPath": "image/weapons/3star/sword-of-voyager.webp"
+    },
+    {
+      "id": "21020044",
+      "names": {
+        "zh-CN": "不归孤军",
+        "zh-TW": "不歸孤軍",
+        "en": "Commando of Conviction"
+      },
+      "rarity": 4,
+      "category": "sword",
+      "suggestedPath": "image/weapons/4star/commando-of-conviction.webp"
+    },
+    {
+      "id": "21020045",
+      "names": {
+        "zh-CN": "镭射切变",
+        "zh-TW": "雷射切變",
+        "en": "Laser Shearer"
+      },
+      "rarity": 5,
+      "category": "sword",
+      "suggestedPath": "image/weapons/5star/laser-shearer.webp"
+    },
+    {
+      "id": "21020046",
+      "names": {
+        "zh-CN": "血誓盟约",
+        "zh-TW": "血誓盟約",
+        "en": "Bloodpact's Pledge"
+      },
+      "rarity": 5,
+      "category": "sword",
+      "suggestedPath": "image/weapons/5star/bloodpact-s-pledge.webp"
+    },
+    {
+      "id": "21020053",
+      "names": {
+        "zh-CN": "戍关迅刀·镇海",
+        "zh-TW": "戍關迅刀·鎮海",
+        "en": "Guardian Sword"
+      },
+      "rarity": 3,
+      "category": "sword",
+      "suggestedPath": "image/weapons/3star/guardian-sword.webp"
+    },
+    {
+      "id": "21020056",
+      "names": {
+        "zh-CN": "不屈命定之冠",
+        "zh-TW": "不屈命定之冠",
+        "en": "Defier's Thorn"
+      },
+      "rarity": 5,
+      "category": "sword",
+      "suggestedPath": "image/weapons/5star/defier-s-thorn.webp"
+    },
+    {
+      "id": "21020064",
+      "names": {
+        "zh-CN": "西升",
+        "zh-TW": "西升",
+        "en": "Lunar Cutter"
+      },
+      "rarity": 4,
+      "category": "sword",
+      "suggestedPath": "image/weapons/4star/lunar-cutter.webp"
+    },
+    {
+      "id": "21020066",
+      "names": {
+        "zh-CN": "裁竹",
+        "zh-TW": "裁竹",
+        "en": "Emerald Sentence"
+      },
+      "rarity": 5,
+      "category": "sword",
+      "suggestedPath": "image/weapons/5star/emerald-sentence.webp"
+    },
+    {
+      "id": "21020074",
+      "names": {
+        "zh-CN": "飞景",
+        "zh-TW": "飛景",
+        "en": "Lumingloss"
+      },
+      "rarity": 4,
+      "category": "sword",
+      "suggestedPath": "image/weapons/4star/lumingloss.webp"
+    },
+    {
+      "id": "21020076",
+      "names": {
+        "zh-CN": "永远的启明星",
+        "zh-TW": "永遠的啟明星",
+        "en": "Everbright Polestar"
+      },
+      "rarity": 5,
+      "category": "sword",
+      "suggestedPath": "image/weapons/5star/everbright-polestar.webp"
+    },
+    {
+      "id": "21020084",
+      "names": {
+        "zh-CN": "永续坍缩",
+        "zh-TW": "永續坍縮",
+        "en": "Endless Collapse"
+      },
+      "rarity": 4,
+      "category": "sword",
+      "suggestedPath": "image/weapons/4star/endless-collapse.webp"
+    },
+    {
+      "id": "21020086",
+      "names": {
+        "zh-CN": "灼霜",
+        "zh-TW": "灼霜",
+        "en": "Frostburn"
+      },
+      "rarity": 5,
+      "category": "sword",
+      "suggestedPath": "image/weapons/5star/frostburn.webp"
+    },
+    {
+      "id": "21020094",
+      "names": {
+        "zh-CN": "风流的寓言诗",
+        "zh-TW": "風流的寓言詩",
+        "en": "Fables of Wisdom"
+      },
+      "rarity": 4,
+      "category": "sword",
+      "suggestedPath": "image/weapons/4star/fables-of-wisdom.webp"
+    },
+    {
+      "id": "21020096",
+      "names": {
+        "zh-CN": "天之苍苍",
+        "zh-TW": "天之蒼蒼",
+        "en": "Azure Oath"
+      },
+      "rarity": 5,
+      "category": "sword",
+      "suggestedPath": "image/weapons/5star/azure-oath.webp"
+    },
+    {
+      "id": "21020104",
+      "names": {
+        "zh-CN": "翼锋",
+        "zh-TW": "翼鋒",
+        "en": "Feather Edge"
+      },
+      "rarity": 4,
+      "category": "sword",
+      "suggestedPath": "image/weapons/4star/feather-edge.webp"
+    },
+    {
+      "id": "21020106",
+      "names": {
+        "zh-CN": "云琅",
+        "zh-TW": "雲琅",
+        "en": "Glint of Clouds"
+      },
+      "rarity": 5,
+      "category": "sword",
+      "suggestedPath": "image/weapons/5star/glint-of-clouds.webp"
+    },
+    {
+      "id": "21020107",
+      "names": {
+        "zh-CN": "沉冥",
+        "zh-TW": "沉冥",
+        "en": "Unspoken Rue"
+      },
+      "rarity": 5,
+      "category": "sword",
+      "suggestedPath": "image/weapons/5star/unspoken-rue.webp"
+    },
+    {
+      "id": "21030013",
+      "names": {
+        "zh-CN": "暗夜佩枪·暗星",
+        "zh-TW": "暗夜佩槍·暗星",
+        "en": "Pistols of Night"
+      },
+      "rarity": 3,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/3star/pistols-of-night.webp"
+    },
+    {
+      "id": "21030015",
+      "names": {
+        "zh-CN": "停驻之烟",
+        "zh-TW": "停駐之煙",
+        "en": "Static Mist"
+      },
+      "rarity": 5,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/5star/static-mist.webp"
+    },
+    {
+      "id": "21030016",
+      "names": {
+        "zh-CN": "死与舞",
+        "zh-TW": "死與舞",
+        "en": "The Last Dance"
+      },
+      "rarity": 5,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/5star/the-last-dance.webp"
+    },
+    {
+      "id": "21030023",
+      "names": {
+        "zh-CN": "源能佩枪·测叁",
+        "zh-TW": "源能佩槍·測叁",
+        "en": "Originite: Type III"
+      },
+      "rarity": 3,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/3star/originite-type-iii.webp"
+    },
+    {
+      "id": "21030024",
+      "names": {
+        "zh-CN": "华彩乐段",
+        "zh-TW": "華彩樂段",
+        "en": "Cadenza"
+      },
+      "rarity": 4,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/4star/cadenza.webp"
+    },
+    {
+      "id": "21030026",
+      "names": {
+        "zh-CN": "林间的咏叹调",
+        "zh-TW": "林間的詠嘆調",
+        "en": "Woodland Aria"
+      },
+      "rarity": 5,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/5star/woodland-aria.webp"
+    },
+    {
+      "id": "21030034",
+      "names": {
+        "zh-CN": "穿击枪-26型",
+        "zh-TW": "穿擊槍-26型",
+        "en": "Pistols#26"
+      },
+      "rarity": 4,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/4star/pistols-26.webp"
+    },
+    {
+      "id": "21030036",
+      "names": {
+        "zh-CN": "光影双生",
+        "zh-TW": "光影雙生",
+        "en": "Lux & Umbra"
+      },
+      "rarity": 5,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/5star/lux-umbra.webp"
+    },
+    {
+      "id": "21030043",
+      "names": {
+        "zh-CN": "远行者佩枪·洞察",
+        "zh-TW": "遠行者佩槍·洞察",
+        "en": "Pistols of Voyager"
+      },
+      "rarity": 3,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/3star/pistols-of-voyager.webp"
+    },
+    {
+      "id": "21030044",
+      "names": {
+        "zh-CN": "无眠烈火",
+        "zh-TW": "無眠烈火",
+        "en": "Undying Flame"
+      },
+      "rarity": 4,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/4star/undying-flame.webp"
+    },
+    {
+      "id": "21030045",
+      "names": {
+        "zh-CN": "相位涟漪",
+        "zh-TW": "相位漣漪",
+        "en": "Phasic Homogenizer"
+      },
+      "rarity": 5,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/5star/phasic-homogenizer.webp"
+    },
+    {
+      "id": "21030046",
+      "names": {
+        "zh-CN": "溢彩荧辉",
+        "zh-TW": "溢彩熒輝",
+        "en": "Spectrum Blaster"
+      },
+      "rarity": 5,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/5star/spectrum-blaster.webp"
+    },
+    {
+      "id": "21030053",
+      "names": {
+        "zh-CN": "戍关佩枪·平云",
+        "zh-TW": "戍關佩槍·平雲",
+        "en": "Guardian Pistols"
+      },
+      "rarity": 3,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/3star/guardian-pistols.webp"
+    },
+    {
+      "id": "21030056",
+      "names": {
+        "zh-CN": "蜃影",
+        "zh-TW": "蜃影",
+        "en": "Spectral Trigger"
+      },
+      "rarity": 5,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/5star/spectral-trigger.webp"
+    },
+    {
+      "id": "21030064",
+      "names": {
+        "zh-CN": "飞逝",
+        "zh-TW": "飛逝",
+        "en": "Novaburst"
+      },
+      "rarity": 4,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/4star/novaburst.webp"
+    },
+    {
+      "id": "21030066",
+      "names": {
+        "zh-CN": "碎骨",
+        "zh-TW": "碎骨",
+        "en": "Skull Thrasher"
+      },
+      "rarity": 5,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/5star/skull-thrasher.webp"
+    },
+    {
+      "id": "21030074",
+      "names": {
+        "zh-CN": "奔雷",
+        "zh-TW": "奔雷",
+        "en": "Thunderbolt"
+      },
+      "rarity": 4,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/4star/thunderbolt.webp"
+    },
+    {
+      "id": "21030084",
+      "names": {
+        "zh-CN": "悖论喷流",
+        "zh-TW": "悖論噴流",
+        "en": "Relativistic Jet"
+      },
+      "rarity": 4,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/4star/relativistic-jet.webp"
+    },
+    {
+      "id": "21030094",
+      "names": {
+        "zh-CN": "叙别的罗曼史",
+        "zh-TW": "敘別的羅曼史",
+        "en": "Romance in Farewell"
+      },
+      "rarity": 4,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/4star/romance-in-farewell.webp"
+    },
+    {
+      "id": "21030104",
+      "names": {
+        "zh-CN": "阳焰",
+        "zh-TW": "陽焰",
+        "en": "Solar Flame"
+      },
+      "rarity": 4,
+      "category": "pistols",
+      "suggestedPath": "image/weapons/4star/solar-flame.webp"
+    },
+    {
+      "id": "21040013",
+      "names": {
+        "zh-CN": "暗夜臂铠·夜芒",
+        "zh-TW": "暗夜臂鎧·夜芒",
+        "en": "Gauntlets of Night"
+      },
+      "rarity": 3,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/3star/gauntlets-of-night.webp"
+    },
+    {
+      "id": "21040015",
+      "names": {
+        "zh-CN": "擎渊怒涛",
+        "zh-TW": "擎淵怒濤",
+        "en": "Abyss Surges"
+      },
+      "rarity": 5,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/5star/abyss-surges.webp"
+    },
+    {
+      "id": "21040016",
+      "names": {
+        "zh-CN": "诸方玄枢",
+        "zh-TW": "諸方玄樞",
+        "en": "Verity's Handle"
+      },
+      "rarity": 5,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/5star/verity-s-handle.webp"
+    },
+    {
+      "id": "21040023",
+      "names": {
+        "zh-CN": "源能臂铠·测肆",
+        "zh-TW": "源能臂鎧·測肆",
+        "en": "Originite: Type IV"
+      },
+      "rarity": 3,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/3star/originite-type-iv.webp"
+    },
+    {
+      "id": "21040024",
+      "names": {
+        "zh-CN": "呼啸重音",
+        "zh-TW": "呼嘯重音",
+        "en": "Marcato"
+      },
+      "rarity": 4,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/4star/marcato.webp"
+    },
+    {
+      "id": "21040026",
+      "names": {
+        "zh-CN": "悲喜剧",
+        "zh-TW": "悲喜劇",
+        "en": "Tragicomedy"
+      },
+      "rarity": 5,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/5star/tragicomedy.webp"
+    },
+    {
+      "id": "21040034",
+      "names": {
+        "zh-CN": "钢影拳-21丁型",
+        "zh-TW": "鋼影拳-21丁型",
+        "en": "Gauntlets#21D"
+      },
+      "rarity": 4,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/4star/gauntlets-21d.webp"
+    },
+    {
+      "id": "21040036",
+      "names": {
+        "zh-CN": "焰光裁定",
+        "zh-TW": "焰光裁定",
+        "en": "Blazing Justice"
+      },
+      "rarity": 5,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/5star/blazing-justice.webp"
+    },
+    {
+      "id": "21040043",
+      "names": {
+        "zh-CN": "远行者臂铠·破障",
+        "zh-TW": "遠行者臂鎧·破障",
+        "en": "Gauntlets of Voyager"
+      },
+      "rarity": 3,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/3star/gauntlets-of-voyager.webp"
+    },
+    {
+      "id": "21040044",
+      "names": {
+        "zh-CN": "袍泽之固",
+        "zh-TW": "袍澤之固",
+        "en": "Amity Accord"
+      },
+      "rarity": 4,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/4star/amity-accord.webp"
+    },
+    {
+      "id": "21040045",
+      "names": {
+        "zh-CN": "脉冲协臂",
+        "zh-TW": "脈衝協臂",
+        "en": "Pulsation Bracer"
+      },
+      "rarity": 5,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/5star/pulsation-bracer.webp"
+    },
+    {
+      "id": "21040046",
+      "names": {
+        "zh-CN": "万物持存的注释",
+        "zh-TW": "萬物持存的注釋",
+        "en": "Moongazer's Sigil"
+      },
+      "rarity": 5,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/5star/moongazer-s-sigil.webp"
+    },
+    {
+      "id": "21040053",
+      "names": {
+        "zh-CN": "戍关臂铠·拔山",
+        "zh-TW": "戍關臂鎧·拔山",
+        "en": "Guardian Gauntlets"
+      },
+      "rarity": 3,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/3star/guardian-gauntlets.webp"
+    },
+    {
+      "id": "21040056",
+      "names": {
+        "zh-CN": "白昼之脊",
+        "zh-TW": "白晝之脊",
+        "en": "Daybreaker's Spine"
+      },
+      "rarity": 5,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/5star/daybreaker-s-spine.webp"
+    },
+    {
+      "id": "21040064",
+      "names": {
+        "zh-CN": "骇行",
+        "zh-TW": "駭行",
+        "en": "Hollow Mirage"
+      },
+      "rarity": 4,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/4star/hollow-mirage.webp"
+    },
+    {
+      "id": "21040066",
+      "names": {
+        "zh-CN": "昭日译注",
+        "zh-TW": "昭日譯註",
+        "en": "Solsworn Ciphers"
+      },
+      "rarity": 5,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/5star/solsworn-ciphers.webp"
+    },
+    {
+      "id": "21040074",
+      "names": {
+        "zh-CN": "金掌",
+        "zh-TW": "金掌",
+        "en": "Stonard"
+      },
+      "rarity": 4,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/4star/stonard.webp"
+    },
+    {
+      "id": "21040084",
+      "names": {
+        "zh-CN": "尘云旋臂",
+        "zh-TW": "塵雲旋臂",
+        "en": "Celestial Spiral"
+      },
+      "rarity": 4,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/4star/celestial-spiral.webp"
+    },
+    {
+      "id": "21040094",
+      "names": {
+        "zh-CN": "酩酊的英雄志",
+        "zh-TW": "酩酊的英雄志",
+        "en": "Legend of Drunken Hero"
+      },
+      "rarity": 4,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/4star/legend-of-drunken-hero.webp"
+    },
+    {
+      "id": "21040104",
+      "names": {
+        "zh-CN": "凌空",
+        "zh-TW": "凌空",
+        "en": "Aether Strike"
+      },
+      "rarity": 4,
+      "category": "gauntlets",
+      "suggestedPath": "image/weapons/4star/aether-strike.webp"
+    },
+    {
+      "id": "21050013",
+      "names": {
+        "zh-CN": "暗夜矩阵·暝光",
+        "zh-TW": "暗夜矩陣·暝光",
+        "en": "Rectifier of Night"
+      },
+      "rarity": 3,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/3star/rectifier-of-night.webp"
+    },
+    {
+      "id": "21050015",
+      "names": {
+        "zh-CN": "漪澜浮录",
+        "zh-TW": "漪瀾浮錄",
+        "en": "Cosmic Ripples"
+      },
+      "rarity": 5,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/5star/cosmic-ripples.webp"
+    },
+    {
+      "id": "21050016",
+      "names": {
+        "zh-CN": "掣傀之手",
+        "zh-TW": "掣傀之手",
+        "en": "Stringmaster"
+      },
+      "rarity": 5,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/5star/stringmaster.webp"
+    },
+    {
+      "id": "21050017",
+      "names": {
+        "zh-CN": "渊海回声",
+        "zh-TW": "淵海回聲",
+        "en": "Call of the Abyss"
+      },
+      "rarity": 4,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/4star/call-of-the-abyss.webp"
+    },
+    {
+      "id": "21050023",
+      "names": {
+        "zh-CN": "源能音感仪·测五",
+        "zh-TW": "源能音感儀·測五",
+        "en": "Originite: Type V"
+      },
+      "rarity": 3,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/3star/originite-type-v.webp"
+    },
+    {
+      "id": "21050024",
+      "names": {
+        "zh-CN": "奇幻变奏",
+        "zh-TW": "奇幻變奏",
+        "en": "Variation"
+      },
+      "rarity": 4,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/4star/variation.webp"
+    },
+    {
+      "id": "21050026",
+      "names": {
+        "zh-CN": "琼枝冰绡",
+        "zh-TW": "瓊枝冰綃",
+        "en": "Rime-Draped Sprouts"
+      },
+      "rarity": 5,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/5star/rime-draped-sprouts.webp"
+    },
+    {
+      "id": "21050027",
+      "names": {
+        "zh-CN": "大海的馈赠",
+        "zh-TW": "大海的饋贈",
+        "en": "Ocean's Gift"
+      },
+      "rarity": 4,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/4star/ocean-s-gift.webp"
+    },
+    {
+      "id": "21050034",
+      "names": {
+        "zh-CN": "鸣动仪-25型",
+        "zh-TW": "鳴動儀-25型",
+        "en": "Rectifier#25"
+      },
+      "rarity": 4,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/4star/rectifier-25.webp"
+    },
+    {
+      "id": "21050036",
+      "names": {
+        "zh-CN": "星序协响",
+        "zh-TW": "星序協響",
+        "en": "Stellar Symphony"
+      },
+      "rarity": 5,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/5star/stellar-symphony.webp"
+    },
+    {
+      "id": "21050043",
+      "names": {
+        "zh-CN": "远行者矩阵·探幽",
+        "zh-TW": "遠行者矩陣·探幽",
+        "en": "Rectifier of Voyager"
+      },
+      "rarity": 3,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/3star/rectifier-of-voyager.webp"
+    },
+    {
+      "id": "21050044",
+      "names": {
+        "zh-CN": "今州守望",
+        "zh-TW": "今州守望",
+        "en": "Jinzhou Keeper"
+      },
+      "rarity": 4,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/4star/jinzhou-keeper.webp"
+    },
+    {
+      "id": "21050045",
+      "names": {
+        "zh-CN": "玻色星仪",
+        "zh-TW": "玻色星儀",
+        "en": "Boson Astrolabe"
+      },
+      "rarity": 5,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/5star/boson-astrolabe.webp"
+    },
+    {
+      "id": "21050046",
+      "names": {
+        "zh-CN": "和光回唱",
+        "zh-TW": "和光回唱",
+        "en": "Luminous Hymn"
+      },
+      "rarity": 5,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/5star/luminous-hymn.webp"
+    },
+    {
+      "id": "21050053",
+      "names": {
+        "zh-CN": "戍关音感仪·留光",
+        "zh-TW": "戍關音感儀·留光",
+        "en": "Guardian Rectifier"
+      },
+      "rarity": 3,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/3star/guardian-rectifier.webp"
+    },
+    {
+      "id": "21050056",
+      "names": {
+        "zh-CN": "海的呢喃",
+        "zh-TW": "海的呢喃",
+        "en": "Whispers of Sirens"
+      },
+      "rarity": 5,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/5star/whispers-of-sirens.webp"
+    },
+    {
+      "id": "21050064",
+      "names": {
+        "zh-CN": "异度",
+        "zh-TW": "異度",
+        "en": "Comet Flare"
+      },
+      "rarity": 4,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/4star/comet-flare.webp"
+    },
+    {
+      "id": "21050066",
+      "names": {
+        "zh-CN": "幽冥的忘忧章",
+        "zh-TW": "幽冥的忘憂章",
+        "en": "Lethean Elegy"
+      },
+      "rarity": 5,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/5star/lethean-elegy.webp"
+    },
+    {
+      "id": "21050074",
+      "names": {
+        "zh-CN": "清音",
+        "zh-TW": "清音",
+        "en": "Augment"
+      },
+      "rarity": 4,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/4star/augment.webp"
+    },
+    {
+      "id": "21050076",
+      "names": {
+        "zh-CN": "赝作的矮星",
+        "zh-TW": "贗作的矮星",
+        "en": "Forged Dwarf Star"
+      },
+      "rarity": 5,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/5star/forged-dwarf-star.webp"
+    },
+    {
+      "id": "21050084",
+      "names": {
+        "zh-CN": "核熔星盘",
+        "zh-TW": "核熔星盤",
+        "en": "Fusion Accretion"
+      },
+      "rarity": 4,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/4star/fusion-accretion.webp"
+    },
+    {
+      "id": "21050086",
+      "names": {
+        "zh-CN": "存帧",
+        "zh-TW": "存幀",
+        "en": "Freeze Frame"
+      },
+      "rarity": 5,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/5star/freeze-frame.webp"
+    },
+    {
+      "id": "21050094",
+      "names": {
+        "zh-CN": "虚饰的华尔兹",
+        "zh-TW": "虛飾的華爾滋",
+        "en": "Waltz in Masquerade"
+      },
+      "rarity": 4,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/4star/waltz-in-masquerade.webp"
+    },
+    {
+      "id": "21050096",
+      "names": {
+        "zh-CN": "栖霞饮露",
+        "zh-TW": "棲霞飲露",
+        "en": "Firstlight's Herald"
+      },
+      "rarity": 5,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/5star/firstlight-s-herald.webp"
+    },
+    {
+      "id": "21050104",
+      "names": {
+        "zh-CN": "曜光",
+        "zh-TW": "曜光",
+        "en": "Radiant Dawn"
+      },
+      "rarity": 4,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/4star/radiant-dawn.webp"
+    },
+    {
+      "id": "21050116",
+      "names": {
+        "zh-CN": "玉阙玄华",
+        "zh-TW": "玉闕玄華",
+        "en": "Blooming Jadehaven"
+      },
+      "rarity": 5,
+      "category": "rectifier",
+      "suggestedPath": "image/weapons/5star/blooming-jadehaven.webp"
+    }
+  ],
+  "charactersInSourceWithoutLocalImage": []
+}

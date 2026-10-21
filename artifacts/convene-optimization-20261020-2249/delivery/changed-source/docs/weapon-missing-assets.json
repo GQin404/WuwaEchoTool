@@ -1,0 +1,9 @@
+{
+  "productionCatalogEntries": 0,
+  "verifiedOfficialWeaponImages": 0,
+  "missingByRarity": {"5star": "all real images and verified resource IDs pending", "4star": "all real images and verified resource IDs pending", "3star": "all real images and verified resource IDs pending"},
+  "fallbacks": ["unknown arsenal", "sword", "broadblade", "pistols", "gauntlets", "rectifier"],
+  "enumerationStatus": "No complete verified official weapon catalog is available in this repository; no IDs are invented.",
+  "perArchiveInspection": "WeaponPortraits.missing(weaponRecords) returns unique item IDs and imported names without UID or authorization fields",
+  "testArtIsSynthetic": true
+}

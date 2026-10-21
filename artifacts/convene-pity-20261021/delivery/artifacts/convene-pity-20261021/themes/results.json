@@ -1,0 +1,40 @@
+{
+  "results": [
+    {
+      "tier": "abyss",
+      "score": 1.2658227848101264,
+      "drivenByActualAnalysis": true
+    },
+    {
+      "tier": "headwind",
+      "score": 25.316455696202528,
+      "drivenByActualAnalysis": true
+    },
+    {
+      "tier": "steady",
+      "score": 50.632911392405056,
+      "drivenByActualAnalysis": true
+    },
+    {
+      "tier": "lucky",
+      "score": 75.94936708860764,
+      "drivenByActualAnalysis": true
+    },
+    {
+      "tier": "star",
+      "score": 88.60759493670882,
+      "drivenByActualAnalysis": true
+    },
+    {
+      "tier": "fate",
+      "score": 100,
+      "drivenByActualAnalysis": true
+    }
+  ],
+  "pageErrors": [],
+  "annotationsSeparate": true,
+  "undo": true,
+  "initialStatePersisted": true,
+  "collabFilters": true,
+  "officialAPI": false
+}

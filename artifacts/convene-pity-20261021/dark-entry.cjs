@@ -1,0 +1,3 @@
+const fs=require('fs');let f='convene.html',s=fs.readFileSync(f,'utf8').replace('<body><main','<body class="convene-page"><main');fs.writeFileSync(f,s);
+f='css/convene.css';s=fs.readFileSync(f,'utf8')+`\n/* 独立入口也保持深色，不依赖全站界面偏好。 */\nbody.convene-page{background:#0e181c;color:#e8eee7;color-scheme:dark}\n#convene-app .cv-hero:before{width:auto;height:auto;inset:10px;box-shadow:none;z-index:0}\n#convene-app .cv-hero:after{left:auto;bottom:auto}\n#convene-app .cv-content>.cv-two{margin-bottom:20px}\n`;fs.writeFileSync(f,s);
+f='tests/convene-theme-browser.cjs';s=fs.readFileSync(f,'utf8').replaceAll('/convene.html?fixture=1&lang=zh-CN','/convene.html?view=register&fixture=1&lang=zh-CN');fs.writeFileSync(f,s);

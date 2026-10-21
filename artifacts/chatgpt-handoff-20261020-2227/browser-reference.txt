@@ -1,0 +1,1 @@
+PASS 6 reference UI flows: priority, portraits/fallback, mobile order, filters, local folder, auto proxy errors, four shares and R0–R6, full/hidden UID, PNG parity, no archive changes.

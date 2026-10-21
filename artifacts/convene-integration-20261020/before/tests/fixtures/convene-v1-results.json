@@ -1,0 +1,132 @@
+{
+  "note": "Immutable expected results captured from the pre-v2 core using synthetic fixtures. No credentials or personal data.",
+  "cases": [
+    {
+      "count": 1,
+      "total": 1,
+      "intervals": [
+        null
+      ],
+      "average": null,
+      "min": null,
+      "max": null,
+      "pity": 0,
+      "limited": {
+        "win": 0,
+        "loss": 0,
+        "guarantee": 0,
+        "unknown": 1
+      },
+      "luck": {
+        "score": null,
+        "draw": null,
+        "limited": null,
+        "samples": 0,
+        "opportunities": 0,
+        "confidence": "low",
+        "title": "observing"
+      },
+      "achievements": []
+    },
+    {
+      "count": 40,
+      "total": 40,
+      "intervals": [
+        null,
+        12,
+        27
+      ],
+      "average": 19.5,
+      "min": 12,
+      "max": 27,
+      "pity": 0,
+      "limited": {
+        "win": 0,
+        "loss": 0,
+        "guarantee": 0,
+        "unknown": 3
+      },
+      "luck": {
+        "score": 76.58227848101265,
+        "draw": 76.58227848101265,
+        "limited": null,
+        "samples": 2,
+        "opportunities": 0,
+        "confidence": "low",
+        "title": "observing"
+      },
+      "achievements": []
+    },
+    {
+      "count": 100,
+      "total": 100,
+      "intervals": [
+        null,
+        12,
+        27,
+        31,
+        12
+      ],
+      "average": 20.5,
+      "min": 12,
+      "max": 31,
+      "pity": 17,
+      "limited": {
+        "win": 0,
+        "loss": 0,
+        "guarantee": 0,
+        "unknown": 5
+      },
+      "luck": {
+        "score": 75.31645569620252,
+        "draw": 75.31645569620252,
+        "limited": null,
+        "samples": 4,
+        "opportunities": 0,
+        "confidence": "low",
+        "title": "observing"
+      },
+      "achievements": []
+    },
+    {
+      "count": 420,
+      "total": 420,
+      "intervals": [
+        null,
+        12,
+        27,
+        31,
+        12,
+        32,
+        39,
+        40,
+        39,
+        39,
+        39,
+        39,
+        39,
+        31
+      ],
+      "average": 32.23076923076923,
+      "min": 12,
+      "max": 40,
+      "pity": 0,
+      "limited": {
+        "win": 0,
+        "loss": 0,
+        "guarantee": 0,
+        "unknown": 14
+      },
+      "luck": {
+        "score": 60.46738072054526,
+        "draw": 60.46738072054526,
+        "limited": null,
+        "samples": 13,
+        "opportunities": 0,
+        "confidence": "established",
+        "title": "steady"
+      },
+      "achievements": []
+    }
+  ]
+}

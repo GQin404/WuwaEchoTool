@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>声骸编辑页面</title>
+    <link href="library/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="library/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet"/>
+    <link href="library/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet"/>
+    <link href="css/base.css" rel="stylesheet"/>
+    <!--  作者：哲字君  2024-08-02  !-->
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon"/>
+    <link href="css/character-dock.css" rel="stylesheet"/>
+    <script src="js/ui-view.js"></script>
+</head>
+<body>
+<div class="mc-main-page">
+    <!--  header  !-->
+    <div class="mc-title">
+        <span class="mc-title-name">鸣潮声骸编辑页</span>
+    </div>
+    <div class="mc-costedit">
+        <div class="mc-costedit-info">
+            <div class="mc-cost-img-0" id="shimg">
+                <img id="shimg01" data-toggle="modal" data-target="#mc-addwords-main" class="mc-cost-img"
+                     src="image/cost/000.png" alt="选择的声骸">
+                <img id="shimg02" class="mc-suite-attr" src="image/attribute/1.png" alt="套装属性">
+            </div>
+            <div class="mc-cost-right mc-cost-right2">
+                <div class="mc-cost-addbtn" data-toggle="modal" data-target="#mc-addwords">添&nbsp;加&nbsp;词&nbsp;条</div>
+                <div class="mc-cost-score">
+                    <div class="mc-set-tixing">请先点击左侧声骸图标设置主属性</div>
+                    <div class="mc-set-mainsx mc-hide">主词条属性:[<span class="mc-cost-jiaz mc-cost-red"
+                                                                    id="zsx01">xx</span>]+[<span
+                            class="mc-cost-jiaz mc-cost-green" id="zsx02">生命22%</span>]
+                    </div>
+                    <div>主词条得分:[&nbsp;<span class="mc-cost-jiaz mc-cost-blue"
+                                            id="zhupf">0.00</span>&nbsp;]分,总评分[&nbsp;<span
+                            class="mc-cost-jiaz mc-cost-orange" id="zonpf">0.00</span>&nbsp;]分
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table id="fct-list" class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">序号</th>
+                <th scope="col">属性</th>
+                <th scope="col">数值</th>
+                <th scope="col">计分</th>
+                <th scope="col">操作</th>
+            </tr>
+            </thead>
+            <tbody id="chitiao-list">
+            <tr>
+                <th scope="row">1</th>
+                <td colspan="4">无副词条属性</td>
+            </tr>
+            <tr>
+                <th scope="row">+</th>
+                <th></th>
+                <th>计分合计：</th>
+                <th id="listScore">0.00</th>
+                <th></th>
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+        <div class="mc-btn-group">
+            <div class="mc-cost-delbtn">删除并返回</div>
+            <div class="mc-cost-savebtn">保存并返回</div>
+        </div>
+        <hr>
+        <div class="mc-cost-prediction">
+            <ul class="list-group">
+                <li class="list-group-item mc-bgc-01" aria-current="true">声骸副词条概率推算</li>
+                <li class="list-group-item"><span class="mc-tc-title">暴击概率：</span><span
+                        class="mc-cost-jiaz2 mc-cost-red" id="gl-bj">0.00%</span></li>
+                <li class="list-group-item"><span class="mc-tc-title">暴伤概率：</span><span
+                        class="mc-cost-jiaz2 mc-cost-purple" id="gl-bs">0.00%</span></li>
+                <li class="list-group-item"><span class="mc-tc-title">大攻击概率：</span><span
+                        class="mc-cost-jiaz2 mc-cost-green" id="gl-gj">0.00%</span></li>
+                <li class="list-group-item"><span class="mc-tc-title">声骸达成双爆概率：</span><span
+                        class="mc-cost-jiaz2 mc-cost-blue" id="gl-sb">0.00%</span></li>
+                <li class="list-group-item"><span class="mc-tc-title">下一次出生防概率：</span><span
+                        class="mc-cost-jiaz2 mc-cost-pink" id="gl-sf">0.00%</span></li>
+                <li class="list-group-item"><span class="mc-tc-title">未开词条得分期望：</span><span class="mc-cost-jiaz2"
+                                                                                            id="gl-ysqw">0.00</span>
+                </li>
+                <li class="list-group-item"><span class="mc-tc-title">声骸期望总得分：</span><span class="mc-cost-jiaz2"
+                                                                                           id="z-qw">0.00</span></li>
+            </ul>
+        </div>
+
+        <p class="mc-fct-hj-title2">下面是不同定位角色的Cost满分参考值：</p>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">序号</th>
+                <th scope="col">定位</th>
+                <th scope="col">Cost4</th>
+                <th scope="col">Cost3</th>
+                <th scope="col">Cost1</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>主副C位</td>
+                <td>24.35</td>
+                <td>21.25</td>
+                <td>16.55</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>输出辅助</td>
+                <td>23.30</td>
+                <td>21.70</td>
+                <td>16.50</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>功能辅助</td>
+                <td>22.40</td>
+                <td>21.00</td>
+                <td>18.70</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>奶妈</td>
+                <td>25.80</td>
+                <td>21.00</td>
+                <td>15.00</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="mc-memo">ps:数据永久保存在本地浏览器的【本地存储】中，更换浏览器不会你在上个浏览器保存的数据，可以清除浏览器缓存会但不要清除浏览器【本地存储】，详细可见首页下的规则说明。</div>
+    </div>
+    <div class="mc-btn-backhome">返&nbsp;回&nbsp;首&nbsp;页</div>
+    <!--  footer  !-->
+    <div class="mc-footer">原创作者@哲字君/前维护者@PillowTrel/维护者@炭烤蛋-本工具免费使用 | Version: V<span id="tool-version">1.1.1</span></div>
+    <!--  弹出添加副词条  !-->
+    <!-- Modal -->
+    <div class="modal fade" id="mc-addwords" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="exampleModalLabel"><span class="badge badge-info">编辑副词条</span></span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                        <li class="list-group-item"><span class="mc-select-title">选择属性：</span><span
+                                class="mc-cost-jiaz mc-cost-red">
+                            <select id="mc-words-name" class="form-control mc-select">
+                                <option selected value="暴击">暴击</option>
+                                <option value="暴伤">暴伤</option>
+                                <option value="大攻击">大攻击</option>
+                                <option value="小攻击">小攻击</option>
+                                <option value="大生命">大生命</option>
+                                <option value="小生命">小生命</option>
+                                <option value="大防御">大防御</option>
+                                <option value="小防御">小防御</option>
+                                <option value="共鸣效率">共鸣效率</option>
+                                <option value="普攻伤害">普攻伤害</option>
+                                <option value="重击伤害">重击伤害</option>
+                                <option value="技能伤害">技能伤害</option>
+                                <option value="解放伤害">解放伤害</option>
+                            </select>
+                        </span></li>
+                        <li class="list-group-item">
+                            <span class="mc-cost-jiaz mc-cost-purple" id="sx-value"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关&nbsp;&nbsp;闭</button>
+                    <button id="qd-btn3" type="button" class="btn btn-primary">添&nbsp;&nbsp;加</button>
+                    <button id="qd-btn5" type="button" class="btn btn-primary mc-hide">保&nbsp;&nbsp;存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  弹出添加主词条  !-->
+    <!-- Modal -->
+    <div class="modal fade" id="mc-addwords-main" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="exampleModalLabel2"><span
+                            class="badge badge-info">编辑声骸主信息</span></span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="mc-cost-show">
+                        <img id="select-zhu-img" class="mc-cost-img" src="image/cost/001.png" alt="选择的声骸"><br>
+                        <span class="badge badge-primary" id="mc-cost-level1">Cost1</span><span
+                            class="badge badge-danger" id="mc-cost-level2">轻波级</span>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item"><span class="mc-select-title">选择套装属性：</span><span
+                                class="mc-cost-jiaz mc-cost-red">
+                            <select id="mc-suite-name" class="form-control mc-select">
+                                //对于老套装，我们仅显示属性名称但不改变底层赋值，因为这样不会破坏已导出的json文件
+                                //对于新套装则可以随意更改
+                                <!--
+                                    套装简称规则：
+                                    属性主C：火套 / 冰套 / 暗套 / 雷套 / 风套 / 光套
+                                    属性辅助：火辅套 / 冰辅套 / 暗辅套 / 雷辅套 / 风辅套 / 光辅套
+                                    特殊机制：破韧套 / 普重套 / 效应套 / 盾套
+                                    治疗辅助：奶套
+
+                                    原则：
+                                    优先属性，其次定位；非属性套按核心机制命名。
+                                    只写主要用途，不堆叠所有效果。
+                                -->
+                                <option selected value="光套">光套</option>
+                                <option value="火套">火套</option>
+                                <option value="冰套">冰套</option>
+                                <option value="暗套">暗套</option>
+                                <option value="雷套">雷套</option>
+                                <option value="风套">风套</option>
+                                <option value="奶套">奶套</option>
+                                <option value="轻云套">轻云套</option>
+                                <option value="攻击套">攻击套</option>
+                                <option value="凌冽套">凌冽·冰套</option>
+                                <option value="此间套">此间·光套</option>
+                                <option value="幽夜套">幽夜·暗套</option>
+                                <option value="高天套">高天套</option>
+                                <option value="无惧套">无惧套</option>
+                                <option value="流云套">流云·风套</option>
+                                <option value="愿戴套">愿戴·风套</option>
+                                <option value="奔狼套">奔狼·火套</option>
+                                <option value="失序套">失序·暗套</option>
+                                <option value="荣斗套">荣斗·盾套</option>
+                                <option value="息界套">息界套</option>
+                                <option value="焚羽套">焚羽·火套</option>
+                                <option value="命理套">命理·暗套</option>
+                                <option value="星构套">星构·奶套</option>
+                                <option value="流金套">流金·光套</option>
+                                <option value="逆光套">逆光·光套</option>
+                                <option value="长路套">长路·火套</option>
+                                <option value="斑驳套">斑驳·火辅套</option>
+                                <option value="听唤套">听唤·风套</option>
+                                <option value="雪落套">雪落·冰套</option>
+                                <option value="剪心套">剪心·破韧套</option>
+                                <option value="碎梦套">碎梦·普重套</option>
+                                <option value="冥途套">冥途·火盾套</option>
+                                <option value="清邪套">清邪·风套</option>
+                                <option value="羽落套">羽落·效应套</option>
+                                <option value="衔梦套">衔梦·雷套</option>
+                                <option value="镜影套">镜影·雷辅套</option>
+                                <option value="茜染套">茜染·奶套</option>
+                            </select>
+                        </span></li>
+                        <li class="list-group-item"><span class="mc-select-title">选择声骸属性：</span><span
+                                class="mc-cost-jiaz mc-cost-purple">
+                            <select id="mc-main-value" class="form-control mc-select"></select>
+                        </span></li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关&nbsp;&nbsp;闭</button>
+                    <button id="qd-btn4" type="button" class="btn btn-primary">保&nbsp;&nbsp;存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="library/jquery.min.js" type="application/javascript"></script>
+<script src="library/bootstrap/js/bootstrap.min.js" type="application/javascript"></script>
+<script src="js/multi-config.js"></script>
+<script src="js/character-core.js"></script>
+<script src="js/base.js" type="application/javascript"></script>
+<script src="js/character-portraits.js"></script>
+<script src="js/role-register-controller.js"></script>
+<script src="js/stat-keys.js"></script>
+<script src="js/role-view-model.js"></script>
+<script src="js/costedit.js" type="application/javascript"></script>
+<script src="js/i18n-dictionaries.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

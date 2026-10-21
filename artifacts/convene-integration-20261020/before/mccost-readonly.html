@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>鸣潮角色声骸一览</title>
+    <link href="library/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="library/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet"/>
+    <link href="library/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet"/>
+    <link href="css/base.css" rel="stylesheet"/>
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon"/>
+    <!--  作者：哲字君  2024-08-02  !-->
+
+    <link href="css/character-dock.css" rel="stylesheet"/>
+    <link href="css/register-foundation.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/register-operations.css">
+    <link href="css/role-register.css" rel="stylesheet"/>
+    <script src="js/ui-view.js"></script>
+    <script src="js/role-register-mode.js"></script>
+<link rel="stylesheet" href="css/multi-config.css">
+</head>
+<body>
+<div class="mc-main-page">
+    <!--  header  !-->
+    <div class="mc-title">
+        <span class="mc-title-name">鸣潮导入角色声骸一览</span>
+    </div>
+    <div class="mc-cost-box">
+        <div class="mc-character">
+            <figure class="mc-character-portrait mc-character-read-img"><img class="mc-character-img" alt="选择的角色"><figcaption class="mc-character-name"></figcaption><p class="mc-character-lvm" id="role-info">Lv00 - 0命</p></figure>
+            <div class="mc-character-right mc-character-right2">
+                <div class="mc-character-row">
+                    <div class="mc-weapon-div">
+                        <img class="mc-weapon-img" src="image/weapon.png" alt="武器图片">
+                        <p class="mc-weapon-info">Lv00-精1</p>
+                    </div>
+                    <div class="mc-character-btnbg">
+                        <div class="mc-character-addbtn2" data-toggle="modal" data-target="#mc-addcost">导&nbsp;入&nbsp;数&nbsp;据</div>
+                        <div class="mc-badge-left">超0.0%玩家</div>
+                        <div class="mc-badge-right">一星斗者</div>
+                    </div>
+
+                </div>
+
+                <div class="mc-character-score">
+                    <div>已出双爆：[&nbsp;&nbsp;<span class="mc-cost-jiaz mc-cost-red" id="sbz">0</span>&nbsp;&nbsp;]件,大攻击：[&nbsp;&nbsp;<span
+                            class="mc-cost-jiaz mc-cost-purple" id="gjz">0</span>&nbsp;&nbsp;]条
+                    </div>
+                    <div>当前总分：[<span class="mc-cost-jiaz mc-cost-blue" id="zfz">0.00</span>]分,评价为[<span
+                            class="mc-cost-jiaz mc-cost-green" id="pjz">无数据</span>]
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="mc-cost-list2">
+            <div data-id="000" cost-id="0" class="mc-cost-list-null">
+                声骸列表为空。
+            </div>
+        </div>
+        <div class="mc-fct-hj">
+            <p class="mc-fct-hj-title">副词条得分统计</p>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">位置1</th>
+                    <th scope="col">位置2</th>
+                    <th scope="col">位置3</th>
+                    <th scope="col">位置4</th>
+                    <th scope="col">位置5</th>
+                    <th scope="col">合计</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td id="fhj01">0.00</td>
+                    <td id="fhj02">0.00</td>
+                    <td id="fhj03">0.00</td>
+                    <td id="fhj04">0.00</td>
+                    <td id="fhj05">0.00</td>
+                    <th id="fhj06">0.00</th>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="mc-role-skill">
+            <div class="mc-role-skill-item">
+                <img class="mc-role-skill-img"
+                     src="https://web-static.kurobbs.com/adminConfig/36/role_skill_icon/1719546296126.png" alt="技能图片">
+                <span class="mc-role-skill-level">0</span>
+            </div>
+            <div class="mc-role-skill-item">
+                <img class="mc-role-skill-img"
+                     src="https://web-static.kurobbs.com/adminConfig/36/role_skill_icon/1719546296126.png" alt="技能图片">
+                <span class="mc-role-skill-level">0</span>
+            </div>
+            <div class="mc-role-skill-item">
+                <img class="mc-role-skill-img"
+                     src="https://web-static.kurobbs.com/adminConfig/36/role_skill_icon/1719546296126.png" alt="技能图片">
+                <span class="mc-role-skill-level">0</span>
+            </div>
+            <div class="mc-role-skill-item">
+                <img class="mc-role-skill-img"
+                     src="https://web-static.kurobbs.com/adminConfig/36/role_skill_icon/1719546296126.png" alt="技能图片">
+                <span class="mc-role-skill-level">0</span>
+            </div>
+            <div class="mc-role-skill-item">
+                <img class="mc-role-skill-img"
+                     src="https://web-static.kurobbs.com/adminConfig/36/role_skill_icon/1719546296126.png" alt="技能图片">
+                <span class="mc-role-skill-level">0</span>
+            </div>
+        </div>
+        <p class="mc-fct-hj-title3">副词条达成度-计分已适用[<span id="mc-mzs">0</span>]命规则</p>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">序号</th>
+                <th scope="col">属性</th>
+                <th scope="col">累计值</th>
+                <th scope="col">满分值</th>
+                <th scope="col">达成度</th>
+            </tr>
+            </thead>
+            <tbody id="mc-fct-hzb">
+            <tr>
+                <td colspan="5">暂无数据</td>
+            </tr>
+            </tbody>
+        </table>
+        <p class="mc-fct-hj-title3">全副词条取值范围</p>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">暴击</th>
+                <th scope="col">暴伤</th>
+                <th scope="col">小攻</th>
+                <th scope="col">小防</th>
+                <th scope="col">小生</th>
+                <th scope="col">大防</th>
+                <th scope="col">共效</th>
+                <th scope="col">其他</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>10.5%</td>
+                <td>21%</td>
+                <td>60</td>
+                <td>70</td>
+                <td>580</td>
+                <td>14.7%</td>
+                <td>12.4%</td>
+                <td>11.6%</td>
+            </tr>
+            <tr>
+                <td>9.9%</td>
+                <td>19.8%</td>
+                <td>50</td>
+                <td>60</td>
+                <td>540</td>
+                <td>13.8%</td>
+                <td>11.6%</td>
+                <td>10.9%</td>
+            </tr>
+            <tr>
+                <td>9.3%</td>
+                <td>18.6%</td>
+                <td>40</td>
+                <td>50</td>
+                <td>510</td>
+                <td>12.8%</td>
+                <td>10.8%</td>
+                <td>10.1%</td>
+            </tr>
+            <tr>
+                <td>8.7%</td>
+                <td>17.4%</td>
+                <td>30</td>
+                <td>40</td>
+                <td>470</td>
+                <td>11.8%</td>
+                <td>10%</td>
+                <td>9.4%</td>
+            </tr>
+            <tr>
+                <td>8.1%</td>
+                <td>16.2%</td>
+                <td>/</td>
+                <td>/</td>
+                <td>430</td>
+                <td>10.9%</td>
+                <td>9.2%</td>
+                <td>8.6%</td>
+            </tr>
+            <tr>
+                <td>7.5%</td>
+                <td>15%</td>
+                <td>/</td>
+                <td>/</td>
+                <td>390</td>
+                <td>10%</td>
+                <td>8.4%</td>
+                <td>7.9%</td>
+            </tr>
+            <tr>
+                <td>6.9%</td>
+                <td>13.8%</td>
+                <td>/</td>
+                <td>/</td>
+                <td>360</td>
+                <td>9%</td>
+                <td>7.6%</td>
+                <td>7.1%</td>
+            </tr>
+            <tr>
+                <td>6.3%</td>
+                <td>12.6%</td>
+                <td>/</td>
+                <td>/</td>
+                <td>320</td>
+                <td>8.1%</td>
+                <td>6.8%</td>
+                <td>6.4%</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="mc-memo">ps:在计算总分数时，进行了共鸣效率溢出校验，会减去一部分分数。得分本质为你达到角色完美属性的百分比，70分即达到了70%。</div>
+    </div>
+    <div class="mc-btn-backhome">返&nbsp;回&nbsp;首&nbsp;页</div>
+    <!--  footer  !-->
+    <div class="mc-footer">原创作者@哲字君/前维护者@PillowTrel/维护者@炭烤蛋-本工具免费使用 | Version: V<span id="tool-version">1.1.2</span></div>
+
+</div>
+<script src="library/jquery.min.js" type="application/javascript"></script>
+<script src="library/bootstrap/js/bootstrap.min.js" type="application/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js" type="application/javascript"></script>
+<script src="js/multi-config.js"></script>
+<script src="js/character-core.js"></script>
+<script src="js/register-metadata.js"></script>
+<script src="js/register-collections.js"></script>
+<script src="js/register-search-ui.js"></script>
+<script src="js/register-navigation.js"></script>
+<script src="js/register-unsaved.js"></script>
+<script src="js/register-actions.js"></script>
+<script src="js/register-share.js"></script>
+<script src="js/role-import-core.js"></script>
+<script src="js/import-service.js"></script>
+<script src="js/base.js" type="application/javascript"></script>
+<script src="js/character-portraits.js"></script>
+<script src="js/stat-keys.js"></script>
+<script src="js/role-view-model.js"></script>
+<script src="js/i18n-dictionaries.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/role-register-renderer.js"></script>
+<script src="js/role-register-controller.js"></script>
+<script src="js/role-draft-model.js"></script>
+<script src="js/role-draft-storage.js"></script>
+<script src="js/role-candidates.js"></script>
+<script src="js/role-compare.js"></script>
+    <script src="js/role-local-configuration.js"></script>
+    <script src="js/role-candidate-surface.js"></script>
+<script src="js/role-register-page.js"></script>
+<script src="js/mccost2.js" type="application/javascript"></script>
+<script src="js/multi-config-browser.js"></script>
+</body>
+</html>

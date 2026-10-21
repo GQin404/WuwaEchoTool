@@ -1,0 +1,1 @@
+const fs=require('fs'),a=JSON.parse(fs.readFileSync('artifacts/convene-player-20261021/official-ArticleMenu.json'));let c=a.filter(x=>/convene|maintenance/i.test(x.articleTitle));console.log(c.map(x=>[x.articleId,x.articleTitle,x.startTime]));console.log(JSON.stringify(require('./js/character-catalog.js')).slice(0,100));

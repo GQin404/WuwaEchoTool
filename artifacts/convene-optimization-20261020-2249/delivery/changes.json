@@ -1,0 +1,236 @@
+[
+  {
+    "path": "convene.html",
+    "taskStartSHA256": "6f50ac6e22745c2f357e6514cd6454da781d1e4e5c78b3409f74f76d7e1c1975",
+    "finalSHA256": "0706dcd371e98f796b1a10cd01e59bc926a5f9c58aa2baafb4d8c8afa39c8140",
+    "baseline": "task-start snapshot"
+  },
+  {
+    "path": "css/convene.css",
+    "taskStartSHA256": "ab71f8ce76e50491cc6a8f8e050d408a49bf0cbb0c151baf6d46fe7b7ac4a34f",
+    "finalSHA256": "5d7106533dccb888bf2980021eeedbfe289abefc19dee8b1b9e92eef00f8800e",
+    "baseline": "task-start snapshot"
+  },
+  {
+    "path": "docs/convene-optimization.md",
+    "taskStartSHA256": null,
+    "finalSHA256": "34a3a66a2f4c0f566455c5ea3aff2886a41081c4b9389b7d290a10a439239e72",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "docs/weapon-artwork.md",
+    "taskStartSHA256": null,
+    "finalSHA256": "f4364bc7a191e3bac2129e4660a21dc660a90b9c2cef894785e817996f3ab5af",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "docs/weapon-missing-assets.json",
+    "taskStartSHA256": null,
+    "finalSHA256": "6b2aaeb10fff0db385f0620d9bdcbb3c885d35b14ab2b1e499919e42c094f615",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/convene/badges/character-abyss.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "bd63b0d31fcd1168fe1236030367eeeff940de0d6d3425cf9f20da4117aefc2e",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/convene/badges/character-fate.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "7aa6c43745c60b5955ed652c6e3641d98b4e442266d044b5d1015087b99ac253",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/convene/badges/character-headwind.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "8e80e90ca20497e556bb041d42511c0aec4fa44a11ad4476bb9882de723274e1",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/convene/badges/character-lucky.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "e3133736d3947c1e91cff9260d3b180e0f1d8066d957ac1dcd664c678c185087",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/convene/badges/character-observing.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "d7cf095212619777247c825a4a11ae96e182d1b4376aca3f66eb06f47cda70e4",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/convene/badges/character-star.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "239003102b7554e3777e07b0d12d93aac90b76362b5c0182a9173f23de26f606",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/convene/badges/character-steady.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "d503dec098dd05db560945309825ff5a47a0c1cbad6b4b9d0f3af0d157610bf0",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/convene/badges/overall-abyss.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "f71b28ac70de8c76ef3d438580938b1d052d5cf23e6acb9a8c882dc24abb1546",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/convene/badges/overall-fate.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "1e44b2df900b7e01c0dd9b75bb056dc52f3d088761cace1e69009e8e8051550e",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/convene/badges/overall-headwind.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "bff57207e3b848eb945f11689e0469a6d16d8694a29e386e2c43edfc1fbfee6a",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/convene/badges/overall-lucky.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "f7dfd5df6dcf7d4bc2fb6fe3a55122423d240a54377e09c46bc4ad76bbdcf1b4",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/convene/badges/overall-observing.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "18d1046608126e3e153a8cc26c5b977ae42b4d90ffcf80a7cfddc4461a0cdead",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/convene/badges/overall-star.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "29929902825452fc2fc001e42ca31da966df9d9ad12488151a6d5fbfd410dd1a",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/convene/badges/overall-steady.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "b7e1cdc2035359c5ce950e52ff154e3649c9a8794977ba08075f61ba005eda4b",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/convene/character-fallback.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "7d2a2e44d876c593bde1265feb288812c8b96ab362b1f152083597f35ffe97bb",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/weapons/3star/README.md",
+    "taskStartSHA256": null,
+    "finalSHA256": "0ac042192601f034898f1683ee4a280ca8a250b7f8b0ada6abbd1534d9524f16",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/weapons/4star/README.md",
+    "taskStartSHA256": null,
+    "finalSHA256": "0ac042192601f034898f1683ee4a280ca8a250b7f8b0ada6abbd1534d9524f16",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/weapons/5star/README.md",
+    "taskStartSHA256": null,
+    "finalSHA256": "0ac042192601f034898f1683ee4a280ca8a250b7f8b0ada6abbd1534d9524f16",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/weapons/fallback-broadblade.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "baebe07746a7d2d9ac4b76fef5827df9b1b72181387bdea7cf8ab76270d9a8a7",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/weapons/fallback-gauntlets.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "d33757438ac446497f1e49a8b2bf2b97c763b951ba5ac8f46e800c8093c91c0f",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/weapons/fallback-pistols.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "1a191a49f4663446d4c4bfd2efc8694fccb0526b336936f7ffce0cce2ab4b675",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/weapons/fallback-rectifier.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "6a48d040c99bc0869944785f6b8824083c2b98878e632f9b400d6d09ab295d19",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/weapons/fallback-sword.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "0fe68ea633f2c07e2f3f1ec56580de2c0e998af2c5064ac53ab4ac4547c983b9",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "image/weapons/fallback.svg",
+    "taskStartSHA256": null,
+    "finalSHA256": "420a9f44c9fecd68bd04061a612b42480d5486ffdd515ea8f033a081e213e801",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "js/convene-assets.js",
+    "taskStartSHA256": null,
+    "finalSHA256": "310b6489b4593927e937e04ad6668d4ba64b70c33166b0b4df9133e0ceba9455",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "js/convene-i18n.js",
+    "taskStartSHA256": "8f4bd30d05ec2197eaf4eaacc4030c67b33c821b5ed6c212b38fd585f7c3fb8f",
+    "finalSHA256": "7a49e476f3ddd0ed9ad12fc1bf1951f91814cc8609137c2f9477617b9d63bd7d",
+    "baseline": "task-start snapshot"
+  },
+  {
+    "path": "js/convene-share.js",
+    "taskStartSHA256": "cb6b215d7b8bbb665795b3ed34d4858c8141cdf8992629dea72bb1aeb8d8b006",
+    "finalSHA256": "181803b8c90baf5802431d9ca2fcc558ce0921ba75137cbc819364be115394ce",
+    "baseline": "task-start snapshot"
+  },
+  {
+    "path": "js/convene-ui.js",
+    "taskStartSHA256": "b130efab2c64f0a4c933412e39570bc43668573ed34bf1e750f66f9b883be284",
+    "finalSHA256": "58b75feecc64e8996f07771f938eeb3bd44ae59976653749de27a0528afccafa",
+    "baseline": "task-start snapshot"
+  },
+  {
+    "path": "js/convene-visuals.js",
+    "taskStartSHA256": "b10bd631cf4aea004b4c7ed884b939ccf789b4925d13d83c0267df831e413074",
+    "finalSHA256": "d3df15ed0d4a620e5d03b7f334d0aa808bd7ce5e04b62f969c16447da9117d71",
+    "baseline": "task-start snapshot"
+  },
+  {
+    "path": "js/weapon-catalog.js",
+    "taskStartSHA256": null,
+    "finalSHA256": "3c025f935768bbaf28f96135416d86354a24eefc99ca0b372c6dcdd9a15bbe97",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "js/weapon-portraits.js",
+    "taskStartSHA256": null,
+    "finalSHA256": "a10f180821ceca26a518a252185d3ce5164c58ad0f4737ffdcdf1604864828f0",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "scripts/check-convene-art.cjs",
+    "taskStartSHA256": null,
+    "finalSHA256": "64949038d6303b9b0e2c79d39a6deb4c56d3f8eea31285c8e9ed4c009bf9a66a",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "tests/convene-artwork.test.cjs",
+    "taskStartSHA256": null,
+    "finalSHA256": "67ce5304d3a627373b880df4cd3bf1546323bb45abf7777615c7221863dee946",
+    "baseline": "new or regenerated; no prior hash captured"
+  },
+  {
+    "path": "tests/convene-optimization-browser.cjs",
+    "taskStartSHA256": null,
+    "finalSHA256": "c4e646691f65f05e5cb52825a7122410167ed9d872b08e0729395c750101dc39",
+    "baseline": "new or regenerated; no prior hash captured"
+  }
+]

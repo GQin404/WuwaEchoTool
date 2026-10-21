@@ -1,0 +1,450 @@
+[
+  {
+    "id": 1,
+    "gid": 1304,
+    "name": "今汐",
+    "cls": "mcr-jinxi",
+    "image": "image/characters/jinxi.webp"
+  },
+  {
+    "id": 2,
+    "gid": 1205,
+    "name": "长离",
+    "cls": "mcr-changli",
+    "image": "image/characters/changli.webp"
+  },
+  {
+    "id": 3,
+    "gid": 1404,
+    "name": "忌炎",
+    "cls": "mcr-jiyan",
+    "image": "image/characters/jiyan.webp"
+  },
+  {
+    "id": 4,
+    "gid": 1203,
+    "name": "安可",
+    "cls": "mcr-anke",
+    "image": "image/characters/anke.webp"
+  },
+  {
+    "id": 5,
+    "gid": 1605,
+    "name": "暗主-男",
+    "cls": "mcr-nanzhu-an",
+    "image": "image/characters/nanzhu-an.webp"
+  },
+  {
+    "id": 6,
+    "gid": 1501,
+    "name": "光主-男",
+    "cls": "mcr-nanzhu-guang",
+    "image": "image/characters/nanzhu-guang.webp"
+  },
+  {
+    "id": 7,
+    "gid": 1503,
+    "name": "维里奈",
+    "cls": "mcr-weilinai",
+    "image": "image/characters/weilinai.webp"
+  },
+  {
+    "id": 8,
+    "gid": 1302,
+    "name": "吟霖",
+    "cls": "mcr-yinlin",
+    "image": "image/characters/yinlin.webp"
+  },
+  {
+    "id": 9,
+    "gid": 1405,
+    "name": "鉴心",
+    "cls": "mcr-jianxin",
+    "image": "image/characters/jianxin.webp"
+  },
+  {
+    "id": 10,
+    "gid": 1301,
+    "name": "卡卡罗",
+    "cls": "mcr-kakaluo",
+    "image": "image/characters/kakaluo.webp"
+  },
+  {
+    "id": 11,
+    "gid": 1104,
+    "name": "雪豹",
+    "cls": "mcr-lingyang",
+    "image": "image/characters/lingyang.webp"
+  },
+  {
+    "id": 12,
+    "gid": 1204,
+    "name": "莫特斐",
+    "cls": "mcr-motefei",
+    "image": "image/characters/motefei.webp"
+  },
+  {
+    "id": 13,
+    "gid": 1103,
+    "name": "白芷",
+    "cls": "mcr-baizhi",
+    "image": "image/characters/baizhi.webp"
+  },
+  {
+    "id": 14,
+    "gid": 1303,
+    "name": "渊武",
+    "cls": "mcr-yuanwu",
+    "image": "image/characters/yuanwu.webp"
+  },
+  {
+    "id": 15,
+    "gid": 1402,
+    "name": "秧秧",
+    "cls": "mcr-yangyang",
+    "image": "image/characters/yangyang.webp"
+  },
+  {
+    "id": 16,
+    "gid": 1202,
+    "name": "赤霞",
+    "cls": "mcr-chixia",
+    "image": "image/characters/chixia.webp"
+  },
+  {
+    "id": 17,
+    "gid": 1602,
+    "name": "丹瑾",
+    "cls": "mcr-danjin",
+    "image": "image/characters/danjin.webp"
+  },
+  {
+    "id": 18,
+    "gid": 1403,
+    "name": "秋水",
+    "cls": "mcr-qiushui",
+    "image": "image/characters/qiushui.webp"
+  },
+  {
+    "id": 19,
+    "gid": 1102,
+    "name": "散华",
+    "cls": "mcr-sanhua",
+    "image": "image/characters/sanhua.webp"
+  },
+  {
+    "id": 20,
+    "gid": 1601,
+    "name": "桃祁",
+    "cls": "mcr-taoqi",
+    "image": "image/characters/taoqi.webp"
+  },
+  {
+    "id": 21,
+    "gid": 1502,
+    "name": "光主-女",
+    "cls": "mcr-nvzhu-guang",
+    "image": "image/characters/nvzhu-guang.webp"
+  },
+  {
+    "id": 22,
+    "gid": 1604,
+    "name": "暗主-女",
+    "cls": "mcr-nvzhu-an",
+    "image": "image/characters/nvzhu-an.webp"
+  },
+  {
+    "id": 23,
+    "gid": 1105,
+    "name": "折枝",
+    "cls": "mcr-zhezhi",
+    "image": "image/characters/zhezhi.webp"
+  },
+  {
+    "id": 24,
+    "gid": 1305,
+    "name": "相里要",
+    "cls": "mcr-xiangliyao",
+    "image": "image/characters/xiangliyao.webp"
+  },
+  {
+    "id": 25,
+    "gid": 1505,
+    "name": "守岸人",
+    "cls": "mcr-shouanren",
+    "image": "image/characters/shouanren.webp"
+  },
+  {
+    "id": 26,
+    "gid": 1106,
+    "name": "釉瑚",
+    "cls": "mcr-youhu",
+    "image": "image/characters/youhu.webp"
+  },
+  {
+    "id": 27,
+    "gid": 1603,
+    "name": "椿",
+    "cls": "mcr-chun",
+    "image": "image/characters/chun.webp"
+  },
+  {
+    "id": 28,
+    "gid": 1504,
+    "name": "灯灯",
+    "cls": "mcr-dengdeng",
+    "image": "image/characters/dengdeng.webp"
+  },
+  {
+    "id": 29,
+    "gid": 1107,
+    "name": "珂莱塔",
+    "cls": "mcr-kelaita",
+    "image": "image/characters/kelaita.webp"
+  },
+  {
+    "id": 30,
+    "gid": 1606,
+    "name": "洛可可",
+    "cls": "mcr-luokeke",
+    "image": "image/characters/luokeke.webp"
+  },
+  {
+    "id": 31,
+    "gid": 1507,
+    "name": "赞妮",
+    "cls": "mcr-zanni",
+    "image": "image/characters/zanni.webp"
+  },
+  {
+    "id": 32,
+    "gid": 1506,
+    "name": "菲比",
+    "cls": "mcr-feibi",
+    "image": "image/characters/feibi.webp"
+  },
+  {
+    "id": 33,
+    "gid": 1206,
+    "name": "布兰特",
+    "cls": "mcr-bulante",
+    "image": "image/characters/bulante.webp"
+  },
+  {
+    "id": 34,
+    "gid": 1607,
+    "name": "坎特雷拉",
+    "cls": "mcr-kanteleila",
+    "image": "image/characters/kanteleila.webp"
+  },
+  {
+    "id": 35,
+    "gid": 1408,
+    "name": "风主女",
+    "cls": "mcr-nvzhu-feng",
+    "image": "image/characters/nvzhu-feng.webp"
+  },
+  {
+    "id": 36,
+    "gid": 1406,
+    "name": "风主男",
+    "cls": "mcr-nanzhu-feng",
+    "image": "image/characters/nanzhu-feng.webp"
+  },
+  {
+    "id": 37,
+    "gid": 1407,
+    "name": "夏空",
+    "cls": "mcr-xiakong",
+    "image": "image/characters/xiakong.webp"
+  },
+  {
+    "id": 38,
+    "gid": 1409,
+    "name": "卡提希娅",
+    "cls": "mcr-katixiya",
+    "image": "image/characters/katixiya.webp"
+  },
+  {
+    "id": 39,
+    "gid": 1207,
+    "name": "露帕",
+    "cls": "mcr-lupa",
+    "image": "image/characters/lupa.webp"
+  },
+  {
+    "id": 40,
+    "gid": 1608,
+    "name": "弗洛洛",
+    "cls": "mcr-fuluoluo",
+    "image": "image/characters/fuluoluo.webp"
+  },
+  {
+    "id": 41,
+    "gid": 1306,
+    "name": "奥古斯塔",
+    "cls": "mcr-aogusita",
+    "image": "image/characters/aogusita.webp"
+  },
+  {
+    "id": 42,
+    "gid": 1410,
+    "name": "尤诺",
+    "cls": "mcr-younuo",
+    "image": "image/characters/younuo.webp"
+  },
+  {
+    "id": 43,
+    "gid": 1208,
+    "name": "嘉贝莉娜",
+    "cls": "mcr-jiabeilina",
+    "image": "image/characters/jiabeilina.webp"
+  },
+  {
+    "id": 44,
+    "gid": 1411,
+    "name": "仇远",
+    "cls": "mcr-qiuyuan",
+    "image": "image/characters/qiuyuan.webp"
+  },
+  {
+    "id": 45,
+    "gid": 1508,
+    "name": "千咲",
+    "cls": "mcr-qianxiao",
+    "image": "image/characters/qianxiao.webp"
+  },
+  {
+    "id": 46,
+    "gid": 1307,
+    "name": "卜灵",
+    "cls": "mcr-buling",
+    "image": "image/characters/buling.webp"
+  },
+  {
+    "id": 47,
+    "gid": 1509,
+    "name": "琳奈",
+    "cls": "mcr-linnai",
+    "image": "image/characters/linnai.webp"
+  },
+  {
+    "id": 48,
+    "gid": 1209,
+    "name": "莫宁",
+    "cls": "mcr-moning",
+    "image": "image/characters/moning.webp"
+  },
+  {
+    "id": 49,
+    "gid": 0,
+    "name": "爱弥斯",
+    "cls": "mcr-aemeath",
+    "image": "image/characters/aemeath.webp"
+  },
+  {
+    "id": 50,
+    "gid": 0,
+    "name": "陆·赫斯",
+    "cls": "mcr-luuk-herssen",
+    "image": "image/characters/luuk-herssen.webp"
+  },
+  {
+    "id": 51,
+    "gid": 0,
+    "name": "西格莉卡",
+    "cls": "mcr-xigelika",
+    "image": "image/characters/xigelika.webp"
+  },
+  {
+    "id": 52,
+    "gid": 0,
+    "name": "绯雪",
+    "cls": "mcr-feixue",
+    "image": "image/characters/feixue.webp"
+  },
+  {
+    "id": 53,
+    "gid": 0,
+    "name": "达妮娅",
+    "cls": "mcr-daniya",
+    "image": "image/characters/daniya.webp"
+  },
+  {
+    "id": 54,
+    "gid": 0,
+    "name": "露西",
+    "cls": "mcr-luxi",
+    "image": "image/characters/luxi.webp"
+  },
+  {
+    "id": 55,
+    "gid": 0,
+    "name": "丽贝卡",
+    "cls": "mcr-leibeika",
+    "image": "image/characters/leibeika.webp"
+  },
+  {
+    "id": 56,
+    "gid": 0,
+    "name": "洛瑟菈",
+    "cls": "mcr-luosela",
+    "image": "image/characters/luosela.webp"
+  },
+  {
+    "id": 57,
+    "gid": 0,
+    "name": "漂泊者·导电（女）",
+    "cls": "mcr-nvzhu-dian",
+    "image": "image/characters/nvzhu-dian.webp"
+  },
+  {
+    "id": 58,
+    "gid": 0,
+    "name": "漂泊者·导电（男）",
+    "cls": "mcr-nanzhu-dian",
+    "image": "image/characters/nanzhu-dian.webp"
+  },
+  {
+    "id": 59,
+    "gid": 0,
+    "name": "秧秧·玄翎",
+    "cls": "mcr-yangyang-xuanling",
+    "image": "image/characters/yangyang-xuanling.webp"
+  },
+  {
+    "id": 60,
+    "gid": 0,
+    "name": "穗穗",
+    "cls": "mcr-suisui",
+    "image": "image/characters/suisui.webp"
+  },
+  {
+    "id": 61,
+    "gid": 0,
+    "name": "清宵",
+    "cls": "mcr-qingxiao",
+    "image": "image/characters/qingxiao.webp"
+  },
+  {
+    "id": 62,
+    "gid": 0,
+    "name": "景燃",
+    "cls": "mcr-jingran",
+    "image": "image/characters/jingran.webp"
+  },
+  {
+    "id": 63,
+    "gid": 0,
+    "name": "心",
+    "cls": "mcr-xin",
+    "image": "image/characters/xin.webp"
+  },
+  {
+    "id": 64,
+    "gid": 0,
+    "name": "锁暝",
+    "cls": "mcr-suoming",
+    "image": "image/characters/suoming.webp"
+  }
+]

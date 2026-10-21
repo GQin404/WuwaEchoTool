@@ -1,0 +1,10 @@
+from pathlib import Path
+p=Path('tests/convene-complete-browser.cjs');t=p.read_text('utf-8').replace("p.locator('[data-cover-pool] img')","p.locator('.cv-featured-pools [data-cover-pool] img')");p.write_text(t,encoding='utf-8',newline='\n')
+p=Path('tests/convene-optimization-browser.cjs');t=p.read_text('utf-8')
+t=t.replace("await ctx.route(/^https:\\/\\//,r=>r.abort());", "await ctx.route(/^https:\\/\\//,r=>r.abort());await ctx.route('**/image/convene-current/*.webp',r=>r.abort());")
+t=t.replace("await p.locator('[data-account]').selectOption(a);A.equal", "await p.locator('[data-account]').selectOption(a);await p.waitForFunction(()=>document.querySelector('[data-cover-pool=\"1\"] img')?.getAttribute('src')==='image/characters/jinxi.webp');A.equal")
+t=t.replace("const ctx=await browser.newContext({viewport:{width:1440,height:1000}}),p=last=await ctx.newPage();await p.goto", "const ctx=await browser.newContext({viewport:{width:1440,height:1000}}),p=last=await ctx.newPage();await ctx.route('**/image/convene-current/*.webp',r=>r.abort());await p.goto")
+t=t.replace("A.equal(await p.locator('[data-cover-pool=\"2\"] img').getAttribute('src'),'image/weapons/fallback.svg');", "await p.waitForFunction(()=>document.querySelector('[data-cover-pool=\"2\"] img')?.getAttribute('src')==='image/weapons/fallback.svg');")
+t=t.replace('productionCatalogEntries:0','productionCatalogEntries:114').replace('// Production has no fabricated weapon catalog; its neutral arsenal placeholder is not the old fixed sword.','// Unknown fixture IDs remain unmapped in the verified catalog; force missing editorial covers to test acquisition fallback.').replace('production-empty-weapon-catalog.png','production-unmapped-weapon-fallback.png').replace('stable ID covers, account/import updates','missing editorial cover with stable ID fallback, account/import updates')
+p.write_text(t,encoding='utf-8',newline='\n')
+print('Updated acceptance scope for manual primary art and acquisition fallback; all prior coverage retained.')

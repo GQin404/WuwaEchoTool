@@ -1,0 +1,1 @@
+PASS 6 desktop/mobile × three-language flows, 30 share PNGs (24 variants + 6 continuation pages), real IndexedDB, mocked API.

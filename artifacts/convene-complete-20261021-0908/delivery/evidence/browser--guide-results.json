@@ -1,0 +1,114 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "copyVisibleWithoutScroll": true,
+      "clipboardEqualsCommand": true,
+      "downloadEqualsCommand": true,
+      "localBackupPresent": true,
+      "noFakeVideo": true
+    },
+    {
+      "width": 1440,
+      "locale": "zh-TW",
+      "copyVisibleWithoutScroll": true,
+      "clipboardEqualsCommand": true,
+      "downloadEqualsCommand": true,
+      "localBackupPresent": true,
+      "noFakeVideo": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "copyVisibleWithoutScroll": true,
+      "clipboardEqualsCommand": true,
+      "downloadEqualsCommand": true,
+      "localBackupPresent": true,
+      "noFakeVideo": true
+    },
+    {
+      "width": 768,
+      "locale": "zh-CN",
+      "copyVisibleWithoutScroll": true,
+      "clipboardEqualsCommand": true,
+      "downloadEqualsCommand": true,
+      "localBackupPresent": true,
+      "noFakeVideo": true
+    },
+    {
+      "width": 768,
+      "locale": "zh-TW",
+      "copyVisibleWithoutScroll": true,
+      "clipboardEqualsCommand": true,
+      "downloadEqualsCommand": true,
+      "localBackupPresent": true,
+      "noFakeVideo": true
+    },
+    {
+      "width": 768,
+      "locale": "en",
+      "copyVisibleWithoutScroll": true,
+      "clipboardEqualsCommand": true,
+      "downloadEqualsCommand": true,
+      "localBackupPresent": true,
+      "noFakeVideo": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "copyVisibleWithoutScroll": true,
+      "clipboardEqualsCommand": true,
+      "downloadEqualsCommand": true,
+      "localBackupPresent": true,
+      "noFakeVideo": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-TW",
+      "copyVisibleWithoutScroll": true,
+      "clipboardEqualsCommand": true,
+      "downloadEqualsCommand": true,
+      "localBackupPresent": true,
+      "noFakeVideo": true
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "copyVisibleWithoutScroll": true,
+      "clipboardEqualsCommand": true,
+      "downloadEqualsCommand": true,
+      "localBackupPresent": true,
+      "noFakeVideo": true
+    },
+    {
+      "width": 360,
+      "locale": "zh-CN",
+      "copyVisibleWithoutScroll": true,
+      "clipboardEqualsCommand": true,
+      "downloadEqualsCommand": true,
+      "localBackupPresent": true,
+      "noFakeVideo": true
+    },
+    {
+      "width": 360,
+      "locale": "zh-TW",
+      "copyVisibleWithoutScroll": true,
+      "clipboardEqualsCommand": true,
+      "downloadEqualsCommand": true,
+      "localBackupPresent": true,
+      "noFakeVideo": true
+    },
+    {
+      "width": 360,
+      "locale": "en",
+      "copyVisibleWithoutScroll": true,
+      "clipboardEqualsCommand": true,
+      "downloadEqualsCommand": true,
+      "localBackupPresent": true,
+      "noFakeVideo": true
+    }
+  ],
+  "pageErrors": [],
+  "realGame": false
+}

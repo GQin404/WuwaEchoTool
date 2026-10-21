@@ -1,0 +1,1 @@
+warning: in the working copy of '_headers', LF will be replaced by CRLF the next time Git touches it

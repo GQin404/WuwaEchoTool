@@ -1,0 +1,1 @@
+PASS 12 complete browser matrices: manual covers and refresh, historical identities, fallbacks, four PNG modes/UID/targets, Windows command, four widths/three locales, archive preservation.

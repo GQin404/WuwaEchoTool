@@ -1,0 +1,24 @@
+✔ weapon ID is authoritative across all names/locales; unknown IDs never borrow another weapon image (0.5591ms)
+✔ weapon aliases are exact normalized and unique; ambiguity and substrings cannot guess artwork (0.1169ms)
+✔ local-only catalog rejects URLs, traversal, duplicate IDs, invalid rarity and category (0.3478ms)
+✔ missing weapon assets use distinct dedicated categories and list stable IDs once (0.213ms)
+✔ character identity is canonical, independent of UI locale and imported display-name spelling (0.2063ms)
+✔ latest acquired cover sorts times and numeric equal-time sequence; never assumes active UP (5.7414ms)
+✔ all shipped category placeholders exist, have bounded dimensions and transparent SVG backgrounds (1.8828ms)
+✔ read-only selection across accounts and added records cannot alter source archives or scoring (0.158ms)
+✔ all 64 existing character portraits retain their filenames and three locale names resolve to one identity (11.4413ms)
+✔ historical localized names include canonical Lingyang and old project nicknames without stealing identities (0.0913ms)
+✔ Rover genders and elemental forms remain distinct; unverifiable new gender IDs stay unmapped (0.1161ms)
+✔ all 114 historical weapon identities have three translations, explicit types/ranks and independent missing art (0.7352ms)
+✔ manual fixed cover is independent from latest pull; ordered fallback retains real records without modification (1.2788ms)
+✔ six badge ranks preserve every preceding structural primitive within two different families (3.0996ms)
+✔ copy-normalized Fragment links preserve Global/CN identity and ignore legal varying gacha IDs (1.4127ms)
+✔ overall tier boundaries have no overlap and remain unchanged by visual work (0.1135ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 182.864

@@ -1,0 +1,23 @@
+✔ opaque server identifiers retain numeric compatibility, case and account separation (0.7252ms)
+✔ official fragment URLs tolerate wrapping, encoding, parameter order and metadata without guessing region (0.707ms)
+✔ URL failures classify format, missing and invalid parameters without disclosing values (0.476ms)
+✔ alpha-server archives, backups and account merges are idempotent without schema migration (23.5626ms)
+✔ proxy accepts opaque servers and rejects identity delimiters; response cannot echo authorization (16.2791ms)
+✔ request errors distinguish upstream failure, proxy configuration, rejection, malformed payload and timeout (1.2892ms)
+✔ R0 through R6 count every pool draw after a proven boundary, not the sum of target intervals (12.5778ms)
+✔ actual banner investment remains unknown despite an otherwise verifiable window (2.2407ms)
+✔ one acquisition can receive window evaluation without inheriting the overall sample gate (0.6522ms)
+✔ seven and twelve acquisitions produce identical R6 score and preserve all five excess records (4.024ms)
+✔ censored origin and unjoined history remain under observation (4.2266ms)
+✔ cross-pool acquisitions cannot fabricate combined event investment or pity inheritance (0.6474ms)
+✔ internal target-normalized score has deterministic bounds and compares different targets fairly (2.4557ms)
+✔ target computation leaves annotations, intervals, overall formula and archive bytes untouched (11.5135ms)
+✔ two badge families have distinct contours, tier geometry and local transparent SVG assets (3.895ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 190.3803

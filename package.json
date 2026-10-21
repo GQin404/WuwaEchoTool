@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "test": "node --test tests/*.test.cjs",
-    "check:static": "node tests/ui-ux-static.cjs"
+    "check:static": "node tests/ui-ux-static.cjs",
+    "start": "node scripts/serve.cjs",
+    "test:convene:browser": "node tests/convene-player-browser.cjs",
+    "test:convene:themes": "node tests/convene-theme-browser.cjs"
   }
 }

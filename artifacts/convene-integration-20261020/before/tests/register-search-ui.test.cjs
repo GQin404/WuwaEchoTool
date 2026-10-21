@@ -1,0 +1,12 @@
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+test('advanced counts compare each control to its own default and count multi-select once',()=>{
+ const env={};vm.runInNewContext(fs.readFileSync('js/register-search-ui.js','utf8'),env);
+ const control=(dataset,value)=>({dataset,value,type:'select-one',hasAttribute:()=>false}),inputs=[control({libraryFilter:'sort'},'recent'),control({libraryField:'contextRole'},''),control({historyFilter:'status'},'all'),control({libraryFilter:'cost'},''),{dataset:{libraryFilter:'favorite'},type:'checkbox',checked:false}];
+ const panel={querySelectorAll:()=>inputs};assert.equal(env.RegisterSearchUI.count(panel),0);inputs[0].value='name';inputs[1].value='100';inputs[4].checked=true;assert.equal(env.RegisterSearchUI.count(panel),3);inputs.push({dataset:{},hasAttribute:()=>false,multiple:true,selectedOptions:[{value:'A'},{value:'B'}]});assert.equal(env.RegisterSearchUI.count(panel),4);inputs[0].value='recent';assert.equal(env.RegisterSearchUI.count(panel),3);
+});
+test('selecting an Echo reuses normalized library readings; changing source invalidates the cache without writes',()=>{
+ const env={$:()=>{},console:{log(){}}};vm.runInNewContext(fs.readFileSync('js/base.js','utf8')+';globalThis.api={roleList,costList,suiteAttributeMap,newCharacterModels,getRoleScoreConfig,getScoreDetails,countScores,countMainAttr,countMainAttr2,getRoleEnergyCorrection};',env);vm.runInNewContext(fs.readFileSync('js/register-secondary-views.js','utf8'),env);
+ const real=require('../js/role-view-model.js').createAdapter(env.api),i18n=require('../js/i18n.js').create({language:'en'});let reads=0;const normalize=x=>{reads++;return real(x);},entry=env.api.costList.find(e=>e.type==='Cost1');
+ const data={role:[],unusedEchoes:Array.from({length:200},(_,i)=>({costId:i,costListId:entry.id,type:'Cost1',suite:null,mainAtrri:'攻击18%',propertyList:[]}))},state={search:'',sort:'recent',selected:null},before=JSON.stringify(data),views=env.RegisterSecondaryViews.create({i18n,esc:String,name:(k,id)=>String(id),url:m=>m,normalize,roleLink:()=>'',catalog:env.api.costList,suites:{}});
+ views.library(data,state);assert.equal(reads,200);views.library(data,{...state,selected:'1',detailOpen:true},{omitList:true});assert.equal(reads,200);assert.equal(JSON.stringify(data),before);data.unusedEchoes[1].mainAtrri='生命22.8%';views.library(data,state);assert.equal(reads,400);
+});

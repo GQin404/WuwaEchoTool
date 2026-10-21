@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>计分基准规则</title>
+    <link href="library/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="library/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet"/>
+    <link href="library/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet"/>
+    <link href="css/base.css" rel="stylesheet"/>
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon"/>
+    <!--  作者：哲字君  2024-08-02  !-->
+    <link href="css/character-dock.css" rel="stylesheet"/>
+    <script src="js/ui-view.js"></script>
+</head>
+<body>
+<div class="mc-main-page">
+    <!--  header  !-->
+    <div class="mc-title">
+        <span class="mc-title-name">鸣潮声骸评分工具</span>
+    </div>
+    <div class="mc-rule-info">
+        1.声骸满分设定为100分，锚定的属性为角色理想属性且属性值均使用最大值。<br><br>
+        2.鸣潮伤害分如下几个独立乘区：攻击力-暴击-爆伤-属伤专伤(普攻重击大招共技与属伤加算)-伤害加深-技能倍率，每个区间的数值堆叠都有边际效益，现在想计算每个乘区内1%的数值，对实际伤害的提升幅度，只能采用90级带专武毕业面板同时吃满奶辅BUFF的情况下，去计算整个区间的平均提升。例如
+        满级五星C位角色平均基础攻击力1050+，吃满维20%+奶套15%+轻云22.5%+6命辅20%合计77.5%的攻击力，此时你的攻击面板达到1864，这时1%攻击力是10点攻击，提升总伤害0.536%，在90级吃满BUFF攻击力轻松破3000，这时10攻击力提升0.333%，
+        我们取个均值0.435%，这应该就是你的装备带来的真实总伤害提升了，即每增加1%攻击力你的总伤害提升0.435%是叠乘的，同理计算其他乘区，我们现在以1%攻击力的总伤提升作为1积点，最终统计得到各乘区权重如下表：
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">序号</th>
+                <th scope="col">对象</th>
+                <th scope="col">属性</th>
+                <th scope="col">属性值</th>
+                <th scope="col">系数</th>
+                <th scope="col">积点</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>C位</td>
+                <td>暴击</td>
+                <td>1%</td>
+                <td>1.8</td>
+                <td>1.8</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>C位</td>
+                <td>暴伤</td>
+                <td>1%</td>
+                <td>0.9</td>
+                <td>0.9</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>C位</td>
+                <td>大攻击</td>
+                <td>1%</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>C位</td>
+                <td>小攻击</td>
+                <td>10</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>C位</td>
+                <td>属伤</td>
+                <td>1%</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td>C位</td>
+                <td>专伤</td>
+                <td>1%</td>
+                <td>1*n</td>
+                <td>1n</td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td>C位</td>
+                <td>共鸣效率<40%</td>
+                <td>1%</td>
+                <td>0.5</td>
+                <td>0.5</td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td>C位</td>
+                <td>共鸣效率>40%</td>
+                <td>1%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th scope="row">8</th>
+                <td>C位</td>
+                <td>生防</td>
+                <td>1%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            </tbody>
+        </table>
+        3.专伤指的是专项增伤，例如技能/共鸣解放/普攻/重击伤害增加，由于每个角色的伤害输出类型分布占比不同，对角色的有效性加成也不同，于是用n进行代替，下面列出所有角色(5星默认0命4星默认满命)的伤害组成(所列即为对应n值)：
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">序号</th>
+                <th scope="col">角色</th>
+                <th scope="col">普攻</th>
+                <th scope="col">重击</th>
+                <th scope="col">解放</th>
+                <th scope="col">技能</th>
+                <th scope="col">其他</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>今汐</td>
+                <td>2%</td>
+                <td>0</td>
+                <td>20%</td>
+                <td>72%</td>
+                <td>6%</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>忌炎</td>
+                <td>2%</td>
+                <td>68%</td>
+                <td>0</td>
+                <td>11%</td>
+                <td>19%</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>长离</td>
+                <td>1%</td>
+                <td>0%</td>
+                <td>27%</td>
+                <td>59%</td>
+                <td>13%</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>安可</td>
+                <td>59%</td>
+                <td>2%</td>
+                <td>5%</td>
+                <td>12%</td>
+                <td>22%</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>鉴心</td>
+                <td>24%</td>
+                <td>31%</td>
+                <td>27%</td>
+                <td>6%</td>
+                <td>12%</td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td>卡卡罗</td>
+                <td>20%</td>
+                <td>3%</td>
+                <td>52%</td>
+                <td>5%</td>
+                <td>20%</td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td>雪豹</td>
+                <td>40%</td>
+                <td>4%</td>
+                <td>4%</td>
+                <td>30%</td>
+                <td>22%</td>
+            </tr>
+            <tr>
+                <th scope="row">8</th>
+                <td>吟霖</td>
+                <td>8%</td>
+                <td>20%</td>
+                <td>21%</td>
+                <td>37%</td>
+                <td>14%</td>
+            </tr>
+            <tr>
+                <th scope="row">9</th>
+                <td>暗主</td>
+                <td>20%</td>
+                <td>5%</td>
+                <td>30%</td>
+                <td>25%</td>
+                <td>20%</td>
+            </tr>
+            <tr>
+                <th scope="row">10</th>
+                <td>光主(2.0)</td>
+                <td>11%</td>
+                <td>31%</td>
+                <td>23%</td>
+                <td>21%</td>
+                <td>14%</td>
+            </tr>
+            <tr>
+                <th scope="row">11</th>
+                <td>秋水</td>
+                <td>25%</td>
+                <td>0%</td>
+                <td>22%</td>
+                <td>33%</td>
+                <td>20%</td>
+            </tr>
+            <tr>
+                <th scope="row">12</th>
+                <td>莫特斐</td>
+                <td>15%</td>
+                <td>0%</td>
+                <td>48%</td>
+                <td>31%</td>
+                <td>6%</td>
+            </tr>
+            <tr>
+                <th scope="row">13</th>
+                <td>丹瑾</td>
+                <td>8%</td>
+                <td>32%</td>
+                <td>20%</td>
+                <td>22%</td>
+                <td>18%</td>
+            </tr>
+            <tr>
+                <th scope="row">14</th>
+                <td>炽霞</td>
+                <td>6%</td>
+                <td>0%</td>
+                <td>35%</td>
+                <td>46%</td>
+                <td>13%</td>
+            </tr>
+            <tr>
+                <th scope="row">15</th>
+                <td>散华</td>
+                <td>2%</td>
+                <td>30%</td>
+                <td>32%</td>
+                <td>30%</td>
+                <td>6%</td>
+            </tr>
+            <tr>
+                <th scope="row">16</th>
+                <td>渊武</td>
+                <td>5%</td>
+                <td>0%</td>
+                <td>46%</td>
+                <td>45%</td>
+                <td>4%</td>
+            </tr>
+            <tr>
+                <th scope="row">17</th>
+                <td>秧秧</td>
+                <td>5%</td>
+                <td>28%</td>
+                <td>40%</td>
+                <td>22%</td>
+                <td>5%</td>
+            </tr>
+            <tr>
+                <th scope="row">18</th>
+                <td>桃祈</td>
+                <td>8%</td>
+                <td>0%</td>
+                <td>50%</td>
+                <td>38%</td>
+                <td>4%</td>
+            </tr>
+            <tr>
+                <th scope="row">19</th>
+                <td>折枝</td>
+                <td>54%</td>
+                <td>18%</td>
+                <td>0%</td>
+                <td>21%</td>
+                <td>7%</td>
+            </tr>
+            <tr>
+                <th scope="row">20</th>
+                <td>相里要</td>
+                <td>13%</td>
+                <td>5%</td>
+                <td>62%</td>
+                <td>7%</td>
+                <td>13%</td>
+            </tr>
+            <tr>
+                <th scope="row">21</th>
+                <td>守岸人</td>
+                <td>1%</td>
+                <td>1%</td>
+                <td>97%</td>
+                <td>0%</td>
+                <td>1%</td>
+            </tr>
+            <tr>
+                <th scope="row">22</th>
+                <td>釉瑚</td>
+                <td>11%</td>
+                <td>8%</td>
+                <td>29%</td>
+                <td>33%</td>
+                <td>19%</td>
+            </tr>
+            <tr>
+                <th scope="row">23</th>
+                <td>椿</td>
+                <td>66%</td>
+                <td>2%</td>
+                <td>22%</td>
+                <td>0%</td>
+                <td>10%</td>
+            </tr>
+            <tr>
+                <th scope="row">24</th>
+                <td>灯灯</td>
+                <td>64%</td>
+                <td>0%</td>
+                <td>20%</td>
+                <td>8%</td>
+                <td>8%</td>
+            </tr>
+            <tr>
+                <th scope="row">25</th>
+                <td>珂莱塔</td>
+                <td>11%</td>
+                <td>0%</td>
+                <td>0%</td>
+                <td>75%</td>
+                <td>14%</td>
+            </tr>
+            <tr>
+                <th scope="row">26</th>
+                <td>洛可可</td>
+                <td>3%</td>
+                <td>68%</td>
+                <td>0%</td>
+                <td>12%</td>
+                <td>17%</td>
+            </tr>
+            <tr>
+                <th scope="row">27</th>
+                <td>菲比</td>
+                <td>9%</td>
+                <td>54%</td>
+                <td>12%</td>
+                <td>4%</td>
+                <td>21%</td>
+            </tr>
+            <tr>
+                <th scope="row">28</th>
+                <td>布兰特</td>
+                <td>62%</td>
+                <td>0%</td>
+                <td>12%</td>
+                <td>12%</td>
+                <td>14%</td>
+            </tr>
+            <tr>
+                <th scope="row">29</th>
+                <td>坎特雷拉</td>
+                <td>79%</td>
+                <td>6%</td>
+                <td>0%</td>
+                <td>6%</td>
+                <td>9%</td>
+            </tr>
+            <tr>
+                <th scope="row">30</th>
+                <td>风主</td>
+                <td>8%</td>
+                <td>0%</td>
+                <td>17%</td>
+                <td>62%</td>
+                <td>13%</td>
+            </tr>
+            <tr>
+                <th scope="row">31</th>
+                <td>赞妮</td>
+                <td>3%</td>
+                <td>76%</td>
+                <td>12%</td>
+                <td>1%</td>
+                <td>9%</td>
+            </tr>
+            <tr>
+                <th scope="row">32</th>
+                <td>夏空</td>
+                <td>15%</td>
+                <td>23%</td>
+                <td>47%</td>
+                <td>6%</td>
+                <td>9%</td>
+            </tr>
+            <tr>
+                <th scope="row">33</th>
+                <td>卡提西娅</td>
+                <td>65%</td>
+                <td>3%</td>
+                <td>19%</td>
+                <td>10%</td>
+                <td>2%</td>
+            </tr>
+            <tr>
+                <th scope="row">34</th>
+                <td>露帕</td>
+                <td>10%</td>
+                <td>6%</td>
+                <td>64%</td>
+                <td>18%</td>
+                <td>2%</td>
+            </tr>
+            <tr>
+                <th scope="row">35</th>
+                <td>弗洛洛</td>
+                <td>8%</td>
+                <td>0%</td>
+                <td>5%</td>
+                <td>40%</td>
+                <td>47%</td>
+            </tr>
+            <tr>
+                <th scope="row">36</th>
+                <td>奥古斯塔</td>
+                <td>7%</td>
+                <td>73%</td>
+                <td>0%</td>
+                <td>17%</td>
+                <td>3%</td>
+            </tr>
+            <tr>
+                <th scope="row">37</th>
+                <td>尤诺</td>
+                <td>22%</td>
+                <td>0%</td>
+                <td>60%</td>
+                <td>15%</td>
+                <td>3%</td>
+            </tr>
+            <tr>
+                <th scope="row">38</th>
+                <td>嘉贝莉娜</td>
+                <td>0%</td>
+                <td>38%</td>
+                <td>0%</td>
+                <td>0%</td>
+                <td>62%</td>
+            </tr>
+            <tr>
+                <th scope="row">39</th>
+                <td>仇远</td>
+                <td>0%</td>
+                <td>56%</td>
+                <td>0%</td>
+                <td>0%</td>
+                <td>44%</td>
+            </tr>
+            <tr>
+                <th scope="row">40</th>
+                <td>千咲</td>
+                <td>7%</td>
+                <td>0%</td>
+                <td>75%</td>
+                <td>4%</td>
+                <td>13%</td>
+            </tr>
+            <tr>
+                <th scope="row">41</th>
+                <td>琳奈</td>
+                <td>61%</td>
+                <td>0%</td>
+                <td>15%</td>
+                <td>3%</td>
+                <td>21%</td>
+            </tr>
+            <tr>
+                <th scope="row">42</th>
+                <td>莫宁</td>
+                <td>12%</td>
+                <td>8%</td>
+                <td>28%</td>
+                <td>45%</td>
+                <td>7%</td>
+            </tr>
+            <tr>
+                <th scope="row">43</th>
+                <td>爱弥斯</td>
+                <td>8%</td>
+                <td>0%</td>
+                <td>70%</td>
+                <td>2%</td>
+                <td>20%</td>
+            </tr>
+            <tr>
+                <th scope="row">44</th>
+                <td>陆·赫斯</td>
+                <td>62%</td>
+                <td>3%</td>
+                <td>15%</td>
+                <td>12%</td>
+                <td>8%</td>
+            </tr>
+            <tr>
+                <th scope="row">45</th>
+                <td>西格莉卡</td>
+                <td>5%</td>
+                <td>0%</td>
+                <td>0%</td>
+                <td>1%</td>
+                <td>94%</td>
+            </tr>
+            <tr>
+                <th scope="row">46</th>
+                <td>绯雪</td>
+                <td>2%</td>
+                <td>0%</td>
+                <td>81%</td>
+                <td>7%</td>
+                <td>10%</td>
+            </tr>
+            <tr>
+                <th scope="row">47</th>
+                <td>达妮娅</td>
+                <td>5%</td>
+                <td>0%</td>
+                <td>75%</td>
+                <td>15%</td>
+                <td>5%</td>
+            </tr>
+            </tbody>
+        </table>
+        <p>西格莉卡、绯雪、达妮娅上表为零链估值，0–6链独立配置见下表，均非官方伤害占比。西格莉卡的声骸技能伤害、绯雪的霜冻效应归入“其他”，不套用四类伤害加成。达妮娅按虚质粒子充足、蚀域持续命中的副输出流程估算。不同队伍、武器和输出流程会改变占比。</p>
+        <details>
+            <summary>导电漂泊者、秧秧·玄翎、穗穗、清宵、景燃、心：0–6链与模态</summary>
+            <p>以下为库街区技能资料结合固定循环的估算，并非官方占比。苍／羽、负阴／抱阳等循环内形态已合并；心分同奏／电磁，导电漂泊者分速切／临界共鸣。穗穗默认治疗辅助，可切换自身输出。清宵与景燃区分首轮和持续循环。景燃下表使用40000生命作为边际收益基准，页面输入可调整。详细假设见项目 docs/character-weights-57-63.md。</p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead><tr><th>角色</th><th>模态／情景</th><th>链</th><th>普攻</th><th>技能</th><th>重击</th><th>解放</th><th>其他</th><th>评分分母</th></tr></thead>
+                    <tbody id="new-character-profiles"></tbody>
+                </table>
+            </div>
+        </details>
+        <details>
+            <summary>爱弥斯、西格莉卡、绯雪、达妮娅：0–6链占比与评分分母</summary>
+            <p>固定循环情景估算：爱弥斯区分震谐／聚爆，六链固定双暴不计入面板双暴收益。绯雪按两层雪锈、持续循环；达妮娅区分聚爆／集谐模态。西格莉卡计入125%–150%共鸣效率转声骸增伤（表中声骸外额外充能为0）。分母随各链权重重算。全体增益可能不改变占比；不代表该链没有提升。</p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead><tr><th scope="col">角色</th><th scope="col">链数</th><th scope="col">普攻</th><th scope="col">重击</th><th scope="col">技能</th><th scope="col">解放</th><th scope="col">其他</th><th scope="col">评分分母</th></tr></thead>
+                    <tbody>
+                        <tr><td>爱弥斯·震谐</td><td>0</td><td>8.00%</td><td>0.00%</td><td>2.00%</td><td>70.00%</td><td>20.00%</td><td>488.2</td></tr>
+                        <tr><td>爱弥斯·震谐</td><td>1</td><td>6.97%</td><td>0.00%</td><td>1.74%</td><td>73.86%</td><td>17.43%</td><td>500.3848</td></tr>
+                        <tr><td>爱弥斯·震谐</td><td>2</td><td>5.32%</td><td>0.00%</td><td>1.33%</td><td>73.05%</td><td>20.30%</td><td>479.4273</td></tr>
+                        <tr><td>爱弥斯·震谐</td><td>3</td><td>4.51%</td><td>0.00%</td><td>1.13%</td><td>77.15%</td><td>17.21%</td><td>495.4457</td></tr>
+                        <tr><td>爱弥斯·震谐</td><td>4</td><td>4.57%</td><td>0.00%</td><td>1.14%</td><td>78.17%</td><td>16.11%</td><td>496.4444</td></tr>
+                        <tr><td>爱弥斯·震谐</td><td>5</td><td>4.57%</td><td>0.00%</td><td>1.14%</td><td>78.17%</td><td>16.11%</td><td>496.4444</td></tr>
+                        <tr><td>爱弥斯·震谐</td><td>6</td><td>2.74%</td><td>0.00%</td><td>0.68%</td><td>65.47%</td><td>31.11%</td><td>405.0869</td></tr>
+                        <tr><td>爱弥斯·聚爆</td><td>0</td><td>7.27%</td><td>0.00%</td><td>1.82%</td><td>63.64%</td><td>27.27%</td><td>443.8182</td></tr>
+                        <tr><td>爱弥斯·聚爆</td><td>1</td><td>6.41%</td><td>0.00%</td><td>1.60%</td><td>67.94%</td><td>24.05%</td><td>460.275</td></tr>
+                        <tr><td>爱弥斯·聚爆</td><td>2</td><td>4.87%</td><td>0.00%</td><td>1.22%</td><td>66.79%</td><td>27.13%</td><td>438.3416</td></tr>
+                        <tr><td>爱弥斯·聚爆</td><td>3</td><td>4.18%</td><td>0.00%</td><td>1.05%</td><td>71.47%</td><td>23.30%</td><td>458.9789</td></tr>
+                        <tr><td>爱弥斯·聚爆</td><td>4</td><td>4.26%</td><td>0.00%</td><td>1.07%</td><td>72.84%</td><td>21.83%</td><td>462.5889</td></tr>
+                        <tr><td>爱弥斯·聚爆</td><td>5</td><td>4.26%</td><td>0.00%</td><td>1.07%</td><td>72.84%</td><td>21.83%</td><td>462.5889</td></tr>
+                        <tr><td>爱弥斯·聚爆</td><td>6</td><td>2.40%</td><td>0.00%</td><td>0.60%</td><td>57.37%</td><td>39.63%</td><td>354.969</td></tr>
+                        <tr><td>西格莉卡</td><td>0</td><td>5.00%</td><td>0.00%</td><td>1.00%</td><td>0.00%</td><td>94.00%</td><td>488.832</td></tr>
+                        <tr><td>西格莉卡</td><td>1</td><td>4.50%</td><td>0.00%</td><td>0.90%</td><td>0.00%</td><td>94.60%</td><td>489.0101</td></tr>
+                        <tr><td>西格莉卡</td><td>2</td><td>3.24%</td><td>0.00%</td><td>0.65%</td><td>0.00%</td><td>96.11%</td><td>489.4549</td></tr>
+                        <tr><td>西格莉卡</td><td>3</td><td>2.59%</td><td>0.00%</td><td>0.52%</td><td>0.00%</td><td>96.89%</td><td>489.6844</td></tr>
+                        <tr><td>西格莉卡</td><td>4</td><td>2.59%</td><td>0.00%</td><td>0.52%</td><td>0.00%</td><td>96.89%</td><td>477.9069</td></tr>
+                        <tr><td>西格莉卡</td><td>5</td><td>2.54%</td><td>0.00%</td><td>0.51%</td><td>0.00%</td><td>96.95%</td><td>477.9236</td></tr>
+                        <tr><td>西格莉卡</td><td>6</td><td>1.87%</td><td>0.00%</td><td>0.37%</td><td>0.00%</td><td>97.76%</td><td>478.161</td></tr>
+                        <tr><td>绯雪</td><td>0</td><td>2.00%</td><td>0.00%</td><td>7.00%</td><td>81.00%</td><td>10.00%</td><td>494.58</td></tr>
+                        <tr><td>绯雪</td><td>1</td><td>1.68%</td><td>0.00%</td><td>5.89%</td><td>83.36%</td><td>9.06%</td><td>498.9762</td></tr>
+                        <tr><td>绯雪</td><td>2</td><td>1.39%</td><td>0.00%</td><td>4.87%</td><td>86.25%</td><td>7.49%</td><td>506.8966</td></tr>
+                        <tr><td>绯雪</td><td>3</td><td>1.09%</td><td>0.00%</td><td>3.82%</td><td>81.59%</td><td>13.50%</td><td>473.4892</td></tr>
+                        <tr><td>绯雪</td><td>4</td><td>1.10%</td><td>0.00%</td><td>3.86%</td><td>82.53%</td><td>12.51%</td><td>473.6375</td></tr>
+                        <tr><td>绯雪</td><td>5</td><td>1.07%</td><td>0.00%</td><td>6.74%</td><td>80.05%</td><td>12.14%</td><td>473.8463</td></tr>
+                        <tr><td>绯雪</td><td>6</td><td>0.91%</td><td>0.00%</td><td>5.71%</td><td>84.20%</td><td>9.19%</td><td>489.2461</td></tr>
+                        <tr><td>达妮娅·聚爆</td><td>0</td><td>5.00%</td><td>0.00%</td><td>15.00%</td><td>75.00%</td><td>5.00%</td><td>510.3</td></tr>
+                        <tr><td>达妮娅·聚爆</td><td>1</td><td>5.00%</td><td>0.00%</td><td>15.00%</td><td>75.00%</td><td>5.00%</td><td>510.1768</td></tr>
+                        <tr><td>达妮娅·聚爆</td><td>2</td><td>4.77%</td><td>0.00%</td><td>18.89%</td><td>71.56%</td><td>4.77%</td><td>496.1845</td></tr>
+                        <tr><td>达妮娅·聚爆</td><td>3</td><td>1.42%</td><td>0.00%</td><td>11.93%</td><td>83.10%</td><td>3.55%</td><td>502.8729</td></tr>
+                        <tr><td>达妮娅·聚爆</td><td>4</td><td>1.36%</td><td>0.00%</td><td>11.39%</td><td>83.86%</td><td>3.39%</td><td>503.3161</td></tr>
+                        <tr><td>达妮娅·聚爆</td><td>5</td><td>1.27%</td><td>0.00%</td><td>10.67%</td><td>84.89%</td><td>3.18%</td><td>503.9106</td></tr>
+                        <tr><td>达妮娅·聚爆</td><td>6</td><td>1.23%</td><td>0.00%</td><td>10.30%</td><td>81.93%</td><td>6.55%</td><td>452.3435</td></tr>
+                        <tr><td>达妮娅·集谐</td><td>0</td><td>5.00%</td><td>0.00%</td><td>15.00%</td><td>75.00%</td><td>5.00%</td><td>510.3</td></tr>
+                        <tr><td>达妮娅·集谐</td><td>1</td><td>5.00%</td><td>0.00%</td><td>15.00%</td><td>75.00%</td><td>5.00%</td><td>510.1768</td></tr>
+                        <tr><td>达妮娅·集谐</td><td>2</td><td>4.77%</td><td>0.00%</td><td>18.89%</td><td>71.56%</td><td>4.77%</td><td>508.1845</td></tr>
+                        <tr><td>达妮娅·集谐</td><td>3</td><td>1.42%</td><td>0.00%</td><td>11.93%</td><td>83.10%</td><td>3.55%</td><td>514.8729</td></tr>
+                        <tr><td>达妮娅·集谐</td><td>4</td><td>1.36%</td><td>0.00%</td><td>11.39%</td><td>83.86%</td><td>3.39%</td><td>515.3161</td></tr>
+                        <tr><td>达妮娅·集谐</td><td>5</td><td>1.27%</td><td>0.00%</td><td>10.67%</td><td>84.89%</td><td>3.18%</td><td>515.9106</td></tr>
+                        <tr><td>达妮娅·集谐</td><td>6</td><td>1.27%</td><td>0.00%</td><td>10.67%</td><td>84.89%</td><td>3.18%</td><td>474.774</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+        如何带入表1进行计算，举例今汐某1C声骸出了个11.6%共鸣技能增伤，查表2得今汐的共技能加成系数为0.72，那么该项积点为11.6*1.15*0.72=9.6。<br><br>
+        4.既然所有项的计算公式均已明确，那么我们就可以设定一个完美属性声骸套的总积点为100分对应的积点，例如今汐我们用暴击10.5 爆伤21 大攻击11.6 小攻击60
+        技伤加成11.6作为满分计算完后得到497.2积点，那么我们再将497.2积点作为今汐的计分分母，
+        来计算10.5%暴击这个副词条等于10.5*1.8/497.2*100=3.8分。(ps:43311双衍射和一攻一衍射均为497.2积点，44111为468.4积点，差距在5.8%)<br><br>
+        5.对于辅助，共鸣效率的权重上升，防御性角色将攻击和防御权重互换，对于奶，因为奶不吃暴击所以双爆权重归0，上调生命攻击防御权重，其他项默认不变。
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">序号</th>
+                <th scope="col">对象</th>
+                <th scope="col">属性</th>
+                <th scope="col">属性值</th>
+                <th scope="col">系数</th>
+                <th scope="col">积点</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>辅助</td>
+                <td>共效<40%</td>
+                <td>1%</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>辅助</td>
+                <td>共效>40%</td>
+                <td>1%</td>
+                <td>0.3</td>
+                <td>0.3</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>攻击奶</td>
+                <td>双爆</td>
+                <td>1%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>攻击奶</td>
+                <td>大攻击</td>
+                <td>1%</td>
+                <td>1.2</td>
+                <td>1.2</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>攻击奶</td>
+                <td>生命</td>
+                <td>1%</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td>攻击奶</td>
+                <td>防御</td>
+                <td>1%</td>
+                <td>0.5</td>
+                <td>0.5</td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td>生命奶</td>
+                <td>生命</td>
+                <td>1%</td>
+                <td>1.2</td>
+                <td>1.2</td>
+            </tr>
+            <tr>
+                <th scope="row">8</th>
+                <td>生命奶</td>
+                <td>大攻击</td>
+                <td>1%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th scope="row">9</th>
+                <td>奶妈</td>
+                <td>共效<80%</td>
+                <td>1%</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <th scope="row">10</th>
+                <td>奶妈</td>
+                <td>共效>80%</td>
+                <td>1%</td>
+                <td>0.5</td>
+                <td>0.5</td>
+            </tr>
+            <tr>
+                <th scope="row">11</th>
+                <td>防御辅</td>
+                <td>大攻击</td>
+                <td>1%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th scope="row">12</th>
+                <td>防御辅</td>
+                <td>大防御</td>
+                <td>1%</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <th scope="row">13</th>
+                <td>防御辅</td>
+                <td>小防御</td>
+                <td>15</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <th scope="row">14</th>
+                <td>主C</td>
+                <td>共效>40%</td>
+                <td>1%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th scope="row">15</th>
+                <td>布兰特(特殊)</td>
+                <td>共效<180%</td>
+                <td>1%</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <th scope="row">15</th>
+                <td>布兰特(特殊)</td>
+                <td>共效>180%</td>
+                <td>1%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th scope="row">15</th>
+                <td>布兰特(特殊)</td>
+                <td>大攻击</td>
+                <td>1%</td>
+                <td>0.5</td>
+                <td>0.5</td>
+            </tr>
+            <tr>
+                <th scope="row">15</th>
+                <td>布兰特(特殊)</td>
+                <td>小攻击</td>
+                <td>10</td>
+                <td>0.05</td>
+                <td>0.05</td>
+            </tr>
+            </tbody>
+        </table>
+        解释一下为啥有共鸣效率溢出，一般来讲溢出可以理解为大招能量满了但是CD没好，所以超出的共鸣效率只有在发生操作失误的时候有用，这里根据角色位置功能性划分了溢出界限。<br><br>
+        6.下面是计算得出的所有角色0命带专武满分100分的所需积点：
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">序号</th>
+                <th scope="col">角色</th>
+                <th scope="col">极限积点</th>
+                <th scope="col">套装</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>今汐</td>
+                <td>490.0</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>忌炎</td>
+                <td>487.6</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>长离</td>
+                <td>482.3</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>安可</td>
+                <td>482.4</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>鉴心</td>
+                <td>491.8</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td>卡卡罗</td>
+                <td>478.3</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td>雪豹</td>
+                <td>475.2</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">8</th>
+                <td>吟霖</td>
+                <td>474.7</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">9</th>
+                <td>暗主</td>
+                <td>473.0</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">10</th>
+                <td>光主</td>
+                <td>473.7</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">11</th>
+                <td>秋水</td>
+                <td>474.8</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">12</th>
+                <td>莫特斐</td>
+                <td>496.0</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">13</th>
+                <td>丹瑾</td>
+                <td>474.4</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">14</th>
+                <td>炽霞</td>
+                <td>478.6</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">15</th>
+                <td>散华</td>
+                <td>474.4</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">16</th>
+                <td>渊武</td>
+                <td>499.1</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">17</th>
+                <td>秧秧</td>
+                <td>494.9</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">18</th>
+                <td>桃祈</td>
+                <td>501.3</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">19</th>
+                <td>维里奈</td>
+                <td>442.9</td>
+                <td>43311双攻击</td>
+            </tr>
+            <tr>
+                <th scope="row">20</th>
+                <td>白芷</td>
+                <td>437.3</td>
+                <td>43311双生命</td>
+            </tr>
+            <tr>
+                <th scope="row">21</th>
+                <td>折枝</td>
+                <td>479.5</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">22</th>
+                <td>相里要</td>
+                <td>484.2</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">23</th>
+                <td>守岸人</td>
+                <td>398.5</td>
+                <td>43311共效生命</td>
+            </tr>
+            <tr>
+                <th scope="row">24</th>
+                <td>釉瑚</td>
+                <td>492.4</td>
+                <td>43311双属伤</td>
+            </tr>
+            <tr>
+                <th scope="row">25</th>
+                <td>椿</td>
+                <td>486.3</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">26</th>
+                <td>灯灯</td>
+                <td>485.2</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">27</th>
+                <td>珂莱塔</td>
+                <td>491.5</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">28</th>
+                <td>洛可可</td>
+                <td>487.5</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">29</th>
+                <td>菲比(主C)</td>
+                <td>479</td>
+                <td>43311新老光套</td>
+            </tr>
+            <tr>
+                <th scope="row">30</th>
+                <td>布兰特</td>
+                <td>454.9</td>
+                <td>43311双共效</td>
+            </tr>
+            <tr>
+                <th scope="row">31</th>
+                <td>坎特雷拉</td>
+                <td>493.9</td>
+                <td>43311幽暗套</td>
+            </tr>
+            <tr>
+                <th scope="row">32</th>
+                <td>风主</td>
+                <td>483.9</td>
+                <td>43311新风套</td>
+            </tr>
+            <tr>
+                <th scope="row">33</th>
+                <td>赞妮</td>
+                <td>492.0</td>
+                <td>34311新光套</td>
+            </tr>
+            <tr>
+                <th scope="row">34</th>
+                <td>夏空</td>
+                <td>495.4</td>
+                <td>43311流云套</td>
+            </tr>
+            <tr>
+                <th scope="row">35</th>
+                <td>卡提西娅</td>
+                <td>488.9</td>
+                <td>44111愿戴荣光套</td>
+            </tr>
+            <tr>
+                <th scope="row">36</th>
+                <td>露帕</td>
+                <td>503.5</td>
+                <td>43311奔狼火套</td>
+            </tr>
+            <tr>
+                <th scope="row">37</th>
+                <td>弗洛洛</td>
+                <td>470.7</td>
+                <td>43311失序套</td>
+            </tr>
+            <tr>
+                <th scope="row">38</th>
+                <td>奥古斯塔</td>
+                <td>490.3</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">39</th>
+                <td>尤诺</td>
+                <td>501.2</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">40</th>
+                <td>嘉贝莉娜</td>
+                <td>475.2</td>
+                <td>43311焚羽套</td>
+            </tr>
+            <tr>
+                <th scope="row">41</th>
+                <td>仇远</td>
+                <td>499.3</td>
+                <td>43311</td>
+            </tr>
+            <tr>
+                <th scope="row">42</th>
+                <td>千咲</td>
+                <td>510.3</td>
+                <td>43311命理套</td>
+            </tr>
+            <tr>
+                <th scope="row">43</th>
+                <td>琳奈</td>
+                <td>502</td>
+                <td>43311逆光套</td>
+            </tr>
+            <tr>
+                <th scope="row">44</th>
+                <td>莫宁</td>
+                <td>486.5</td>
+                <td>43311星构套</td>
+            </tr>
+            <tr>
+                <th scope="row">45</th>
+                <td>爱弥斯</td>
+                <td>488.2</td>
+                <td>43311长路套</td>
+            </tr>
+            <tr>
+                <th scope="row">46</th>
+                <td>陆·赫斯</td>
+                <td>494.6</td>
+                <td>43311彻空套</td>
+            </tr>
+            <tr>
+                <th scope="row">47</th>
+                <td>西格莉卡</td>
+                <td>488.832</td>
+                <td>43311零链参考套（估值）</td>
+            </tr>
+            <tr>
+                <th scope="row">48</th>
+                <td>绯雪</td>
+                <td>494.58</td>
+                <td>43311零链参考套（估值）</td>
+            </tr>
+            <tr>
+                <th scope="row">49</th>
+                <td>达妮娅</td>
+                <td>510.3</td>
+                <td>43311零链参考套（估值）</td>
+            </tr>
+            </tbody>
+        </table>
+        从这里可以看出，角色的伤害越集中，上限越高，积点越高，代表越强。除了声骸外，技能固有倍率也影响很大，这里只考虑声骸加成伤害的上限。<br><br>
+        7.本工具评测分数暂不考虑套装属性和套装加成，默认3C均与角色属性相符，现版本都是吃套装5件属性加成，还没有2+2的好用案例，所以默认这部分跟基础攻击力一样全角色均有且相等，那么它对评分就无影响了。<br><br>
+        8.如果有错误请指正，如果更好的算法也可以发布自己见解大家共同学习。<br><br>
+        9.保存的数据在你浏览器本地的【网页存储】这个位置：
+        <img class="mc-save-sm" src="image/sm.jpg" alt="存储说明">
+        如果清除缓存时勾选了这里你添加的数据会丢失，更换浏览器不能看到你上个浏览器的数据，本工具不采集任何人信息也不会在云端保存你的数据，望周知。<br><br>
+        10.建议自定义角色的用户通过首页的下方的导出数据按钮，将自己录入的角色数据备份，这样你就可以通过导入按钮随时在任何浏览器还原你的数据，如何使用该功能请参考作者主页。<br><br>
+        原创作者B站主页：<a href="https://b23.tv/vXohl5M" target="_blank">点我</a><br>
+        当前维护者B站主页：<a href="https://space.bilibili.com/287293445" target="_blank">点我</a>，问题反馈等需求可以在最新动态下留言。
+    </div>
+    <div class="mc-btn-backhome">返&nbsp;回&nbsp;首&nbsp;页</div>
+    <!--  footer  !-->
+    <div class="mc-footer">原创作者@哲字君/前维护者@PillowTrel/维护者@炭烤蛋-本工具免费使用 | Version: V<span id="tool-version">1.1.1</span></div>
+</div>
+<script src="library/jquery.min.js" type="application/javascript"></script>
+<script src="library/bootstrap/js/bootstrap.min.js" type="application/javascript"></script>
+<script src="js/multi-config.js"></script>
+<script src="js/base.js" type="application/javascript"></script>
+<script src="js/character-portraits.js"></script>
+<script type="application/javascript">
+    newCharacterModels.ids.forEach(id => {
+        newCharacterModels.settings[id].modes.forEach(([mode, label]) => {
+            for (let ming = 0; ming <= 6; ming++) {
+                const {weights} = newCharacterModels.profile({roleListId:id, ming, damageMode:mode});
+                const columns = ['normal','skill','heavy','liberate','other'].map(key => '<td>' + (weights[key] * 100).toFixed(2) + '%</td>').join('');
+                $('#new-character-profiles').append('<tr><td>' + roleList[id-1].name + '</td><td>' + label + '</td><td>' + ming + '</td>' + columns + '<td>' + weights.maxscore.toFixed(2) + '</td></tr>');
+            }
+        });
+    });
+    //返回首页
+    $(".mc-btn-backhome").click(() => {
+        window.open("./index.html", "_self");
+    });
+</script>
+<script src="js/i18n-dictionaries.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

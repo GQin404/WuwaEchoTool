@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>声骸库</title>
+    <link href="library/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="library/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet"/>
+    <link href="library/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet"/>
+    <link href="css/base.css" rel="stylesheet"/>
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon"/>
+    <!--  作者：PillowTrel  2025-06-22  !-->
+    <link href="css/character-dock.css" rel="stylesheet"/>
+    <script src="js/ui-view.js"></script>
+</head>
+<body>
+<div class="mc-main-page">
+    <!--  header  !-->
+    <div class="mc-title">
+        <span class="mc-title-name">声骸库</span>
+    </div>
+    <div class="mc-costedit">
+        <div class="mc-costedit-info mc-costedit-info2">
+            <div class="mc-cost-img-0" id="shimg">
+                <!--<img id="shimg01" class="mc-character-imgCost" src="image/role/jx.png" alt="选择的角色">!-->
+                <img id="shimg01" data-toggle="modal" data-target="#mc-addwords-main" class="mc-cost-img"
+                     src="image/cost/000.png" alt="选择的声骸">
+            </div>
+            <div class="mc-cost-right mc-cost-right2">
+                <div class="mc-character-addbtn" data-toggle="modal" data-target="#mc-addcost">添&nbsp;加&nbsp;声&nbsp;骸
+                </div>
+                <div class="mc-cost-score">
+                    <div class="mc-set-tixing">请于此页面管理未分配给角色的声骸</div>
+                </div>
+            </div>
+        </div>
+        <div class="mc-cost-list2">
+            <div data-id="000" cost-id="0" class="mc-cost-list-null">
+                声骸列表为空。
+            </div>
+        </div>
+    </div>
+    <div class="mc-btn-backhome">返&nbsp;回&nbsp;首&nbsp;页</div>
+    <!--  footer  !-->
+    <div class="mc-footer">原创作者@哲字君/前维护者@PillowTrel/维护者@炭烤蛋-本工具免费使用 | Version: V<span id="tool-version">1.1.2</span></div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="mc-addcost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title" id="exampleModalLabel"><span class="badge badge-info">添加声骸</span></span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="mc-filter">
+                    类型过滤：
+                    <select id="mc-filter-value" class="form-control mc-select">
+                        <option value="Cost4" selected>Cost4</option>
+                        <option value="Cost3">Cost3</option>
+                        <option value="Cost1">Cost1</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="mc-fillcost-list">
+                    <div data-id="0" class="mc-cost-val mcccost-reset">
+                        <img class="mc-cost-img" src="image/cost/001.png" alt="cost">
+                    </div>
+                    <div data-id="1" class="mc-cost-val mcccost-reset">
+                        <img class="mc-cost-img" src="image/cost/002.png" alt="cost">
+                    </div>
+                    <div data-id="2" class="mc-cost-val mcccost-reset">
+                        <img class="mc-cost-img" src="image/cost/003.png" alt="cost">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="qx-btn" type="button" class="btn btn-secondary" data-dismiss="modal">关&nbsp;&nbsp;闭
+                </button>
+                <button id="qd-btn2" type="button" class="btn btn-primary">添&nbsp;&nbsp;加</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/i18n-dictionaries.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+<script src="library/jquery.min.js" type="application/javascript"></script>
+<script src="library/bootstrap/js/bootstrap.min.js" type="application/javascript"></script>
+<script src="js/multi-config.js"></script>
+<script src="js/character-core.js"></script>
+<script src="js/base.js" type="application/javascript"></script>
+<script src="js/character-portraits.js"></script>
+<script src="js/helperFunctions.js"></script>
+<script src="js/stat-keys.js"></script>
+<script src="js/role-view-model.js"></script>
+<script src="js/unusedEchoes.js" type="application/javascript"></script>
+</html>

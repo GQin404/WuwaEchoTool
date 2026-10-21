@@ -1,0 +1,254 @@
+{
+  "date": "2026-10-21",
+  "node": "v24.13.0",
+  "edge": "155.0.4283.45",
+  "status": "部分完成：代码修正通过验收；全历史与联动官方规则覆盖仍有缺口",
+  "unit": {
+    "command": "npm test",
+    "tests": 182,
+    "passed": 182,
+    "failed": 0,
+    "verified": true
+  },
+  "focused": {
+    "command": "node --test tests/convene*.test.cjs",
+    "tests": 88,
+    "passed": 88,
+    "failed": 0,
+    "newTests": 18,
+    "verified": true
+  },
+  "static": {
+    "command": "npm run check:static",
+    "dependencies": 291,
+    "scripts": 151,
+    "verified": true
+  },
+  "browser": {
+    "command": "node tests/convene-pity-browser.cjs",
+    "results": [
+      {
+        "width": 1440,
+        "locale": "zh-CN",
+        "manualCoverIndependent": true,
+        "sameFileRefresh": true,
+        "historicalIdentity": true,
+        "unknownAndMissingArt": true,
+        "fourModes": true,
+        "pngParity": true,
+        "windowsCommandCopyAndDownload": true,
+        "archiveUnchanged": true,
+        "officialAPI": false
+      },
+      {
+        "width": 1440,
+        "locale": "zh-TW",
+        "manualCoverIndependent": true,
+        "sameFileRefresh": false,
+        "historicalIdentity": true,
+        "unknownAndMissingArt": true,
+        "fourModes": true,
+        "pngParity": true,
+        "windowsCommandCopyAndDownload": true,
+        "archiveUnchanged": true,
+        "officialAPI": false
+      },
+      {
+        "width": 1440,
+        "locale": "en",
+        "manualCoverIndependent": true,
+        "sameFileRefresh": false,
+        "historicalIdentity": true,
+        "unknownAndMissingArt": true,
+        "fourModes": true,
+        "pngParity": true,
+        "windowsCommandCopyAndDownload": true,
+        "archiveUnchanged": true,
+        "officialAPI": false
+      },
+      {
+        "width": 768,
+        "locale": "zh-CN",
+        "manualCoverIndependent": true,
+        "sameFileRefresh": false,
+        "historicalIdentity": true,
+        "unknownAndMissingArt": true,
+        "fourModes": true,
+        "pngParity": true,
+        "windowsCommandCopyAndDownload": true,
+        "archiveUnchanged": true,
+        "officialAPI": false
+      },
+      {
+        "width": 768,
+        "locale": "zh-TW",
+        "manualCoverIndependent": true,
+        "sameFileRefresh": false,
+        "historicalIdentity": true,
+        "unknownAndMissingArt": true,
+        "fourModes": true,
+        "pngParity": true,
+        "windowsCommandCopyAndDownload": true,
+        "archiveUnchanged": true,
+        "officialAPI": false
+      },
+      {
+        "width": 768,
+        "locale": "en",
+        "manualCoverIndependent": true,
+        "sameFileRefresh": false,
+        "historicalIdentity": true,
+        "unknownAndMissingArt": true,
+        "fourModes": true,
+        "pngParity": true,
+        "windowsCommandCopyAndDownload": true,
+        "archiveUnchanged": true,
+        "officialAPI": false
+      },
+      {
+        "width": 390,
+        "locale": "zh-CN",
+        "manualCoverIndependent": true,
+        "sameFileRefresh": false,
+        "historicalIdentity": true,
+        "unknownAndMissingArt": true,
+        "fourModes": true,
+        "pngParity": true,
+        "windowsCommandCopyAndDownload": true,
+        "archiveUnchanged": true,
+        "officialAPI": false
+      },
+      {
+        "width": 390,
+        "locale": "zh-TW",
+        "manualCoverIndependent": true,
+        "sameFileRefresh": false,
+        "historicalIdentity": true,
+        "unknownAndMissingArt": true,
+        "fourModes": true,
+        "pngParity": true,
+        "windowsCommandCopyAndDownload": true,
+        "archiveUnchanged": true,
+        "officialAPI": false
+      },
+      {
+        "width": 390,
+        "locale": "en",
+        "manualCoverIndependent": true,
+        "sameFileRefresh": false,
+        "historicalIdentity": true,
+        "unknownAndMissingArt": true,
+        "fourModes": true,
+        "pngParity": true,
+        "windowsCommandCopyAndDownload": true,
+        "archiveUnchanged": true,
+        "officialAPI": false
+      },
+      {
+        "width": 360,
+        "locale": "zh-CN",
+        "manualCoverIndependent": true,
+        "sameFileRefresh": false,
+        "historicalIdentity": true,
+        "unknownAndMissingArt": true,
+        "fourModes": true,
+        "pngParity": true,
+        "windowsCommandCopyAndDownload": true,
+        "archiveUnchanged": true,
+        "officialAPI": false
+      },
+      {
+        "width": 360,
+        "locale": "zh-TW",
+        "manualCoverIndependent": true,
+        "sameFileRefresh": false,
+        "historicalIdentity": true,
+        "unknownAndMissingArt": true,
+        "fourModes": true,
+        "pngParity": true,
+        "windowsCommandCopyAndDownload": true,
+        "archiveUnchanged": true,
+        "officialAPI": false
+      },
+      {
+        "width": 360,
+        "locale": "en",
+        "manualCoverIndependent": true,
+        "sameFileRefresh": false,
+        "historicalIdentity": true,
+        "unknownAndMissingArt": true,
+        "fourModes": true,
+        "pngParity": true,
+        "windowsCommandCopyAndDownload": true,
+        "archiveUnchanged": true,
+        "officialAPI": false
+      }
+    ],
+    "pageErrors": [],
+    "realOfficialAPI": false,
+    "realDevice": false,
+    "allFixturesSynthetic": true,
+    "weaponImagesStillPending": true,
+    "verified": true
+  },
+  "themes": {
+    "command": "node tests/convene-theme-browser.cjs",
+    "results": [
+      {
+        "tier": "abyss",
+        "score": 1.2658227848101264,
+        "drivenByActualAnalysis": true
+      },
+      {
+        "tier": "headwind",
+        "score": 25.316455696202528,
+        "drivenByActualAnalysis": true
+      },
+      {
+        "tier": "steady",
+        "score": 50.632911392405056,
+        "drivenByActualAnalysis": true
+      },
+      {
+        "tier": "lucky",
+        "score": 75.94936708860764,
+        "drivenByActualAnalysis": true
+      },
+      {
+        "tier": "star",
+        "score": 88.60759493670882,
+        "drivenByActualAnalysis": true
+      },
+      {
+        "tier": "fate",
+        "score": 100,
+        "drivenByActualAnalysis": true
+      }
+    ],
+    "pageErrors": [],
+    "annotationsSeparate": true,
+    "undo": true,
+    "initialStatePersisted": true,
+    "collabFilters": true,
+    "officialAPI": false,
+    "verified": true
+  },
+  "entry": {
+    "command": "node tests/convene-entry-browser.cjs",
+    "directEntryDark": true,
+    "neutralWithoutData": true,
+    "workspaceBackupDependencies": true,
+    "pageErrors": [],
+    "isolatedContext": true,
+    "verified": true
+  },
+  "limitations": [
+    "全历史UP资料未完成",
+    "不透明服务器编号映射未完成",
+    "联动货币、时间、硬保底、UP规则及继承关系未完成官方核实",
+    "联动真实API类型自动发现未完成",
+    "真实官方API及Cloudflare部署未验证",
+    "实体手机未测试",
+    "114把正式武器图片仍缺失"
+  ]
+}

@@ -1,0 +1,1 @@
+PASS fault injection: quota preservation, multi-account, masked share, Canvas failure, unavailable storage; 6 computed tier PNGs; 15 trilingual Canvas layout cases.

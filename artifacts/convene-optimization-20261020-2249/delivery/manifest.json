@@ -1,0 +1,1332 @@
+[
+  {
+    "path": "changed-source/convene.html",
+    "size": 1507,
+    "sha256": "0706dcd371e98f796b1a10cd01e59bc926a5f9c58aa2baafb4d8c8afa39c8140"
+  },
+  {
+    "path": "changed-source/css/convene.css",
+    "size": 50223,
+    "sha256": "5d7106533dccb888bf2980021eeedbfe289abefc19dee8b1b9e92eef00f8800e"
+  },
+  {
+    "path": "changed-source/docs/convene-optimization.md",
+    "size": 3535,
+    "sha256": "34a3a66a2f4c0f566455c5ea3aff2886a41081c4b9389b7d290a10a439239e72"
+  },
+  {
+    "path": "changed-source/docs/weapon-artwork.md",
+    "size": 2845,
+    "sha256": "f4364bc7a191e3bac2129e4660a21dc660a90b9c2cef894785e817996f3ab5af"
+  },
+  {
+    "path": "changed-source/docs/weapon-missing-assets.json",
+    "size": 681,
+    "sha256": "6b2aaeb10fff0db385f0620d9bdcbb3c885d35b14ab2b1e499919e42c094f615"
+  },
+  {
+    "path": "changed-source/image/convene/badges/character-abyss.svg",
+    "size": 2984,
+    "sha256": "bd63b0d31fcd1168fe1236030367eeeff940de0d6d3425cf9f20da4117aefc2e"
+  },
+  {
+    "path": "changed-source/image/convene/badges/character-fate.svg",
+    "size": 10925,
+    "sha256": "7aa6c43745c60b5955ed652c6e3641d98b4e442266d044b5d1015087b99ac253"
+  },
+  {
+    "path": "changed-source/image/convene/badges/character-headwind.svg",
+    "size": 4011,
+    "sha256": "8e80e90ca20497e556bb041d42511c0aec4fa44a11ad4476bb9882de723274e1"
+  },
+  {
+    "path": "changed-source/image/convene/badges/character-lucky.svg",
+    "size": 6977,
+    "sha256": "e3133736d3947c1e91cff9260d3b180e0f1d8066d957ac1dcd664c678c185087"
+  },
+  {
+    "path": "changed-source/image/convene/badges/character-observing.svg",
+    "size": 771,
+    "sha256": "d7cf095212619777247c825a4a11ae96e182d1b4376aca3f66eb06f47cda70e4"
+  },
+  {
+    "path": "changed-source/image/convene/badges/character-star.svg",
+    "size": 8482,
+    "sha256": "239003102b7554e3777e07b0d12d93aac90b76362b5c0182a9173f23de26f606"
+  },
+  {
+    "path": "changed-source/image/convene/badges/character-steady.svg",
+    "size": 5254,
+    "sha256": "d503dec098dd05db560945309825ff5a47a0c1cbad6b4b9d0f3af0d157610bf0"
+  },
+  {
+    "path": "changed-source/image/convene/badges/overall-abyss.svg",
+    "size": 2592,
+    "sha256": "f71b28ac70de8c76ef3d438580938b1d052d5cf23e6acb9a8c882dc24abb1546"
+  },
+  {
+    "path": "changed-source/image/convene/badges/overall-fate.svg",
+    "size": 13594,
+    "sha256": "1e44b2df900b7e01c0dd9b75bb056dc52f3d088761cace1e69009e8e8051550e"
+  },
+  {
+    "path": "changed-source/image/convene/badges/overall-headwind.svg",
+    "size": 4004,
+    "sha256": "bff57207e3b848eb945f11689e0469a6d16d8694a29e386e2c43edfc1fbfee6a"
+  },
+  {
+    "path": "changed-source/image/convene/badges/overall-lucky.svg",
+    "size": 8114,
+    "sha256": "f7dfd5df6dcf7d4bc2fb6fe3a55122423d240a54377e09c46bc4ad76bbdcf1b4"
+  },
+  {
+    "path": "changed-source/image/convene/badges/overall-observing.svg",
+    "size": 767,
+    "sha256": "18d1046608126e3e153a8cc26c5b977ae42b4d90ffcf80a7cfddc4461a0cdead"
+  },
+  {
+    "path": "changed-source/image/convene/badges/overall-star.svg",
+    "size": 9483,
+    "sha256": "29929902825452fc2fc001e42ca31da966df9d9ad12488151a6d5fbfd410dd1a"
+  },
+  {
+    "path": "changed-source/image/convene/badges/overall-steady.svg",
+    "size": 5521,
+    "sha256": "b7e1cdc2035359c5ce950e52ff154e3649c9a8794977ba08075f61ba005eda4b"
+  },
+  {
+    "path": "changed-source/image/convene/character-fallback.svg",
+    "size": 619,
+    "sha256": "7d2a2e44d876c593bde1265feb288812c8b96ab362b1f152083597f35ffe97bb"
+  },
+  {
+    "path": "changed-source/image/weapons/3star/README.md",
+    "size": 155,
+    "sha256": "0ac042192601f034898f1683ee4a280ca8a250b7f8b0ada6abbd1534d9524f16"
+  },
+  {
+    "path": "changed-source/image/weapons/4star/README.md",
+    "size": 155,
+    "sha256": "0ac042192601f034898f1683ee4a280ca8a250b7f8b0ada6abbd1534d9524f16"
+  },
+  {
+    "path": "changed-source/image/weapons/5star/README.md",
+    "size": 155,
+    "sha256": "0ac042192601f034898f1683ee4a280ca8a250b7f8b0ada6abbd1534d9524f16"
+  },
+  {
+    "path": "changed-source/image/weapons/fallback-broadblade.svg",
+    "size": 814,
+    "sha256": "baebe07746a7d2d9ac4b76fef5827df9b1b72181387bdea7cf8ab76270d9a8a7"
+  },
+  {
+    "path": "changed-source/image/weapons/fallback-gauntlets.svg",
+    "size": 821,
+    "sha256": "d33757438ac446497f1e49a8b2bf2b97c763b951ba5ac8f46e800c8093c91c0f"
+  },
+  {
+    "path": "changed-source/image/weapons/fallback-pistols.svg",
+    "size": 821,
+    "sha256": "1a191a49f4663446d4c4bfd2efc8694fccb0526b336936f7ffce0cce2ab4b675"
+  },
+  {
+    "path": "changed-source/image/weapons/fallback-rectifier.svg",
+    "size": 852,
+    "sha256": "6a48d040c99bc0869944785f6b8824083c2b98878e632f9b400d6d09ab295d19"
+  },
+  {
+    "path": "changed-source/image/weapons/fallback-sword.svg",
+    "size": 813,
+    "sha256": "0fe68ea633f2c07e2f3f1ec56580de2c0e998af2c5064ac53ab4ac4547c983b9"
+  },
+  {
+    "path": "changed-source/image/weapons/fallback.svg",
+    "size": 937,
+    "sha256": "420a9f44c9fecd68bd04061a612b42480d5486ffdd515ea8f033a081e213e801"
+  },
+  {
+    "path": "changed-source/js/convene-assets.js",
+    "size": 2413,
+    "sha256": "310b6489b4593927e937e04ad6668d4ba64b70c33166b0b4df9133e0ceba9455"
+  },
+  {
+    "path": "changed-source/js/convene-i18n.js",
+    "size": 55815,
+    "sha256": "7a49e476f3ddd0ed9ad12fc1bf1951f91814cc8609137c2f9477617b9d63bd7d"
+  },
+  {
+    "path": "changed-source/js/convene-share.js",
+    "size": 12527,
+    "sha256": "181803b8c90baf5802431d9ca2fcc558ce0921ba75137cbc819364be115394ce"
+  },
+  {
+    "path": "changed-source/js/convene-ui.js",
+    "size": 40876,
+    "sha256": "58b75feecc64e8996f07771f938eeb3bd44ae59976653749de27a0528afccafa"
+  },
+  {
+    "path": "changed-source/js/convene-visuals.js",
+    "size": 8378,
+    "sha256": "d3df15ed0d4a620e5d03b7f334d0aa808bd7ce5e04b62f969c16447da9117d71"
+  },
+  {
+    "path": "changed-source/js/weapon-catalog.js",
+    "size": 454,
+    "sha256": "3c025f935768bbaf28f96135416d86354a24eefc99ca0b372c6dcdd9a15bbe97"
+  },
+  {
+    "path": "changed-source/js/weapon-portraits.js",
+    "size": 2662,
+    "sha256": "a10f180821ceca26a518a252185d3ce5164c58ad0f4737ffdcdf1604864828f0"
+  },
+  {
+    "path": "changed-source/scripts/check-convene-art.cjs",
+    "size": 580,
+    "sha256": "64949038d6303b9b0e2c79d39a6deb4c56d3f8eea31285c8e9ed4c009bf9a66a"
+  },
+  {
+    "path": "changed-source/tests/convene-artwork.test.cjs",
+    "size": 4918,
+    "sha256": "67ce5304d3a627373b880df4cd3bf1546323bb45abf7777615c7221863dee946"
+  },
+  {
+    "path": "changed-source/tests/convene-optimization-browser.cjs",
+    "size": 12298,
+    "sha256": "c4e646691f65f05e5cb52825a7122410167ed9d872b08e0729395c750101dc39"
+  },
+  {
+    "path": "changes.json",
+    "size": 9572,
+    "sha256": "a6aa4fe11b7bf565a25e7dbe90eac03bd774939880a75aa773e2aa0c24cfd664"
+  },
+  {
+    "path": "evidence/art-check.txt",
+    "size": 122,
+    "sha256": "eee971a3e4a0db6a4f76553f04fcd197815de43bc58df32b4724c840be701e90"
+  },
+  {
+    "path": "evidence/browser-convene.txt",
+    "size": 127,
+    "sha256": "c2d986bbd473b116b7b3f162fc47e165479066c5fda05f8470a88db650d9f8ab"
+  },
+  {
+    "path": "evidence/browser-edge-final.txt",
+    "size": 168,
+    "sha256": "df674c0f0cfb8583220e196c8d45249635e0dd14dc275122ebf6dca48fd631c4"
+  },
+  {
+    "path": "evidence/browser-results.json",
+    "size": 3352,
+    "sha256": "dce19fd86e18c576c12241d7aa0bd49fab01350202f0204c77997a022970da04"
+  },
+  {
+    "path": "evidence/browser-target.txt",
+    "size": 182,
+    "sha256": "2cedd006d699f61936feb5ec414e33dee8f91696ae7481c4399ec4f4c056de67"
+  },
+  {
+    "path": "evidence/browser.txt",
+    "size": 230,
+    "sha256": "f628b977353f47bbe45a47ef90d0f9b1b0dd5ad7c188030b71b1881365b94bd3"
+  },
+  {
+    "path": "evidence/convene-regression-results.json",
+    "size": 4400,
+    "sha256": "8361347419415bc29c8248e4db84bab0c697a9a1ba3e1af99e595e357e7ed887"
+  },
+  {
+    "path": "evidence/edge-results.json",
+    "size": 2817,
+    "sha256": "5e07d37bba625adcf7f3e90c835d4b164d3ecf6c7cb822a14b5c9e179c319f73"
+  },
+  {
+    "path": "evidence/final-visual-results.json",
+    "size": 2540,
+    "sha256": "a9d0c2269d42ff8da2e2020ca8ce4b65136cc181581a48390300186bab7e7880"
+  },
+  {
+    "path": "evidence/final-visual.cjs",
+    "size": 6896,
+    "sha256": "5a090b81a51b9185711cd635586f80c56a08e424f2af704c360d0afff3fafafe"
+  },
+  {
+    "path": "evidence/final-visual.txt",
+    "size": 165,
+    "sha256": "5db9f9313cbf1380e92c30a8bae7264ae5af5dca0c58acff6e5ce03c888ea9e5"
+  },
+  {
+    "path": "evidence/static.txt",
+    "size": 174,
+    "sha256": "b3c1039a74e6435b74b6ee44f8ff467cb8202a2b97f2859f8ad367d6174eea49"
+  },
+  {
+    "path": "evidence/target-regression-results.json",
+    "size": 3498,
+    "sha256": "909e4fea4719ffc2092045d75aa523962755fbaefad61abb8be34f1e23032a57"
+  },
+  {
+    "path": "evidence/unit.txt",
+    "size": 19048,
+    "sha256": "4d402e164853bc189251ac8805964fa703df9b91f08385265f8482036c9a8359"
+  },
+  {
+    "path": "GALLERY.html",
+    "size": 57358,
+    "sha256": "27116824fdb1fd9addb412069d849eae1a81718e9634d06d77dc2f50405cdd78"
+  },
+  {
+    "path": "preview/badge-atlas.html",
+    "size": 165424,
+    "sha256": "35e0304f6a64b9d04dafd1685763c295560468e5e8221d717f2c14a911b515b8"
+  },
+  {
+    "path": "REPORT.md",
+    "size": 12353,
+    "sha256": "42d738f8790365e9f4f4a55a816271b8edf4f76862c8419a61f9cf8aa5f93de8"
+  },
+  {
+    "path": "screenshots/final/1440-en-character-atlas.png",
+    "size": 445378,
+    "sha256": "560b3d0f1fe22ee6705624ca852ec7abd52731660b5c4db699f5a977e8de6946"
+  },
+  {
+    "path": "screenshots/final/1440-en-character-compact.png",
+    "size": 908716,
+    "sha256": "304b8e68176a520ab985879ef205bee0565675f8cede2944aaa14906bd4c0f76"
+  },
+  {
+    "path": "screenshots/final/1440-en-character-detailed.png",
+    "size": 1181758,
+    "sha256": "f6b25c901f45dc7a4050fb1d8d34dc11594fb15e7983eda612255c0fda117205"
+  },
+  {
+    "path": "screenshots/final/1440-en-character-full.png",
+    "size": 987692,
+    "sha256": "4ac8dcca133e00b0f8a79edf2d7916c1495131d49add01e2e10a7df839d7fe3f"
+  },
+  {
+    "path": "screenshots/final/1440-en-character-viewport.png",
+    "size": 747313,
+    "sha256": "082be8f9c79a197c4130e0fe489aeaed24a9839a9ca724f1f0c4841fdf617507"
+  },
+  {
+    "path": "screenshots/final/1440-en-formula-expanded.png",
+    "size": 123075,
+    "sha256": "2400efb51bd757473427c4bc6264006ec3a0c23dd192bb9aef70d42751f1361d"
+  },
+  {
+    "path": "screenshots/final/1440-en-overall-atlas.png",
+    "size": 266298,
+    "sha256": "d9aacb79c8d17a209697d8c8a418c8417a80ac7f1da9d70f4a88ce297099b996"
+  },
+  {
+    "path": "screenshots/final/1440-en-overview-full.png",
+    "size": 1156719,
+    "sha256": "f9f5b960633e0bfacf11a057674dcfd726ce5161ba4a07aef1b1acb108bd80bd"
+  },
+  {
+    "path": "screenshots/final/1440-en-overview-viewport.png",
+    "size": 414475,
+    "sha256": "51eb1e7c64a2d4eb9df8cf82969dab0ffcf31e3245d1085f385babd47edda232"
+  },
+  {
+    "path": "screenshots/final/1440-en-share-controls-compact.png",
+    "size": 391377,
+    "sha256": "e3690e2dd0af8fff7d3e09ff85adffb6f7f8bb00a7ecd9db2705b229975619da"
+  },
+  {
+    "path": "screenshots/final/1440-en-share-controls-detailed.png",
+    "size": 370799,
+    "sha256": "d48d9e0d6fd72e72ffe0d8692ccf9359f3572b3313494c9414d842731a870a73"
+  },
+  {
+    "path": "screenshots/final/1440-en-unknown-pool-interval.png",
+    "size": 590125,
+    "sha256": "4cc8485d02a5b0c2c3c2354702afd52b799a11eafa545f5a1af20e27a1734941"
+  },
+  {
+    "path": "screenshots/final/1440-en-weapon-pool.png",
+    "size": 578682,
+    "sha256": "5119a7f221a42c0c572c3b58868e61abe61495aa7bd0940196faa2941134d25a"
+  },
+  {
+    "path": "screenshots/final/1440-en-windows-guide-bottom.png",
+    "size": 71676,
+    "sha256": "4a6451c13e22a8cad4c0c4c8d0060c261eabdc14acd8e8715ba3c76f31fb91aa"
+  },
+  {
+    "path": "screenshots/final/1440-zh-CN-character-atlas.png",
+    "size": 434530,
+    "sha256": "5d0686057a14ef58a1702d9ee8f4051539ed6b8e1387178a7144f85420ed28f8"
+  },
+  {
+    "path": "screenshots/final/1440-zh-CN-character-compact.png",
+    "size": 905190,
+    "sha256": "eeafce96b4f300900411cd2211956e5bd23b7502b6a4629d9cfb397754ead4f5"
+  },
+  {
+    "path": "screenshots/final/1440-zh-CN-character-detailed.png",
+    "size": 1168619,
+    "sha256": "53b6bc316310beb2d88aa69c9226476362df35831ee42bfa0b70fda64bc24d8a"
+  },
+  {
+    "path": "screenshots/final/1440-zh-CN-character-full.png",
+    "size": 968453,
+    "sha256": "9f7089845ece570a39979b2cb96b5f1c9f8d6d18402eb069a38642bac6a0fbd4"
+  },
+  {
+    "path": "screenshots/final/1440-zh-CN-character-viewport.png",
+    "size": 736163,
+    "sha256": "88c8378ce01e73462599f5897c8d0b67f2cce4326ae9f7502d34b2bf0c97be42"
+  },
+  {
+    "path": "screenshots/final/1440-zh-CN-formula-expanded.png",
+    "size": 118905,
+    "sha256": "7f731648cd6b9f786d66ec1d6b58f071cd3574bf423db0305abea7c08351c031"
+  },
+  {
+    "path": "screenshots/final/1440-zh-CN-overall-atlas.png",
+    "size": 258171,
+    "sha256": "5365ec0b92dee9da85a2bbaf91036e4dcf5a449edd17a88651af35e5164633dd"
+  },
+  {
+    "path": "screenshots/final/1440-zh-CN-overview-full.png",
+    "size": 1132001,
+    "sha256": "42d243a9c97e510d01e1a00cc4e376643eeb053560d27eb6b037870832d94b0b"
+  },
+  {
+    "path": "screenshots/final/1440-zh-CN-overview-viewport.png",
+    "size": 401915,
+    "sha256": "abe6b37cbe8da44ac2270b76b2608bd77500d97e31989fc140d4a89a5ecd52ba"
+  },
+  {
+    "path": "screenshots/final/1440-zh-CN-share-controls-compact.png",
+    "size": 386940,
+    "sha256": "6ae8b21e3e0ce1b25e995086e135cd5ce774667dab4f42e5236e3abf31478d0f"
+  },
+  {
+    "path": "screenshots/final/1440-zh-CN-share-controls-detailed.png",
+    "size": 376670,
+    "sha256": "62983a08b3e69d8d94813a8d1c6fa3128afdbf331f7729a256abadf0cb5b4968"
+  },
+  {
+    "path": "screenshots/final/1440-zh-CN-unknown-pool-interval.png",
+    "size": 587739,
+    "sha256": "169710b8e373c082adfd21e1c63d940c134fb45f1e14976eeb939c81180135a0"
+  },
+  {
+    "path": "screenshots/final/1440-zh-CN-weapon-pool.png",
+    "size": 568927,
+    "sha256": "b5bdca9ae3ae61e4cc5b72b6008dd7f2ecb0733602a64cd176b534aa7b02c030"
+  },
+  {
+    "path": "screenshots/final/1440-zh-CN-windows-guide-bottom.png",
+    "size": 69839,
+    "sha256": "f29ccca911c143a2350f164d8a93d2de0dbd40262116e65243e451ced1bb54da"
+  },
+  {
+    "path": "screenshots/final/1440-zh-TW-character-atlas.png",
+    "size": 434567,
+    "sha256": "ca4b6dd3f3b04be1b03f091e00dbb5c57e14e702b16f8f374d48d4fb0af4b6e6"
+  },
+  {
+    "path": "screenshots/final/1440-zh-TW-character-compact.png",
+    "size": 906962,
+    "sha256": "38c1340650463b0e66007d0dbac1184ced847cfcc36404916c37a542856cfc6a"
+  },
+  {
+    "path": "screenshots/final/1440-zh-TW-character-detailed.png",
+    "size": 1170736,
+    "sha256": "defaf1fab554d11479e196d8c0468b61dda05b2ada6444c27c57fa7de78f9cd3"
+  },
+  {
+    "path": "screenshots/final/1440-zh-TW-character-full.png",
+    "size": 971785,
+    "sha256": "13b24faeefdad377d718da5920b2f785073f43c63b166e3e4be1b874e395f558"
+  },
+  {
+    "path": "screenshots/final/1440-zh-TW-character-viewport.png",
+    "size": 736565,
+    "sha256": "ffeec43e9d66636fc160a9696f161f44f7f476d14201e2c0112562268f589813"
+  },
+  {
+    "path": "screenshots/final/1440-zh-TW-formula-expanded.png",
+    "size": 120833,
+    "sha256": "f1853c7982ebfeb83a07d940b48a022db47a05a9b0fd037bbe00608336b90a96"
+  },
+  {
+    "path": "screenshots/final/1440-zh-TW-overall-atlas.png",
+    "size": 259490,
+    "sha256": "19ecc4da2b26556a8241ea214e796e95e2951b2d9b8ba122abc69d1fe98e29cc"
+  },
+  {
+    "path": "screenshots/final/1440-zh-TW-overview-full.png",
+    "size": 1135630,
+    "sha256": "580b86a9e0c01a2c75acc7b5bdb96f92b4b4bd07738255df6d314d2162f95f71"
+  },
+  {
+    "path": "screenshots/final/1440-zh-TW-overview-viewport.png",
+    "size": 404906,
+    "sha256": "ecccfd28c13dadd4eba1c910202b410391d2721b5c9556ae6f7e8ca1de93c507"
+  },
+  {
+    "path": "screenshots/final/1440-zh-TW-share-controls-compact.png",
+    "size": 389190,
+    "sha256": "72df0cdd489ac8adb38137e1aa52c5b3c40af7c12a98370288461d7f01d50f6a"
+  },
+  {
+    "path": "screenshots/final/1440-zh-TW-share-controls-detailed.png",
+    "size": 378667,
+    "sha256": "b2fa3074b7a3eefaaaf8ec5c6e202e18bcd674b9213c5c72ca2178892eee0e06"
+  },
+  {
+    "path": "screenshots/final/1440-zh-TW-unknown-pool-interval.png",
+    "size": 592463,
+    "sha256": "6b80809044cbabe00891113914fae3dd38d3f8f606ba07ad28a6d816361617ed"
+  },
+  {
+    "path": "screenshots/final/1440-zh-TW-weapon-pool.png",
+    "size": 572732,
+    "sha256": "d0897cfc8fe9a25c2aa4d5db9e41709d6676450a29ad8d2a4c10b1a21a550eeb"
+  },
+  {
+    "path": "screenshots/final/1440-zh-TW-windows-guide-bottom.png",
+    "size": 72379,
+    "sha256": "e723e404e72d5bf76545773f57a2bf42330e155a6a113941b2d1ae42cff4f6d0"
+  },
+  {
+    "path": "screenshots/final/360-en-character-atlas.png",
+    "size": 168707,
+    "sha256": "03487417372c54f7e79284418e6a23d575388a6b52f1bd2fa3cb452671fafc9d"
+  },
+  {
+    "path": "screenshots/final/360-en-character-compact.png",
+    "size": 908716,
+    "sha256": "304b8e68176a520ab985879ef205bee0565675f8cede2944aaa14906bd4c0f76"
+  },
+  {
+    "path": "screenshots/final/360-en-character-detailed.png",
+    "size": 1181758,
+    "sha256": "f6b25c901f45dc7a4050fb1d8d34dc11594fb15e7983eda612255c0fda117205"
+  },
+  {
+    "path": "screenshots/final/360-en-character-full.png",
+    "size": 567008,
+    "sha256": "b71601439b1f352a8e7a9b54cb30941dd3999d3154b8649ecf6b34245f6542c7"
+  },
+  {
+    "path": "screenshots/final/360-en-character-viewport.png",
+    "size": 268846,
+    "sha256": "b2d5ea9953062c1a498f991f22c0a4d3e8d7578a1d8c3f34dedc15c5c96bacf8"
+  },
+  {
+    "path": "screenshots/final/360-en-formula-expanded.png",
+    "size": 51828,
+    "sha256": "8c42a02f6195db83cd99e011cfdaa81fa22f8931d99127a32263e1386e9a4b7b"
+  },
+  {
+    "path": "screenshots/final/360-en-overall-atlas.png",
+    "size": 77143,
+    "sha256": "fe55122fed4b3bc661bb17745cf526f7882eab638db458149da3657459b0ad6e"
+  },
+  {
+    "path": "screenshots/final/360-en-overview-full.png",
+    "size": 783769,
+    "sha256": "e306330defd5fa3e4fb50bd696cf04f78eb7de172dd8621a78f31903d1221e25"
+  },
+  {
+    "path": "screenshots/final/360-en-overview-viewport.png",
+    "size": 127731,
+    "sha256": "6afa026bb85d9c286dd9e0fdbeee4f67d4debb370658b41a4261fedf4178d893"
+  },
+  {
+    "path": "screenshots/final/360-en-share-controls-compact.png",
+    "size": 81908,
+    "sha256": "49050fb458231adac1f03f1e9f38fd5c6c7a69b8714daf1fd2066e7aed397700"
+  },
+  {
+    "path": "screenshots/final/360-en-share-controls-detailed.png",
+    "size": 97063,
+    "sha256": "cbf9b2e8673d8fc314ca34a5bf3c87f8af6bb5fa9b96f0db91d78bb6b19e711d"
+  },
+  {
+    "path": "screenshots/final/360-en-unknown-pool-interval.png",
+    "size": 242677,
+    "sha256": "d1aed194c3a7603b56041b72412a2b2933836c21c58e558f44c97e8b4da3f5d9"
+  },
+  {
+    "path": "screenshots/final/360-en-weapon-pool.png",
+    "size": 228306,
+    "sha256": "43275d45bac8990e7951feaca52c5d09dc21ede1827c4afb9e4367c3a6926276"
+  },
+  {
+    "path": "screenshots/final/360-en-windows-guide-bottom.png",
+    "size": 40729,
+    "sha256": "bc2c2687f169fea66fadf6c520af661caebb71523b2e49cf78d688cb36ab9c25"
+  },
+  {
+    "path": "screenshots/final/360-zh-CN-character-atlas.png",
+    "size": 170748,
+    "sha256": "dfbcafbe866879d7ff8fcac425a9d54ed5ec35a88bcec3be833bb35d829adbe0"
+  },
+  {
+    "path": "screenshots/final/360-zh-CN-character-compact.png",
+    "size": 905190,
+    "sha256": "eeafce96b4f300900411cd2211956e5bd23b7502b6a4629d9cfb397754ead4f5"
+  },
+  {
+    "path": "screenshots/final/360-zh-CN-character-detailed.png",
+    "size": 1168619,
+    "sha256": "53b6bc316310beb2d88aa69c9226476362df35831ee42bfa0b70fda64bc24d8a"
+  },
+  {
+    "path": "screenshots/final/360-zh-CN-character-full.png",
+    "size": 536143,
+    "sha256": "aa6294e76b32a4790ba3fb8a7cd79e18773523c32bed9ecd6cf7f7b3db04f02e"
+  },
+  {
+    "path": "screenshots/final/360-zh-CN-character-viewport.png",
+    "size": 265505,
+    "sha256": "6601572053f3ad0aa4a6d469a059827d74807262b4112e31c9de9c64a1d63a71"
+  },
+  {
+    "path": "screenshots/final/360-zh-CN-formula-expanded.png",
+    "size": 52856,
+    "sha256": "03764702a051ad473124b35b21e0c74ee6dc30eed2e0bca7e0eef18a77ec0f40"
+  },
+  {
+    "path": "screenshots/final/360-zh-CN-overall-atlas.png",
+    "size": 82535,
+    "sha256": "4fd3df12c33343061dd151a5bbdf748230f86f9555cf8ffe156778bc00fe40ac"
+  },
+  {
+    "path": "screenshots/final/360-zh-CN-overview-full.png",
+    "size": 728574,
+    "sha256": "5d536677c4e814cfdea0d6695229fa6604cc5e2e32aa1fd67c81eaad1868f386"
+  },
+  {
+    "path": "screenshots/final/360-zh-CN-overview-viewport.png",
+    "size": 150965,
+    "sha256": "39ed27ab56536c7ba06163e541756457cbfefd257ff0c19d32bfaf4756d07b07"
+  },
+  {
+    "path": "screenshots/final/360-zh-CN-share-controls-compact.png",
+    "size": 79919,
+    "sha256": "54938d3b3329c5c1a4bb29b04c63eb6779dc8aec892044481b406e17aac66760"
+  },
+  {
+    "path": "screenshots/final/360-zh-CN-share-controls-detailed.png",
+    "size": 93821,
+    "sha256": "c6b0edae6a9040ad7599d272bb1c07ee1d65c782377c0385ff0878b0c0f057b3"
+  },
+  {
+    "path": "screenshots/final/360-zh-CN-unknown-pool-interval.png",
+    "size": 235839,
+    "sha256": "4bb80799993f258f70c2076f4e9a79856feb99c439d386f0ee672310464dbff5"
+  },
+  {
+    "path": "screenshots/final/360-zh-CN-weapon-pool.png",
+    "size": 233219,
+    "sha256": "c22bd28f4b2508ef96988b984211cb369771b1e509811db00de3011a3595e143"
+  },
+  {
+    "path": "screenshots/final/360-zh-CN-windows-guide-bottom.png",
+    "size": 42331,
+    "sha256": "2145adad5cdc83d3d351095329aa5b964eb9d378df486ac586d35521c1868d7a"
+  },
+  {
+    "path": "screenshots/final/360-zh-TW-character-atlas.png",
+    "size": 170692,
+    "sha256": "8d38427cd47ced99e120bd77e05f0fa183da6390ddc1992ae6c27b4b732d9a9a"
+  },
+  {
+    "path": "screenshots/final/360-zh-TW-character-compact.png",
+    "size": 906962,
+    "sha256": "38c1340650463b0e66007d0dbac1184ced847cfcc36404916c37a542856cfc6a"
+  },
+  {
+    "path": "screenshots/final/360-zh-TW-character-detailed.png",
+    "size": 1170736,
+    "sha256": "defaf1fab554d11479e196d8c0468b61dda05b2ada6444c27c57fa7de78f9cd3"
+  },
+  {
+    "path": "screenshots/final/360-zh-TW-character-full.png",
+    "size": 537577,
+    "sha256": "99258c69c0893841cbc1ef3b3f2edfeab6e4ef97e81289fdbfe0bd9a914d9299"
+  },
+  {
+    "path": "screenshots/final/360-zh-TW-character-viewport.png",
+    "size": 265633,
+    "sha256": "d989f19fc559286c0b3488569560a9aa54fdf69594d505a23ea5676b03ee8474"
+  },
+  {
+    "path": "screenshots/final/360-zh-TW-formula-expanded.png",
+    "size": 53808,
+    "sha256": "435395b6335d41330f503941271f7c94fca3923e0b26c4828882656a52bb1db2"
+  },
+  {
+    "path": "screenshots/final/360-zh-TW-overall-atlas.png",
+    "size": 83279,
+    "sha256": "5af9566f5b8d123e56d05a7d7d7ab7753b2d4cd02af2ae28c2c8138c5b401736"
+  },
+  {
+    "path": "screenshots/final/360-zh-TW-overview-full.png",
+    "size": 730645,
+    "sha256": "00a4d7e1ecf16a6b69e25bc86d154262cd2632e4f8009c0344b4432aa49508ec"
+  },
+  {
+    "path": "screenshots/final/360-zh-TW-overview-viewport.png",
+    "size": 152465,
+    "sha256": "db6ee88350619cfe950aa1e1a8768d13dd1eae5d4b5a558a8b6f2550bd157995"
+  },
+  {
+    "path": "screenshots/final/360-zh-TW-share-controls-compact.png",
+    "size": 80708,
+    "sha256": "33d689cab303ceb048563869a0a2a7fcb39be775b8062f2eaee00f21db029ae5"
+  },
+  {
+    "path": "screenshots/final/360-zh-TW-share-controls-detailed.png",
+    "size": 94342,
+    "sha256": "a00cddbb46ff5fd3cb4b661b5f9ebdf7a347ddbb122a224e726ff24af674d98c"
+  },
+  {
+    "path": "screenshots/final/360-zh-TW-unknown-pool-interval.png",
+    "size": 238858,
+    "sha256": "ad8734b47dafc1e5fd48082ef84988593d110418220bc1bb44acec22abba345f"
+  },
+  {
+    "path": "screenshots/final/360-zh-TW-weapon-pool.png",
+    "size": 235515,
+    "sha256": "35979ec10a170e1745f8f61ef83fef47070b3047ce7e8a94a202a839845a03b0"
+  },
+  {
+    "path": "screenshots/final/360-zh-TW-windows-guide-bottom.png",
+    "size": 43964,
+    "sha256": "1ef8958f3b9e33545d5aadd642db47fc7e65f52e84f0c6d07877ec659d4de1b2"
+  },
+  {
+    "path": "screenshots/final/390-en-character-atlas.png",
+    "size": 179671,
+    "sha256": "8cd78486736c6743321ce130e92931cfd50e820283b5ea13891f20828d9258b3"
+  },
+  {
+    "path": "screenshots/final/390-en-character-compact.png",
+    "size": 908716,
+    "sha256": "304b8e68176a520ab985879ef205bee0565675f8cede2944aaa14906bd4c0f76"
+  },
+  {
+    "path": "screenshots/final/390-en-character-detailed.png",
+    "size": 1181758,
+    "sha256": "f6b25c901f45dc7a4050fb1d8d34dc11594fb15e7983eda612255c0fda117205"
+  },
+  {
+    "path": "screenshots/final/390-en-character-full.png",
+    "size": 588600,
+    "sha256": "8e563d33256e1025f879c1d8d17ea6569229068f75e1fb3dec747390f7bf104d"
+  },
+  {
+    "path": "screenshots/final/390-en-character-viewport.png",
+    "size": 285949,
+    "sha256": "21e1021aed69bd62ec48bd97b798c5c5d2d78dc59734bd69a785b03c65782c6f"
+  },
+  {
+    "path": "screenshots/final/390-en-formula-expanded.png",
+    "size": 51634,
+    "sha256": "4020d94bb52e2f99f902ca171c15dca50bd7b132c757d1fa633351657880f236"
+  },
+  {
+    "path": "screenshots/final/390-en-overall-atlas.png",
+    "size": 79799,
+    "sha256": "964f86b4fd456600cbfb32d35d53ca97c7cced7fd6104347bc17ca694a2f774b"
+  },
+  {
+    "path": "screenshots/final/390-en-overview-full.png",
+    "size": 821832,
+    "sha256": "a95eadaac2e2e34a58ff391c14eb2bacc19121894a09507d997b0fb9b2f4c4a3"
+  },
+  {
+    "path": "screenshots/final/390-en-overview-viewport.png",
+    "size": 132120,
+    "sha256": "295b2684d7f894ee78932f5d664cca369dd79931c6bf269dd5d6fa7367f09e80"
+  },
+  {
+    "path": "screenshots/final/390-en-share-controls-compact.png",
+    "size": 91998,
+    "sha256": "e2045b75935002195d20b89a3f20c2a4dc8a1b5ebc78d7e59db79c810f7974ae"
+  },
+  {
+    "path": "screenshots/final/390-en-share-controls-detailed.png",
+    "size": 108331,
+    "sha256": "2dc3848bfa4971e90de538d836892dd3fced380f37cda6d24a5e026b982a9329"
+  },
+  {
+    "path": "screenshots/final/390-en-unknown-pool-interval.png",
+    "size": 257602,
+    "sha256": "50e40897b3d4bcc21d5724975c9a6e620534eca3dbd23043edf90548ced83e89"
+  },
+  {
+    "path": "screenshots/final/390-en-weapon-pool.png",
+    "size": 240784,
+    "sha256": "d19e8279db06b457c298abc9105326516c73942e95496880c0187d52ab3fc8d1"
+  },
+  {
+    "path": "screenshots/final/390-en-windows-guide-bottom.png",
+    "size": 40776,
+    "sha256": "01c5a310e57b9172fc3ac9e7580903fd08de4023ef5435830ba1c842419c58f6"
+  },
+  {
+    "path": "screenshots/final/390-zh-CN-character-atlas.png",
+    "size": 186754,
+    "sha256": "05d1dbcabdfa47316aa6073b8bf43da3f8910c2299998bfc531a78427703f55b"
+  },
+  {
+    "path": "screenshots/final/390-zh-CN-character-compact.png",
+    "size": 905190,
+    "sha256": "eeafce96b4f300900411cd2211956e5bd23b7502b6a4629d9cfb397754ead4f5"
+  },
+  {
+    "path": "screenshots/final/390-zh-CN-character-detailed.png",
+    "size": 1168619,
+    "sha256": "53b6bc316310beb2d88aa69c9226476362df35831ee42bfa0b70fda64bc24d8a"
+  },
+  {
+    "path": "screenshots/final/390-zh-CN-character-full.png",
+    "size": 559519,
+    "sha256": "4341f0d80d060ee8fa9a9104e96bc406d7c595ec8877438f595612a61e0c4b38"
+  },
+  {
+    "path": "screenshots/final/390-zh-CN-character-viewport.png",
+    "size": 282232,
+    "sha256": "2bf99b88aba2437a599eaa3aef8214c04c622b99c57823b366ca21310c04f318"
+  },
+  {
+    "path": "screenshots/final/390-zh-CN-formula-expanded.png",
+    "size": 54123,
+    "sha256": "e48044787aaf8b8044000a5b0a4b21d6afc3e73af471db94667edd016f5f7979"
+  },
+  {
+    "path": "screenshots/final/390-zh-CN-overall-atlas.png",
+    "size": 100481,
+    "sha256": "823425d800886d07bde2e0e9f39827be194e10f96e02dcf2b426309e6b85ae21"
+  },
+  {
+    "path": "screenshots/final/390-zh-CN-overview-full.png",
+    "size": 763316,
+    "sha256": "0ff271001ed0aae324826204aaf33a80313b3430725a0c1ca557752a84b7edb1"
+  },
+  {
+    "path": "screenshots/final/390-zh-CN-overview-viewport.png",
+    "size": 151584,
+    "sha256": "dca5d3909ae3048efdad8d0149a6f333b2c2115a349a47a67071821e5ac11964"
+  },
+  {
+    "path": "screenshots/final/390-zh-CN-share-controls-compact.png",
+    "size": 89980,
+    "sha256": "0799955a8208fae64b6e9c4b0b40f903e95426ac0fdf8fc584e2b4c1ef1b26cd"
+  },
+  {
+    "path": "screenshots/final/390-zh-CN-share-controls-detailed.png",
+    "size": 107437,
+    "sha256": "b29f166c5e457291ff32b39b3183058bae0a6ce76600af719058191c601a8ad9"
+  },
+  {
+    "path": "screenshots/final/390-zh-CN-unknown-pool-interval.png",
+    "size": 243750,
+    "sha256": "b6c86fb4081bcd2d7881a8d5d998503bf7f4407d29f09d76df7b7af1e3a59a2c"
+  },
+  {
+    "path": "screenshots/final/390-zh-CN-weapon-pool.png",
+    "size": 242194,
+    "sha256": "b74162f57a6ce86f1c8b8ab0e166fc2a1671af8a86e1d73455a048e01b62e3e2"
+  },
+  {
+    "path": "screenshots/final/390-zh-CN-windows-guide-bottom.png",
+    "size": 41673,
+    "sha256": "2a0cd11a69c6253fd41aac90fb240fd12efd48dc2ab6b45c23e8f01b87819422"
+  },
+  {
+    "path": "screenshots/final/390-zh-TW-character-atlas.png",
+    "size": 186756,
+    "sha256": "eced0acc2b6dce0a4306f8271be1ddaec9f34652dc4bfc06fc3690d116a46584"
+  },
+  {
+    "path": "screenshots/final/390-zh-TW-character-compact.png",
+    "size": 906962,
+    "sha256": "38c1340650463b0e66007d0dbac1184ced847cfcc36404916c37a542856cfc6a"
+  },
+  {
+    "path": "screenshots/final/390-zh-TW-character-detailed.png",
+    "size": 1170736,
+    "sha256": "defaf1fab554d11479e196d8c0468b61dda05b2ada6444c27c57fa7de78f9cd3"
+  },
+  {
+    "path": "screenshots/final/390-zh-TW-character-full.png",
+    "size": 561160,
+    "sha256": "ff801d09df9da0f3bee7afa8c68e50ed5e7c4c7c35d707603d0884cc2e496b8f"
+  },
+  {
+    "path": "screenshots/final/390-zh-TW-character-viewport.png",
+    "size": 282297,
+    "sha256": "d713d1ae17aa4add6ac84255e686b909e39746f17a7c3b2bd14aedd65e4a8c23"
+  },
+  {
+    "path": "screenshots/final/390-zh-TW-formula-expanded.png",
+    "size": 55226,
+    "sha256": "033c0012b62a0da91ab6bb1dad429cde8a6fadd1c1c862efe74bea2e859cf61f"
+  },
+  {
+    "path": "screenshots/final/390-zh-TW-overall-atlas.png",
+    "size": 101137,
+    "sha256": "6316d085f0b4d42d3efb308d9924447e7de3f4f094495681f4011d34b54003af"
+  },
+  {
+    "path": "screenshots/final/390-zh-TW-overview-full.png",
+    "size": 765157,
+    "sha256": "a90d39a17fcd88435f36097bb078c5be50e3c485278fdd9e774e27b6a831ad5a"
+  },
+  {
+    "path": "screenshots/final/390-zh-TW-overview-viewport.png",
+    "size": 153148,
+    "sha256": "80a75b5cd3c1c54843f40587a3b6299f3e72cb1f544369c2a706c501faa6c65b"
+  },
+  {
+    "path": "screenshots/final/390-zh-TW-share-controls-compact.png",
+    "size": 90885,
+    "sha256": "80b454e180003445651f52643ee81e8b75ea728fcbd98292da0c6676d6efbcaf"
+  },
+  {
+    "path": "screenshots/final/390-zh-TW-share-controls-detailed.png",
+    "size": 107956,
+    "sha256": "348294540ef34644820d5dd3f74b68299c760b84f50586f59df8294d183cef81"
+  },
+  {
+    "path": "screenshots/final/390-zh-TW-unknown-pool-interval.png",
+    "size": 246655,
+    "sha256": "97f6ac7544f77605c9f33c2ed7cf2dadc381d297db599c29b01b9b8cb6305883"
+  },
+  {
+    "path": "screenshots/final/390-zh-TW-weapon-pool.png",
+    "size": 244558,
+    "sha256": "c093f50820f36119a3c9439800dce6175bb5c943cbcf820d67ca0f44e66ea5af"
+  },
+  {
+    "path": "screenshots/final/390-zh-TW-windows-guide-bottom.png",
+    "size": 43295,
+    "sha256": "35b259d90846c8d9be6db0991e0296b0fab8cf89fc7d7227dce86511a27e77e4"
+  },
+  {
+    "path": "screenshots/final/768-en-character-atlas.png",
+    "size": 339184,
+    "sha256": "7666a6802d8357cf91e3484ff72981aa4dbaff3ec9321cc6a69f1eb87ec1803a"
+  },
+  {
+    "path": "screenshots/final/768-en-character-compact.png",
+    "size": 908716,
+    "sha256": "304b8e68176a520ab985879ef205bee0565675f8cede2944aaa14906bd4c0f76"
+  },
+  {
+    "path": "screenshots/final/768-en-character-detailed.png",
+    "size": 1181758,
+    "sha256": "f6b25c901f45dc7a4050fb1d8d34dc11594fb15e7983eda612255c0fda117205"
+  },
+  {
+    "path": "screenshots/final/768-en-character-full.png",
+    "size": 706991,
+    "sha256": "27b4d8482f3cc783c9746c16d29f317212ec8faaf1053080dbd6e0002e207e3e"
+  },
+  {
+    "path": "screenshots/final/768-en-character-viewport.png",
+    "size": 388632,
+    "sha256": "950b9f5437bddf0f6b56e4603423535134860fc1e92fd7c2b78185d4197418c9"
+  },
+  {
+    "path": "screenshots/final/768-en-formula-expanded.png",
+    "size": 67393,
+    "sha256": "79bf3c196c5e3396519e9427d188573a9f0c8e19f242f17da973a14545c5dc74"
+  },
+  {
+    "path": "screenshots/final/768-en-overall-atlas.png",
+    "size": 155503,
+    "sha256": "150118461de3438e0e56c69d13c104453f894a4eb61e10423bf40a4749e5cb32"
+  },
+  {
+    "path": "screenshots/final/768-en-overview-full.png",
+    "size": 722496,
+    "sha256": "8658035bdd38aa3ea5d230bc1483c4f26766e15fa492e262657954c96a98942e"
+  },
+  {
+    "path": "screenshots/final/768-en-overview-viewport.png",
+    "size": 240539,
+    "sha256": "0d8232459fcb32baca31467a902299b34bf885fa5af4c1ca80fd2abffa7d1d13"
+  },
+  {
+    "path": "screenshots/final/768-en-share-controls-compact.png",
+    "size": 276446,
+    "sha256": "89065b505a61b64ffbc883fc5f6f0535b94722bd043339d738b51adfc75ff870"
+  },
+  {
+    "path": "screenshots/final/768-en-share-controls-detailed.png",
+    "size": 264596,
+    "sha256": "391bea3a19a9a53615702007c4c004c900f72c4de5b0751075b558d9a5647639"
+  },
+  {
+    "path": "screenshots/final/768-en-unknown-pool-interval.png",
+    "size": 377633,
+    "sha256": "9444627d138613344e8a5eeca2f50727394d742a72e28a875501d4cb18159085"
+  },
+  {
+    "path": "screenshots/final/768-en-weapon-pool.png",
+    "size": 375008,
+    "sha256": "18504ace892e7ad42ce3eefbe9e1a6d0bbf35ff8f04f11856b889988118e6fe6"
+  },
+  {
+    "path": "screenshots/final/768-en-windows-guide-bottom.png",
+    "size": 49731,
+    "sha256": "fea4238c9386fc0c78023d99a87eb26098f77609bfbd548d13fb9c007cbd2314"
+  },
+  {
+    "path": "screenshots/final/768-zh-CN-character-atlas.png",
+    "size": 330889,
+    "sha256": "96311f79a881f2cbac804909c53a8a6f822d9b4565cc800f3bc882a42387c9f7"
+  },
+  {
+    "path": "screenshots/final/768-zh-CN-character-compact.png",
+    "size": 905190,
+    "sha256": "eeafce96b4f300900411cd2211956e5bd23b7502b6a4629d9cfb397754ead4f5"
+  },
+  {
+    "path": "screenshots/final/768-zh-CN-character-detailed.png",
+    "size": 1168619,
+    "sha256": "53b6bc316310beb2d88aa69c9226476362df35831ee42bfa0b70fda64bc24d8a"
+  },
+  {
+    "path": "screenshots/final/768-zh-CN-character-full.png",
+    "size": 652054,
+    "sha256": "648edfc0aa59d31e2b16421ee143e250336c6821f91da1572a23849a64018d53"
+  },
+  {
+    "path": "screenshots/final/768-zh-CN-character-viewport.png",
+    "size": 402781,
+    "sha256": "34fa90ab7a5e91b6949d123062d4a22a79a1028d80cbf980986cf418058ede9b"
+  },
+  {
+    "path": "screenshots/final/768-zh-CN-formula-expanded.png",
+    "size": 69592,
+    "sha256": "e77a3e1886e9df96906ffde51c58311b7513efc232ead5a78a00eda95954620f"
+  },
+  {
+    "path": "screenshots/final/768-zh-CN-overall-atlas.png",
+    "size": 181538,
+    "sha256": "c05e942c2f963c0288642009529931c598513479d2b78a3ae9be61a7ca15fb2d"
+  },
+  {
+    "path": "screenshots/final/768-zh-CN-overview-full.png",
+    "size": 680290,
+    "sha256": "777417714927fc2ed10c59cac3fab1ceae951983da10a4febece1e41b5d8334f"
+  },
+  {
+    "path": "screenshots/final/768-zh-CN-overview-viewport.png",
+    "size": 232223,
+    "sha256": "01709e6b9846df35fc640862508614b9d7970b1569fbfb3413ff8ec72d761ef8"
+  },
+  {
+    "path": "screenshots/final/768-zh-CN-share-controls-compact.png",
+    "size": 273948,
+    "sha256": "4f4bd7b3add3779be5c1387d2cfa9c9c21d3f0d679191a0d984eacaf56c48d2c"
+  },
+  {
+    "path": "screenshots/final/768-zh-CN-share-controls-detailed.png",
+    "size": 263940,
+    "sha256": "a822cc91e41aec8dd81bbc5c29c5f8c330d73fd3f6cb03526e11cfdb82d9ca31"
+  },
+  {
+    "path": "screenshots/final/768-zh-CN-unknown-pool-interval.png",
+    "size": 370658,
+    "sha256": "65561a6f10dd9714be94b849386431993f7e2b9a4258040715698f3ed03961b7"
+  },
+  {
+    "path": "screenshots/final/768-zh-CN-weapon-pool.png",
+    "size": 365456,
+    "sha256": "80bf307b22774a1ecf28cb4fa82d85a9b50af2c5368f59d1ca2daad63bc1656d"
+  },
+  {
+    "path": "screenshots/final/768-zh-CN-windows-guide-bottom.png",
+    "size": 47076,
+    "sha256": "2083230381844a688ff881a7b9e7d08d664e8af3ca5577c32367f410336d81eb"
+  },
+  {
+    "path": "screenshots/final/768-zh-TW-character-atlas.png",
+    "size": 330904,
+    "sha256": "618b497d6fad086592e672fdcf797812cec082f23993acdf13f03db4422d2978"
+  },
+  {
+    "path": "screenshots/final/768-zh-TW-character-compact.png",
+    "size": 906962,
+    "sha256": "38c1340650463b0e66007d0dbac1184ced847cfcc36404916c37a542856cfc6a"
+  },
+  {
+    "path": "screenshots/final/768-zh-TW-character-detailed.png",
+    "size": 1170736,
+    "sha256": "defaf1fab554d11479e196d8c0468b61dda05b2ada6444c27c57fa7de78f9cd3"
+  },
+  {
+    "path": "screenshots/final/768-zh-TW-character-full.png",
+    "size": 654151,
+    "sha256": "48cfe21ffed08f040960991216c61390a5f79eb1b34b66f7d3a8a403df47e3e7"
+  },
+  {
+    "path": "screenshots/final/768-zh-TW-character-viewport.png",
+    "size": 402767,
+    "sha256": "c65d31bac7ba8b429d38d1991c5008cc8bc068077e21875f9545c698f7b72dd3"
+  },
+  {
+    "path": "screenshots/final/768-zh-TW-formula-expanded.png",
+    "size": 71027,
+    "sha256": "168c62fa01de6dab31f6dbb50385b63d2748346e15ab8736ba11a351316d769e"
+  },
+  {
+    "path": "screenshots/final/768-zh-TW-overall-atlas.png",
+    "size": 182285,
+    "sha256": "d32d7207500834b08da1026535895df3578c50af2936322a5a3f5848070e2aa1"
+  },
+  {
+    "path": "screenshots/final/768-zh-TW-overview-full.png",
+    "size": 683048,
+    "sha256": "81a7884ba0f65c65fbc7928c86b886ebbe1eaf5d2dd8865b96c2255548c2b621"
+  },
+  {
+    "path": "screenshots/final/768-zh-TW-overview-viewport.png",
+    "size": 234547,
+    "sha256": "4a7e45e39defda1e95130bd944f5e5cff70e3f0cf7e6931759ab58e4618f9872"
+  },
+  {
+    "path": "screenshots/final/768-zh-TW-share-controls-compact.png",
+    "size": 275255,
+    "sha256": "c0c11873cc6e5df43a1eb2b199d7cf19f6f8c9c28888882e7b9bead0345922c4"
+  },
+  {
+    "path": "screenshots/final/768-zh-TW-share-controls-detailed.png",
+    "size": 264893,
+    "sha256": "133e0436a77de970ad1ac9a298b1f31342d82df79e28484144723c8ee4fbf3dd"
+  },
+  {
+    "path": "screenshots/final/768-zh-TW-unknown-pool-interval.png",
+    "size": 375043,
+    "sha256": "956a898f7bee9bab9136594c5cc7f07a0790d21e574cc212de29df60e36e7d10"
+  },
+  {
+    "path": "screenshots/final/768-zh-TW-weapon-pool.png",
+    "size": 368994,
+    "sha256": "5e3a904db96104f72e48f74986cb54fd0408ab47174bf39b463b4feb3887de53"
+  },
+  {
+    "path": "screenshots/final/768-zh-TW-windows-guide-bottom.png",
+    "size": 48826,
+    "sha256": "f26d1bc4a6b0c767898052ae68c0b998bea7e437abb82d1ea4dec56f7ed8f829"
+  },
+  {
+    "path": "screenshots/final/both-six-tier-families.png",
+    "size": 769061,
+    "sha256": "4a872605662a48892ef23af42496c80aacc7535c6ed8f241fb2bf9f471aa7061"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-account-B-covers.png",
+    "size": 954112,
+    "sha256": "9c858f9eee2feb9dcbe05c6502ddad64b2a7c67d5ea39a3109930f5d43fb54f0"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-cover-updated-after-import.png",
+    "size": 1128655,
+    "sha256": "27ac5cc8dfd5c494858da98bc201654cd91231b58a7654f4b56b1db8b88e7487"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-history-five-filter.png",
+    "size": 1118225,
+    "sha256": "193693eb841ed992bb249b50ad8f1cb4506eecfc738ce5f79899cba324e9c45b"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-import.png",
+    "size": 122852,
+    "sha256": "a51b5b4e8a6b7ad2b0320cb3bc411613bad34a1a5f43c16922876f62814b68d0"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-overall-compact.png",
+    "size": 859494,
+    "sha256": "754b8f7c16494115c3ff026d2ddea34ba583aae6c88f3dec5f0c8e4ba0dddf58"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-overall-detailed.png",
+    "size": 1115162,
+    "sha256": "87eb9621e0bd827f96e047511dbfdbd782ded4c0a6b1ab5bc88f7a94deda2b94"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-overall-full-uid.png",
+    "size": 1116506,
+    "sha256": "cebed6b41bf8f7e427f66527860758e2181a0fb45526ad5f6b6228df6fd75cee"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-pool-1.png",
+    "size": 1396259,
+    "sha256": "6e42e262702f9d48bb45f67e1fe87f2fe16544ca291fef67bb3ac4ff0a2eedaf"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-pool-2.png",
+    "size": 628606,
+    "sha256": "4cfaef000396567948386a15bcd573a31b8e6be2c2c93ba2fdd167182b4d4ad9"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-share-overall-compact.png",
+    "size": 375973,
+    "sha256": "ead09d48a0a9ec094aac56dd2d9a37b699a6f41c4598ba82ebea2f929fb6ba65"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-share-overall-detailed.png",
+    "size": 392720,
+    "sha256": "eae48aa712d1532a1f3e2ced3a704a69e2617e4848219493c15261b4406d9777"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-target-R0.png",
+    "size": 917085,
+    "sha256": "26389afea62d73cd5fe4166ac1c26f9f8c289f08f5261a2fdcdb6fb8ba04694c"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-target-R1.png",
+    "size": 918017,
+    "sha256": "44196c1855e2ce982f9b3e727361e7fddbe9d3f08b2c2d7fdae3a5cc0f1980de"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-target-R2.png",
+    "size": 918060,
+    "sha256": "b3d539da029480eaf57e8be59b091d72e2f20fa572fd66538fb3430cafc25e32"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-target-R3.png",
+    "size": 918239,
+    "sha256": "2c23cb72d44a2bc61021e4f8633a324cbcc86722f85dce1c546b67d8fe365507"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-target-R4.png",
+    "size": 917582,
+    "sha256": "fff11ac8ec32bb1d8ad0120c369b5fc16822594a61797edee7c16ea3ecd1677b"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-target-R5.png",
+    "size": 917942,
+    "sha256": "501e4b61d1ff9828b18e2afc9c281597b67afa83190f127f251481d6314d46fa"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-target-R6.png",
+    "size": 918936,
+    "sha256": "745059ab06a21b4aec7497f6ce1daab8b84a849ed4b417ccc12d96770bd578c2"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-weapon-load-fallback.png",
+    "size": 1129582,
+    "sha256": "d2a06c3eb4f7f105acee2e7a705a0b24dbf224cf31765240fc09f187fe4a98d8"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-windows-alternative-video-slot.png",
+    "size": 75185,
+    "sha256": "36e8e79c72e87e5e1a45830859726d0a174762e4e950b6f3e7b76bb38a98df87"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/1440-zh-CN-windows-recommended.png",
+    "size": 92999,
+    "sha256": "e4a5770019171ef40fac101858a1d90202229b99c3964e21c7225328e060d916"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/390-zh-CN-account-B-covers.png",
+    "size": 621890,
+    "sha256": "d3fc8886d124f8699b7f4198ba27776e1710029e51b4523d1e120bd953256539"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/390-zh-CN-cover-updated-after-import.png",
+    "size": 761945,
+    "sha256": "5d9e1293491feff0711e4935813c2844f06677ac90119ece9d51c3fd0e5add65"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/390-zh-CN-history-five-filter.png",
+    "size": 488617,
+    "sha256": "39f972c7e21949b8f8fac3ded67a6ee796eb6187dc2f5bf94d8f6787cf98020b"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/390-zh-CN-import.png",
+    "size": 73414,
+    "sha256": "f3c6985c58a2ce6345748756d969a853247ac4a817cc960407f21e817afa9269"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/390-zh-CN-overall-compact.png",
+    "size": 859494,
+    "sha256": "754b8f7c16494115c3ff026d2ddea34ba583aae6c88f3dec5f0c8e4ba0dddf58"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/390-zh-CN-overall-detailed.png",
+    "size": 1115162,
+    "sha256": "87eb9621e0bd827f96e047511dbfdbd782ded4c0a6b1ab5bc88f7a94deda2b94"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/390-zh-CN-overall-full-uid.png",
+    "size": 1116506,
+    "sha256": "cebed6b41bf8f7e427f66527860758e2181a0fb45526ad5f6b6228df6fd75cee"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/390-zh-CN-pool-1.png",
+    "size": 569802,
+    "sha256": "89e55d549a35b93fb90ce2149195ac2480ddffeefc975c9bea9c7f1d1dd64963"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/390-zh-CN-pool-2.png",
+    "size": 268468,
+    "sha256": "febb18234ed2799bb4ae46ea3758b1e5066430b7b2908c5a4348960b36e4ba8a"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/390-zh-CN-share-overall-compact.png",
+    "size": 90028,
+    "sha256": "bd41eecd4d3dc1b2b5f71f06480a26aa65a40e9790a8dc7117a9930a16faea61"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/390-zh-CN-share-overall-detailed.png",
+    "size": 98071,
+    "sha256": "2d19670bec9f6576b6b55910373ebe15350134d51225e6d09154856ac193c5ea"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/390-zh-CN-weapon-load-fallback.png",
+    "size": 754370,
+    "sha256": "f2d6f8ba42de3db8651933808e075a2c8954a612c41fb1ec054308a29f7c586c"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/390-zh-CN-windows-alternative-video-slot.png",
+    "size": 42169,
+    "sha256": "af31b5fcfd612f40d84b40a3445b1d48bcf7456d427c48c850764ec508b54630"
+  },
+  {
+    "path": "screenshots/interaction-synthetic-art/390-zh-CN-windows-recommended.png",
+    "size": 51370,
+    "sha256": "1091def070bc1cec2b4bd966df86ef6c81f2575ca5760365d2d5a43b8115ebdc"
+  },
+  {
+    "path": "screenshots/target-regression/1440-zh-CN-target-R0-compact.png",
+    "size": 921568,
+    "sha256": "cd9b761a2d3c5fe3a478f459db1b5cdab6737ac55a65aa79c25e40ec562e511d"
+  },
+  {
+    "path": "screenshots/target-regression/1440-zh-CN-target-R3-compact.png",
+    "size": 922821,
+    "sha256": "bb948089b17a9a3a4ea7a8c3e0eed136099bedf459674cc0420859554137ac0e"
+  },
+  {
+    "path": "screenshots/target-regression/1440-zh-CN-target-R6-compact.png",
+    "size": 923503,
+    "sha256": "74e223a9479899f0df1224fae7a7aefccb5491ed2acc1ff00eaa422dc5b0c224"
+  },
+  {
+    "path": "SOURCE_TREE_MESSAGE.txt",
+    "size": 345,
+    "sha256": "92e9714a15652de49aa2b073fac02b76cd1076aa6b685cd8acbfd5f681eb7fa0"
+  },
+  {
+    "path": "test-results.json",
+    "size": 4453,
+    "sha256": "8b6e05d5fc608a7e0c4fe13f17ca2e9b4aca7599863ad99b7487abc87579d7d0"
+  }
+]

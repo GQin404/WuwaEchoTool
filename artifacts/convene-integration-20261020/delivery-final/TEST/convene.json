@@ -1,0 +1,197 @@
+{
+  "reports": [
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "officialAPI": "mock only",
+      "import": true,
+      "duplicate": true,
+      "incremental": true,
+      "partial": true,
+      "filters": true,
+      "annotations": true,
+      "shareVariants": 4,
+      "downloadMatchesPreview": true,
+      "indexedDB": {
+        "rejected": true,
+        "kept": true,
+        "rollback": true
+      },
+      "cancel": true,
+      "v2Rules": true,
+      "v2Atlas": true,
+      "builtInGuide": 4,
+      "autoRegion": true,
+      "cnImport": true,
+      "characterSharePaging": true,
+      "fullBackup": {
+        "old": true,
+        "full": true,
+        "kept": true,
+        "counts": 520
+      },
+      "recovered": true
+    },
+    {
+      "width": 1440,
+      "locale": "zh-TW",
+      "officialAPI": "mock only",
+      "import": true,
+      "duplicate": true,
+      "incremental": true,
+      "partial": true,
+      "filters": true,
+      "annotations": true,
+      "shareVariants": 4,
+      "downloadMatchesPreview": true,
+      "indexedDB": {
+        "rejected": true,
+        "kept": true,
+        "rollback": true
+      },
+      "cancel": true,
+      "v2Rules": true,
+      "v2Atlas": true,
+      "builtInGuide": 4,
+      "autoRegion": true,
+      "cnImport": true,
+      "characterSharePaging": true,
+      "fullBackup": {
+        "old": true,
+        "full": true,
+        "kept": true,
+        "counts": 520
+      },
+      "recovered": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "officialAPI": "mock only",
+      "import": true,
+      "duplicate": true,
+      "incremental": true,
+      "partial": true,
+      "filters": true,
+      "annotations": true,
+      "shareVariants": 4,
+      "downloadMatchesPreview": true,
+      "indexedDB": {
+        "rejected": true,
+        "kept": true,
+        "rollback": true
+      },
+      "cancel": true,
+      "v2Rules": true,
+      "v2Atlas": true,
+      "builtInGuide": 4,
+      "autoRegion": true,
+      "cnImport": true,
+      "characterSharePaging": true,
+      "fullBackup": {
+        "old": true,
+        "full": true,
+        "kept": true,
+        "counts": 520
+      },
+      "recovered": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "officialAPI": "mock only",
+      "import": true,
+      "duplicate": true,
+      "incremental": true,
+      "partial": true,
+      "filters": true,
+      "annotations": true,
+      "shareVariants": 4,
+      "downloadMatchesPreview": true,
+      "indexedDB": {
+        "rejected": true,
+        "kept": true,
+        "rollback": true
+      },
+      "cancel": true,
+      "v2Rules": true,
+      "v2Atlas": true,
+      "builtInGuide": 4,
+      "autoRegion": true,
+      "cnImport": true,
+      "characterSharePaging": true,
+      "fullBackup": {
+        "old": true,
+        "full": true,
+        "kept": true,
+        "counts": 520
+      },
+      "recovered": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-TW",
+      "officialAPI": "mock only",
+      "import": true,
+      "duplicate": true,
+      "incremental": true,
+      "partial": true,
+      "filters": true,
+      "annotations": true,
+      "shareVariants": 4,
+      "downloadMatchesPreview": true,
+      "indexedDB": {
+        "rejected": true,
+        "kept": true,
+        "rollback": true
+      },
+      "cancel": true,
+      "v2Rules": true,
+      "v2Atlas": true,
+      "builtInGuide": 4,
+      "autoRegion": true,
+      "cnImport": true,
+      "characterSharePaging": true,
+      "fullBackup": {
+        "old": true,
+        "full": true,
+        "kept": true,
+        "counts": 520
+      },
+      "recovered": true
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "officialAPI": "mock only",
+      "import": true,
+      "duplicate": true,
+      "incremental": true,
+      "partial": true,
+      "filters": true,
+      "annotations": true,
+      "shareVariants": 4,
+      "downloadMatchesPreview": true,
+      "indexedDB": {
+        "rejected": true,
+        "kept": true,
+        "rollback": true
+      },
+      "cancel": true,
+      "v2Rules": true,
+      "v2Atlas": true,
+      "builtInGuide": 4,
+      "autoRegion": true,
+      "cnImport": true,
+      "characterSharePaging": true,
+      "fullBackup": {
+        "old": true,
+        "full": true,
+        "kept": true,
+        "counts": 520
+      },
+      "recovered": true
+    }
+  ],
+  "pageErrors": []
+}

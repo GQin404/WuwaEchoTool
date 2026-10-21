@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-20T14:50:45.001Z",
+  "hashes": {
+    "convene.html": "6f50ac6e22745c2f357e6514cd6454da781d1e4e5c78b3409f74f76d7e1c1975",
+    "js/convene-ui.js": "b130efab2c64f0a4c933412e39570bc43668573ed34bf1e750f66f9b883be284",
+    "js/convene-share.js": "cb6b215d7b8bbb665795b3ed34d4858c8141cdf8992629dea72bb1aeb8d8b006",
+    "js/convene-visuals.js": "b10bd631cf4aea004b4c7ed884b939ccf789b4925d13d83c0267df831e413074",
+    "js/convene-i18n.js": "8f4bd30d05ec2197eaf4eaacc4030c67b33c821b5ed6c212b38fd585f7c3fb8f",
+    "css/convene.css": "ab71f8ce76e50491cc6a8f8e050d408a49bf0cbb0c151baf6d46fe7b7ac4a34f",
+    "js/convene-core.js": "f3bde51bd5eaf3f7993436840155cf9b8c9f4d40c7f7522e6557bfac01e6165f",
+    "js/convene-store.js": "84fb79772466eebd5cd4e4278e175cffe2de7a0b95f8fbc8934200894c7425e0",
+    "js/convene-character-rating.js": "cf2eae98d25b7322f9f35a3dd74111574c3dd81a1721f6131af09d0c5a00bec5",
+    "js/convene-service.js": "bc57574c27601d03d17aed9553257e925dd6b71f76eae752c771a0ee13f4ef59",
+    "js/character-portraits.js": "69c59939045fde2c20c8182a6fce22b55a59409f7fd4fae8f2545b2117210d03",
+    "js/base.js": "c80b49d3db07e02e7317322c3ae5e3dd15a37667c763c927951ad618fb8f5ae2"
+  }
+}

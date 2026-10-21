@@ -1,0 +1,120 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "priority": true,
+      "portraitsLoaded": true,
+      "mobileOrder": true,
+      "filters": true,
+      "autoFallbackError": true,
+      "folderReadLocalOnly": true,
+      "shareDownloadsMatchPreview": true,
+      "fullOrHiddenUID": {
+        "hidden": true,
+        "full": true,
+        "noMask": true,
+        "legacyPrivate": true
+      },
+      "targetExamples": true,
+      "dataUnchanged": true
+    },
+    {
+      "width": 1440,
+      "locale": "zh-TW",
+      "priority": true,
+      "portraitsLoaded": true,
+      "mobileOrder": true,
+      "filters": true,
+      "autoFallbackError": true,
+      "folderReadLocalOnly": true,
+      "shareDownloadsMatchPreview": true,
+      "fullOrHiddenUID": {
+        "hidden": true,
+        "full": true,
+        "noMask": true,
+        "legacyPrivate": true
+      },
+      "targetExamples": true,
+      "dataUnchanged": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "priority": true,
+      "portraitsLoaded": true,
+      "mobileOrder": true,
+      "filters": true,
+      "autoFallbackError": true,
+      "folderReadLocalOnly": true,
+      "shareDownloadsMatchPreview": true,
+      "fullOrHiddenUID": {
+        "hidden": true,
+        "full": true,
+        "noMask": true,
+        "legacyPrivate": true
+      },
+      "targetExamples": true,
+      "dataUnchanged": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "priority": true,
+      "portraitsLoaded": true,
+      "mobileOrder": true,
+      "filters": true,
+      "autoFallbackError": true,
+      "folderReadLocalOnly": true,
+      "shareDownloadsMatchPreview": true,
+      "fullOrHiddenUID": {
+        "hidden": true,
+        "full": true,
+        "noMask": true,
+        "legacyPrivate": true
+      },
+      "targetExamples": true,
+      "dataUnchanged": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-TW",
+      "priority": true,
+      "portraitsLoaded": true,
+      "mobileOrder": true,
+      "filters": true,
+      "autoFallbackError": true,
+      "folderReadLocalOnly": true,
+      "shareDownloadsMatchPreview": true,
+      "fullOrHiddenUID": {
+        "hidden": true,
+        "full": true,
+        "noMask": true,
+        "legacyPrivate": true
+      },
+      "targetExamples": true,
+      "dataUnchanged": true
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "priority": true,
+      "portraitsLoaded": true,
+      "mobileOrder": true,
+      "filters": true,
+      "autoFallbackError": true,
+      "folderReadLocalOnly": true,
+      "shareDownloadsMatchPreview": true,
+      "fullOrHiddenUID": {
+        "hidden": true,
+        "full": true,
+        "noMask": true,
+        "legacyPrivate": true
+      },
+      "targetExamples": true,
+      "dataUnchanged": true
+    }
+  ],
+  "pageErrors": [],
+  "officialAPI": "mock only"
+}

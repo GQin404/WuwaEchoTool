@@ -1,0 +1,130 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "views": 5,
+      "atlases": 3,
+      "guides": 3,
+      "sharePNGs": 6,
+      "legacyDataPreserved": true,
+      "noManualInputs": true
+    },
+    {
+      "width": 1440,
+      "locale": "zh-TW",
+      "views": 5,
+      "atlases": 3,
+      "guides": 3,
+      "sharePNGs": 6,
+      "legacyDataPreserved": true,
+      "noManualInputs": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "views": 5,
+      "atlases": 3,
+      "guides": 3,
+      "sharePNGs": 6,
+      "legacyDataPreserved": true,
+      "noManualInputs": true
+    },
+    {
+      "width": 768,
+      "locale": "zh-CN",
+      "views": 5,
+      "atlases": 3,
+      "guides": 3,
+      "sharePNGs": 6,
+      "legacyDataPreserved": true,
+      "noManualInputs": true
+    },
+    {
+      "width": 768,
+      "locale": "zh-TW",
+      "views": 5,
+      "atlases": 3,
+      "guides": 3,
+      "sharePNGs": 6,
+      "legacyDataPreserved": true,
+      "noManualInputs": true
+    },
+    {
+      "width": 768,
+      "locale": "en",
+      "views": 5,
+      "atlases": 3,
+      "guides": 3,
+      "sharePNGs": 6,
+      "legacyDataPreserved": true,
+      "noManualInputs": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "views": 5,
+      "atlases": 3,
+      "guides": 3,
+      "sharePNGs": 6,
+      "legacyDataPreserved": true,
+      "noManualInputs": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-TW",
+      "views": 5,
+      "atlases": 3,
+      "guides": 3,
+      "sharePNGs": 6,
+      "legacyDataPreserved": true,
+      "noManualInputs": true
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "views": 5,
+      "atlases": 3,
+      "guides": 3,
+      "sharePNGs": 6,
+      "legacyDataPreserved": true,
+      "noManualInputs": true
+    },
+    {
+      "width": 360,
+      "locale": "zh-CN",
+      "views": 5,
+      "atlases": 3,
+      "guides": 3,
+      "sharePNGs": 6,
+      "legacyDataPreserved": true,
+      "noManualInputs": true
+    },
+    {
+      "width": 360,
+      "locale": "zh-TW",
+      "views": 5,
+      "atlases": 3,
+      "guides": 3,
+      "sharePNGs": 6,
+      "legacyDataPreserved": true,
+      "noManualInputs": true
+    },
+    {
+      "width": 360,
+      "locale": "en",
+      "views": 5,
+      "atlases": 3,
+      "guides": 3,
+      "sharePNGs": 6,
+      "legacyDataPreserved": true,
+      "noManualInputs": true
+    },
+    {
+      "mockImport13": true,
+      "reimportNoDuplicates": true,
+      "missingResourceType": true
+    }
+  ],
+  "pageErrors": []
+}

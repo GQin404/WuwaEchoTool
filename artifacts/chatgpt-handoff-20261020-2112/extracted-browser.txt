@@ -1,0 +1,1 @@
+PASS 6 target browser flows, 30 downloaded target PNGs, 6 computed character-tier PNGs, 36 layout cases, alpha/numeric IndexedDB compatibility, real font/image fallback; API mocked.

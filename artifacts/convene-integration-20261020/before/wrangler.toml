@@ -1,0 +1,6 @@
+name = "wuwa-echo-tool"
+pages_build_output_dir = "."
+compatibility_date = "2026-10-19"
+[[services]]
+binding = "CONVENE_PROXY"
+service = "wuwa-convene-proxy"

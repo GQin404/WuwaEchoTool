@@ -1,0 +1,221 @@
+{
+  "zipName": "WuwaEchoTool_ChatGPT_Full_20261020_2019.zip",
+  "packagedAt": "2026-10-20T20:19:52.743932+08:00",
+  "zipPath": "C:\\Users\\user\\Downloads\\WuwaEchoTool\\artifacts\\chatgpt-handoff-20261020-2009\\WuwaEchoTool_ChatGPT_Full_20261020_2019.zip",
+  "zipBytes": 55034112,
+  "zipMiB": 52.48,
+  "uncompressedBytes": 67780963,
+  "fileCount": 781,
+  "sourceFiles": 705,
+  "sha256": "7e32ad0d58a57c7d024edaf78eec4b69456595f36fddfe17a776d35c4286c8c3",
+  "sha256EntriesChecked": 780,
+  "crc": "passed",
+  "duplicatePaths": 0,
+  "unsafePaths": 0,
+  "utf8NonAsciiPaths": 1,
+  "missingLocalReferences": 0,
+  "workspaceSourceFilesUnchanged": 769,
+  "sanitizedSourceFiles": 1,
+  "historicalPortraitsExcluded": 64,
+  "screenshots": 29,
+  "testSummary": {
+    "formatVersion": 1,
+    "executedFrom": "independent packaging copy, never personal browser profile",
+    "environment": {
+      "platform": "Windows",
+      "node": "24.13.0",
+      "npm": "11.6.2",
+      "playwright": "1.62.1",
+      "browser": "installed Microsoft Edge headless",
+      "viewports": [
+        1440,
+        390
+      ],
+      "languages": [
+        "zh-CN",
+        "zh-TW",
+        "en"
+      ]
+    },
+    "unit": {
+      "passed": 124,
+      "failed": 0,
+      "skipped": 0
+    },
+    "static": {
+      "localDependencies": 282,
+      "scriptSyntaxChecks": 127,
+      "failed": 0
+    },
+    "browser": {
+      "convene": 6,
+      "multiConfig": 6,
+      "configUI": 6,
+      "inventory": 6,
+      "officialRoleImportMock": 40,
+      "totalFlows": 64,
+      "pageErrors": 0,
+      "inventoryGroupsPerFlow": 17,
+      "legacyEchoPNGs": 12,
+      "conveneMainAndContinuationPNGs": 30,
+      "tierPNGs": 6,
+      "canvasLayoutCases": 15,
+      "faultInjection": [
+        "quota preservation",
+        "multi-account",
+        "masked share",
+        "Canvas failure",
+        "unavailable storage"
+      ]
+    },
+    "scripts": [
+      {
+        "command": "npm test",
+        "status": "passed",
+        "log": "handoff/evidence/tests/unit.txt",
+        "completedAt": "2026-10-20T20:06:50.966792+08:00"
+      },
+      {
+        "command": "npm run check:static",
+        "status": "passed",
+        "log": "handoff/evidence/tests/static.txt",
+        "completedAt": "2026-10-20T20:07:10.270590+08:00"
+      },
+      {
+        "command": "node tests/convene-browser.cjs",
+        "status": "passed",
+        "log": "handoff/evidence/tests/browser-convene.txt",
+        "completedAt": "2026-10-20T20:07:28.393422+08:00"
+      },
+      {
+        "command": "node tests/convene-edge-browser.cjs",
+        "status": "passed",
+        "log": "handoff/evidence/tests/browser-edge.txt",
+        "completedAt": "2026-10-20T20:07:33.421283+08:00"
+      },
+      {
+        "command": "node tests/multi-config-browser.cjs",
+        "status": "passed",
+        "log": "handoff/evidence/tests/browser-multi.txt",
+        "completedAt": "2026-10-20T20:07:45.888850+08:00"
+      },
+      {
+        "command": "node tests/multi-config-ui-browser.cjs",
+        "status": "passed",
+        "log": "handoff/evidence/tests/browser-config-ui.txt",
+        "completedAt": "2026-10-20T20:08:16.499462+08:00"
+      },
+      {
+        "command": "node tests/inventory-sharing-browser.cjs",
+        "status": "passed",
+        "log": "handoff/evidence/tests/browser-inventory.txt",
+        "completedAt": "2026-10-20T20:08:59.278563+08:00"
+      },
+      {
+        "command": "node tests/register-import-browser.cjs",
+        "status": "passed",
+        "log": "handoff/evidence/tests/browser-import.txt",
+        "completedAt": "2026-10-20T20:10:42.189876+08:00"
+      }
+    ],
+    "resources": {
+      "localReferences": 373,
+      "missing": []
+    },
+    "screenshotsPackaged": 29,
+    "notExecuted": [
+      {
+        "item": "real official Global/CN authorized POST",
+        "reason": "No real authorization/device/production environment; no private credentials requested"
+      },
+      {
+        "item": "real player complete archive import",
+        "reason": "No real authorization/device/production environment; no private credentials requested"
+      },
+      {
+        "item": "actual Windows game log extraction",
+        "reason": "No real authorization/device/production environment; no private credentials requested"
+      },
+      {
+        "item": "physical Android/iOS URL extraction",
+        "reason": "No real authorization/device/production environment; no private credentials requested"
+      },
+      {
+        "item": "Cloudflare production Pages/Worker",
+        "reason": "No real authorization/device/production environment; no private credentials requested"
+      },
+      {
+        "item": "Discord actual client upload/compression",
+        "reason": "No real authorization/device/production environment; no private credentials requested"
+      }
+    ],
+    "realOfficialAPIValidated": false,
+    "realMobileDeviceValidated": false,
+    "productionValidated": false
+  },
+  "prepackChecks": {
+    "requiredDocuments": true,
+    "moduleAndFeaturePaths": true,
+    "galleryLinks": true,
+    "originalSourceHashesUnchanged": 769,
+    "archiveSourceHashesMatchSnapshot": 705,
+    "localResourceReferences": 373,
+    "localResourceMissing": [],
+    "sourceFiles": 705,
+    "excludesGitHistory": true,
+    "excludesPersonalBrowserStorage": true,
+    "sanitizedUnusedCredentialInArchiveCopyOnly": true
+  },
+  "extractedPath": "C:\\Users\\user\\Downloads\\WuwaEchoTool\\artifacts\\chatgpt-handoff-20261020-2009\\verified\\WuwaEchoTool",
+  "manifestSizeAndCounts": "passed",
+  "largestPackagedDirectories": [
+    [
+      "image",
+      32381937
+    ],
+    [
+      "library",
+      17597007
+    ],
+    [
+      "handoff",
+      11442323
+    ],
+    [
+      "artifacts",
+      2537178
+    ],
+    [
+      "鸣潮项目脚本说明.docx",
+      1398078
+    ],
+    [
+      "js",
+      1118544
+    ],
+    [
+      "tests",
+      525547
+    ],
+    [
+      "docs",
+      405054
+    ]
+  ],
+  "finalVerifiedAt": "2026-10-20T20:22:50.558771+08:00",
+  "extractedVerification": {
+    "files": 781,
+    "sha256Entries": 780,
+    "unitPassed": 124,
+    "unitFailed": 0,
+    "unitSkipped": 0,
+    "staticDependencies": 282,
+    "staticScripts": 127,
+    "portableBrowserFlows": 6,
+    "api": "mock only",
+    "realAccount": false,
+    "realDevice": false
+  },
+  "productGitStatusUnchanged": true,
+  "finalPath": "C:\\Users\\user\\Downloads\\WuwaEchoTool_ChatGPT_Full_20261020_2019.zip"
+}

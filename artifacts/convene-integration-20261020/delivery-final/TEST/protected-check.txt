@@ -1,0 +1,1 @@
+PASS original rating, statistics, deduplication and schema functions unchanged; identity validator intentionally extended.

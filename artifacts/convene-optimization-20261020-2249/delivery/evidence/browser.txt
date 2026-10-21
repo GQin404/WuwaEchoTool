@@ -1,0 +1,1 @@
+PASS 12 optimization flows: 1440/768/390/360 × three languages, stable ID covers, account/import updates, weapon mapped/failed/unmapped states, search, four shares, all R targets and data preservation; synthetic assets/API only.

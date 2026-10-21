@@ -8,7 +8,8 @@ for(const file of fs.readdirSync(root).filter(f=>f.endsWith('.html'))){
   assert.ok(fs.existsSync(path.resolve(root,value)),file+' missing dependency '+value);references++;
  }
 }
-for(const directory of ['js','scripts','tests'])for(const file of fs.readdirSync(path.join(root,directory)).filter(f=>/\.(?:js|cjs)$/.test(f))){
- const result=spawnSync(process.execPath,['--check',path.join(root,directory,file)],{encoding:'utf8'});assert.equal(result.status,0,result.stderr);scripts++;
+function sourceFiles(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?sourceFiles(path.join(dir,e.name)):/\.(?:js|cjs)$/.test(e.name)?[path.join(dir,e.name)]:[]);}
+for(const directory of ['js','scripts','tests','functions','convene-worker'])for(const file of sourceFiles(path.join(root,directory))){
+ const result=spawnSync(process.execPath,['--check',file],{encoding:'utf8'});assert.equal(result.status,0,result.stderr);scripts++;
 }
 console.log('PASS: '+references+' local entry dependencies and '+scripts+' script syntax checks; static release requires no bundler.');

@@ -1,0 +1,168 @@
+[
+  {
+    "id": "official-cn-984",
+    "pool": 1,
+    "names": [
+      "寒尽觉春生"
+    ],
+    "start": "2024-06-28 13:00:00",
+    "end": "2024-07-22 09:59:59",
+    "region": "cn",
+    "servers": [],
+    "up": [
+      "1304"
+    ],
+    "group": "featured-character",
+    "ruleVersion": "traditional-v1",
+    "selectionRequired": false,
+    "status": "verified",
+    "sources": [
+      "https://wutheringwaves.kurogames.com/zh/main/news/detail/984",
+      "https://wutheringwaves.kurogames.com/zh/main/news/detail/962"
+    ],
+    "timeBasis": "CN server-local UTC+8; official notice and maintenance",
+    "boundaryConservative": true,
+    "hard": 80,
+    "four": 10,
+    "inheritance": "same-type",
+    "currency": "浮金波纹"
+  },
+  {
+    "id": "official-cn-985",
+    "pool": 2,
+    "names": [
+      "浮声沉兵"
+    ],
+    "start": "2024-06-28 13:00:00",
+    "end": "2024-07-22 09:59:59",
+    "region": "cn",
+    "servers": [],
+    "up": [
+      "21010026"
+    ],
+    "group": "featured-weapon",
+    "ruleVersion": "traditional-v1",
+    "selectionRequired": false,
+    "status": "verified",
+    "sources": [
+      "https://wutheringwaves.kurogames.com/zh/main/news/detail/985",
+      "https://wutheringwaves.kurogames.com/zh/main/news/detail/962"
+    ],
+    "timeBasis": "CN server-local UTC+8; official notice and maintenance",
+    "boundaryConservative": true,
+    "hard": 80,
+    "four": 10,
+    "inheritance": "same-type",
+    "currency": "铸潮波纹"
+  },
+  {
+    "id": "official-cn-1277",
+    "pool": 1,
+    "names": [
+      "千机逐星野"
+    ],
+    "start": "2024-09-07 10:00:00",
+    "end": "2024-09-28 11:59:59",
+    "region": "cn",
+    "servers": [],
+    "up": [
+      "1305"
+    ],
+    "group": "featured-character",
+    "ruleVersion": "traditional-v1",
+    "selectionRequired": false,
+    "status": "verified",
+    "sources": [
+      "https://wutheringwaves.kurogames.com/zh/main/news/detail/1277"
+    ],
+    "timeBasis": "CN server-local UTC+8; official notice and maintenance",
+    "boundaryConservative": true,
+    "hard": 80,
+    "four": 10,
+    "inheritance": "same-type",
+    "currency": "浮金波纹"
+  },
+  {
+    "id": "official-cn-1278",
+    "pool": 2,
+    "names": [
+      "浮声沉兵"
+    ],
+    "start": "2024-09-07 10:00:00",
+    "end": "2024-09-28 11:59:59",
+    "region": "cn",
+    "servers": [],
+    "up": [
+      "21040016"
+    ],
+    "group": "featured-weapon",
+    "ruleVersion": "traditional-v1",
+    "selectionRequired": false,
+    "status": "verified",
+    "sources": [
+      "https://wutheringwaves.kurogames.com/zh/main/news/detail/1278"
+    ],
+    "timeBasis": "CN server-local UTC+8; official notice and maintenance",
+    "boundaryConservative": true,
+    "hard": 80,
+    "four": 10,
+    "inheritance": "same-type",
+    "currency": "铸潮波纹"
+  },
+  {
+    "id": "official-cn-1659",
+    "pool": 1,
+    "names": [
+      "徘徊迷宫尽处"
+    ],
+    "start": "2024-11-14 11:00:00",
+    "end": "2024-12-12 09:59:59",
+    "region": "cn",
+    "servers": [],
+    "up": [
+      "1603"
+    ],
+    "group": "featured-character",
+    "ruleVersion": "traditional-v1",
+    "selectionRequired": false,
+    "status": "verified",
+    "sources": [
+      "https://wutheringwaves.kurogames.com/zh/main/news/detail/1659",
+      "https://wutheringwaves.kurogames.com/zh/main/news/detail/1617"
+    ],
+    "timeBasis": "CN server-local UTC+8; official notice and maintenance",
+    "boundaryConservative": true,
+    "hard": 80,
+    "four": 10,
+    "inheritance": "same-type",
+    "currency": "浮金波纹"
+  },
+  {
+    "id": "official-cn-1660",
+    "pool": 2,
+    "names": [
+      "浮声沉兵"
+    ],
+    "start": "2024-11-14 11:00:00",
+    "end": "2024-12-12 09:59:59",
+    "region": "cn",
+    "servers": [],
+    "up": [
+      "21020026"
+    ],
+    "group": "featured-weapon",
+    "ruleVersion": "traditional-v1",
+    "selectionRequired": false,
+    "status": "verified",
+    "sources": [
+      "https://wutheringwaves.kurogames.com/zh/main/news/detail/1660",
+      "https://wutheringwaves.kurogames.com/zh/main/news/detail/1617"
+    ],
+    "timeBasis": "CN server-local UTC+8; official notice and maintenance",
+    "boundaryConservative": true,
+    "hard": 80,
+    "four": 10,
+    "inheritance": "same-type",
+    "currency": "铸潮波纹"
+  }
+]

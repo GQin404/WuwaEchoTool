@@ -1,0 +1,52 @@
+{
+  "completedAt": "2026-10-20T22:23:09.153553+08:00",
+  "unit": {
+    "passed": 145,
+    "failed": 0,
+    "skipped": 0
+  },
+  "static": {
+    "localEntryDependencies": 283,
+    "scriptSyntax": 133,
+    "failed": 0
+  },
+  "browser": {
+    "referenceFlows": 6,
+    "conveneRegressionFlows": 6,
+    "targetRegressionFlows": 6,
+    "totalFlows": 18,
+    "pageErrors": 0,
+    "viewports": [
+      1440,
+      390
+    ],
+    "languages": [
+      "zh-CN",
+      "zh-TW",
+      "en"
+    ],
+    "canvasLayoutCases": 51,
+    "faults": [
+      "quota preservation",
+      "multiple accounts",
+      "full/hidden UID",
+      "Canvas failure",
+      "unavailable storage"
+    ],
+    "PNGDownloadMatchesPreview": true
+  },
+  "screenshotsAndPNGs": 448,
+  "changedSourceFiles": 33,
+  "protectedModuleHashesUnchanged": [
+    "js/convene-core.js",
+    "js/convene-store.js",
+    "js/convene-character-rating.js",
+    "js/base.js"
+  ],
+  "officialAPI": "mock only; authorized official POST not run",
+  "realGameLogs": "not run; synthetic plain/XOR logs tested",
+  "physicalMobileDevice": "not tested",
+  "assets": "canonical local character portraits; explicit generic weapon-category illustration, no verified per-weapon art catalog",
+  "dataPreserved": true,
+  "gitWrites": false
+}

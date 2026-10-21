@@ -1,0 +1,5 @@
+
+> wuwa-echo-tool@2.0.0 check:static
+> node tests/ui-ux-static.cjs
+
+PASS: 283 local entry dependencies and 131 script syntax checks; static release requires no bundler.

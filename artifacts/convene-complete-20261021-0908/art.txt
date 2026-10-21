@@ -1,0 +1,1 @@
+PASS 64 existing character images, 62 mapped resource IDs; 114 weapon identities, 0 real weapon images; 7 fallbacks and 2 editorial covers.

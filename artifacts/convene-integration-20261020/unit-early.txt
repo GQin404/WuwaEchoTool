@@ -1,0 +1,160 @@
+
+> wuwa-echo-tool@2.0.0 test
+> node --test tests/*.test.cjs
+
+PASS: 42 chain/mode profiles, model parity, reference sets, mode separation, fixed crit, energy thresholds, legacy fields and import/manual parity.
+✔ tests\character-chain-scoring.test.cjs (719.7413ms)
+PASS: Dock source selection, manual/import baseline resume, stale/model rejection and Classic initial rendering without persistence.
+✔ tests\character-dock.test.cjs (724.6901ms)
+✔ v2 rejects impossible calendar dates and time fields at both API and backup boundaries (4.2867ms)
+✔ v2 accepts Gregorian leap-year and valid month-end boundaries without timezone coercion (0.2659ms)
+✔ backup preview counts canonical entities once without changing projections or backup data (0.1839ms)
+✔ legacy backup preview includes equipped Echoes and deduplicates references across roles (0.1051ms)
+✔ v2 presentation preserves v1 calculated statistics, intervals, luck thresholds and archive schema (13.8152ms)
+✔ rating breakdown reads actual weights and sample gates; unknown limited luck is never zero (3.2358ms)
+✔ achievement atlas distinguishes insufficient evidence and observed unmet conditions (1.0964ms)
+✔ achievement dates and progress require exact eligible evidence and correct trigger order (1.4335ms)
+✔ comeback atlas uses normalized confirmed outcomes in a continuous segment (0.3202ms)
+✔ six rank emblems differ in geometry as well as color; observation is unawarded (0.658ms)
+✔ URL parses fragment and both official regions without reusing character Token (2.0329ms)
+✔ Selected Windows log decoding works for plaintext and parity XOR, without filesystem access (0.4656ms)
+✔ API normalization preserves identical items in a timestamp batch and stable oldest-first sequence (10.2656ms)
+✔ Schema validation rejects malformed rows instead of silently skipping pulls (0.3217ms)
+✔ Repeated and incremental imports preserve archived history past the moving API window (1.8151ms)
+✔ Batch conflicts preserve old source and cannot be mistaken for new pulls (0.4323ms)
+✔ Multi-account identity separates server and region even with same UID (6.3626ms)
+✔ Unjoined snapshots censor intervals over gaps, overlapping snapshots repair continuity (1.8298ms)
+✔ First 5-star is censored, subsequent exact intervals and current pity use pool lineage (0.808ms)
+✔ Pool rules stay separate; unknown and gift pools never enter fortune rating (0.7612ms)
+✔ Limited outcomes are unknown until explicitly confirmed, guaranteed results not chance wins (6.1427ms)
+✔ Luck grade boundaries, low sample gating and confidence do not add luck points (0.2234ms)
+✔ Acquisition analysis is not fabricated character banner expenditure (2.8503ms)
+✔ Archive validation is idempotent, rejects corrupt or future backups and strips credentials (15.0475ms)
+✔ Import commits each successful pool and reports partial failures without exposing upstream messages (15.0061ms)
+✔ Cancellation, timeout, missing proxy and invalid API schemas get sanitized actionable codes (17.8864ms)
+✔ Full backup optional archive is validated while old full backups remain readable (5.8334ms)
+✔ All new messages have three nonempty translations with identical interpolation contracts (0.5221ms)
+✔ Proxy allowlist, size, rate binding, origin and sanitized response contracts (5.3795ms)
+✔ Achievements require observed interval evidence and distinguish censored first gold (1.3941ms)
+PASS: deletion source conflicts and isolation, duplicate identity rejection, immutable share snapshot, incomplete share score, Classic locale isolation, translated breadcrumb and role actions.
+✔ tests\final-acceptance.test.cjs (699.5501ms)
+PASS: locale precedence/mapping, persistence and blocked storage, lang/subscriptions, 924 matching trilingual keys, Intl formatters, neutral view model and score/save invariance.
+✔ tests\i18n.test.cjs (776.1697ms)
+PASS: import error stages, business failures, refresh stop, malformed responses, transport failures, safe diagnostics and three locales.
+✔ tests\import-errors.test.cjs (708.945ms)
+PASS: login and data headers are isolated; no token or b-at leakage in either direction.
+✔ tests\import-headers.test.cjs (748.5369ms)
+PASS: shared core transactions, cancellation/conflicts, equip/remove, duplicate identity, Cost limit, native routes, 126 frozen legacy probability cases, 100 five-stat simulations, synthetic import transport and score parity.
+✔ tests\milestone3-core.test.cjs (752.6267ms)
+PASS: orphan cleanup, two-namespace rollback, corrupt history protection, explicit corrupt-core restore, source conflict, reverse Classic routes, complete workspace/guide/dock dictionaries.
+✔ tests\milestone3-storage.test.cjs (768.6412ms)
+✔ new Echo catalogs recover missing or unresolved names without changing old/imported scores or source data (15.0993ms)
+✔ migration is idempotent and preserves IDs, notes, settings and five stable slots (2.7236ms)
+✔ duplicate legacy IDs are not silently merged by equal attributes (0.2231ms)
+✔ add, copy, switch, rename, default and delete preserve independent stable references (0.5317ms)
+✔ one entity can be used across roles and official/manual configurations; edit propagates and unlink is local (0.4828ms)
+✔ entity deletion clears every referencing slot while preserving all roles and configurations (0.287ms)
+✔ confirmed entity deletion removes only that entity metadata (2.1141ms)
+✔ Classic shared edits show scope and cancellation leaves the saved data untouched (8.2607ms)
+✔ core editing and shared equip are atomic, scored and allow official characters (2.8287ms)
+✔ missing references show empty slots and never resolve a different entity (0.3605ms)
+✔ old and new backups restore with references and global metadata intact (3.0883ms)
+✔ Classic active projection edits preserve inactive configurations and shared entities (0.4443ms)
+✔ different loadouts produce isolated draft baselines and comparison scores (1.0473ms)
+✔ configuration settings are independent while chain remains a role-level setting (0.1778ms)
+✔ migrated draft associations and adoption signatures remain bound to the first loadout (0.4168ms)
+✔ removing a non-last configuration cleans its drafts and adoptions without touching other plans (0.3837ms)
+✔ keep existing is the default and all-keep performs no detail reads or saved writes (11.9906ms)
+✔ mixed keep/complete overwrite/add resets only the chosen role and preserves shared/global data (3.6213ms)
+✔ all overwrite resets both roles; cancellation and failed preview never partially commit (3.1369ms)
+✔ multi-key write failure rolls back every namespace and interrupted transactions recover on reload (2.0475ms)
+PASS: 91 new chain/scenario profiles, reference scores, gender parity, mixed elements, fixed crit, HP caps, healing and import/manual parity.
+✔ tests\new-character-scoring.test.cjs (789.5596ms)
+PASS: root chooser ignores saved preferences on HTTP/file URLs; explicit views resolve; trilingual visible manual/import index and primary creation links; empty onboarding; no core writes.
+✔ tests\rc2-workspace.test.cjs (761.2409ms)
+✔ full backup roundtrip excludes token and validates before restore (2.9231ms)
+✔ invalid version never mutates storage (0.1393ms)
+✔ full backup restores valid adoption storage, including legacy export revision compatibility (1.3486ms)
+PASS: 280 synthetic manual/import pairs against legacy page functions; 840 localized selected renders; 266 nonzero loadout corrections; stale caches and legacy sorting/writes isolated on copies.
+✔ tests\register-fixture-acceptance.test.cjs (3557.868ms)
+✔ official names map the three reported characters through preview and explicit save (13.7124ms)
+✔ legacy aliases stay compatible while ambiguous names and duplicate identities stay blocked (1.5674ms)
+✔ search, visible-only all, multi-select, unknown/duplicate blocking and preview/cancel isolation (2.4394ms)
+✔ partial success, one bounded queue, retry failed only, save successful items (67.2727ms)
+✔ cancel stops scheduling and ignores a non-abortable response (0.891ms)
+✔ UID/token invalidation and dispose prevent old list/detail and commits (0.7134ms)
+✔ explicit save, idempotent submit, UID separation, reliable update preserves local ID (9.7522ms)
+✔ legacy source requires a target; cannot overwrite manual or another UID (3.5921ms)
+✔ multiple source matches require explicit target (3.2152ms)
+✔ skip and failed items never save, partial batch may commit (1.83ms)
+✔ local conflict retains preview, preserves foreign writes and reconfirms affected target (4.0268ms)
+✔ storage failure retains batch, no partial writes or saved links, retry unique IDs (2.4147ms)
+✔ complete backup roundtrip includes inline source; delete removes it; legacy schema survives (4.903ms)
+✔ source update invalidates baseline/draft while preserving draft and adoption storage (7.8152ms)
+✔ three-language keys complete and new/import scoring uses the shared adapter (5.2062ms)
+✔ real transport chain reauthorizes once for list/detail data credentials and aborts safely (1.8161ms)
+✔ repeated dataToken cannot loop; empty token and invalid UID never issue transport (0.1939ms)
+✔ localized search and credential clear preserve core data, with recovery on partial clear failure (2.0523ms)
+✔ credential storage failure is classified without raw exceptions, and connection stays unverified (0.2252ms)
+✔ conversion rejects unknown Echo mappings and uses unique snapshot identities, with numeric flat stats (2.2455ms)
+✔ corrupt navigation sessions recover on explicit save without touching roles, plans or other valid views (2.8579ms)
+✔ navigation storage read/write failures report failure and preserve the existing session (0.1968ms)
+✔ inventory plans become stale for changed, removed, duplicated or equipped sources, without mutating snapshots (4.3243ms)
+✔ inventory validation ignores display caches but checks Cost, main stat and set; manual plans remain snapshots (2.6727ms)
+✔ explicit core save stays clean when optional session cleanup fails; incompatible recovery does not apply (1.3996ms)
+✔ removing one adopted plan cleans its reference and name, preserves another plan and the original roles (14.4435ms)
+✔ downloads, new-tab links and in-page anchors do not leave or discard dirty input (0.9933ms)
+✔ role sorting/filtering is immutable, stable and never ranks unavailable values as zero (1.1034ms)
+✔ Echo filtering preserves blocked candidates and numeric ranking excludes unreliable values (0.3193ms)
+✔ names are isolated, conflict-safe and survive old/new full backups without changing mcData (2.9119ms)
+✔ multi-key explicit changes recover only written keys and leave data intact on later write failure (0.174ms)
+✔ return addresses stay in the Register allowlist and session state never enters core data (0.6495ms)
+✔ names do not affect source revisions or scores; deleting a draft removes names and adoption only (15.322ms)
+✔ all new messages have matching translations and reject unsafe metadata (2.1303ms)
+✔ unsaved input distinguishes semantic changes, retains only in session, and marks explicit save clean (1.2613ms)
+PASS Classic parity: 45 fixtures, all 16 appraisal levels, strict boundaries, imported precedence, rounding, localized appraisal and empty/incomplete data.
+PASS mixed completeness: persistent four bands and natural empty state, partial distribution, no partial appraisal, imported precedence, three locales, no mutation.
+✔ tests\register-overview.test.cjs (570.3614ms)
+✔ advanced counts compare each control to its own default and count multi-select once (1.6338ms)
+✔ selecting an Echo reuses normalized library readings; changing source invalidates the cache without writes (65.3937ms)
+PASS: shared image catalog, selection, filters, duplicate identity guards, collapsed backup controls, revalidated history presentation, three-language keys and immutable input.
+✔ tests\register-secondary-views.test.cjs (503.6855ms)
+PASS: PNG download, local file selection/redraw, cancel/mismatch recovery, three locales, immutable model.
+✔ tests\register-share.test.cjs (471.1337ms)
+✔ Register results match the existing probability core for every frozen legacy profile and all roles (702.3179ms)
+✔ input changes invalidate old results, target inspection does not, and tools retain independent work (0.3779ms)
+✔ seeded simulation, resources and rule coefficients are unchanged from the original calls (8.9523ms)
+✔ saved UI state restores inputs and results; malformed state is isolated; invalid conditions never reach core (0.6719ms)
+✔ legacy tool entry URLs select the matching Register tool without changing Classic routes (1.938ms)
+PASS: all five slots; manual/import and three locales; library/copy adapters, edited value snapshot, close/return, draft storage isolation, refresh revalidation, stale/incompatible rejection, incomplete without conclusions and immutable contexts.
+✔ tests\role-candidates.test.cjs (14024.9933ms)
+PASS: decision rules, scoring parity, percentage points, energy uncertainty, incomplete/stale/model conditions, local adoption and corruption isolation.
+✔ tests\role-compare.test.cjs (362.1805ms)
+PASS: 2 manual/import baseline lifecycles; immutable semantic snapshots, candidate uniqueness, multiple drafts, stale/incompatible gating, all supported mechanisms, locale invariance, versioned storage, conflicts, deletion, backup roundtrip, corruption/quota isolation and unchanged mcData.
+✔ tests\role-draft.test.cjs (331.0283ms)
+PASS: real legacy edit/add callbacks; no initialization/cancel writes, explicit save/add only, original and preview return routes, unchanged Echo order, new instance restoration.
+✔ tests\role-register-editor.test.cjs (299.8372ms)
+PASS: 30 localized selected renders; all five slots, toggle/collapse, stable ordering, model refresh, removed/moved/ambiguous IDs, return URLs, empty/incomplete/unknown models, no input mutation or selection/locale recalculation.
+✔ tests\role-register-interaction.test.cjs (390.7943ms)
+PASS: shared rendering, 95 complete trilingual keys, five positions/one hidden analysis host, common scale, missing/unknown models, manual/import parity, locale-only writes and Desktop opt-in.
+✔ tests\role-register.test.cjs (403.8801ms)
+PASS: 60 real-model manual/import pairs; immutable inputs, stable slots, stale-cache replacement, missing/invalid data, unit separation and DOM/storage-free browser export.
+✔ tests\role-view-model.test.cjs (318.0995ms)
+PASS: trilingual parsing, one Echo, fixed-stat exclusion, unknown catalog, missing Cost/value/percent, existing rolls, manual conversion, Core library/equip/score parity, no OCR writes and Classic isolation.
+✔ tests\screenshot-recognition.test.cjs (691.5642ms)
+✔ radar retains all five actual contributions and shared score scale without changing total (1.1529ms)
+✔ zero is a real coordinate; incomplete, unavailable and negative values use labels without fill (0.2748ms)
+✔ score readings keep two decimals and missing values across all locales (16.8044ms)
+✔ operation feedback is consumed once by the intended destination without touching saved data (1.1509ms)
+✔ share images load together, reuse successful assets, and close cancels outstanding work (14.0655ms)
+✔ compact output expands for long Echo names and preserves footer space and data (2.7314ms)
+PASS: 32 routing combinations, first visit, URL precedence, mobile Register, locale/view isolation, recent roles, Classic editor return and isolated adoption backup.
+✔ tests\ui-view.test.cjs (147.2761ms)
+ℹ tests 124
+ℹ suites 0
+ℹ pass 124
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14783.2315

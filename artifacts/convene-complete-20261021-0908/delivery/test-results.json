@@ -1,0 +1,126 @@
+{
+  "createdAt": "2026-10-21T09:55:20.969448+08:00",
+  "unit": {
+    "pass": 164,
+    "fail": 0,
+    "skip": 0
+  },
+  "static": {
+    "localDependencies": 289,
+    "scriptSyntaxChecks": 146,
+    "pass": true
+  },
+  "browser": {
+    "totalFlows": 48,
+    "completeFourWidthThreeLanguage": 12,
+    "guideFinalPosition": 12,
+    "fallbackAndImportUpdate": 12,
+    "originalImportAndShare": 6,
+    "targetAndExcess": 6,
+    "faultInjectionSeparate": true,
+    "pageErrors": [],
+    "widths": [
+      1440,
+      768,
+      390,
+      360
+    ],
+    "languages": [
+      "zh-CN",
+      "zh-TW",
+      "en"
+    ],
+    "realOfficialAuthenticatedAPI": false,
+    "CloudflareProduction": false,
+    "physicalMobile": false,
+    "realGameLogs": false,
+    "syntheticOnly": true,
+    "pngPreviewDownloadByteParity": true,
+    "oldCanvasLayoutCases": 51
+  },
+  "resources": {
+    "registeredLocalCharacters": 64,
+    "reliableResourceIDs": 62,
+    "newResourceIDsBeyondExistingGids": 14,
+    "existingImagesMatched": 64,
+    "pendingGenderMappings": 2,
+    "weapons": 114,
+    "weaponsByRarity": {
+      "5": 50,
+      "4": 43,
+      "3": 21
+    },
+    "realWeaponArt": 0,
+    "newEditorialCovers": 2
+  },
+  "protected": {
+    "js/base.js": true,
+    "js/convene-core.js": true,
+    "js/convene-store.js": true,
+    "js/convene-character-rating.js": true,
+    "js/convene-share.js": true,
+    "js/character-portraits.js": true,
+    "js/multi-config.js": true,
+    "js/character-core.js": true,
+    "js/role-view-model.js": true
+  },
+  "originalCharacterFilesUnchanged": 128,
+  "scripts": [
+    {
+      "command": "npm test",
+      "result": "passed",
+      "completedAt": "2026-10-21T09:47:12.650448+08:00",
+      "log": "evidence/unit.txt"
+    },
+    {
+      "command": "npm run check:static",
+      "result": "passed",
+      "completedAt": "2026-10-21T09:47:14.379832+08:00",
+      "log": "evidence/static.txt"
+    },
+    {
+      "command": "node scripts/check-convene-art.cjs",
+      "result": "passed",
+      "completedAt": "2026-10-21T09:47:15.570991+08:00",
+      "log": "evidence/art.txt"
+    },
+    {
+      "command": "node tests/convene-complete-browser.cjs",
+      "result": "passed",
+      "completedAt": "2026-10-21T09:36:03.354775+08:00",
+      "log": "evidence/browser.txt"
+    },
+    {
+      "command": "node tests/convene-guide-browser.cjs",
+      "result": "passed",
+      "completedAt": "2026-10-21T09:38:11.579696+08:00",
+      "log": "evidence/guide-browser.txt"
+    },
+    {
+      "command": "node tests/convene-optimization-browser.cjs",
+      "result": "passed",
+      "completedAt": "2026-10-21T09:29:22.750460+08:00",
+      "log": "evidence/fallback-browser.txt"
+    },
+    {
+      "command": "node tests/convene-browser.cjs",
+      "result": "passed",
+      "completedAt": "2026-10-21T09:47:50.669221+08:00",
+      "log": "evidence/convene-browser.txt"
+    },
+    {
+      "command": "node tests/convene-target-browser.cjs",
+      "result": "passed",
+      "completedAt": "2026-10-21T09:31:16.973607+08:00",
+      "log": "evidence/target-browser.txt"
+    },
+    {
+      "command": "node tests/convene-edge-browser.cjs",
+      "result": "passed",
+      "completedAt": "2026-10-21T09:31:20.963917+08:00",
+      "log": "evidence/edge-browser.txt"
+    }
+  ],
+  "sourceFilesInDelivery": 46,
+  "screenshots": 321
+}

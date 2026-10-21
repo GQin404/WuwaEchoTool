@@ -1,0 +1,302 @@
+/* Role Register 专属样式；普通网格装备卡片，不依赖 subgrid，不影响 Classic。 */
+html.role-register-page{background:#101718;color-scheme:dark}.role-register-page body{margin:0;background:#101718}.role-register-page body>.mc-main-page{display:none!important}
+#role-register{--rr-ink:#f0f1eb;--rr-muted:#b3c5c1;--rr-line:#35494a;--rr-mint:#78c8b8;--rr-gold:#c8a66c;--rr-bg:#1a2627;color:var(--rr-ink);font:15px/1.5 "Segoe UI","Microsoft JhengHei",sans-serif;text-align:left;max-width:1440px;margin:auto;padding:0 24px 28px}
+#role-register *{box-sizing:border-box}
+#role-register :is(h1,h2,h3,p,dl,dd){margin:0}
+#role-register :is(h1,h2,h3,p,dt,small,a){overflow-wrap:anywhere}
+#role-register h2{font-size:19px;font-weight:600;line-height:1.4}
+#role-register a{color:var(--rr-mint);text-underline-offset:4px}
+#role-register :is(button,.rr-action){font:inherit;min-height:44px;border:1px solid #496365;border-radius:6px;background:#1a292a;color:var(--rr-ink);padding:9px 13px;cursor:pointer;line-height:1.4;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+#role-register button:disabled{opacity:.5;cursor:not-allowed}
+#role-register :is(button,a,input,select,summary):focus-visible{outline:2px solid var(--rr-mint);outline-offset:3px}
+#role-register :is(button,.rr-action):not(:disabled):hover{background:#243939;border-color:#78a59c;color:var(--rr-ink)}
+#role-register :is(input,select){font:inherit;min-height:44px;min-width:0;max-width:100%;background:#132021;color:var(--rr-ink);border:1px solid #4b6462;border-radius:5px;padding:8px 10px}
+#role-register .rr-eyebrow{font-size:12px;letter-spacing:1px;color:var(--rr-muted);text-transform:uppercase}
+#role-register .rr-context{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:14px 0;font-size:13px;color:var(--rr-muted)}
+#role-register .rr-context .rr-breadcrumb{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+#role-register .rr-context .rr-breadcrumb a{padding:0;font-size:13px}
+#role-register .rr-main{display:grid;grid-template-columns:260px minmax(0,1fr);gap:24px;align-items:start}
+#role-register .rr-workspace{min-width:0;display:flex;flex-direction:column;gap:20px}
+/* 角色身份与管理分层，删除仍经过原有确认。 */
+#role-register .rr-identity{min-width:0;background:#142021;border:1px solid var(--rr-line);border-radius:10px;overflow:hidden}
+#role-register .rr-identity-hero{display:flex;flex-direction:column}
+#role-register .rr-portrait{height:280px;background:#1a2627;overflow:hidden;border-bottom:1px solid var(--rr-line);position:relative}
+#role-register .rr-portrait::after{content:"";position:absolute;bottom:0;left:0;right:0;height:30px;background:linear-gradient(transparent,#142021);pointer-events:none}
+#role-register .rr-portrait img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+#role-register .rr-identity-heading{padding:16px 16px 10px}
+#role-register .rr-identity h1{font:500 34px/1.15 Georgia,"Microsoft JhengHei",serif;margin:6px 0 8px;letter-spacing:.5px}
+#role-register .rr-identity .op-current-config{font-size:15px!important;color:var(--rr-mint)!important;margin:0 0 8px!important;line-height:1.45}
+#role-register .rr-identity-level{font-size:13px;color:var(--rr-muted)}
+#role-register .rr-role-actions{display:block;margin:0;padding:8px 16px 16px}
+#role-register .rr-role-actions [data-rr-share]{width:100%;background:var(--rr-mint);border-color:var(--rr-mint);color:#102523;font-weight:600}
+#role-register .rr-role-actions [data-rr-share]:hover{background:#98d8c9;color:#102523}
+#role-register .op-rename{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;margin:14px 0}
+#role-register .op-rename label{grid-column:1/-1;min-width:0;font-size:13px;margin:0;display:grid;gap:6px}
+#role-register .op-rename input{width:100%}
+#role-register .op-rename button{grid-column:1;justify-self:stretch;width:100%;padding:10px 12px;font-size:14px}
+#role-register .op-rename [data-op-name-status]{grid-column:1/-1;font-size:14px;line-height:1.5;margin:0;overflow-wrap:anywhere}
+#role-register .op-rename [data-op-name-status]:not(:empty){padding:8px 10px;background:#20332f;border:1px solid #41685c;border-radius:6px}
+#role-register .op-rename [data-state=error]:not(:empty){background:#352b27;border-color:#886b50;color:#e6c29d}
+#role-register .op-plan-management{border-top:1px solid var(--rr-line);padding:12px 0}
+#role-register .op-plan-management h2{font-size:15px}
+#role-register [data-op-plans] p{font-size:13px;margin-top:8px}
+#role-register [data-op-plans] small{display:block;font-size:12px;color:var(--rr-muted);margin-top:4px}
+#role-register .op-plan-management a[aria-current=true]{color:var(--rr-mint);font-weight:600}
+#role-register .rr-danger-actions{padding-top:10px;border-top:1px solid var(--rr-line)}
+#role-register .rr-danger-actions button{width:100%;color:#e4bbb6;background:#35282b;border-color:#775151;padding:10px 14px;justify-content:center;font-size:14px;border-radius:8px}
+#role-register .rr-danger-actions button:hover{color:#f5d4cc;border-color:#ac7771;background:#493034}
+#role-register .rr-score-settings{padding:14px 16px;border-top:1px solid var(--rr-line)}
+#role-register .rr-score-settings h2{font-size:15px;margin-bottom:10px}
+#role-register .rr-score-settings .rr-model-controls{display:grid;grid-template-columns:1fr;gap:10px;margin:0}
+#role-register .rr-score-settings label{display:grid;gap:4px;margin:0;font-size:13px;min-width:0}
+#role-register .rr-score-settings select{width:100%}
+#role-register .rr-score-settings .rr-model-note{font-size:12px;margin:8px 0 0;color:var(--rr-muted);line-height:1.5}
+/* 总览是一个连贯面板，观察只提供现有模型支持的入口。 */
+#role-register .rr-evaluation{display:grid;grid-template-columns:minmax(220px,.95fr) minmax(0,1.05fr);gap:14px 24px;padding:18px 20px;background:var(--rr-bg);border:1px solid var(--rr-line);border-radius:10px;position:relative}
+#role-register .rr-evaluation::before{content:"";position:absolute;left:20px;right:20px;top:0;height:2px;background:var(--rr-gold);opacity:.65}
+#role-register .rr-summary-identity{margin-bottom:10px;font-size:14px;font-weight:500;color:var(--rr-muted)}
+#role-register .rr-summary-identity [data-summary-config]{color:var(--rr-mint)}
+#role-register .rr-overall h2{font-size:14px;font-weight:500;color:var(--rr-muted)}
+#role-register .rr-overall>strong{display:block;font:500 46px/1.2 "Bahnschrift","Segoe UI",sans-serif;font-variant-numeric:tabular-nums;color:var(--rr-ink);margin:4px 0}
+#role-register .rr-overall>strong small{font:14px "Segoe UI",sans-serif;color:var(--rr-muted);margin-left:6px}
+#role-register .rr-overall p{font-size:13px;color:var(--rr-muted)}
+#role-register .rr-summary-completeness{margin-top:4px}
+#role-register .rr-problem{border-left:1px solid var(--rr-line);padding-left:24px;min-width:0}
+#role-register .rr-problem h2{font-size:18px;margin:4px 0 6px;color:var(--rr-ink)}
+#role-register .rr-problem>p:not(.rr-eyebrow){font-size:13px;color:var(--rr-muted);line-height:1.5}
+#role-register .rr-problem button{font-size:13px;min-height:36px;padding:7px 10px;margin:7px 5px 0 0;background:#203231;border-color:#48615b;color:var(--rr-mint)}
+#role-register .rr-observation-details{font-size:13px;color:var(--rr-muted);margin:5px 0}
+#role-register .rr-observation-details summary{min-height:32px;display:flex;align-items:center;gap:6px;color:var(--rr-mint);cursor:pointer;list-style:none}
+#role-register .rr-observation-details summary::before{content:'▸'}
+#role-register .rr-observation-details[open] summary::before{content:'▾'}
+#role-register .rr-observation-details p{margin:8px 0}
+/* 独立卡片使用普通网格，五件真实文本统一量测行高。 */
+#role-register .rr-loadout-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}
+#role-register .rr-loadout-heading>span{font-size:12px;color:var(--rr-muted);text-align:right}
+#role-register .rr-mobile-reading{font-size:12px;display:block;margin-top:4px}
+#role-register .rr-swipe-hint{display:none}
+#role-register .rr-loadout{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;min-width:0}
+#role-register .rr-row-labels{display:none}
+#role-register .rr-slot{position:relative;min-width:0;display:grid;grid-template-rows:24px 92px var(--rr-name-height,40px) calc(var(--rr-label-height,20px) + 34px) 44px 12px 32px minmax(22px,auto);gap:5px;padding:12px 10px 10px;border:1px solid #3c5254;border-radius:8px;background:#172324;box-shadow:0 2px 4px #0002;color:var(--rr-ink)}
+#role-register .rr-slot.rr-selected{border-color:var(--rr-mint);background:#1b3130;box-shadow:inset 0 0 0 1px #78c8b826}
+#role-register .rr-slot.rr-incomplete{border-style:dashed}
+#role-register .rr-slot.rr-empty{background:#131f20;border-style:dashed;color:var(--rr-muted)}
+#role-register .rr-slot-index{grid-row:1;display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:14px;line-height:1.25}
+#role-register .rr-slot-index>span{color:var(--rr-gold);font-weight:600}
+#role-register .rr-slot-index small{font-size:12px;color:var(--rr-muted)}
+#role-register .rr-echo-image{grid-row:2;display:flex;align-items:center;justify-content:center;width:100%;height:92px}
+#role-register .rr-echo-image img{width:88px;height:88px;max-width:100%;object-fit:contain}
+#role-register .rr-placeholder{font-size:36px;color:#657c77}
+#role-register .rr-slot h3{grid-row:3;align-self:start;text-align:center;font-size:14px;font-weight:600;line-height:1.4;hyphens:auto}
+#role-register .rr-main-stat{grid-row:4;display:grid;grid-template-rows:var(--rr-label-height,20px) 28px;gap:4px;border-top:1px solid var(--rr-line);padding-top:5px}
+#role-register .rr-main-stat span{align-self:start;font-size:13px;line-height:1.4;color:var(--rr-muted);overflow-wrap:anywhere}
+#role-register .rr-main-stat b{font:500 20px/1.3 "Bahnschrift","Segoe UI",sans-serif;font-variant-numeric:tabular-nums}
+#role-register .rr-score{grid-row:5;align-self:end;font:500 25px/1.25 "Bahnschrift","Segoe UI",sans-serif;font-variant-numeric:tabular-nums;white-space:nowrap}
+#role-register .rr-score::before{content:attr(data-label);display:block;font:12px/1.2 "Segoe UI",sans-serif;color:var(--rr-muted);white-space:normal;margin-bottom:3px}
+#role-register .rr-score small{font:12px "Segoe UI",sans-serif;color:var(--rr-muted);margin-left:4px}
+#role-register .rr-scale{grid-row:6;align-self:center;height:4px;background:#304342;position:relative;border-radius:2px;overflow:hidden}
+#role-register .rr-scale>span{position:absolute;left:0;top:0;bottom:0;background:#77a99b}
+#role-register .rr-scale i{display:none}
+#role-register .rr-effective{grid-row:7;display:flex;justify-content:space-between;gap:6px;align-items:center;font-size:12px;color:var(--rr-muted)}
+#role-register .rr-effective>span{max-width:65%;line-height:1.25}
+#role-register .rr-effective strong{font-size:16px;font-weight:500;white-space:nowrap;color:var(--rr-ink)}
+#role-register .rr-effective small{font-size:12px;margin-left:2px;color:var(--rr-muted)}
+#role-register .rr-slot-status{grid-row:8;display:block;font-size:12px;line-height:1.35;color:var(--rr-muted);overflow-wrap:anywhere}
+#role-register .rr-selected .rr-slot-status{color:var(--rr-mint);font-weight:600}
+#role-register .rr-weakest .rr-slot-status{text-decoration:underline dotted;text-underline-offset:3px}
+#role-register .rr-slot-trigger{position:absolute;inset:0;z-index:2;width:100%;height:100%;border:0!important;padding:0;background:transparent!important;border-radius:8px;color:inherit;min-height:44px}
+#role-register .rr-slot-trigger:hover{outline:1px solid #779f96;outline-offset:-3px}
+#role-register .rr-slot-trigger:focus-visible{outline:2px solid var(--rr-mint);outline-offset:-4px}
+#role-register .rr-sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+/* 完整分析紧接装备区，所有读数取自已有模型。 */
+#role-register .rr-inline-analysis{padding:20px;background:#152223;border:1px solid #45635e;border-radius:10px;min-width:0}
+#role-register .rr-inline-analysis[hidden]{display:none!important}
+#role-register .rr-connector{display:none}
+#role-register .rr-analysis-heading{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:12px;align-items:center}
+#role-register .rr-analysis-heading h2{font-size:21px;margin-top:4px}
+#role-register .rr-analysis-score{text-align:right;max-width:170px}
+#role-register .rr-analysis-score span{display:block;font-size:12px;color:var(--rr-muted)}
+#role-register .rr-analysis-score strong{display:block;font-size:26px;color:var(--rr-mint);font-variant-numeric:tabular-nums}
+#role-register .rr-analysis-meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--rr-muted);margin:12px 0}
+#role-register .rr-analysis-content>p{font-size:13px;color:var(--rr-muted);margin:10px 0}
+#role-register .rr-analysis-content .rr-analysis-readings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0;padding:0;border:0}
+#role-register .rr-analysis-readings>div{background:var(--rr-bg);border:1px solid var(--rr-line);border-radius:6px;padding:12px;min-width:0}
+#role-register .rr-analysis-readings dt{font-size:13px;line-height:1.45;color:var(--rr-muted);overflow-wrap:anywhere}
+#role-register .rr-analysis-readings dd{font-size:23px;line-height:1.4;margin-top:8px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#role-register .rr-substats-details{margin:14px 0}
+#role-register :is(.rr-substats-details,.rr-conditions)>summary{font-size:14px;min-height:44px;display:flex;align-items:center;gap:6px;cursor:pointer;color:var(--rr-mint);list-style:none}
+#role-register :is(.rr-substats-details,.rr-conditions)>summary::before{content:'▸'}
+#role-register :is(.rr-substats-details,.rr-conditions)[open]>summary::before{content:'▾'}
+#role-register .rr-substats{width:100%;table-layout:fixed;border-collapse:collapse;font-size:14px;margin:10px 0}
+#role-register .rr-substats :is(th,td){padding:12px 8px;border-bottom:1px solid var(--rr-line);vertical-align:top;text-align:right;overflow-wrap:anywhere}
+#role-register .rr-substats th:first-child{width:24%;text-align:left}
+#role-register .rr-substats thead th{font-size:12px;color:var(--rr-muted);font-weight:500}
+#role-register .rr-substats :is(th,td):last-child{text-align:left;width:28%}
+#role-register .rr-analysis-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;align-items:center}
+#role-register .rr-analysis-actions .rr-action{background:#24403a;border-color:var(--rr-mint)}
+#role-register .rr-rail{display:grid;grid-template-columns:180px minmax(0,1fr);gap:20px;padding:18px 20px;border:1px solid var(--rr-line);background:#142021;border-radius:8px}
+#role-register .rr-rail h2{font-size:16px}
+#role-register .rr-rail p{font-size:12px;color:var(--rr-muted);margin-top:6px}
+#role-register .rr-rail dl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+#role-register .rr-rail dt{font-size:13px;color:var(--rr-muted);min-height:40px}
+#role-register .rr-rail dd{font-size:24px;font-variant-numeric:tabular-nums}
+#role-register .rr-overview-entry{border-top:1px solid var(--rr-line);padding:16px 0}
+#role-register .rr-overview-entry p{font-size:13px;color:var(--rr-muted);margin:6px 0}
+#role-register .rr-conditions{border:1px solid var(--rr-line);border-radius:8px;padding:8px 16px;font-size:13px;color:var(--rr-muted)}
+#role-register .rr-conditions h2{margin:12px 0;font-size:17px;color:var(--rr-ink)}
+#role-register .rr-conditions p{margin:8px 0}
+#role-register .rr-conditions dl{display:flex;gap:24px;flex-wrap:wrap;margin:14px 0}
+#role-register .rr-conditions dd{font-size:19px;color:var(--rr-ink)}
+#role-register .rr-model-controls{display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin:12px 0}
+#role-register .rr-model-controls label{display:flex;flex-direction:column;gap:6px;max-width:260px}
+#role-register .rr-model-controls input{width:160px}
+#role-register .rr-model-note{border-left:2px solid var(--rr-line);padding-left:10px}
+#role-register .rr-model-note.rr-changed{border-color:var(--rr-mint);color:var(--rr-mint)}
+#role-register #rr-evidence{padding:14px 0}
+#role-register #rr-evidence h3{text-align:left;font-size:16px}
+#role-register .rr-conditions ul{padding-left:20px}
+#role-register .rr-conditions li button{justify-content:flex-start;text-align:left;margin:4px 0}
+#role-register .rr-announcement:empty{display:none}
+#role-register .rr-announcement{padding:10px;border-left:2px solid var(--rr-mint);font-size:13px;margin:12px 0}
+#role-register .rr-footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--rr-line);padding:16px 0;margin-top:24px;font-size:12px;color:var(--rr-muted)}
+#role-register .rr-error{padding:60px 0;min-height:300px}
+#role-register .rr-error p{margin:16px 0}
+#role-register .rr-candidate-surface{margin-top:32px;padding:24px 0;border-top:2px solid var(--rr-line)}
+#role-register .rr-candidate-surface nav{display:flex;gap:24px;margin:20px 0}
+#role-register .rr-candidate-surface button[aria-pressed="true"]{border-bottom:3px solid currentColor;font-weight:700}
+#role-register .rr-candidate-list{padding:0;list-style:none}
+#role-register .rr-candidate-list li{display:grid;grid-template-columns:1.2fr .4fr 1fr 2fr 1fr auto;gap:16px;align-items:start;padding:20px 0;border-bottom:1px solid var(--rr-line);overflow-wrap:anywhere}
+#role-register .rr-candidate-editor{max-width:760px}
+#role-register .rr-candidate-stat{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px;align-items:end;margin:16px 0}
+#role-register .rr-candidate-editor label{display:flex;flex-direction:column;gap:8px}
+#role-register .rr-candidate-editor input,#role-register .rr-candidate-editor select{min-width:0;width:100%;background:var(--rr-bg);color:var(--rr-ink);border:1px solid var(--rr-line);padding:8px}
+#role-register .rr-compare-context{display:grid;grid-template-columns:110px 1fr;gap:16px}
+#role-register .rr-compare-context dd{display:flex;flex-wrap:wrap;gap:16px;margin:0}
+#role-register .rr-candidate-surface :focus-visible{outline:2px solid currentColor;outline-offset:4px}
+/* 比较沿槽位分析向下延伸，使用共同列而不是独立数据卡片。 */
+#role-register .rr-decision { margin-top: 24px; }
+#role-register .rr-decision h4 { font-size: 26px; line-height: 1.35; margin: 12px 0; }
+#role-register .rr-decision p { max-width: 90ch; line-height: 1.65; overflow-wrap: anywhere; }
+#role-register .rr-tradeoffs { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; border-block: 1px solid #42464a; padding: 16px 0; }
+#role-register .rr-tradeoffs h5 { margin: 0; font-size: 16px; }
+#role-register .rr-compare-table { width: 100%; border-collapse: collapse; table-layout: fixed; margin: 20px 0; }
+#role-register .rr-compare-table th, #role-register .rr-compare-table td { text-align: right; padding: 12px 10px; border-bottom: 1px solid #34383b; font-variant-numeric: tabular-nums; vertical-align: top; overflow-wrap: anywhere; }
+#role-register .rr-compare-table th:first-child { text-align: left; width: 30%; }
+#role-register .rr-compare-table small { display: block; margin-top: 6px; line-height: 1.5; }
+#role-register .rr-compare-condition { display: flex; gap: 12px; align-items: baseline; margin: 14px 0; line-height: 1.6; }
+#role-register .rr-decision fieldset { border: 0; border-top: 1px solid #42464a; margin: 24px 0; padding: 18px 0; }
+#role-register .rr-decision summary { cursor: pointer; padding: 12px 0; }
+#role-register.rr-comparing .rr-analysis-content > .rr-substats,
+#role-register.rr-comparing .rr-analysis-content > .rr-analysis-main,
+#role-register.rr-comparing .rr-analysis-content > .rr-analysis-actions,
+#role-register.rr-comparing .rr-analysis-content > p { display: none; }
+
+
+/* 候选列表及比较沿用既有功能，统一在本文件维护响应式规则。 */
+#role-register .rr-candidate-list{max-height:55vh;overflow:auto;scrollbar-gutter:stable;scroll-padding:12px}
+#role-register .rr-candidate-list li{grid-template-columns:minmax(0,1fr) auto;gap:8px 16px;padding:16px 0}
+#role-register .rr-candidate-list li>span{font-size:13px;color:var(--rr-muted)}
+#role-register .rr-candidate-list button{grid-column:2;grid-row:1/5;align-self:center}
+#role-register.rr-comparing .rr-analysis-content>:is(.rr-substats-details,.rr-analysis-summary){display:none}
+@media(max-width:1099px){
+ #role-register{padding-inline:20px}
+#role-register .rr-main{display:block}
+#role-register .rr-identity{margin-bottom:20px}
+#role-register .rr-identity-hero{display:grid;grid-template-columns:112px minmax(0,1fr);align-items:center}
+#role-register .rr-portrait{height:140px;border-bottom:0;border-right:1px solid var(--rr-line)}
+#role-register .rr-portrait::after{display:none}
+#role-register .rr-identity-heading{padding:12px 16px}
+#role-register .rr-identity h1{font-size:30px}
+#role-register .rr-role-actions{padding:0 16px 12px}
+#role-register .rr-role-actions [data-rr-share]{width:auto;min-width:180px}
+ #role-register .rr-rail{grid-template-columns:1fr}
+#role-register .rr-analysis-heading{grid-template-columns:minmax(0,1fr) auto}
+#role-register .rr-analysis-heading [data-rr-collapse]{grid-column:1/-1;justify-self:end}
+}
+@media(max-width:700px){
+ #role-register{padding:0 14px calc(120px + env(safe-area-inset-bottom))}
+#role-register .rr-context{padding:10px 0;flex-wrap:wrap;gap:4px}
+#role-register .rr-context .rr-breadcrumb a{min-height:32px;display:inline-flex;align-items:center}
+#role-register .rr-context .rr-breadcrumb span:nth-last-child(-n+2){display:none}
+#role-register .rr-context>span{font-size:12px}
+ #role-register .rr-main{display:flex;flex-direction:column;gap:14px}
+#role-register .rr-identity{width:100%;margin:0;display:contents}
+#role-register .rr-identity-hero{order:0;width:100%;grid-template-columns:88px minmax(0,1fr);border:1px solid var(--rr-line);border-radius:8px;overflow:hidden;background:#142021}
+#role-register .rr-portrait{height:118px}
+#role-register .rr-identity-heading{padding:10px 12px}
+#role-register .rr-identity h1{font-size:27px}
+#role-register .rr-identity .op-current-config{font-size:14px!important}
+#role-register .rr-identity-heading .rr-eyebrow{display:none}
+#role-register .rr-identity-level{font-size:12px}
+ #role-register .rr-workspace{display:contents}
+#role-register .rr-evaluation{order:2;width:100%;grid-template-columns:1fr;padding:12px 14px;gap:8px}
+#role-register .rr-summary-identity{display:none}
+#role-register .rr-overall{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 12px;align-items:center}
+#role-register .rr-overall h2{grid-column:1;grid-row:1}
+#role-register .rr-overall>strong{grid-column:2;grid-row:1/4;font-size:40px;white-space:nowrap;margin:0}
+#role-register .rr-overall>strong small{display:block;font-size:12px;text-align:right;margin:0}
+#role-register .rr-overall p{grid-column:1;font-size:12px}
+#role-register .rr-problem{border-left:0;padding-left:0;border-top:1px solid var(--rr-line);padding-top:8px}
+#role-register .rr-problem .rr-eyebrow{display:none}
+#role-register .rr-problem h2{font-size:16px;margin:0 0 5px}
+#role-register .rr-problem button{min-height:44px}
+#role-register .rr-observation-details summary{min-height:44px}
+ #role-register .rr-role-actions{order:3;padding:0;width:100%}
+#role-register .rr-role-actions [data-rr-share]{width:100%}
+#role-register .rr-loadout-heading{order:4;width:100%;display:block}
+#role-register .rr-loadout-heading>span{text-align:left;display:block;margin-top:4px}
+#role-register .rr-swipe-hint{display:block;color:var(--rr-mint);font-size:13px;margin-top:4px}
+#role-register .rr-mobile-reading{display:none}
+ #role-register .rr-loadout{order:5;width:100%;grid-template-columns:repeat(5,132px);overflow-x:auto;overscroll-behavior-x:contain;scroll-padding:2px;scroll-snap-type:x proximity;padding-bottom:8px;gap:8px}
+#role-register .rr-slot{padding:10px 8px;scroll-snap-align:start;grid-template-rows:20px 72px var(--rr-name-height,38px) 0 43px 0 26px minmax(20px,auto);gap:3px}
+#role-register .rr-echo-image{height:72px}
+#role-register .rr-echo-image img{width:70px;height:70px}
+#role-register .rr-slot h3{font-size:13px}
+#role-register .rr-slot-index{font-size:13px}
+#role-register .rr-main-stat,#role-register .rr-scale{display:none}
+#role-register .rr-score{font-size:24px}
+#role-register .rr-score::before{font-size:11px}
+#role-register .rr-score small{font-size:11px}
+#role-register .rr-effective{font-size:11px}
+#role-register .rr-effective strong{font-size:14px}
+#role-register .rr-slot-status{font-size:12px}
+ #role-register .rr-inline-analysis{order:6;width:100%;padding:14px}
+#role-register .rr-analysis-heading h2{font-size:19px}
+#role-register .rr-analysis-heading{grid-template-columns:minmax(0,1fr) auto;gap:8px}
+#role-register .rr-analysis-score{max-width:110px}
+#role-register .rr-analysis-score strong{font-size:22px}
+#role-register .rr-analysis-meta{gap:6px 12px;font-size:12px}
+#role-register .rr-analysis-readings>div{padding:10px}
+#role-register .rr-analysis-readings dd{font-size:21px}
+ #role-register .rr-substats thead,#role-register .rr-compare-table thead{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden}
+#role-register .rr-substats,#role-register .rr-substats tbody,#role-register .rr-substats tr,#role-register .rr-compare-table,#role-register .rr-compare-table tbody,#role-register .rr-compare-table tr{display:block;width:100%}
+#role-register .rr-substats tr,#role-register .rr-compare-table tr{padding:10px 0;border-bottom:1px solid var(--rr-line)}
+#role-register .rr-substats tbody th:first-child,#role-register .rr-compare-table th:first-child{display:block;width:100%;padding:6px 0;border:0;font-size:15px}
+#role-register .rr-substats td,#role-register .rr-substats td:last-child,#role-register .rr-compare-table td{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;text-align:right;padding:5px 0;border:0;width:100%;font-size:14px}
+#role-register td[data-label]::before{content:attr(data-label);text-align:left;color:var(--rr-muted);max-width:55%}
+ #role-register .rr-analysis-actions :is(a,button){flex:1;font-size:13px;text-align:center}
+#role-register .rr-rail{order:7;width:100%;padding:14px}
+#role-register .rr-rail dl{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#role-register .rr-rail dt{min-height:0}
+#role-register .rr-score-settings{order:1;width:100%;padding:12px 14px;border:1px solid var(--rr-line);border-radius:12px;background:var(--rr-bg)}
+#role-register .rr-score-settings .rr-model-controls{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#role-register .rr-score-settings .rr-model-note{margin-top:6px}
+#role-register .rr-conditions{order:8;width:100%}
+#role-register .rr-footer{flex-wrap:wrap}
+ #role-register .rr-candidate-list{max-height:none;overflow:visible}
+#role-register .rr-candidate-list li{grid-template-columns:minmax(0,1fr)}
+#role-register .rr-candidate-list button{grid-column:1;grid-row:auto;justify-self:start}
+#role-register .rr-candidate-stat{grid-template-columns:1fr 1fr;gap:12px}
+#role-register .rr-candidate-stat>label:first-child{grid-column:1/-1}
+#role-register .rr-tradeoffs{grid-template-columns:1fr;gap:16px}
+#role-register .rr-candidate-surface nav{flex-wrap:wrap;gap:10px}
+ #role-register .rr-candidate-surface[data-phase=select]{position:fixed;inset:auto 0 calc(96px + env(safe-area-inset-bottom));max-height:70dvh;overflow:auto;z-index:15;background:#172627;padding:16px;margin:0;border-top:2px solid var(--rr-mint);overscroll-behavior:contain}
+#role-register .rr-candidate-surface[data-phase=select]>.rr-analysis-heading{position:sticky;top:-16px;background:#172627;padding:10px 0;z-index:1}
+}
+@media(prefers-reduced-motion:reduce){#role-register *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+#role-register .rr-danger-actions{padding:16px;margin-top:12px;border-top:1px solid var(--rr-line)}
+#role-register .rr-saved-plans{padding:16px;border-top:1px solid var(--rr-line)}
+#role-register .rr-saved-plans[hidden],#role-register .rr-import-actions:empty{display:none}
+#role-register .rr-import-actions:not(:empty){padding:0 16px 12px}
+@media(max-width:700px){#role-register .rr-danger-actions{order:9;width:100%;margin:0;border:1px solid var(--rr-line);border-radius:8px;background:#142021}#role-register .rr-saved-plans,#role-register .rr-import-actions:not(:empty){order:8;width:100%;padding:14px}}

@@ -1,0 +1,235 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "checks": 17,
+      "sameEntity": 1000,
+      "aUnchangedOnEquip": true,
+      "aUnchangedOnUnlink": true,
+      "threeLoadoutUsage": true,
+      "sharedEditAllScores": [
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.86,
+          "known": 21.86,
+          "sub": 10.5
+        },
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.86,
+          "known": 21.86,
+          "sub": 10.5
+        },
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.96,
+          "known": 21.96,
+          "sub": 10.5
+        }
+      ],
+      "filtersCompose": true,
+      "resetAndReopen": true,
+      "inactiveUsage": true,
+      "costLimit": true,
+      "concurrentSaveBlocked": true,
+      "layout": true
+    },
+    {
+      "width": 1440,
+      "locale": "zh-TW",
+      "checks": 17,
+      "sameEntity": 1000,
+      "aUnchangedOnEquip": true,
+      "aUnchangedOnUnlink": true,
+      "threeLoadoutUsage": true,
+      "sharedEditAllScores": [
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.86,
+          "known": 21.86,
+          "sub": 10.5
+        },
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.86,
+          "known": 21.86,
+          "sub": 10.5
+        },
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.96,
+          "known": 21.96,
+          "sub": 10.5
+        }
+      ],
+      "filtersCompose": true,
+      "resetAndReopen": true,
+      "inactiveUsage": true,
+      "costLimit": true,
+      "concurrentSaveBlocked": true,
+      "layout": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "checks": 17,
+      "sameEntity": 1000,
+      "aUnchangedOnEquip": true,
+      "aUnchangedOnUnlink": true,
+      "threeLoadoutUsage": true,
+      "sharedEditAllScores": [
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.86,
+          "known": 21.86,
+          "sub": 10.5
+        },
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.86,
+          "known": 21.86,
+          "sub": 10.5
+        },
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.96,
+          "known": 21.96,
+          "sub": 10.5
+        }
+      ],
+      "filtersCompose": true,
+      "resetAndReopen": true,
+      "inactiveUsage": true,
+      "costLimit": true,
+      "concurrentSaveBlocked": true,
+      "layout": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "checks": 17,
+      "sameEntity": 1000,
+      "aUnchangedOnEquip": true,
+      "aUnchangedOnUnlink": true,
+      "threeLoadoutUsage": true,
+      "sharedEditAllScores": [
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.86,
+          "known": 21.86,
+          "sub": 10.5
+        },
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.86,
+          "known": 21.86,
+          "sub": 10.5
+        },
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.96,
+          "known": 21.96,
+          "sub": 10.5
+        }
+      ],
+      "filtersCompose": true,
+      "resetAndReopen": true,
+      "inactiveUsage": true,
+      "costLimit": true,
+      "concurrentSaveBlocked": true,
+      "layout": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-TW",
+      "checks": 17,
+      "sameEntity": 1000,
+      "aUnchangedOnEquip": true,
+      "aUnchangedOnUnlink": true,
+      "threeLoadoutUsage": true,
+      "sharedEditAllScores": [
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.86,
+          "known": 21.86,
+          "sub": 10.5
+        },
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.86,
+          "known": 21.86,
+          "sub": 10.5
+        },
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.96,
+          "known": 21.96,
+          "sub": 10.5
+        }
+      ],
+      "filtersCompose": true,
+      "resetAndReopen": true,
+      "inactiveUsage": true,
+      "costLimit": true,
+      "concurrentSaveBlocked": true,
+      "layout": true
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "checks": 17,
+      "sameEntity": 1000,
+      "aUnchangedOnEquip": true,
+      "aUnchangedOnUnlink": true,
+      "threeLoadoutUsage": true,
+      "sharedEditAllScores": [
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.86,
+          "known": 21.86,
+          "sub": 10.5
+        },
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.86,
+          "known": 21.86,
+          "sub": 10.5
+        },
+        {
+          "id": 1000,
+          "value": "10.5%",
+          "score": 21.96,
+          "known": 21.96,
+          "sub": 10.5
+        }
+      ],
+      "filtersCompose": true,
+      "resetAndReopen": true,
+      "inactiveUsage": true,
+      "costLimit": true,
+      "concurrentSaveBlocked": true,
+      "layout": true
+    }
+  ],
+  "pageErrors": [],
+  "realDevice": false,
+  "isolatedSyntheticStorage": true
+}

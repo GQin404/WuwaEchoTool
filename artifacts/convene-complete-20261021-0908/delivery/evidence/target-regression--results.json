@@ -1,0 +1,171 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "pngs": [
+        "target-R0-compact",
+        "target-R3-compact",
+        "target-R6-compact",
+        "target-R6-detailed-excess",
+        "target-R6-private-no-badge"
+      ],
+      "alphaServer": true,
+      "legacyAccountCompatibility": {
+        "accounts": 2,
+        "same": true,
+        "version": 1
+      },
+      "targets": [
+        0,
+        3,
+        6
+      ],
+      "layouts": 6,
+      "fontAndImageFallback": true,
+      "canvasFailure": true,
+      "realAPI": false
+    },
+    {
+      "width": 1440,
+      "locale": "zh-TW",
+      "pngs": [
+        "target-R0-compact",
+        "target-R3-compact",
+        "target-R6-compact",
+        "target-R6-detailed-excess",
+        "target-R6-private-no-badge"
+      ],
+      "alphaServer": true,
+      "legacyAccountCompatibility": {
+        "accounts": 2,
+        "same": true,
+        "version": 1
+      },
+      "targets": [
+        0,
+        3,
+        6
+      ],
+      "layouts": 6,
+      "fontAndImageFallback": true,
+      "canvasFailure": true,
+      "realAPI": false
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "pngs": [
+        "target-R0-compact",
+        "target-R3-compact",
+        "target-R6-compact",
+        "target-R6-detailed-excess",
+        "target-R6-private-no-badge"
+      ],
+      "alphaServer": true,
+      "legacyAccountCompatibility": {
+        "accounts": 2,
+        "same": true,
+        "version": 1
+      },
+      "targets": [
+        0,
+        3,
+        6
+      ],
+      "layouts": 6,
+      "fontAndImageFallback": true,
+      "canvasFailure": true,
+      "realAPI": false
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "pngs": [
+        "target-R0-compact",
+        "target-R3-compact",
+        "target-R6-compact",
+        "target-R6-detailed-excess",
+        "target-R6-private-no-badge"
+      ],
+      "alphaServer": true,
+      "legacyAccountCompatibility": {
+        "accounts": 2,
+        "same": true,
+        "version": 1
+      },
+      "targets": [
+        0,
+        3,
+        6
+      ],
+      "layouts": 6,
+      "fontAndImageFallback": true,
+      "canvasFailure": true,
+      "realAPI": false
+    },
+    {
+      "width": 390,
+      "locale": "zh-TW",
+      "pngs": [
+        "target-R0-compact",
+        "target-R3-compact",
+        "target-R6-compact",
+        "target-R6-detailed-excess",
+        "target-R6-private-no-badge"
+      ],
+      "alphaServer": true,
+      "legacyAccountCompatibility": {
+        "accounts": 2,
+        "same": true,
+        "version": 1
+      },
+      "targets": [
+        0,
+        3,
+        6
+      ],
+      "layouts": 6,
+      "fontAndImageFallback": true,
+      "canvasFailure": true,
+      "realAPI": false
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "pngs": [
+        "target-R0-compact",
+        "target-R3-compact",
+        "target-R6-compact",
+        "target-R6-detailed-excess",
+        "target-R6-private-no-badge"
+      ],
+      "alphaServer": true,
+      "legacyAccountCompatibility": {
+        "accounts": 2,
+        "same": true,
+        "version": 1
+      },
+      "targets": [
+        0,
+        3,
+        6
+      ],
+      "layouts": 6,
+      "fontAndImageFallback": true,
+      "canvasFailure": true,
+      "realAPI": false
+    }
+  ],
+  "tiers": [
+    "fate",
+    "star",
+    "lucky",
+    "steady",
+    "headwind",
+    "abyss"
+  ],
+  "pageErrors": [],
+  "realOfficialAPI": false,
+  "realDevice": false
+}

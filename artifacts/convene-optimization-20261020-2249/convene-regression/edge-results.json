@@ -1,0 +1,157 @@
+{
+  "quota": true,
+  "preserved": true,
+  "multiAccount": true,
+  "fullUIDPNGGenerated": true,
+  "imageFailure": true,
+  "storageUnavailable": true,
+  "tiers": [
+    {
+      "title": "fate",
+      "score": 97.97468354430373
+    },
+    {
+      "title": "star",
+      "score": 89.87341772151906
+    },
+    {
+      "title": "lucky",
+      "score": 74.68354430379745
+    },
+    {
+      "title": "steady",
+      "score": 50.632911392405056
+    },
+    {
+      "title": "headwind",
+      "score": 25.316455696202528
+    },
+    {
+      "title": "abyss",
+      "score": 6.329113924050632
+    }
+  ],
+  "shareLayout": [
+    {
+      "locale": "zh-CN",
+      "target": "overall",
+      "detailed": false,
+      "page": 0,
+      "overflow": [],
+      "pages": 1
+    },
+    {
+      "locale": "zh-CN",
+      "target": "overall",
+      "detailed": true,
+      "page": 0,
+      "overflow": [],
+      "pages": 1
+    },
+    {
+      "locale": "zh-CN",
+      "target": "character",
+      "detailed": false,
+      "page": 0,
+      "overflow": [],
+      "pages": 1
+    },
+    {
+      "locale": "zh-CN",
+      "target": "character",
+      "detailed": true,
+      "page": 0,
+      "overflow": [],
+      "pages": 2
+    },
+    {
+      "locale": "zh-CN",
+      "target": "character",
+      "detailed": true,
+      "page": 1,
+      "overflow": [],
+      "pages": 2
+    },
+    {
+      "locale": "zh-TW",
+      "target": "overall",
+      "detailed": false,
+      "page": 0,
+      "overflow": [],
+      "pages": 1
+    },
+    {
+      "locale": "zh-TW",
+      "target": "overall",
+      "detailed": true,
+      "page": 0,
+      "overflow": [],
+      "pages": 1
+    },
+    {
+      "locale": "zh-TW",
+      "target": "character",
+      "detailed": false,
+      "page": 0,
+      "overflow": [],
+      "pages": 1
+    },
+    {
+      "locale": "zh-TW",
+      "target": "character",
+      "detailed": true,
+      "page": 0,
+      "overflow": [],
+      "pages": 2
+    },
+    {
+      "locale": "zh-TW",
+      "target": "character",
+      "detailed": true,
+      "page": 1,
+      "overflow": [],
+      "pages": 2
+    },
+    {
+      "locale": "en",
+      "target": "overall",
+      "detailed": false,
+      "page": 0,
+      "overflow": [],
+      "pages": 1
+    },
+    {
+      "locale": "en",
+      "target": "overall",
+      "detailed": true,
+      "page": 0,
+      "overflow": [],
+      "pages": 1
+    },
+    {
+      "locale": "en",
+      "target": "character",
+      "detailed": false,
+      "page": 0,
+      "overflow": [],
+      "pages": 1
+    },
+    {
+      "locale": "en",
+      "target": "character",
+      "detailed": true,
+      "page": 0,
+      "overflow": [],
+      "pages": 2
+    },
+    {
+      "locale": "en",
+      "target": "character",
+      "detailed": true,
+      "page": 1,
+      "overflow": [],
+      "pages": 2
+    }
+  ],
+  "pageErrors": []
+}

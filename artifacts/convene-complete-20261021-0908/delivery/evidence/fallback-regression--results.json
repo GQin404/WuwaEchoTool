@@ -1,0 +1,152 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "realAPI": false,
+      "stableCovers": true,
+      "accountSwitch": true,
+      "afterImport": true,
+      "missingArtwork": true,
+      "filters": true,
+      "archivePreserved": true,
+      "shares": 4
+    },
+    {
+      "width": 1440,
+      "locale": "zh-TW",
+      "realAPI": false,
+      "stableCovers": true,
+      "accountSwitch": true,
+      "afterImport": true,
+      "missingArtwork": true,
+      "filters": true,
+      "archivePreserved": true,
+      "shares": 4
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "realAPI": false,
+      "stableCovers": true,
+      "accountSwitch": true,
+      "afterImport": true,
+      "missingArtwork": true,
+      "filters": true,
+      "archivePreserved": true,
+      "shares": 4
+    },
+    {
+      "width": 768,
+      "locale": "zh-CN",
+      "realAPI": false,
+      "stableCovers": true,
+      "accountSwitch": true,
+      "afterImport": true,
+      "missingArtwork": true,
+      "filters": true,
+      "archivePreserved": true,
+      "shares": 0
+    },
+    {
+      "width": 768,
+      "locale": "zh-TW",
+      "realAPI": false,
+      "stableCovers": true,
+      "accountSwitch": true,
+      "afterImport": true,
+      "missingArtwork": true,
+      "filters": true,
+      "archivePreserved": true,
+      "shares": 0
+    },
+    {
+      "width": 768,
+      "locale": "en",
+      "realAPI": false,
+      "stableCovers": true,
+      "accountSwitch": true,
+      "afterImport": true,
+      "missingArtwork": true,
+      "filters": true,
+      "archivePreserved": true,
+      "shares": 0
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "realAPI": false,
+      "stableCovers": true,
+      "accountSwitch": true,
+      "afterImport": true,
+      "missingArtwork": true,
+      "filters": true,
+      "archivePreserved": true,
+      "shares": 4
+    },
+    {
+      "width": 390,
+      "locale": "zh-TW",
+      "realAPI": false,
+      "stableCovers": true,
+      "accountSwitch": true,
+      "afterImport": true,
+      "missingArtwork": true,
+      "filters": true,
+      "archivePreserved": true,
+      "shares": 4
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "realAPI": false,
+      "stableCovers": true,
+      "accountSwitch": true,
+      "afterImport": true,
+      "missingArtwork": true,
+      "filters": true,
+      "archivePreserved": true,
+      "shares": 4
+    },
+    {
+      "width": 360,
+      "locale": "zh-CN",
+      "realAPI": false,
+      "stableCovers": true,
+      "accountSwitch": true,
+      "afterImport": true,
+      "missingArtwork": true,
+      "filters": true,
+      "archivePreserved": true,
+      "shares": 0
+    },
+    {
+      "width": 360,
+      "locale": "zh-TW",
+      "realAPI": false,
+      "stableCovers": true,
+      "accountSwitch": true,
+      "afterImport": true,
+      "missingArtwork": true,
+      "filters": true,
+      "archivePreserved": true,
+      "shares": 0
+    },
+    {
+      "width": 360,
+      "locale": "en",
+      "realAPI": false,
+      "stableCovers": true,
+      "accountSwitch": true,
+      "afterImport": true,
+      "missingArtwork": true,
+      "filters": true,
+      "archivePreserved": true,
+      "shares": 0
+    }
+  ],
+  "pageErrors": [],
+  "productionCatalogEntries": 114,
+  "weaponArtworkFixtureOnly": true,
+  "realDevice": false
+}

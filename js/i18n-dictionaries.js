@@ -2,6 +2,8 @@
     'use strict';
     // 三种语言使用相同的 key 和插值参数。
     const rows={
+"nav.convene":["喚取紀錄","唤取记录","Convene"],
+"shell.mobile.convene":["喚取","唤取","Convene"],
 "mc.default":["預設配置", "默认配置", "Default loadout"],
 "mc.menu":["管理", "管理", "Manage"],
 "mc.bothEmpty":["兩側皆為空槽", "两侧均为空槽", "Both slots empty"],

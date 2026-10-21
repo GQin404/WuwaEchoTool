@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>鸣潮声骸评分工具</title>
+    <link href="library/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="library/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet"/>
+    <link href="css/base.css" rel="stylesheet"/>
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon"/>
+    <!--  作者：哲字君  2024-08-02  !-->
+    <link href="css/character-dock.css" rel="stylesheet"/>
+    <link href="css/register-foundation.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/register-operations.css">
+    <script src="js/ui-view.js"></script>
+<link rel="stylesheet" href="css/multi-config.css">
+</head>
+<body>
+<div class="mc-main-page">
+    <!--  header  !-->
+    <div class="mc-title mc-home-title">
+        <span class="mc-title-name">鸣潮声骸评分工具</span>
+        <button type="button" class="mc-notice-open" data-toggle="modal" data-target="#mc-maintenance-modal" aria-haspopup="dialog">网站公告</button>
+    </div>
+    <div class="mc-icon-img">
+        <img src="image/favicon.ico" alt="牢子算命" class="mc-pulao-img" data-toggle="tooltip" data-placement="top"
+             title="点我切换按钮">
+        <div class="mc-pulao-word">声骸好不好,蒲牢一算就知道,先输入ID,再点击导入角色,或者点击自定义角色自己DIY一个数据，最后点击蒲牢点评,快让我看看吧~<br>
+        </div>
+    </div>
+    <!--  输入官方token  !-->
+    <div class="mc-btn-box mc-hide" id="box001">
+        <span class="mc-btn-box-title" id="idTitle2">官方token</span><input class="mc-btn-box-value" id="tokenValue"
+                                                                          type="value" value="" placeholder="请输入token"/>
+        <div class="mc-btn-box-import2">绑定token</div>
+        <a class="cr-add-btn" href="https://www.bilibili.com/video/BV1hpWLe2EHS/?share_source=copy_web&vd_source=811b27edb90d4ae358a641d8388ac0cc" target="_blank">获取教学</a>
+    </div>
+    <!--  操作按钮组  !-->
+    <div class="mc-btn-box" id="box002">
+        <span class="mc-btn-box-title" id="idTitle">特征码ID</span><input class="mc-btn-box-value" id="idValue"
+                                                                       type="password" value="" placeholder="请输入ID"/>
+        <div class="mc-btn-box-import">导入角色</div>
+        <div class="cr-add-btn" data-toggle="modal" data-target="#mc-addrole">自定义角色</div>
+    </div>
+
+    <!--  存储角色box  !-->
+    <div data-mode="left" class="mc-save-box">
+        <div class="mc-role-cel mcr-defult" data-toggle="modal" data-target="#mc-addrole">
+            请先<br>添加角色<br>导入角色
+        </div>
+    </div>
+
+    <!--  角色box的统计评价  !-->
+    <div class="mc-dpan">
+        <div class="cr-eval-center">角色居中显示</div>
+        <div class="cr-eval-btn">- 蒲&nbsp;牢&nbsp;点&nbsp;评 -</div>
+    </div>
+
+    <div class="mc-box-evaluate">
+        <div class="mc-box-evaluate-left" data-toggle="tooltip" data-placement="top" title="大佬快点击【蒲牢点评】">
+            <img class="mc-box-evaluate-img" src="image/bqb/pulao.png" alt="bqb"/>
+            <div class="mc-box-evaluate-result">鉴定结果
+                <p id="userPJ">XXXX级大佬</p>
+            </div>
+        </div>
+        <div class="mc-box-evaluate-right">
+            <div class="mc-box-right-a">
+                <div class="mcra-st mcra-st-bg04">
+                    <p class="mcra-st-title">完美毕业(90+)</p>
+                    <p class="mcra-st-val" id="by01">0个</p>
+                </div>
+                <div class="mcra-st mcra-st-bg03">
+                    <p class="mcra-st-title">大毕业(80+)</p>
+                    <p class="mcra-st-val" id="by02">0个</p>
+                </div>
+                <div class="mcra-st mcra-st-bg02">
+                    <p class="mcra-st-title">中毕业(70+)</p>
+                    <p class="mcra-st-val" id="by03">0个</p>
+                </div>
+                <div class="mcra-st mcra-st-bg01">
+                    <p class="mcra-st-title">小毕业(60+)</p>
+                    <p class="mcra-st-val" id="by04">0个</p>
+                </div>
+            </div>
+            <div class="mc-box-right-b" id="pj-words"> 赶快点击【蒲牢评价】让牢子我在大鸣给你封个官~</div>
+
+        </div>
+    </div>
+    <div class="mc-tower-info">
+        <div class="mc-tower-title">鸣潮深塔挑战信息</div>
+        <div class="mc-tower-content">
+            暂无信息
+        </div>
+        <div class="mc-tower-op">
+            <div class="mc-tower-countstar">总计达成：<span id="sumStar">0</span>/30⭐</div>
+            <button type="button" class="btn btn-warning" id="upd-tower">更新深塔数据</button>
+        </div>
+    </div>
+    <!--  便捷小功能箱  !-->
+    <div class="mc-tools-box">
+        <div class="mc-tools-item mc-color-bg1" id="mc-gl-shdb">
+            声骸对比
+        </div>
+        <div class="mc-tools-item mc-color-bg2" id="mc-gl-fctgl">
+            副词条概率
+        </div>
+        <div class="mc-tools-item mc-color-bg6" id="mc-gl-mnkk">
+            模拟开孔
+        </div>
+        <div class="mc-tools-item mc-color-bg5" id="mc-gl-unusedEchoes">
+            声骸库
+        </div>
+        <div class="mc-tools-item mc-color-bg7" id="mc-gl-jsdp">
+            角色搭配推荐
+        </div>
+        <div class="mc-tools-item mc-color-bg4" id="mc-gl-sldt">
+            晒练度专用帖
+        </div>
+    </div>
+    <!--  计分基准规则  !-->
+    <div class="mc-dpan">
+        <div class="mc-score-rule" id="jfgz">
+            计分规则及说明
+        </div>
+        <div class="mc-author">
+            原创作者B站主页：<a href="https://b23.tv/vXohl5M" target="_blank">点我</a>。<br>
+            前维护者B站主页：<a href="https://space.bilibili.com/287293445" target="_blank">点我</a>。<br>
+            当前维护者B站主页：<a href="https://space.bilibili.com/1265897372" target="_blank">点我</a>。<br>问题反馈等需求可以在最新动态下留言。
+        </div>
+    </div>
+
+    <div class="mc-page-bottom">
+        <div class="support-tools">
+            <div class="mc-data-export">将数据导出为文本</div>
+            <div class="mc-data-import">将文本导入到本地</div>
+        </div>
+        <p class="zs-pulao-words">她-真可爱-期待空降鸣潮</p>
+        <img class="zs-pulao"
+             src="https://prod-alicdn-community.kurobbs.com/forum/bd95e4edbfa54ae48f1efde1b410019c20240814.png"
+             alt="可爱蒲牢">
+
+    </div>
+
+    <!--  footer  !-->
+    <div class="mc-footer">原创作者@哲字君/前维护者@PillowTrel/维护者@炭烤蛋-本工具免费使用 | Version: V<span id="tool-version">1.1.2</span></div>
+    <!--  弹出添加角色  !-->
+    <!-- Modal -->
+    <div class="modal fade" id="mc-addrole" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="exampleModalLabel"><span
+                            class="badge badge-info">添加自定义角色</span></span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body-a">
+                </div>
+                <div class="modal-footer">
+                    <button id="qx-btn" type="button" class="btn btn-secondary" data-dismiss="modal">关&nbsp;&nbsp;闭
+                    </button>
+                    <button id="qd-btn" type="button" class="btn btn-primary">添&nbsp;&nbsp;加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 导入角色可选 -->
+    <div class="modal fade" id="mc-import-role" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="exampleModalLabel2"><span
+                            class="badge badge-info">选择要导入的角色</span></span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body-b">
+                </div>
+                <div class="modal-footer">
+                    <button id="gb-btn" type="button" class="btn btn-secondary" data-dismiss="modal">关&nbsp;&nbsp;闭
+                    </button>
+                    <button id="dr-btn" type="button" class="btn btn-primary">导&nbsp;&nbsp;入</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 导入角色可选 -->
+    <div class="modal fade" id="mc-import-setting" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="exampleModalLabel4"><span class="badge badge-info">设置首页按钮组--首选项</span></span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body-set">
+                    因为很多国际服玩家无法使用导入功能和一些国服不方便采集token的玩家，在使用自定义角色功能，现在可以设置默认显示首页按钮组，会自动优先显示你需要的按钮。
+                </div>
+                <div class="modal-footer">
+                    <button id="gb-btn-set" type="button" class="btn btn-secondary">我是自定义角色玩家</button>
+                    <button id="dr-btn-set" type="button" class="btn btn-primary">我是绑定导入玩家</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input class="mc-hide" type="file" id="fileInput">
+<script src="library/jquery.min.js" type="application/javascript"></script>
+<script src="library/bootstrap/js/popper.min.js" type="application/javascript"></script>
+<script src="library/bootstrap/js/bootstrap.min.js" type="application/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"
+        type="application/javascript"></script>
+<script src="js/multi-config.js"></script>
+<script src="js/character-core.js"></script>
+<script src="js/register-metadata.js"></script>
+<script src="js/register-collections.js"></script>
+<script src="js/register-search-ui.js"></script>
+<script src="js/register-navigation.js"></script>
+<script src="js/register-unsaved.js"></script>
+<script src="js/register-actions.js"></script>
+<script src="js/register-share.js"></script>
+<script src="js/role-import-core.js"></script>
+<script src="js/import-service.js"></script>
+<script src="js/base.js" type="application/javascript"></script>
+<script src="js/character-portraits.js"></script>
+<script src="js/index.js" type="application/javascript"></script>
+<script src="js/i18n-dictionaries.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/stat-keys.js"></script>
+<script src="js/role-view-model.js"></script>
+<script src="js/role-draft-model.js"></script>
+<script src="js/role-draft-storage.js"></script>
+<script src="js/role-candidates.js"></script>
+<script src="js/role-local-configuration.js"></script>
+<script src="js/register-overview.js"></script>
+<script src="js/character-dock.js"></script>
+<script src="js/multi-config-browser.js"></script>
+</body>
+</html>

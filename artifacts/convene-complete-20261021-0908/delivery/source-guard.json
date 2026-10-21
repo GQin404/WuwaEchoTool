@@ -1,0 +1,34 @@
+{
+  "protectedSourceMatches": {
+    "js/base.js": true,
+    "js/convene-core.js": true,
+    "js/convene-store.js": true,
+    "js/convene-character-rating.js": true,
+    "js/convene-share.js": true,
+    "js/character-portraits.js": true,
+    "js/multi-config.js": true,
+    "js/character-core.js": true,
+    "js/role-view-model.js": true
+  },
+  "allOriginalCharacterFilesUnchanged": 128,
+  "otherBaselineSourcesUnchanged": 277,
+  "changedBaselineFiles": [
+    "js/convene-assets.js",
+    "js/convene-i18n.js",
+    "js/convene-service.js",
+    "js/convene-ui.js",
+    "js/convene-visuals.js",
+    "js/weapon-catalog.js",
+    "css/convene.css",
+    "tests/convene-artwork.test.cjs",
+    "tests/convene-optimization-browser.cjs",
+    "tests/convene-target-browser.cjs",
+    "scripts/check-convene-art.cjs",
+    "functions/api/convene.js",
+    "convene.html",
+    "_headers"
+  ],
+  "originalImagesRemoved": 0,
+  "gitMutationsPerformed": false,
+  "personalStorageUsed": false
+}

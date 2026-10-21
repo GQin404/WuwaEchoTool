@@ -1,0 +1,402 @@
+{
+  "date": "2026-10-21",
+  "kind": "增量源码及代表性验收证据",
+  "sourceFiles": [
+    "convene.html",
+    "register-workspace.html",
+    "css/convene.css",
+    "functions/api/convene.js",
+    "js/convene-banners.js",
+    "js/convene-core.js",
+    "js/convene-character-rating.js",
+    "js/convene-ui.js",
+    "js/convene-i18n.js",
+    "js/convene-share.js",
+    "docs/convene.md",
+    "docs/convene-resource-management.md",
+    "docs/convene-pity-report.md",
+    "docs/convene-pity-resource-audit.json",
+    "tests/convene-integration.test.cjs",
+    "tests/convene-pity.test.cjs",
+    "tests/convene-pity-browser.cjs",
+    "tests/convene-theme-browser.cjs",
+    "tests/convene-entry-browser.cjs"
+  ],
+  "files": [
+    {
+      "path": "convene.html",
+      "bytes": 1705,
+      "sha256": "cb0bf62e2f0975e02bef98abcb9f64f5c9306ec0a634842bbd502650b7f1305c"
+    },
+    {
+      "path": "register-workspace.html",
+      "bytes": 2522,
+      "sha256": "6993adf8b3d54906e31d887c833c68c3eb8ac4a499f66fc2d83bd3c1cab6c945"
+    },
+    {
+      "path": "css/convene.css",
+      "bytes": 57654,
+      "sha256": "387de68349ecf840b0b5b6916d6c932992710733d9d428bd9b2c61de4a5b2c2d"
+    },
+    {
+      "path": "functions/api/convene.js",
+      "bytes": 3907,
+      "sha256": "e9c49b4193c35b69aaeb1eecb092e16f85c7b88d4870435366a4389fd460e16a"
+    },
+    {
+      "path": "js/convene-banners.js",
+      "bytes": 3553,
+      "sha256": "a66b854380a732968ef81bbb9278b461ac157b1ab92b18f024c6550df4a6301c"
+    },
+    {
+      "path": "js/convene-core.js",
+      "bytes": 17414,
+      "sha256": "40429fc95a4128cfc9e5293a20be4c49fe2327f19eb58bc9dcbb20ec5a362c6a"
+    },
+    {
+      "path": "js/convene-character-rating.js",
+      "bytes": 3531,
+      "sha256": "2e490fd0b2e93da977f046b3668bc1bc9a4210ae4d86579d6c4baf6bf32ec8e8"
+    },
+    {
+      "path": "js/convene-ui.js",
+      "bytes": 42486,
+      "sha256": "aa04ac96702f9577a10a86135499e24799384b46d56166b82b15fcf8f5ea2181"
+    },
+    {
+      "path": "js/convene-i18n.js",
+      "bytes": 64245,
+      "sha256": "4e9eb312a5f17d4c11546f52c223523157bcde3506bb63381e5b80951c0bc44f"
+    },
+    {
+      "path": "js/convene-share.js",
+      "bytes": 12493,
+      "sha256": "0b4c83c30ee8a22d55414fe350ecaccfafeb7385f071d7245b09d00aaad0ea2f"
+    },
+    {
+      "path": "docs/convene.md",
+      "bytes": 11679,
+      "sha256": "900f86df69117789ffbe58f80388c5be0c63620fc8c9991579a4f1cb06abd2ee"
+    },
+    {
+      "path": "docs/convene-resource-management.md",
+      "bytes": 5141,
+      "sha256": "c6d0800d95882e68d19cd53d7fb59f6c94164f740dca1521cbb7d6443431fac2"
+    },
+    {
+      "path": "docs/convene-pity-report.md",
+      "bytes": 17176,
+      "sha256": "0299e08ba87a8d1391a16ca6e5c56a9a4a27bb5c022a0a3eeeae5bde2ecab5dd"
+    },
+    {
+      "path": "docs/convene-pity-resource-audit.json",
+      "bytes": 1239,
+      "sha256": "f01bc74d9a24da8ebcbc303f2905c52e74e2b1d8a5f61e92a2ac141442ba5715"
+    },
+    {
+      "path": "tests/convene-integration.test.cjs",
+      "bytes": 8273,
+      "sha256": "88b296cb7fae25a9c50231e41c0a9ec88e8820093dc8bd8ca567ca071c7539b8"
+    },
+    {
+      "path": "tests/convene-pity.test.cjs",
+      "bytes": 7882,
+      "sha256": "0ce1f7c399ff6d7b3a55279f56ccb7ebccb3b00a6ec0c616f49cf25fb98ca9ec"
+    },
+    {
+      "path": "tests/convene-pity-browser.cjs",
+      "bytes": 12409,
+      "sha256": "ee67a507ec6f77cb3ad5e5df8291e7b07c2952eb800237963822f02cf540a6bb"
+    },
+    {
+      "path": "tests/convene-theme-browser.cjs",
+      "bytes": 5882,
+      "sha256": "d5bb5cd95e90b2fb3ca6d69e318e867fbcd4c79d24b4df3500103cd007743c78"
+    },
+    {
+      "path": "tests/convene-entry-browser.cjs",
+      "bytes": 2057,
+      "sha256": "2bf0005bed1e9a089040dd658f2ab6ad59617d9771142d2bceaa08e0da0fff20"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/unit-tests.txt",
+      "bytes": 21880,
+      "sha256": "ccedd0275a6f9de2173bae80cda3d2dc2e65f905cf00d1baa0dd1b7d5897704a"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/focused-tests.txt",
+      "bytes": 8978,
+      "sha256": "8636aa5e97921028af30bce0013ec76a0fb81f8a771ef557785bc9ecf7142178"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/static-tests.txt",
+      "bytes": 174,
+      "sha256": "ba72868b6f6381fe3847ba35180f28d2e53584c5e67e41d376394e34b86db9f0"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser-tests.txt",
+      "bytes": 190,
+      "sha256": "ed8dd35ceadc7967470f7c10b59309360065c7056f26f6840e457a645d4ec764"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/theme-tests.txt",
+      "bytes": 114,
+      "sha256": "9037ddab4c07328353023889d0108e79a42787e32061c3157a1e0f5c3fac602e"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/entry-tests.txt",
+      "bytes": 90,
+      "sha256": "6d210ede0b22c07fcde0cf708822365a673f5c488214cae13a4ade0e9a36bd5d"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/test-results.json",
+      "bytes": 6966,
+      "sha256": "26743c8f83267deb00e913d2ce2b0e9a5fc5599fe688161afabb36e7a47f9932"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/abyss-desktop.png",
+      "bytes": 1281255,
+      "sha256": "e23b487a790561b257d0921a3eb79c37976a74fef1626fc5998f2e0247ae42e0"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/abyss-mobile.png",
+      "bytes": 803554,
+      "sha256": "6e9a8b6e1606acefe85564be334b4017d5bde0a60f7d0842774fc5b5188588d7"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/advanced-annotation.png",
+      "bytes": 1121491,
+      "sha256": "6fd96cb49491dd9ef49d702bf1bc19fd229e9d3d12930a0814742130b78a86c5"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/collab-character.png",
+      "bytes": 715474,
+      "sha256": "17febb414c7a78dcadf975bdb428813c3832ece74be9d6d1f809e771130236d8"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/collab-history-filter.png",
+      "bytes": 168322,
+      "sha256": "662149966c157f618666b058690052e26b0a0d092737c702726f349c4d688373"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/collab-weapon.png",
+      "bytes": 625477,
+      "sha256": "6a868ccc9209f2c5216aa0a28159e5d488009c3a1ba40ee0beec9cb32d253bd2"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/fate-desktop.png",
+      "bytes": 1369514,
+      "sha256": "b3c38232c49de2d4972efa1b6739bcc21330749f41df5188faf77d27129f5e30"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/fate-mobile.png",
+      "bytes": 826527,
+      "sha256": "2e50ef41f418708d7504f0b00328fa399f13f58af4af530d0006be01fb29f8c4"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/headwind-desktop.png",
+      "bytes": 1297371,
+      "sha256": "43d695efe3c88611be3b1ffed14ae222a7a9b4cf1853abd6b9c36d7fb5f7a703"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/headwind-mobile.png",
+      "bytes": 828908,
+      "sha256": "ccb59dfe3d65d913efdeb4cf9b56e1b5863222b08bad7eb06017f760be762b61"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/initial-guarantee-supplement.png",
+      "bytes": 114277,
+      "sha256": "5990620a84e5ed522813ab785ebb04a816a976d7d024e5b7eb990120ad42d8bd"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/lucky-desktop.png",
+      "bytes": 1302384,
+      "sha256": "39d4f6e96ee3eea723d176803d61d9bc54b3e7151653c66ee02e3c22fb71829c"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/lucky-mobile.png",
+      "bytes": 795147,
+      "sha256": "320f3c85f1515dceac72aa915922e17d4d1a0105b5de3b2583dda1655eb60a81"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/results.json",
+      "bytes": 803,
+      "sha256": "09a15558ba77ba0fd002357a9bab9ed10c7e0a2bcf8134ef6a37861fe41fb68a"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/star-desktop.png",
+      "bytes": 1359071,
+      "sha256": "65bad1af6095b98274ce6876a695d584ddbfe357068957a8388fb892d9f1d4c8"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/star-mobile.png",
+      "bytes": 814488,
+      "sha256": "e9b8241090f9ffafebac588511e15130a9142c66c98d1f11a8e406098393d788"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/steady-desktop.png",
+      "bytes": 1307939,
+      "sha256": "d1495987dda97c773e2b8f316a012bfd92e6c616331af0c63d02795b69464ecf"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/themes/steady-mobile.png",
+      "bytes": 813026,
+      "sha256": "f179496988607ff31f6650bc82107de70b8f7c75f7bc19c5118ddb3a71142821"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/entry/direct-neutral-dark.png",
+      "bytes": 119168,
+      "sha256": "720a2608d39f89a2afa6a3b7fda4a2a8220ca4355e810ccc0c4f31e8183ef09c"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/entry/results.json",
+      "bytes": 145,
+      "sha256": "1fbe0626d5a514dffc6ff775e408c2ddf324e8fcc1dc16b16c537b68b47bf2b8"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/entry/workspace-backup.png",
+      "bytes": 61493,
+      "sha256": "43032a08381a65cf0bcad65cd87ce4923c4d3b8d1e8c33f36a0c58cb0a73186c"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-en-overview-full.png",
+      "bytes": 1350126,
+      "sha256": "c32964bc1230cf5c64af2e5de03b4981398b2ac133deaeb7bc1c8e0a72742b07"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-CN-character-analysis.png",
+      "bytes": 978022,
+      "sha256": "9e82ed56257917838e34b32177eea502d023c9780fd68249afdc3df6345dc41d"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-CN-character-compact.png",
+      "bytes": 884149,
+      "sha256": "95c53148e8f567e0105d6761c6da770efc5d5100a6d2b140134929b8319ecabe"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-CN-character-detailed.png",
+      "bytes": 1152434,
+      "sha256": "12e00a905df5bb78e886edf4a76dbd14fe92b664d16c79a5595511d7fe4612b7"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-CN-historical-Lingyang.png",
+      "bytes": 896681,
+      "sha256": "971ce8d10f89b336c0847f4d6345e5c8be70ad786a0ac0268122e934a66ed272"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-CN-history-filters.png",
+      "bytes": 1794254,
+      "sha256": "cdfb750cddef0206194089a1131dacd4133590aa53e015b3f2a450bff4e4bbb5"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-CN-manual-cover-missing-fallback.png",
+      "bytes": 1193471,
+      "sha256": "2d80ed7995d2d1e9fef399f7fd125964bae6d1ac235b3c7572ba7377d6fc38de"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-CN-overall-compact.png",
+      "bytes": 840887,
+      "sha256": "f4cd9ded1d2d0c40b56250a6cdd22232bbde60d0c1f24a02c21ef36040dea297"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-CN-overall-detailed.png",
+      "bytes": 1118704,
+      "sha256": "763f15ab4aba70f74b0a5960940e49a7a9b11c37325aca15d113c09c32dbb9a2"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-CN-overview-full.png",
+      "bytes": 1327586,
+      "sha256": "de31f34e501b3dfa89dbee2437a5565491c637638c4cc3078fc8bf4e53a52c78"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-CN-pool-1.png",
+      "bytes": 1840433,
+      "sha256": "56fdd81296b6b8b6f52227d07216ec50e54d42fa0450e2e265f7253cc14fc36c"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-CN-pool-2.png",
+      "bytes": 653825,
+      "sha256": "31eb933da20b069f88cafb3c3be18dd6138352efce4c44c86d25becdb92642dc"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-CN-share-preview-character-compact.png",
+      "bytes": 380234,
+      "sha256": "6dca665a4ca152e93f077b46754d1c9a423545368f4052744c50c0ec8fd71c75"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-CN-share-preview-character-detailed.png",
+      "bytes": 372174,
+      "sha256": "5593c82462963e253746e45d76e3e3ebc65e9634faad791b5ab4eec6a706bc55"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-CN-share-preview-overall-compact.png",
+      "bytes": 381692,
+      "sha256": "932e177e2457527677bfbeda692b407713703a0e8a665d9c51038c24c58e3859"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-CN-share-preview-overall-detailed.png",
+      "bytes": 392769,
+      "sha256": "74e0776e0a0e7ed4a532612385fdbe58f5c2e994d9a4ff92b4a148d8c1ce1b3d"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-CN-unknown-character-fallback.png",
+      "bytes": 733625,
+      "sha256": "564e6fa44bf360f8abcf05bd26521a32482e2c221117f4e793a7ae2a8b2ba94f"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/1440-zh-TW-overview-full.png",
+      "bytes": 1331906,
+      "sha256": "70dab61cae7c68fb67e71db4dd3923b56d9a800a393b583aebeb8ca3343f9608"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/360-en-overview-full.png",
+      "bytes": 864549,
+      "sha256": "19b077896afe9b2913980e9a5e43ecef0c5502d6dd6e123bf45dd1001cdd4dad"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/360-zh-CN-overview-full.png",
+      "bytes": 804733,
+      "sha256": "c85792ed074849e097134cb6b5eaa4c65c76c2c973acb12c117ebdba678c9cec"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/360-zh-TW-overview-full.png",
+      "bytes": 808228,
+      "sha256": "c9af4815e20414cd23a646dd031e04268664f8038313ad963033ac787a031bb6"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/390-en-overview-full.png",
+      "bytes": 893203,
+      "sha256": "f2575130e9283716dd4720a4d8c68a47b19b411036e40868eb267f2ae863f563"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/390-zh-CN-overview-full.png",
+      "bytes": 840826,
+      "sha256": "0d34e1ac5c6511cd2bdae704044c97bee3cac4579d2fe75f086f7ec4e150590c"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/390-zh-TW-overview-full.png",
+      "bytes": 843376,
+      "sha256": "9de20545fd9c59b9a2e2aafedb3de06f4ec31a7a786938dec0cdf6c0cc951b9a"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/768-en-overview-full.png",
+      "bytes": 850742,
+      "sha256": "19eeb04457194d1b08f765b62b00c5238d09bc7cbde82b4c8eb55d6d2fd58e70"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/768-zh-CN-overview-full.png",
+      "bytes": 741874,
+      "sha256": "40d89afcbc3e1babd7afa7648e79aed56ca93194140bcacac37dea71580f60da"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/768-zh-TW-overview-full.png",
+      "bytes": 746958,
+      "sha256": "9684d5334a802cc4b0cd7be63dac80e845483298e0356ac9b70459b5fd164404"
+    },
+    {
+      "path": "artifacts/convene-pity-20261021/browser/results.json",
+      "bytes": 4374,
+      "sha256": "0c893f048feda7776dd496ad9aec3ecc9c34cbee33be067cd726d288ddf514a8"
+    }
+  ]
+}

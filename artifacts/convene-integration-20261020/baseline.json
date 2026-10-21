@@ -1,0 +1,733 @@
+{
+  "at": "2026-10-20T20:35:39.461687+08:00",
+  "files": [
+    {
+      "path": "js/base.js",
+      "sha256": "c80b49d3db07e02e7317322c3ae5e3dd15a37667c763c927951ad618fb8f5ae2"
+    },
+    {
+      "path": "js/character-core.js",
+      "sha256": "4987129b2ce83b134e165a9f57464314f140134c14955efdeac601157ac019ce"
+    },
+    {
+      "path": "js/character-dock.js",
+      "sha256": "0dca518c0de6f22d5f2b799a72fe93f6acee748716eda7f9fcf6d76a3b3952e0"
+    },
+    {
+      "path": "js/character-portraits.js",
+      "sha256": "69c59939045fde2c20c8182a6fce22b55a59409f7fd4fae8f2545b2117210d03"
+    },
+    {
+      "path": "js/compare.js",
+      "sha256": "73652281d5c48ea4fdeb0c12572f78d86cdeea7dee470efc54709a22a5bc5ce2"
+    },
+    {
+      "path": "js/convene-core.js",
+      "sha256": "8cdf387458b772f2953fe01f315119c2487dab7d7bdb55a8772922fd72eadcb2"
+    },
+    {
+      "path": "js/convene-i18n.js",
+      "sha256": "342f66e1256e5d72ff72c691d5984a5898b70483a955bf145a623526c73f8550"
+    },
+    {
+      "path": "js/convene-service.js",
+      "sha256": "bc51c35ecfc7d04dd08a85607074153d28db8924259a22c2f9359815bcd7f2b6"
+    },
+    {
+      "path": "js/convene-share.js",
+      "sha256": "800d36ddcf791ccaf30eb6ce8a15c0fdf65ced2c5df7a8d347d2906a098de5c6"
+    },
+    {
+      "path": "js/convene-store.js",
+      "sha256": "84fb79772466eebd5cd4e4278e175cffe2de7a0b95f8fbc8934200894c7425e0"
+    },
+    {
+      "path": "js/convene-ui.js",
+      "sha256": "c16ef7c96a3d016ddeaff6024dadbc5a0fd04328b9b999a197178fc89057f4b5"
+    },
+    {
+      "path": "js/convene-visuals.js",
+      "sha256": "7616807b64cb0eb97f4f432ce475a2eefaf27a8f160333fdce5b1dfe8340e287"
+    },
+    {
+      "path": "js/costedit.js",
+      "sha256": "513b08992322d1fc52ce4ca59fe00aabd2b322cd390a184ca8fa91ee58f1d98a"
+    },
+    {
+      "path": "js/echo-tool-core.js",
+      "sha256": "64d0d238a0e8cf83fde7cb9f683371ae07fdee61a814b676199a2707e9601d0f"
+    },
+    {
+      "path": "js/helperFunctions.js",
+      "sha256": "58cd251588143b913ee14e7b4ba481e8444b572598ed5060a468d1620ccda350"
+    },
+    {
+      "path": "js/i18n-dictionaries.js",
+      "sha256": "88b75307095111756a51b16b42c450941765c5cceb615215eb8662f3be5f027f"
+    },
+    {
+      "path": "js/i18n.js",
+      "sha256": "0cdebbd77d47a8cbbb3ac0ff7015f68ea5b5a257204685993a9ed4b007f58e38"
+    },
+    {
+      "path": "js/imitate.js",
+      "sha256": "df05b43b3f928bd099e233c5d150cd2c70e5c3a2259857fe5f7cf96a89cf40e7"
+    },
+    {
+      "path": "js/import-service.js",
+      "sha256": "f4781e3766c4466156b377913ce5718e70a3b857d411cdca55acbaeb26c15449"
+    },
+    {
+      "path": "js/index.js",
+      "sha256": "4ac99ceab634a1fdb9b13c42870d1d5e7a24d8b8a677faaa15c7e5599b3c6a84"
+    },
+    {
+      "path": "js/mccost.js",
+      "sha256": "418ad43c513b525893f16b5e006221a0e9230c1b1e3cc3b3b4c4481f65048b87"
+    },
+    {
+      "path": "js/mccost2.js",
+      "sha256": "0abfc820ebbd81c0c76a7fe9080a39b9f55dc69cf915eee3b3b8edf8253d6fc6"
+    },
+    {
+      "path": "js/multi-config-browser.js",
+      "sha256": "aa2d9fc8d6b92c446f20d9cd2d611f0fab6e2d4561f34b1a91a95bd8caff89a8"
+    },
+    {
+      "path": "js/multi-config.js",
+      "sha256": "7bddc168ec7d19bfab3501e9185dbc091ea35d32b6d2cd07f0e66d148ee4bfc8"
+    },
+    {
+      "path": "js/probability.js",
+      "sha256": "5787de3124eeabfa6192bf15821d7cfc0154732e9ac3041632ad16d8f5587412"
+    },
+    {
+      "path": "js/register-actions.js",
+      "sha256": "6bf0be68297b38ad19fb7d5a97bd4dc6187fcbc184f35339d32d187d6583afae"
+    },
+    {
+      "path": "js/register-backup.js",
+      "sha256": "5e03f59c31abf711ab789a4d323bb2be4207189cd3784d64e1716a4a255a4edc"
+    },
+    {
+      "path": "js/register-collections.js",
+      "sha256": "68ca797aaced56eafa1a8e64f7b9437d9fbabcec0be93244c3bdb321fb250c55"
+    },
+    {
+      "path": "js/register-import-model.js",
+      "sha256": "134861f14410b08e9044a44780398029d6fd541bd4d43968d2c64af7cc47e7e4"
+    },
+    {
+      "path": "js/register-import-workbench.js",
+      "sha256": "2c57baa796e188c129eb2d5a4d06887507a4ae4dc273b5c5b4d8faaa5dd5d2ba"
+    },
+    {
+      "path": "js/register-metadata.js",
+      "sha256": "24d81c1fd0f2ede842c70d8fb7b5c7634c7942fe51c3b8f25e828eda1eb4e7a9"
+    },
+    {
+      "path": "js/register-navigation.js",
+      "sha256": "47767f0581679f06d244d5ea3c3c08eb9abb05d4eaebf41dc404580912b92a9f"
+    },
+    {
+      "path": "js/register-overview.js",
+      "sha256": "10a20758ea4545b50ecf4a8f2dc0a77491e03fc508a49c46176a1202b6f3a21e"
+    },
+    {
+      "path": "js/register-screenshot-import.js",
+      "sha256": "6d0db14a2f3a739a2585922fbd09166346fba6049eed5307ed12f905d42c0afe"
+    },
+    {
+      "path": "js/register-search-ui.js",
+      "sha256": "e666466d66e1b7671d81111814509c1e96e0b8b31b2f746df333c677f099d83f"
+    },
+    {
+      "path": "js/register-secondary-views.js",
+      "sha256": "558cc8b5c24104d13882903cd3d18648b22cec0b22a79626978bd4d6f575140d"
+    },
+    {
+      "path": "js/register-share.js",
+      "sha256": "cb66f24ed8c00ff19862ef02aa9c4e475981772ca52f09da64cdfbb9787a5ab4"
+    },
+    {
+      "path": "js/register-tools.js",
+      "sha256": "5d2457b852c0e54ff30e902f9ba8fa7352007ea41cf72af0f820a3f5501963bf"
+    },
+    {
+      "path": "js/register-unsaved.js",
+      "sha256": "40d98290d45fb336f4b13de0a800bb14d53027b57aa145e82a810c63c8c7474e"
+    },
+    {
+      "path": "js/register-workspace.js",
+      "sha256": "5a38dbec12345032793354df6f37db52ee55aa2b980f8aed8f4180456e2eaf02"
+    },
+    {
+      "path": "js/role-candidate-surface.js",
+      "sha256": "9e10bce86ca349141e19c3021df16c0e61803f35b648a9b44602bf11e0c14857"
+    },
+    {
+      "path": "js/role-candidates.js",
+      "sha256": "6e0c89aff4c10922ea6d06fe4c04d0e1b15928e4ed3d538a7cebb8dc8768804d"
+    },
+    {
+      "path": "js/role-compare.js",
+      "sha256": "3b947090c8b44aae242e8a751c4c2fa7f214a3d453af9f02d2b2419935c79445"
+    },
+    {
+      "path": "js/role-draft-model.js",
+      "sha256": "1c2c2e0ca430fc44fd3a7cc9d5a433140b567f0190a07e0418c76c097b9bc55c"
+    },
+    {
+      "path": "js/role-draft-storage.js",
+      "sha256": "61a35d99ffa0a23bff1a99a1054206832c6d211ecfe1edacca48c6de4c54f515"
+    },
+    {
+      "path": "js/role-history.js",
+      "sha256": "36d9972cb9b98dc4c1b8a7eec9a3893a9a11d29b610bccfedbe43b0e9f92b141"
+    },
+    {
+      "path": "js/role-import-core.js",
+      "sha256": "de0640bfd85a4d5edcfd0d7f5735b82696555d1eb25bf084161a7171fc3fc9f2"
+    },
+    {
+      "path": "js/role-local-configuration.js",
+      "sha256": "f1643ac80387a9441844ec9ed5e591fc2d5d97df4ce3cbf0a54b2b4d1153de4a"
+    },
+    {
+      "path": "js/role-register-controller.js",
+      "sha256": "856c5ac2f66b7955b7d1c1ea01d11a250b2915a8b2aca57b6bed4d8732a90cd0"
+    },
+    {
+      "path": "js/role-register-mode.js",
+      "sha256": "382d0df617b4500d0a6e297e1ffd71c9e8a754f57dea6e2d3501fae4d49504c9"
+    },
+    {
+      "path": "js/role-register-page.js",
+      "sha256": "0e8a1444a75853036a6570b42df0e8d0a2fd7ac1764571574b3ce81cb0a1d927"
+    },
+    {
+      "path": "js/role-register-renderer.js",
+      "sha256": "5dc7a5c93c35159407d528110e5bb2ce3d15d50d932dc0b543626bc408409590"
+    },
+    {
+      "path": "js/role-view-model.js",
+      "sha256": "beb43862052851ffaf9d7889a5febb10ffd0da54690796105013391f2f93a181"
+    },
+    {
+      "path": "js/screenshot-name-aliases.js",
+      "sha256": "9d71998a29c52cd17e79d026d06512b79a6e2c1527cbd5e0ccf19edd39d774d8"
+    },
+    {
+      "path": "js/screenshot-recognition-adapter.js",
+      "sha256": "92da9d2fb7c4d1a1751add42f9564c56223432a9790b103889ccfcd19aedc943"
+    },
+    {
+      "path": "js/screenshot-recognition.js",
+      "sha256": "5212e871e43f7fb65f42f9e643323a15b3ad64468038a3f917e397da645b7965"
+    },
+    {
+      "path": "js/stat-keys.js",
+      "sha256": "69d93b07f5134a767693f007c02db9ffcfdba082d5b39680c24ea7b3b06ce79a"
+    },
+    {
+      "path": "js/ui-view.js",
+      "sha256": "846ea88d8332499652ef5508bd76b165d41ba088c24fb92ed337e9bb55e6fd01"
+    },
+    {
+      "path": "js/unusedEchoes.js",
+      "sha256": "3d8861c589d5910a8ca3e30b104c20afde61f692b468fe95516cfb945732ab90"
+    },
+    {
+      "path": "css/base.css",
+      "sha256": "cc63b202946dbcca38328f084d268939c28d7330be6e0298d281651b718a8f5c"
+    },
+    {
+      "path": "css/character-dock.css",
+      "sha256": "800e44b18ecb98d3679a7be1a4e500c19027b8893f592e61e57b60aa6382ee1e"
+    },
+    {
+      "path": "css/convene.css",
+      "sha256": "3f23df5bf6d3d87f064ee131ef562e7f48edd2a5b89578b1d4fa1cb5f3f592f7"
+    },
+    {
+      "path": "css/multi-config.css",
+      "sha256": "89a725af445e1041118ae28a514c0d2a05a1bbf7c43c7ceb68c3db625c41fccd"
+    },
+    {
+      "path": "css/register-foundation.css",
+      "sha256": "95385bc6d2e00fe0ff2f3d5c9396b89a154ea01ea9bd7f06d3af98782a070ca1"
+    },
+    {
+      "path": "css/register-import.css",
+      "sha256": "225c896771ba8b5b456a6a2e52a8ceb4ac9384772e67b6d13f23ca25313553c7"
+    },
+    {
+      "path": "css/register-operations.css",
+      "sha256": "e5871877522abf6546e9a6ddb2309e9521af26810116992a833836976eba5f66"
+    },
+    {
+      "path": "css/register-workspace.css",
+      "sha256": "a2dd483f0e6165484905fa2a0508b6dd615766068c438d38038b5681fb65474e"
+    },
+    {
+      "path": "css/role-register.css",
+      "sha256": "3765190a274d9fd0d9790b70332d932dcf9e8524de83211ae03b3f38e9c9667f"
+    },
+    {
+      "path": "tests/browser-qa.cjs",
+      "sha256": "f36c8c8402a09dd368062340fb5df7af3198d2e41c2d8cd60628cc26de4d7901"
+    },
+    {
+      "path": "tests/character-chain-scoring.test.cjs",
+      "sha256": "fa644911499619923b9848fb62be0ef24dd318d7cb610e98b02cabb9dc20a717"
+    },
+    {
+      "path": "tests/character-dock.test.cjs",
+      "sha256": "844fb5124cd4ecb37a631561ab6241fcc7d460a667b3d0cf2404a8a42922abe8"
+    },
+    {
+      "path": "tests/convene-browser.cjs",
+      "sha256": "380bd78bfea5d11288eb60b87997df137f976399df32ea21c05f7453f3fbcc41"
+    },
+    {
+      "path": "tests/convene-edge-browser.cjs",
+      "sha256": "fed62489a4f7be2fbd5adab8b3c0cacf235b54a6ce55de681fdc5fc564fde6b3"
+    },
+    {
+      "path": "tests/convene-fixture.cjs",
+      "sha256": "0255bb82b955c8fca9fd2a90fb6f7759d37e44720bf4e87f5415e6b2228f580e"
+    },
+    {
+      "path": "tests/convene-v2.test.cjs",
+      "sha256": "4d666a8feefef8ef7cbd13845fd2e563bb3c156fb8d52fcdd08b2c52cf5cfc01"
+    },
+    {
+      "path": "tests/convene.test.cjs",
+      "sha256": "ee6b7a3979648cff3040712faba4c0452db20b346c345df8f9f827ba8bc5a320"
+    },
+    {
+      "path": "tests/detail-image-delete-browser.cjs",
+      "sha256": "abd07d95e2a4e7d6d1d39951dfd27304ec19de591ff2dd7b3ab598d9750fa36c"
+    },
+    {
+      "path": "tests/final-acceptance.test.cjs",
+      "sha256": "7f4a70e64b23336f228900d6db07816689a05f63c4a2e5d8a0642fdc9a3393c8"
+    },
+    {
+      "path": "tests/i18n.test.cjs",
+      "sha256": "2a9551123d66e51856ad8840b9ead89a9d11cfd79ca8dd34f6d325f60f1ee649"
+    },
+    {
+      "path": "tests/import-errors.test.cjs",
+      "sha256": "1d40120eb5b18f6d6b6cc68c4f2490476aebf46861f0aa8749ef0e641671ae97"
+    },
+    {
+      "path": "tests/import-headers.test.cjs",
+      "sha256": "5eb10f3460865a6fb428cb0e6cd7fbb2c095bd7576eee852bb7993fc985ba042"
+    },
+    {
+      "path": "tests/inventory-sharing-browser.cjs",
+      "sha256": "23367fe900e69c9715ca9b896f8ccda713d295a95258eb50b552271baeea2242"
+    },
+    {
+      "path": "tests/list-library-browser.cjs",
+      "sha256": "0fa8654eea4e2db3bdbd6385827cd6b4dadc8faf67cba46f9d89f78e28b89a5b"
+    },
+    {
+      "path": "tests/milestone3-core.test.cjs",
+      "sha256": "a73086d128a9b6ea7762880d08c4e5f618ed39d8c562eca28619d186fbf0b57f"
+    },
+    {
+      "path": "tests/milestone3-storage.test.cjs",
+      "sha256": "1ddca4f9f02000af40d1787eae95f26db6e7a28d05135f6a6a94fff5bf8632ee"
+    },
+    {
+      "path": "tests/multi-config-browser.cjs",
+      "sha256": "f73df1da50ab31e46b3ade046003dc6144fe940845c45226e9307170046d5089"
+    },
+    {
+      "path": "tests/multi-config-ui-browser.cjs",
+      "sha256": "ae37e7e304fd06e5657ad4f88636847cf00858818f8a451e7b60de26fa682d0d"
+    },
+    {
+      "path": "tests/multi-config-ui.test.cjs",
+      "sha256": "580d8556c58f854658a789160b487636b0442fe94681af99adaf48e6162e8b11"
+    },
+    {
+      "path": "tests/multi-config.test.cjs",
+      "sha256": "bd76685555792ba4ec7d1b01f747120278f06773d2020e55e858064d803f89e2"
+    },
+    {
+      "path": "tests/new-character-scoring.test.cjs",
+      "sha256": "cf75af9580b0c99148ac46eb2b71be41c5e19dd512e869a3ef95e48eea4974d5"
+    },
+    {
+      "path": "tests/rc2-workspace.test.cjs",
+      "sha256": "14030e57f6c608dbb3940d67724b59808ec0a0f38ffda295b4a433b40cceff6c"
+    },
+    {
+      "path": "tests/register-backup.test.cjs",
+      "sha256": "55996f684ae82a8a34566d843aa494479b5f889aaf0d885895acfd899cf25575"
+    },
+    {
+      "path": "tests/register-fixture-acceptance.test.cjs",
+      "sha256": "2c52bee37e37de3ad0eec3b93693b90a24b34843cd28891d6f2adac18a48a3a7"
+    },
+    {
+      "path": "tests/register-heading-browser.cjs",
+      "sha256": "15810e98e213152f62453dc8a161f52d5cba5f4569b32fa525ffd4374260dd28"
+    },
+    {
+      "path": "tests/register-import-browser.cjs",
+      "sha256": "4d48bcb75fdaa9318feab372a2298b99b515fad8a7e0fdb5c5f39bdaa9fe395c"
+    },
+    {
+      "path": "tests/register-import.test.cjs",
+      "sha256": "6342b099006fe01d80c82ebd4b2b89da4f6a884a768013634c038ed3cace5021"
+    },
+    {
+      "path": "tests/register-integration-browser.cjs",
+      "sha256": "26010cd745241d2bdda99ca0a2ea2d359c396d6fd5f5e8d04d46f15dfabaa9a8"
+    },
+    {
+      "path": "tests/register-integration.test.cjs",
+      "sha256": "7193589cd553e9dfd91c4bc039e2f706fdc034986b76b06324c2a3a31893db96"
+    },
+    {
+      "path": "tests/register-operations-browser.cjs",
+      "sha256": "b852a24186bc5e5684e2b7eea8902e26018d674a68571cb21cc687948cc065b7"
+    },
+    {
+      "path": "tests/register-operations.test.cjs",
+      "sha256": "137e60cbb8d469f80d5c33153a33d84007f0d6509b65c43019c14236d78eb18d"
+    },
+    {
+      "path": "tests/register-overview.test.cjs",
+      "sha256": "0ade6555fbf0cb7c927ba06f1f183df2c913244a76b0126b27bca8a3b3f1b6fd"
+    },
+    {
+      "path": "tests/register-qa.cjs",
+      "sha256": "566d2eacd8070e406ba8068d8d87243af49f90a1b6f9f57c77f71adcb8080c9e"
+    },
+    {
+      "path": "tests/register-search-browser.cjs",
+      "sha256": "86e3443ddf9dffbd4a27fd939466c618fcd80fad3214d541932486697e1c6ef0"
+    },
+    {
+      "path": "tests/register-search-ui.test.cjs",
+      "sha256": "4d76f618fc1ac4c94f9774958701a1de7a04dd701981461ff93b3ab76ece8f15"
+    },
+    {
+      "path": "tests/register-secondary-views.test.cjs",
+      "sha256": "b8e92cf6c96c12722ff013b12da9cf0c1aa4f962ad2309dfc0e4cb55f144d2a2"
+    },
+    {
+      "path": "tests/register-share.test.cjs",
+      "sha256": "866128bedfcda153bf14946f82b74391c4ee14523070effba735f7af1491e756"
+    },
+    {
+      "path": "tests/register-tabs-browser.cjs",
+      "sha256": "de2ebd0f174c1059e657e76daeba3c8000aa6cd0d28a2452ded59f3c2944484b"
+    },
+    {
+      "path": "tests/register-tools-browser.cjs",
+      "sha256": "83a03b513f01439d1a381627cc369480b2e07da8820714a011c0b28b51cef98d"
+    },
+    {
+      "path": "tests/register-tools.test.cjs",
+      "sha256": "48b59edf12c299cb2ad7652d3ffd167e58e9f3656da7d1485af627eb980a6452"
+    },
+    {
+      "path": "tests/role-candidates.test.cjs",
+      "sha256": "721883178f988615986eadc0158de0462d9ee704b9f5eec08efbd7e10b92fcf4"
+    },
+    {
+      "path": "tests/role-compare.test.cjs",
+      "sha256": "37ca55abd0552fb4329409d1dfb3320942a65deab120a7e74a18e2c2513333b6"
+    },
+    {
+      "path": "tests/role-draft.test.cjs",
+      "sha256": "668477af4b1c03c06f0fbe765b726152ef06dcdd3247ae4a16c73860a08ba371"
+    },
+    {
+      "path": "tests/role-register-editor.test.cjs",
+      "sha256": "7b176a5cc7b16a9acc0ca1b1a9a4ae8defc3c8e8d9d63e8fc202659776a57d4c"
+    },
+    {
+      "path": "tests/role-register-interaction.test.cjs",
+      "sha256": "06cae8da9a57c48cd39f67130f32f36880b99a707fdbabe0ccbc99ba7552fd60"
+    },
+    {
+      "path": "tests/role-register.test.cjs",
+      "sha256": "c9ac2489cd055c8becb72039477b4787ef8db477427ab428bb97daeb0280c43b"
+    },
+    {
+      "path": "tests/role-view-model.test.cjs",
+      "sha256": "706368b397780114414741a341018beb26fbc16ee5d23ed2defbe4fadc0a4104"
+    },
+    {
+      "path": "tests/role-workspace-browser.cjs",
+      "sha256": "44e042e268577006e99d3c692f827ecdc332839ce3ab85b81ffffabfed245849"
+    },
+    {
+      "path": "tests/screenshot-recognition.test.cjs",
+      "sha256": "207b0d19b454b340d71da7dfd36f55d365d514813a52ae5327c50bb97c963805"
+    },
+    {
+      "path": "tests/share-equipment-browser.cjs",
+      "sha256": "78216c3604a6432b35abe4faeae4a6e9edf0dd55da50c214a08097709b6e76f4"
+    },
+    {
+      "path": "tests/share-radar.test.cjs",
+      "sha256": "6993f77f0064b1f5728f87b49be869de70a45e30446550240e583c4fd8551922"
+    },
+    {
+      "path": "tests/ui-polish-save-browser.cjs",
+      "sha256": "eabb6d23fe9ecb9356f5479c5914ef045aedfd556b9315f07413211de2c128ba"
+    },
+    {
+      "path": "tests/ui-share-redesign-browser.cjs",
+      "sha256": "93e1a8db574367213901dd53fca20643137fb51737ace4d64cf58efa3a8f903e"
+    },
+    {
+      "path": "tests/ui-ux-browser.cjs",
+      "sha256": "d153e5f53785a8795c09bdbd9d861d84c03ceaf44ec280e31873cb66e256f15c"
+    },
+    {
+      "path": "tests/ui-ux-correction-browser.cjs",
+      "sha256": "4baa4bfa6d943f979c6c4ddf32a53fc11090f298624e4567ddfbda2c798f9b91"
+    },
+    {
+      "path": "tests/ui-ux-static.cjs",
+      "sha256": "255a5a37cd1816b0f80471f36240f63ace5f3a5df42bdb293c1367850556e647"
+    },
+    {
+      "path": "tests/ui-ux.test.cjs",
+      "sha256": "a558c780a4d08b67bfcfd4ae2bb21cf398daefd6628e369c74320b8f37647710"
+    },
+    {
+      "path": "tests/ui-view-navigation-browser.cjs",
+      "sha256": "d81ce058f019cb95eac89d77fafd51f377393789a7b9f167e1741906b340635a"
+    },
+    {
+      "path": "tests/ui-view.test.cjs",
+      "sha256": "83f874b479fcb56429ebacc50493ed6fc7e592a9af556d454cf1ed9ef8f6f44c"
+    },
+    {
+      "path": "tests/fixtures/convene-v1-results.json",
+      "sha256": "6d78c6c5c913d4796515bd59679c1d82d92c40cb2bbc0d452f357085b67e420e"
+    },
+    {
+      "path": "tests/fixtures/legacy-probability.json",
+      "sha256": "4417bb2c5d9f62820089d6d29c3bb327b59bf2f8425a3672f4bd1ece317e01d3"
+    },
+    {
+      "path": "functions/api/convene.js",
+      "sha256": "6d0a72c20fb871b36c840a3f9ccd6302a604dbf5844cbc696a4e7b7f71d4a56d"
+    },
+    {
+      "path": "convene-worker/index.js",
+      "sha256": "2a84483c1619ea7b1d389c619387a831d775c9a679c42047f840b82b91ab5dc0"
+    },
+    {
+      "path": "convene-worker/wrangler.toml",
+      "sha256": "934ec65af573041be430c91ce37edcc43bc1cc5cde2a341ee7311b0325567228"
+    },
+    {
+      "path": "docs/character-dock-acceptance.md",
+      "sha256": "38ca97f241af6a2e352afbd72617ec92670d080fd16e95bbbf2f2a35d565a8de"
+    },
+    {
+      "path": "docs/character-images.md",
+      "sha256": "4269d8a8f48cc6a6b43a3d8f810cd3d7b8ac84794c6582b0799a6e3208e935eb"
+    },
+    {
+      "path": "docs/character-weights-51-53.md",
+      "sha256": "6383716a8b924d65a5ec5526138332d1d4ec27a2ec0991bbe87aee3affe31562"
+    },
+    {
+      "path": "docs/character-weights-57-63.md",
+      "sha256": "761bbfe4d40d47dd303ce9a469224a9f27a4440875453e93ffe9a2765158c070"
+    },
+    {
+      "path": "docs/convene-ui-v2.md",
+      "sha256": "9f1e3367c677626699a21f28b42c879cda6240dbd7bcd2ab8d1cee3ae901f29b"
+    },
+    {
+      "path": "docs/convene.md",
+      "sha256": "c0f4d60db8e788f26dd8e6d068dd8cfdcf28d9179064c97b5aae36a9d1ecfe01"
+    },
+    {
+      "path": "docs/decision-first-compare.md",
+      "sha256": "30d1b9876b6d3cd3d9c4aaba2f9b468d08b354a204c91b8eb66c9eb23f2c7701"
+    },
+    {
+      "path": "docs/detail-image-delete.md",
+      "sha256": "91abb9937d30dd8e665fa2e9daa0302c5d636aaa06b52c5ee9748bab17200fd1"
+    },
+    {
+      "path": "docs/i18n-foundation.md",
+      "sha256": "132431babeb99d3015d1be39c6c42e66e5e1c5017432577a8e2857c486cdeda3"
+    },
+    {
+      "path": "docs/inventory-sharing-fix.md",
+      "sha256": "b86f5ede71e99886b5e5a731f46b28ceac0610e82285cb315380c8fe99ccc93c"
+    },
+    {
+      "path": "docs/list-library-fix.md",
+      "sha256": "f9b5d7eb51c48b48ea4c8e8023a01e7c1911e8892274347163a35c931bf7e966"
+    },
+    {
+      "path": "docs/multi-config-ui-fix.md",
+      "sha256": "25e7a4088371ec02c1d59c237ab231e6141777bd66a0474e234d5ea15dc8c41e"
+    },
+    {
+      "path": "docs/multi-config.md",
+      "sha256": "9b39c0a42c9d6cb5803ab1f0ccff6e2cfa17656ee24e2fb19cc1ee2674d6c6df"
+    },
+    {
+      "path": "docs/official-import-character-mapping.md",
+      "sha256": "2f9e86872a5af5c8c2afa987dd41ba30c243521ec413d009f7e1f0e3274d1bae"
+    },
+    {
+      "path": "docs/official-import-workbench-acceptance.md",
+      "sha256": "34a86e547907b8c3d8f2c0f428148d7a7b8b96da5b3d68a08f1ee0799fd7237c"
+    },
+    {
+      "path": "docs/register-fixture-acceptance.md",
+      "sha256": "5abc6241eb2ec8aaded0c3b181e5f38ce398217576830c8532f0aba7ab82df29"
+    },
+    {
+      "path": "docs/register-library-search-acceptance.md",
+      "sha256": "8e4daeb97d6cc73c197ef4b83c8c2a769641cac9e2812dc2c83b570627778cd3"
+    },
+    {
+      "path": "docs/register-operations-acceptance.md",
+      "sha256": "b0db37d2c0c9c1c6a4c0f62fb7eb13751fcea68dd549db448bc8c219333f43c7"
+    },
+    {
+      "path": "docs/register-operations-player-checklist.md",
+      "sha256": "d2348a9838c6459005c5c93bf3e058ac2d458e5368bfe690810bd440c6be3ece"
+    },
+    {
+      "path": "docs/register-share-acceptance.md",
+      "sha256": "9d01b19b601d0229dea9a588153559abde2429294165c6cceeaa4bf7218e31ff"
+    },
+    {
+      "path": "docs/register-tools-acceptance.md",
+      "sha256": "d7673d52c723167de5ab97b21432aa8b080a6032afe805aeda9e53ffb15c651b"
+    },
+    {
+      "path": "docs/role-candidate-selection.md",
+      "sha256": "f84a8a2602549bf5a95ebf510ab1cfd55348f541f5941d3f1176dd652a0b96be"
+    },
+    {
+      "path": "docs/role-draft-model.md",
+      "sha256": "39294ebcbaa802c4a3c5b2a92cedee9fb368615984d47dd75e0f0040bf670960"
+    },
+    {
+      "path": "docs/role-register.md",
+      "sha256": "aa047ff109878d0d77db0ff57276f9583ee588a9fc4c544f9ec583e25ffcf981"
+    },
+    {
+      "path": "docs/role-view-model.md",
+      "sha256": "e84353b1866c36ed21706d293dc0221020e8a342db9b83c646c0cb748a6c2aba"
+    },
+    {
+      "path": "docs/role-workspace-redesign.md",
+      "sha256": "81c5fac6a3ecde20e92c2414fe0c78783b211cf0b2440358c39d64364ea9e230"
+    },
+    {
+      "path": "docs/screenshot-recognition-acceptance.md",
+      "sha256": "665fd74573f72a699a680278525d510c4ef2e50182cc871cd2361d9215f59008"
+    },
+    {
+      "path": "docs/screenshot-recognition-names.md",
+      "sha256": "37ecac8c96cbab15fd9699d2d4dab51277f63028fd026c90122140a5f0ecaa61"
+    },
+    {
+      "path": "docs/share-equipment-refinement.md",
+      "sha256": "50678034741b3d395540b61932079a733f93b632d88cac2edec5e37b92beb29f"
+    },
+    {
+      "path": "docs/ui-polish-save.md",
+      "sha256": "26d16965acd556c142cf96524deaeae7f07b2a35aa103fc3b195ad78ed543f2e"
+    },
+    {
+      "path": "docs/ui-share-refinement.md",
+      "sha256": "74ccb800c85ba713309a5a26fa89b0d197338880320e223908dc5766c159d4b8"
+    },
+    {
+      "path": "docs/ui-ux-correction.md",
+      "sha256": "8b710926e9f7c69ccd0d7256897783e11eea5964afeb3199c8b17dd2d4f3eb3c"
+    },
+    {
+      "path": "docs/ui-ux-v2-polish.md",
+      "sha256": "63457488aee075cf0c0da4121664f5a1f02374617e7843e9b7ce1b5d112dbb9a"
+    },
+    {
+      "path": "docs/qa/rc2/chooser-desktop.png",
+      "sha256": "7fc615ef1410fea9a755575b6a148ed851d3d68359439096cb09b43743bbf480"
+    },
+    {
+      "path": "docs/qa/rc2/chooser-focus.png",
+      "sha256": "093114f02323f0d8cbd4056444f82ee656ca591e8f4a9afba90899b5d92afdda"
+    },
+    {
+      "path": "docs/qa/rc2/chooser-mobile.png",
+      "sha256": "ece931b8137dafd6dc24b99b63e9a9602f2fac50f4d952655f68bd96e851e26e"
+    },
+    {
+      "path": "compare.html",
+      "sha256": "72e6e4de553f6f59a1cab281d2c20766bbf3d5a688f244493252efbc943166b2"
+    },
+    {
+      "path": "convene.html",
+      "sha256": "2fb27f341aede042d108f86ac3395cd30e78e329237a091cd909537d42ae40fd"
+    },
+    {
+      "path": "costedit.html",
+      "sha256": "df580e7b06817a5e96e9e59e0c57ec604d9033a6c2fe7bb872fdb4a13ed17077"
+    },
+    {
+      "path": "imitate.html",
+      "sha256": "84eafd4cf5f0afec73d11e0c2141eb1219714a53924aab99833c59f146e1dd36"
+    },
+    {
+      "path": "index.html",
+      "sha256": "c4fa1b000000a2378f329bb4a52e77929426cc33b376e955269c2d3c84e3be47"
+    },
+    {
+      "path": "mccost-readonly.html",
+      "sha256": "8460529638f5b36f49fddc8c0e4fa67a8c08f41ce51386890b450a52511fac65"
+    },
+    {
+      "path": "mccost.html",
+      "sha256": "45cc8956383f2f22d59a843c5359b2644a4a3cc299a454b4109bd16069ece96e"
+    },
+    {
+      "path": "probability.html",
+      "sha256": "127e71901102823b36223e32d4126a50f79effa09702bb584706fc73a5679f34"
+    },
+    {
+      "path": "register-workspace.html",
+      "sha256": "90cbb877e4973c29468cc9a3380f01c49d50a0e5af2e5156d6c3c3c0bab53771"
+    },
+    {
+      "path": "rule.html",
+      "sha256": "530a2da876de7aeaba1e4a053f2d1cfbc0fe19876c4cf490f4f08ff98104926c"
+    },
+    {
+      "path": "unusedEchoes.html",
+      "sha256": "23827df29dc8ba79f0b843558161912c6d16e2a900fdad7c849585086cfc999b"
+    },
+    {
+      "path": "package.json",
+      "sha256": "2668e78402128c2bfe04ce3730686c97951c4340fb6111daa5911632932882ee"
+    },
+    {
+      "path": "wrangler.toml",
+      "sha256": "7ea475d538e11c66e315bda0ceaef2993fb99080e01252a81d1a31b62efe97c7"
+    }
+  ]
+}

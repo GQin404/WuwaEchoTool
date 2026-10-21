@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>声骸评分对比</title>
+    <link href="library/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="library/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet"/>
+    <link href="library/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet"/>
+    <link href="css/base.css" rel="stylesheet"/>
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon"/>
+    <!--  作者：哲字君  2024-08-02  !-->
+    <link href="css/character-dock.css" rel="stylesheet"/>
+    <script src="js/ui-view.js"></script>
+</head>
+<body>
+<div class="mc-main-page">
+    <!--  header  !-->
+    <div class="mc-title">
+        <span class="mc-title-name">声骸评分对比</span>
+    </div>
+    <div class="mc-costedit">
+        <div class="mc-costedit-info mc-costedit-info2">
+            <div class="mc-cost-img-0" id="shimg">
+                <!--<img id="shimg01" class="mc-character-imgCost" src="image/role/jx.png" alt="选择的角色">!-->
+                <img id="shimg01" data-toggle="modal" data-target="#mc-addwords-main" class="mc-cost-img"
+                     src="image/cost/000.png" alt="选择的声骸">
+            </div>
+            <div class="mc-cost-right mc-cost-right2">
+                <div class="mc-cost-addbtnbak mc-cost-addbtn4">从角色声骸导入</div>
+                <div class="mc-cost-addbtnbak mc-cost-addbtn2">添加声骸A词条</div>
+                <div class="mc-cost-addbtnbak mc-cost-addbtn5">从声骸库导入声骸A词条</div>
+                <div class="mc-cost-addbtnbak mc-cost-addbtn1">清空声骸B词条</div>
+                <div class="mc-cost-addbtnbak mc-cost-addbtn3">添加声骸B词条</div>
+                <div class="mc-cost-addbtnbak mc-cost-addbtn6">从声骸库导入声骸B词条</div>
+                <div class="mc-cost-score">
+                    <div class="mc-set-tixing">请先点击左侧设置该声骸佩戴角色</div>
+                </div>
+            </div>
+        </div>
+        <p class="mc-fct-hj-title3">声骸【A】属性：</p>
+        <table id="fct-list" class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">序号</th>
+                <th scope="col">属性</th>
+                <th scope="col">数值</th>
+                <th scope="col">计分</th>
+                <th scope="col">操作</th>
+            </tr>
+            </thead>
+            <tbody id="chitiao-listA">
+            <tr>
+                <th scope="row">1</th>
+                <td colspan="4">无副词条属性</td>
+            </tr>
+            <tr>
+                <th scope="row">+</th>
+                <th></th>
+                <th>计分合计：</th>
+                <th id="listScoreA">0.00</th>
+                <th></th>
+            </tr>
+            </tbody>
+        </table>
+        <p class="mc-fct-hj-title3">声骸【B】属性：</p>
+        <table id="fct-listB" class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">序号</th>
+                <th scope="col">属性</th>
+                <th scope="col">数值</th>
+                <th scope="col">计分</th>
+                <th scope="col">操作</th>
+            </tr>
+            </thead>
+            <tbody id="chitiao-listB">
+            <tr>
+                <th scope="row">1</th>
+                <td colspan="4">无副词条属性</td>
+            </tr>
+            <tr>
+                <th scope="row">+</th>
+                <th></th>
+                <th>计分合计：</th>
+                <th id="listScoreB">0.00</th>
+                <th></th>
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+        <p class="mc-fct-hj-title2">对比结果如下：</p>
+        <div class="mc-db-result">
+            暂无对比结果，请先添加词条。
+        </div>
+        <div class="mc-memo">ps:该分数目前均基于0命计算，后续会增加命座设定，敬请期待。</div>
+    </div>
+    <div class="mc-btn-backhome">返&nbsp;回&nbsp;首&nbsp;页</div>
+    <!--  footer  !-->
+    <div class="mc-footer">原创作者@哲字君/前维护者@PillowTrel/维护者@炭烤蛋-本工具免费使用 | Version: V<span id="tool-version">1.1.2</span></div>
+    <!--  弹出添加副词条  !-->
+    <!-- Modal -->
+    <div class="modal fade" id="mc-addwords" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="exampleModalLabel"><span class="badge badge-info">编辑副词条</span></span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                        <li class="list-group-item"><span class="mc-select-title">选择属性：</span><span
+                                class="mc-cost-jiaz mc-cost-red">
+                            <select id="mc-words-name" class="form-control mc-select">
+                                <option selected value="暴击">暴击</option>
+                                <option value="暴伤">暴伤</option>
+                                <option value="大攻击">大攻击</option>
+                                <option value="小攻击">小攻击</option>
+                                <option value="大生命">大生命</option>
+                                <option value="小生命">小生命</option>
+                                <option value="大防御">大防御</option>
+                                <option value="小防御">小防御</option>
+                                <option value="共鸣效率">共鸣效率</option>
+                                <option value="普攻伤害">普攻伤害</option>
+                                <option value="重击伤害">重击伤害</option>
+                                <option value="技能伤害">技能伤害</option>
+                                <option value="解放伤害">解放伤害</option>
+                            </select>
+                        </span></li>
+                        <li class="list-group-item">
+                            <span class="mc-cost-jiaz mc-cost-purple" id="sx-value"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关&nbsp;&nbsp;闭</button>
+                    <button id="qd-btn3" type="button" class="btn btn-primary">添&nbsp;&nbsp;加</button>
+                    <button id="qd-btn5" type="button" class="btn btn-primary mc-hide">保&nbsp;&nbsp;存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  弹出添加角色  !-->
+    <!-- Modal -->
+    <div class="modal fade" id="mc-addrole" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="exampleModalLabel2"><span
+                            class="badge badge-info">添加自定义角色</span></span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body-a">
+                </div>
+                <div class="modal-footer">
+                    <button id="qx-btn" type="button" class="btn btn-secondary" data-dismiss="modal">关&nbsp;&nbsp;闭
+                    </button>
+                    <button id="qd-btn" type="button" class="btn btn-primary">添&nbsp;&nbsp;加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  弹出选择导入声骸  !-->
+    <!-- Modal -->
+    <div class="modal fade" id="mc-addcost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="exampleModalLabel3"><span
+                            class="badge badge-info">选择要导入的声骸</span></span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body-c">
+
+                </div>
+                <div class="modal-footer">
+                    <button id="qx-btn2" type="button" class="btn btn-secondary" data-dismiss="modal">关&nbsp;&nbsp;闭
+                    </button>
+                    <button id="qd-btn2" type="button" class="btn btn-primary">导&nbsp;&nbsp;入</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  弹出从声骸库导入声骸  !-->
+    <!-- Modal -->
+    <div class="modal fade" id="mc-import-from-unused" tabindex="-1" aria-labelledby="importUnusedModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="importUnusedModalLabel"><span
+                            class="badge badge-info">从声骸库导入声骸词条</span></span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="mc-unused-cost-list">
+                        <div class="mc-cost-list-null">
+                            声骸库为空。
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="unused-qx-btn" type="button" class="btn btn-secondary" data-dismiss="modal">关&nbsp;&nbsp;闭
+                    </button>
+                    <button id="unused-qd-btn" type="button" class="btn btn-primary">导&nbsp;&nbsp;入</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="library/jquery.min.js" type="application/javascript"></script>
+<script src="library/bootstrap/js/bootstrap.min.js" type="application/javascript"></script>
+<script src="js/multi-config.js"></script>
+<script src="js/base.js" type="application/javascript"></script>
+<script src="js/character-portraits.js"></script>
+<script src="js/helperFunctions.js" type="application/javascript"></script>
+<script src="js/compare.js" type="application/javascript"></script>
+<script src="js/i18n-dictionaries.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

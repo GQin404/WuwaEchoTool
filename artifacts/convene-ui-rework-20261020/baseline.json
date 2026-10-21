@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-20T14:02:55.145Z",
+  "hashes": {
+    "js/convene-ui.js": "be014c72148baf4f42ae82135add5af39c396b4454cb8e20d9660f293f380c79",
+    "js/convene-service.js": "19113811ba6b052d30844009060ef854305625fb5b8ca2bf8cc0b75c4f6c3639",
+    "js/convene-share.js": "de439e39cd766b68fce97a9e4909b50168c57451782b266e8905c0cce8c7e332",
+    "js/convene-visuals.js": "cc2209fd4fe94f87825344a228eb4c2320241774056eb7e9aaf249d8f9411ed2",
+    "js/convene-i18n.js": "5c5f2344b99c584d98eeb49e76ce7178d4d2c3ff42283df9dfc50ba573d730a2",
+    "css/convene.css": "56acb843b7092ba40a60c4735f1cb7aa2aca518cc8e7b7c55ab56627abd75a84",
+    "convene.html": "6f50ac6e22745c2f357e6514cd6454da781d1e4e5c78b3409f74f76d7e1c1975",
+    "js/convene-core.js": "f3bde51bd5eaf3f7993436840155cf9b8c9f4d40c7f7522e6557bfac01e6165f",
+    "js/convene-store.js": "84fb79772466eebd5cd4e4278e175cffe2de7a0b95f8fbc8934200894c7425e0",
+    "js/convene-character-rating.js": "cf2eae98d25b7322f9f35a3dd74111574c3dd81a1721f6131af09d0c5a00bec5",
+    "js/base.js": "c80b49d3db07e02e7317322c3ae5e3dd15a37667c763c927951ad618fb8f5ae2"
+  }
+}

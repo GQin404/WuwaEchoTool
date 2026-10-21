@@ -1,0 +1,36 @@
+async function openManagement(page){const box=page.locator('.rr-role-management');await box.waitFor({state:'attached'});if(!await box.evaluate(e=>e.open))await box.locator('summary').click();}
+/* 通过实际布局检查字号、五槽共同基线、移动滑动与配置回馈，不改玩家存档。 */
+const {chromium}=require('C:/Users/user/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),assert=require('node:assert/strict'),vm=require('node:vm');
+const {seed}=require('./register-operations-browser.cjs'),root=path.resolve(__dirname,'..'),out=require('./browser-qa.cjs').output('correction-readability');
+const env={$:()=>{},console:{log(){}}};vm.runInNewContext(fs.readFileSync(path.join(root,'js/base.js'),'utf8')+';globalThis.assets=Object.fromEntries(costList.map(e=>[e.imgCode,e.id]));',env);
+fs.mkdirSync(out,{recursive:true});let server,browser,lastPage;const reports=[],errors=[];
+(async()=>{
+ server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+decodeURIComponent(req.url.split('?')[0]));if(!file.startsWith(root+path.sep))return res.writeHead(403).end();fs.readFile(file,(e,data)=>{if(e)return res.writeHead(404).end();res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.png':'image/png','.webp':'image/webp'}[path.extname(file)]||'application/octet-stream'));res.end(data);});});
+ await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;browser=await chromium.launch({channel:'msedge',headless:true});
+ for(const width of [1440,1280,1024,768,390,320])for(const locale of ['zh-TW','zh-CN','en']){
+  const context=await browser.newContext({viewport:{width,height:width<700?844:1000},reducedMotion:'reduce'}),page=await context.newPage();lastPage=page;page.on('pageerror',e=>errors.push(e.message));page.on('dialog',d=>d.accept());
+  await context.route('**/*',r=>{const u=new URL(r.request().url());if(u.hostname==='127.0.0.1')return r.continue();if(r.request().resourceType()==='image'&&env.assets[u.href])return r.fulfill({contentType:'image/png',body:fs.readFileSync(path.join(root,'image/cost/'+String(env.assets[u.href]).padStart(3,'0')+'.png'))});return r.abort();});
+  const work=mode=>base+'/register-workspace.html?view=register&lang='+locale+'&mode='+mode;
+  await page.goto(work('library'));await page.locator('#register-workspace').waitFor();await seed(page,false);await page.goto(base+'/mccost.html?view=register&lang='+locale+'&roleid=100');await page.locator('[data-summary-config]').waitFor();
+  const unchanged=await page.evaluate(()=>localStorage.getItem('mcData'));
+  const measure=await page.evaluate(()=>{
+   const slots=[...document.querySelectorAll('.rr-slot')],read=e=>({top:e.getBoundingClientRect().top,font:parseFloat(getComputedStyle(e).fontSize),visible:getComputedStyle(e).display!=='none'});
+   return {overflow:document.documentElement.scrollWidth>innerWidth+1,main:slots.map(s=>read(s.querySelector('.rr-main-stat'))),scores:slots.map(s=>read(s.querySelector('.rr-score'))),names:slots.map(s=>read(s.querySelector('h3'))),costs:slots.map(s=>read(s.querySelector('.rr-slot-index small'))),effective:slots.map(s=>read(s.querySelector('.rr-effective'))),identity:document.querySelector('.rr-summary-identity').textContent,portrait:read(document.querySelector('.rr-portrait'))};
+  });
+  assert.equal(measure.overflow,false);for(const rows of [measure.scores,measure.names,measure.costs,measure.effective,...(width>=700?[measure.main]:[])])assert.ok(rows.every(r=>r.visible));assert.ok(measure.main.every(r=>r.font>=13));assert.ok(measure.scores.every(r=>r.font>=22));assert.ok(measure.names.every(r=>r.font>=13));assert.ok(measure.costs.every(r=>r.font>=12));assert.ok(Math.max(...measure.main.map(r=>r.top))-Math.min(...measure.main.map(r=>r.top))<1);assert.ok(Math.max(...measure.scores.map(r=>r.top))-Math.min(...measure.scores.map(r=>r.top))<1);assert.ok(measure.portrait.visible);
+  if(width<700)assert.ok(await page.evaluate(()=>document.querySelector('.rr-role-actions').getBoundingClientRect().top<document.querySelector('.rr-loadout').getBoundingClientRect().top));
+  await openManagement(page);await page.locator('[data-op-config-name]').fill('Readable build');await page.locator('[data-op-rename-role] button').click();assert.equal(await page.locator('[data-summary-config]').innerText(),'Readable build');assert.equal(await page.locator('.op-current-config').innerText(),'Readable build');
+  await page.locator('.rr-observation-details summary').click();await page.locator('[data-rr-select="3"].rr-slot-trigger').click();assert.equal(await page.locator('.rr-observation-details').getAttribute('open'),'');
+  assert.equal(await page.locator('.rr-analysis-readings>div').count(),4);await require('./browser-qa.cjs').openDetails(page,'.rr-substats-details');
+  const grid=await page.locator('.rr-analysis-readings').evaluate(e=>getComputedStyle(e).gridTemplateColumns.split(' ').length);assert.equal(grid,2);
+  if(width<700){await page.locator('[data-rr-select="5"].rr-slot-trigger').click();assert.ok(await page.locator('.rr-loadout').evaluate(e=>e.scrollLeft>0));assert.equal(await page.locator('.rr-slot.rr-selected').getAttribute('data-slot-position'),'5');await page.locator('[data-rr-collapse]').click();assert.ok(await page.locator('[data-rr-select="5"].rr-slot-trigger').evaluate(e=>document.activeElement===e));await page.locator('[data-rr-select="5"].rr-slot-trigger').click();}
+  assert.equal(await page.evaluate(()=>localStorage.getItem('mcData')),unchanged);
+  await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(out,width+'-'+locale+'-top.png')});await page.locator('.rr-inline-analysis').evaluate(e=>{if(!e.hidden)e.scrollIntoView({block:'start'});});await page.screenshot({path:path.join(out,width+'-'+locale+'-analysis.png')});
+  await page.locator('[data-delete-role]').click();await page.locator('dialog[open]').waitFor();await page.keyboard.press('Escape');assert.equal(await page.evaluate(()=>localStorage.getItem('mcData')),unchanged);
+  await page.goto(work('library'));await page.locator('[data-library-add]').waitFor();assert.ok(await page.locator('[data-library-add]').evaluate(e=>e.getBoundingClientRect().height>=44));assert.equal(await page.locator('[data-library-close]').count(),0);
+  await page.locator('[data-library-select]').first().click();assert.equal(await page.locator('[data-library-close]').count(),width<=960?1:0);if(width<=960)await page.locator('[data-library-close]').click();
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));reports.push({width,locale,sharedBaselines:true,readableFonts:true,fourReadings:true,renameSynced:true,deleteCancelled:true,mobileScroll:width<700,coreUnchanged:true});await context.close();
+ }
+ assert.deepEqual(errors,[]);fs.writeFileSync(path.join(out,'results.json'),JSON.stringify({reports,pageErrors:errors},null,2));console.log('PASS: '+reports.length+' correction layouts, font sizes, shared baselines, rename, mobile swipe and cancellation.');
+})().catch(async error=>{console.error(error);if(lastPage)await lastPage.screenshot({path:path.join(out,'failure.png'),fullPage:true});process.exitCode=1;}).finally(async()=>{await browser?.close();server?.close();});

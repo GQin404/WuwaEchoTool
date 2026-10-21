@@ -1,0 +1,190 @@
+{
+  "baselineAt": "2026-10-20T20:35:39.461687+08:00",
+  "changes": [
+    {
+      "path": "js/convene-character-rating.js",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "cf2eae98d25b7322f9f35a3dd74111574c3dd81a1721f6131af09d0c5a00bec5"
+    },
+    {
+      "path": "js/convene-core.js",
+      "status": "modified",
+      "beforeSha256": "8cdf387458b772f2953fe01f315119c2487dab7d7bdb55a8772922fd72eadcb2",
+      "afterSha256": "f3bde51bd5eaf3f7993436840155cf9b8c9f4d40c7f7522e6557bfac01e6165f"
+    },
+    {
+      "path": "js/convene-i18n.js",
+      "status": "modified",
+      "beforeSha256": "342f66e1256e5d72ff72c691d5984a5898b70483a955bf145a623526c73f8550",
+      "afterSha256": "5c5f2344b99c584d98eeb49e76ce7178d4d2c3ff42283df9dfc50ba573d730a2"
+    },
+    {
+      "path": "js/convene-service.js",
+      "status": "modified",
+      "beforeSha256": "bc51c35ecfc7d04dd08a85607074153d28db8924259a22c2f9359815bcd7f2b6",
+      "afterSha256": "19113811ba6b052d30844009060ef854305625fb5b8ca2bf8cc0b75c4f6c3639"
+    },
+    {
+      "path": "js/convene-share.js",
+      "status": "modified",
+      "beforeSha256": "800d36ddcf791ccaf30eb6ce8a15c0fdf65ced2c5df7a8d347d2906a098de5c6",
+      "afterSha256": "de439e39cd766b68fce97a9e4909b50168c57451782b266e8905c0cce8c7e332"
+    },
+    {
+      "path": "js/convene-ui.js",
+      "status": "modified",
+      "beforeSha256": "c16ef7c96a3d016ddeaff6024dadbc5a0fd04328b9b999a197178fc89057f4b5",
+      "afterSha256": "be014c72148baf4f42ae82135add5af39c396b4454cb8e20d9660f293f380c79"
+    },
+    {
+      "path": "js/convene-visuals.js",
+      "status": "modified",
+      "beforeSha256": "7616807b64cb0eb97f4f432ce475a2eefaf27a8f160333fdce5b1dfe8340e287",
+      "afterSha256": "cc2209fd4fe94f87825344a228eb4c2320241774056eb7e9aaf249d8f9411ed2"
+    },
+    {
+      "path": "css/convene.css",
+      "status": "modified",
+      "beforeSha256": "3f23df5bf6d3d87f064ee131ef562e7f48edd2a5b89578b1d4fa1cb5f3f592f7",
+      "afterSha256": "56acb843b7092ba40a60c4735f1cb7aa2aca518cc8e7b7c55ab56627abd75a84"
+    },
+    {
+      "path": "tests/convene-integration.test.cjs",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "3c3ebdc76b938912a360215a76364bc69ebaae73d75de2027ec9791a1719795d"
+    },
+    {
+      "path": "tests/convene-target-browser.cjs",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "fdbcd1803ae1c079bc929364ae82c14f344238f29bcd2cf6fc0e73920234e9f8"
+    },
+    {
+      "path": "tests/convene-target-fixture.cjs",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "63876b717aaafb40a23e787e131d62ed4d14c0b760a70e96d22c864f04ccc54d"
+    },
+    {
+      "path": "functions/api/convene.js",
+      "status": "modified",
+      "beforeSha256": "6d0a72c20fb871b36c840a3f9ccd6302a604dbf5844cbc696a4e7b7f71d4a56d",
+      "afterSha256": "1eb35ed5c82d1c3903fdb97dadeae7a5d00388577dff48921b0fb2ba233f5486"
+    },
+    {
+      "path": "docs/convene-integration.md",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "d00eeb5911cd75de3fbbb7f850b0f0b5bd68b1b387dcdbc161e4e1682aa102da"
+    },
+    {
+      "path": "convene.html",
+      "status": "modified",
+      "beforeSha256": "2fb27f341aede042d108f86ac3395cd30e78e329237a091cd909537d42ae40fd",
+      "afterSha256": "6f50ac6e22745c2f357e6514cd6454da781d1e4e5c78b3409f74f76d7e1c1975"
+    },
+    {
+      "path": "image/convene/badges/character-abyss.svg",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "b2a43fd4cd43563330407e2449696d8cf901cef4aaa3f8826237b44504359785"
+    },
+    {
+      "path": "image/convene/badges/character-fate.svg",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "9315ca752dae584985571c13fad97151f00addc17183f1f8f6fb5c49c81b605b"
+    },
+    {
+      "path": "image/convene/badges/character-headwind.svg",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "4bfb464877b5b266909fd654cdb10e257229649294f1d185ae6d6d4fb8a4f802"
+    },
+    {
+      "path": "image/convene/badges/character-lucky.svg",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "4c60dab2b7791a96da1cc6b1ef178c6e21b796dba90585fe087987f03acab0df"
+    },
+    {
+      "path": "image/convene/badges/character-observing.svg",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "c70ddc26539f747f2d44ee88181e0fd0f76168880d68f479e712ced45144de17"
+    },
+    {
+      "path": "image/convene/badges/character-star.svg",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "1972e186e1cee608f0a07df518087834dad4f647b3672a7e085f80497bc11054"
+    },
+    {
+      "path": "image/convene/badges/character-steady.svg",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "f23d88d4390434ab17f6cfe24ea27fa21a3d0a0868918c5e6924f8b212818431"
+    },
+    {
+      "path": "image/convene/badges/overall-abyss.svg",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "8edaa1a25c05ef8dfd44422c2f4f5e43dce38d154da4e8919c2a4a013b6d6ae7"
+    },
+    {
+      "path": "image/convene/badges/overall-fate.svg",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "cb6f372d71804406da03e2716288375a9bf310fbff81bfa815e10bfbc93495da"
+    },
+    {
+      "path": "image/convene/badges/overall-headwind.svg",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "fd9c543944839491351e88e95ba61c13258f697134ddc632129d9a87f0b5920c"
+    },
+    {
+      "path": "image/convene/badges/overall-lucky.svg",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "22d4cbc7af7750f984620385380137aed8a79e7efc70eda8cde23660e19741c0"
+    },
+    {
+      "path": "image/convene/badges/overall-observing.svg",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "c80e4039020d7cb3dcf583fd96891d2a20c385cdc82fe5aa24b85d830cb8f156"
+    },
+    {
+      "path": "image/convene/badges/overall-star.svg",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "7db877440f8932e0312ead1b20f3f5b545be31537d913381dd8ab04280a3569b"
+    },
+    {
+      "path": "image/convene/badges/overall-steady.svg",
+      "status": "added",
+      "beforeSha256": null,
+      "afterSha256": "000906b37fd8e071da16be7d4634f6909026cd49be4d946493a4cf5f254b8035"
+    }
+  ],
+  "protectedFilesUnchanged": [
+    "js/base.js",
+    "js/multi-config.js",
+    "js/multi-config-browser.js",
+    "js/character-core.js",
+    "js/register-workspace.js",
+    "js/register-share.js",
+    "js/register-backup.js",
+    "js/convene-store.js",
+    "convene-worker/index.js",
+    "convene-worker/wrangler.toml",
+    "js/import-service.js",
+    "js/role-view-model.js",
+    "package.json"
+  ],
+  "archiveVersion": 1,
+  "overallRulesAndStatistics": "unchanged exact function text and fixed-result regression"
+}

@@ -1,0 +1,2 @@
+const fs=require('fs');let p='js/convene-core.js',s=fs.readFileSync(p,'utf8').replace("const date=events[target-1]?.time||null;out.push", "events=events.slice().sort(order);const date=events[target-1]?.time||null;out.push");fs.writeFileSync(p,s);
+p='js/convene-i18n.js';s=fs.readFileSync(p,'utf8');const m=require(process.cwd()+'/'+p);m.rows.consecutive=['再遇雙星','再遇双星','Twin Stars Return'];s=s.replace(/"consecutive": \[[\s\S]*?\n  \]/,'"consecutive": '+JSON.stringify(m.rows.consecutive,null,2));fs.writeFileSync(p,s);

@@ -1,0 +1,38 @@
+✔ v2 rejects impossible calendar dates and time fields at both API and backup boundaries (3.2327ms)
+✔ v2 accepts Gregorian leap-year and valid month-end boundaries without timezone coercion (0.1987ms)
+✔ backup preview counts canonical entities once without changing projections or backup data (0.1592ms)
+✔ legacy backup preview includes equipped Echoes and deduplicates references across roles (0.0861ms)
+✔ v2 presentation preserves v1 calculated statistics, intervals, luck thresholds and archive schema (11.8583ms)
+✔ rating breakdown reads actual weights and sample gates; unknown limited luck is never zero (3.0018ms)
+✔ achievement atlas distinguishes insufficient evidence and observed unmet conditions (0.7638ms)
+✔ achievement dates and progress require exact eligible evidence and correct trigger order (1.3174ms)
+✔ comeback atlas uses normalized confirmed outcomes in a continuous segment (0.2896ms)
+✔ six rank emblems differ in geometry as well as color; observation is unawarded (0.4796ms)
+✔ URL parses fragment and both official regions without reusing character Token (1.4671ms)
+✔ Selected Windows log decoding works for plaintext and parity XOR, without filesystem access (0.3564ms)
+✔ API normalization preserves identical items in a timestamp batch and stable oldest-first sequence (8.3379ms)
+✔ Schema validation rejects malformed rows instead of silently skipping pulls (0.4521ms)
+✔ Repeated and incremental imports preserve archived history past the moving API window (1.6454ms)
+✔ Batch conflicts preserve old source and cannot be mistaken for new pulls (0.39ms)
+✔ Multi-account identity separates server and region even with same UID (5.6415ms)
+✔ Unjoined snapshots censor intervals over gaps, overlapping snapshots repair continuity (1.5207ms)
+✔ First 5-star is censored, subsequent exact intervals and current pity use pool lineage (0.6774ms)
+✔ Pool rules stay separate; unknown and gift pools never enter fortune rating (0.4729ms)
+✔ Limited outcomes are unknown until explicitly confirmed, guaranteed results not chance wins (5.0454ms)
+✔ Luck grade boundaries, low sample gating and confidence do not add luck points (0.1554ms)
+✔ Acquisition analysis is not fabricated character banner expenditure (2.4055ms)
+✔ Archive validation is idempotent, rejects corrupt or future backups and strips credentials (12.8962ms)
+✔ Import commits each successful pool and reports partial failures without exposing upstream messages (12.938ms)
+✔ Cancellation, timeout, missing proxy and invalid API schemas get sanitized actionable codes (11.0802ms)
+✔ Full backup optional archive is validated while old full backups remain readable (4.7718ms)
+✔ All new messages have three nonempty translations with identical interpolation contracts (0.4081ms)
+✔ Proxy allowlist, size, rate binding, origin and sanitized response contracts (4.7328ms)
+✔ Achievements require observed interval evidence and distinguish censored first gold (1.2088ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 219.9307

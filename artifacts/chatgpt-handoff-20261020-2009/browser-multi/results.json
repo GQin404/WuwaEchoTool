@@ -1,0 +1,79 @@
+{
+  "reports": [
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "migration": true,
+      "copyRenameDefaultCompare": true,
+      "shareModes": 2,
+      "sharedEditDelete": true,
+      "pagination": true,
+      "mixedBatch": true,
+      "keepByteIdentical": true,
+      "backup": true
+    },
+    {
+      "width": 1440,
+      "locale": "zh-TW",
+      "migration": true,
+      "copyRenameDefaultCompare": true,
+      "shareModes": 2,
+      "sharedEditDelete": true,
+      "pagination": true,
+      "mixedBatch": true,
+      "keepByteIdentical": true,
+      "backup": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "migration": true,
+      "copyRenameDefaultCompare": true,
+      "shareModes": 2,
+      "sharedEditDelete": true,
+      "pagination": true,
+      "mixedBatch": true,
+      "keepByteIdentical": true,
+      "backup": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "migration": true,
+      "copyRenameDefaultCompare": true,
+      "shareModes": 2,
+      "sharedEditDelete": true,
+      "pagination": true,
+      "mixedBatch": true,
+      "keepByteIdentical": true,
+      "backup": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-TW",
+      "migration": true,
+      "copyRenameDefaultCompare": true,
+      "shareModes": 2,
+      "sharedEditDelete": true,
+      "pagination": true,
+      "mixedBatch": true,
+      "keepByteIdentical": true,
+      "backup": true
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "migration": true,
+      "copyRenameDefaultCompare": true,
+      "shareModes": 2,
+      "sharedEditDelete": true,
+      "pagination": true,
+      "mixedBatch": true,
+      "keepByteIdentical": true,
+      "backup": true
+    }
+  ],
+  "pageErrors": [],
+  "realOfficialAccount": false,
+  "realMobileDevice": false
+}
