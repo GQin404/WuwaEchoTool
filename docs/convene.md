@@ -61,17 +61,25 @@ npm run test:convene:browser
 
 默认每池返回一个完整列表；只有整个列表结构、顺序及单抽数量有效才保存。不同池逐个独立提交，部分失败或取消不会回滚已成功的池。不会将网络错误消息、完整 URL、recordId、Token 写入存档、地址栏、控制台或报错正文。链接提交后清空输入。
 
-### Cloudflare 部署（尚未部署验证）
+### Cloudflare 部署（2026-10-22 部署配置修正；线上仍需验证）
 
-Pages Functions 可通过 service binding 调用独立 Worker；Worker 才配置 Rate Limiting binding，避免假定 Pages 本身支持该绑定。需 Wrangler >=4.36。先在自己的 Cloudflare 账号部署 `convene-worker/wrangler.toml`，再将根 `wrangler.toml` 的 Pages 项目名改为实际项目名并绑定 `wuwa-convene-proxy`。本次没有部署，也没有访问用户 Cloudflare 账号。
+当前 Pages 项目名为 `wuwaechotool`，根 `wrangler.toml` 已与实际项目一致。成功版本 `f7e46ca55eafff53f621ab50611ef19d286b97f1` 没有这个配置文件；新版加入配置时误用了 `wuwa-echo-tool`，并直接绑定了尚未确认存在的外部 Worker。这两项属于已确认的配置差异，不等于已经从生产日志确认失败原因。
+
+默认配置不启用外部服务绑定，因此网站部署不依赖代理 Worker 是否存在。浏览器导入继续先直连官方接口；若浏览器直连受 CORS、网络或超时影响，则尝试同源代理。代理未配置时返回 503，并由前端显示代理不可用提示；不会绕过限流向上游转发。静态页面、存档查看、分析与分享不依赖该代理。不能将“Pages 部署成功”视为“代理备援已可用”。
+
+需要代理备援时，由有权限的 Cloudflare 管理者先在 **Pages 所属的同一个账号** 部署 Worker，再取消根配置文件末尾三行服务绑定的注释并重新部署 Pages。只有先确认 Worker 存在后才能启用绑定。Pages Functions 通过 service binding 调用独立 Worker；Rate Limiting binding 配置在 Worker 中。需 Wrangler >=4.36。
 
 ```sh
 npx wrangler@4 deploy --config convene-worker/wrangler.toml
+# 确认 Worker 已部署后，取消根 wrangler.toml 中 [[services]] 等三行的注释。
+# 此时才能提交配置并重新部署 Pages。
 npx wrangler@4 pages dev .
 # 正式 pages deploy 由项目维护者决定；静态资源发布范围应排除 artifacts / 测试和私人文件。
 ```
 
 Worker 禁用 observability；代码不打印授权。仅接受同源 JSON POST，正文 <=4096 bytes，固定两端点、池类型 1–20、语言白名单、字段白名单、最多 24 MiB 响应和 20 秒超时，拒绝上游重定向。缺少限流 binding 时返回 503。不会接受任意 URL 转发。
+
+官方依据：[Pages Wrangler 配置](https://developers.cloudflare.com/pages/functions/wrangler-configuration/)、[Pages 服务绑定](https://developers.cloudflare.com/pages/functions/bindings/)、[服务绑定部署顺序](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/)。本次不修改 Cloudflare 线上设置，不自动提交、推送或部署。
 
 ## 数据可靠性
 

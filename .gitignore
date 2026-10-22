@@ -49,3 +49,7 @@ node_modules/
 /tmp/
 /.cache/
 # 正式 image/、测试源码及文档不在上述忽略范围内
+
+# 本机发布截图和部署诊断，不随 Pages 源码提交
+/artifacts/release-screenshots-20261022/
+/artifacts/deploy-audit-20261022/
