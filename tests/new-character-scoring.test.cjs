@@ -32,7 +32,7 @@ for(const id of model.ids) {
         cases++;
     }
 }
-assert.equal(cases,91);
+assert.equal(cases,182);
 // Sex does not change Rover's score, and named main stats receive only their element's contribution.
 for(let ming=0;ming<=6;ming++) for(const damageMode of ['quick','critical']) {
     assert.deepEqual(model.profile({roleListId:57,ming,damageMode}),model.profile({roleListId:58,ming,damageMode}));
@@ -80,4 +80,4 @@ assert.equal(api.mappingRoleId(999999,'漂泊者'),0); // Never guess sex/elemen
 vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../js/role-import-core.js'),'utf8'),ctx);
 vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../js/mccost2.js'),'utf8')+'\n;globalThis.normalize=guifan;',ctx);
 for(const element of ['导电','衍射','湮灭','气动','热熔','冷凝']) assert.equal(ctx.normalize(element+'伤害加成','30%'),element+'伤害');
-console.log('PASS: 91 new chain/scenario profiles, reference scores, gender parity, mixed elements, fixed crit, HP caps, healing and import/manual parity.');
+console.log('通过：182组链数／情景配置、参考分数、男女一致性、多属性、固定双暴、生命上限、治疗与手动／导入评分一致性。');

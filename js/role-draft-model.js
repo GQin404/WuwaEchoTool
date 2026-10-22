@@ -22,7 +22,8 @@
     const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&same(Object.keys(value).sort(),keys.slice().sort());
     function validConditions(c){
         return exact(c,['chain','mode','extraEnergy','referenceHealth'])&&Number.isInteger(c.chain)&&c.chain>=0&&c.chain<=6&&
-            ['default','tune','fusion','harmony','quick','critical','cycle','support','damage','sustained','opening','unison','electro'].includes(c.mode)&&
+            ['default','tune','fusion','harmony','quick','critical','cycle','support','damage','sustained','opening','unison','electro','unisonOpening','contract','contractOpening',
+                'lucyDarknet','lucyNetwork','rebeccaQuick','rebeccaBurst','rebeccaOpening','lucillaEcho','lucillaEchoOpening','lucillaFrost','lucillaFrostOpening'].includes(c.mode)&&
             (c.extraEnergy===null||Number.isFinite(c.extraEnergy)&&c.extraEnergy>=0&&c.extraEnergy<=200)&&
             (c.referenceHealth===null||Number.isFinite(c.referenceHealth)&&c.referenceHealth>=15000&&c.referenceHealth<=70000);
     }

@@ -46,6 +46,10 @@ document.addEventListener('DOMContentLoaded',function(){
                 saved=next.role.find(r=>String(r.roleId)===id);
                 Object.assign(saved,controller.modelChanges());core.score(saved);
             });
+            // Persistence may migrate/reconcile configurations and their cached scores.
+            // Continue from the record actually saved, so the next control change does not conflict.
+            saved=read();
+            if(!saved)throw Error('SOURCE_CHANGED');
             controller.acceptSaved(saved);lastRecord=JSON.stringify(saved);modelRevision=lastRecord;modelGuard?.markSaved();modelPersistence='modelSaved';
         }catch(e){modelPersistence=e.message==='SOURCE_CHANGED'?'modelSaveConflict':'modelSaveFailed';}
         candidateSurface?.invalidate('incompatible');

@@ -1,0 +1,311 @@
+{
+  "revision": "d1da524bc140fff09815bd9000ac3fd08eb76459",
+  "rows": [
+    {
+      "id": 49,
+      "name": "爱弥斯",
+      "chainWeightEntries": 6,
+      "chainRuleEntries": 6,
+      "modes": [
+        "tune",
+        "fusion"
+      ],
+      "profileCount": 14,
+      "distinctScoringProfiles": 14,
+      "c0": {
+        "normal": 0.08,
+        "skill": 0.02,
+        "heavy": 0,
+        "liberate": 0.7,
+        "other": 0.2
+      },
+      "hasIndependentChainConfiguration": true
+    },
+    {
+      "id": 51,
+      "name": "西格莉卡",
+      "chainWeightEntries": 6,
+      "chainRuleEntries": 6,
+      "modes": [
+        "default"
+      ],
+      "profileCount": 7,
+      "distinctScoringProfiles": 7,
+      "c0": {
+        "normal": 0.05,
+        "skill": 0.01,
+        "heavy": 0,
+        "liberate": 0,
+        "other": 0.94
+      },
+      "hasIndependentChainConfiguration": true
+    },
+    {
+      "id": 52,
+      "name": "绯雪",
+      "chainWeightEntries": 6,
+      "chainRuleEntries": 6,
+      "modes": [
+        "default"
+      ],
+      "profileCount": 7,
+      "distinctScoringProfiles": 7,
+      "c0": {
+        "normal": 0.02,
+        "skill": 0.07,
+        "heavy": 0,
+        "liberate": 0.81,
+        "other": 0.1
+      },
+      "hasIndependentChainConfiguration": true
+    },
+    {
+      "id": 53,
+      "name": "达妮娅",
+      "chainWeightEntries": 6,
+      "chainRuleEntries": 6,
+      "modes": [
+        "fusion",
+        "harmony"
+      ],
+      "profileCount": 14,
+      "distinctScoringProfiles": 13,
+      "c0": {
+        "normal": 0.05,
+        "skill": 0.15,
+        "heavy": 0,
+        "liberate": 0.75,
+        "other": 0.05
+      },
+      "hasIndependentChainConfiguration": true
+    },
+    {
+      "id": 54,
+      "name": "露西",
+      "chainWeightEntries": 0,
+      "chainRuleEntries": 0,
+      "modes": [
+        "default"
+      ],
+      "profileCount": 7,
+      "distinctScoringProfiles": 1,
+      "c0": {
+        "normal": 0.82,
+        "skill": 0.04,
+        "heavy": 0.02,
+        "liberate": 0.07,
+        "other": 0.05
+      },
+      "hasIndependentChainConfiguration": false
+    },
+    {
+      "id": 55,
+      "name": "蕾贝卡",
+      "chainWeightEntries": 0,
+      "chainRuleEntries": 0,
+      "modes": [
+        "default"
+      ],
+      "profileCount": 7,
+      "distinctScoringProfiles": 1,
+      "c0": {
+        "normal": 0.82,
+        "skill": 0.04,
+        "heavy": 0.02,
+        "liberate": 0.07,
+        "other": 0.05
+      },
+      "hasIndependentChainConfiguration": false
+    },
+    {
+      "id": 56,
+      "name": "洛瑟菈",
+      "chainWeightEntries": 0,
+      "chainRuleEntries": 0,
+      "modes": [
+        "default"
+      ],
+      "profileCount": 7,
+      "distinctScoringProfiles": 1,
+      "c0": {
+        "normal": 0.82,
+        "skill": 0.04,
+        "heavy": 0.02,
+        "liberate": 0.07,
+        "other": 0.05
+      },
+      "hasIndependentChainConfiguration": false
+    },
+    {
+      "id": 57,
+      "name": "漂泊者·导电（女）",
+      "chainWeightEntries": 6,
+      "chainRuleEntries": 6,
+      "modes": [
+        "quick",
+        "critical"
+      ],
+      "profileCount": 14,
+      "distinctScoringProfiles": 14,
+      "c0": {
+        "normal": 0.15,
+        "skill": 0.5,
+        "heavy": 0,
+        "liberate": 0.225,
+        "other": 0.125
+      },
+      "hasIndependentChainConfiguration": true
+    },
+    {
+      "id": 58,
+      "name": "漂泊者·导电（男）",
+      "chainWeightEntries": 6,
+      "chainRuleEntries": 6,
+      "modes": [
+        "quick",
+        "critical"
+      ],
+      "profileCount": 14,
+      "distinctScoringProfiles": 14,
+      "c0": {
+        "normal": 0.15,
+        "skill": 0.5,
+        "heavy": 0,
+        "liberate": 0.225,
+        "other": 0.125
+      },
+      "hasIndependentChainConfiguration": true
+    },
+    {
+      "id": 59,
+      "name": "秧秧·玄翎",
+      "chainWeightEntries": 6,
+      "chainRuleEntries": 6,
+      "modes": [
+        "cycle"
+      ],
+      "profileCount": 7,
+      "distinctScoringProfiles": 7,
+      "c0": {
+        "normal": 0.051314,
+        "skill": 0.012829,
+        "heavy": 0.775499,
+        "liberate": 0.115457,
+        "other": 0.044901
+      },
+      "hasIndependentChainConfiguration": true
+    },
+    {
+      "id": 60,
+      "name": "穗穗",
+      "chainWeightEntries": 6,
+      "chainRuleEntries": 6,
+      "modes": [
+        "support",
+        "damage"
+      ],
+      "profileCount": 14,
+      "distinctScoringProfiles": 14,
+      "c0": {
+        "normal": 0.119661,
+        "skill": 0.043513,
+        "heavy": 0.027196,
+        "liberate": 0,
+        "other": 0.80963
+      },
+      "hasIndependentChainConfiguration": true
+    },
+    {
+      "id": 61,
+      "name": "清宵",
+      "chainWeightEntries": 6,
+      "chainRuleEntries": 6,
+      "modes": [
+        "sustained",
+        "opening"
+      ],
+      "profileCount": 14,
+      "distinctScoringProfiles": 12,
+      "c0": {
+        "normal": 0.297843,
+        "skill": 0.0334,
+        "heavy": 0.454655,
+        "liberate": 0.193228,
+        "other": 0.020874
+      },
+      "hasIndependentChainConfiguration": true
+    },
+    {
+      "id": 62,
+      "name": "景燃",
+      "chainWeightEntries": 6,
+      "chainRuleEntries": 6,
+      "modes": [
+        "sustained",
+        "opening"
+      ],
+      "profileCount": 14,
+      "distinctScoringProfiles": 12,
+      "c0": {
+        "normal": 0.019481,
+        "skill": 0.077922,
+        "heavy": 0.87013,
+        "liberate": 0,
+        "other": 0.032467
+      },
+      "hasIndependentChainConfiguration": true
+    },
+    {
+      "id": 63,
+      "name": "心",
+      "chainWeightEntries": 6,
+      "chainRuleEntries": 6,
+      "modes": [
+        "unison",
+        "electro"
+      ],
+      "profileCount": 14,
+      "distinctScoringProfiles": 14,
+      "c0": {
+        "normal": 0.12,
+        "skill": 0.69,
+        "heavy": 0,
+        "liberate": 0.06,
+        "other": 0.13
+      },
+      "hasIndependentChainConfiguration": true
+    },
+    {
+      "id": 64,
+      "name": "锁暝",
+      "chainWeightEntries": 0,
+      "chainRuleEntries": 0,
+      "modes": [
+        "default"
+      ],
+      "profileCount": 7,
+      "distinctScoringProfiles": 1,
+      "c0": {
+        "normal": 0.82,
+        "skill": 0.04,
+        "heavy": 0.02,
+        "liberate": 0.07,
+        "other": 0.05
+      },
+      "hasIndependentChainConfiguration": false
+    }
+  ],
+  "tests": [
+    {
+      "file": "character-chain-scoring.test.cjs",
+      "status": 0,
+      "output": "PASS: 42 chain/mode profiles, model parity, reference sets, mode separation, fixed crit, energy thresholds, legacy fields and import/manual parity.\n"
+    },
+    {
+      "file": "new-character-scoring.test.cjs",
+      "status": 0,
+      "output": "PASS: 91 new chain/scenario profiles, reference scores, gender parity, mixed elements, fixed crit, HP caps, healing and import/manual parity.\n"
+    }
+  ],
+  "currentMissing": []
+}

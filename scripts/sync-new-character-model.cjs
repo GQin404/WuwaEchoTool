@@ -23,4 +23,4 @@ for (const id of model.ids) {
 if(source.includes(start)) source=source.slice(0,source.indexOf(start))+block+source.slice(source.indexOf(end)+end.length).replace(/^\r?\n/,'');
 else source=source.replace('//计算角色声骸超越人数百分比的分母',block+'//计算角色声骸超越人数百分比的分母');
 fs.writeFileSync(file,source);
-console.log('Updated embedded character model (57–63).');
+console.log('Updated embedded character model (' + model.ids.join(', ') + ').');
