@@ -65,13 +65,13 @@ npm run test:convene:browser
 
 当前 Pages 项目名为 `wuwaechotool`，根 `wrangler.toml` 已与实际项目一致。成功版本 `f7e46ca55eafff53f621ab50611ef19d286b97f1` 没有这个配置文件；新版加入配置时误用了 `wuwa-echo-tool`，并直接绑定了尚未确认存在的外部 Worker。这两项属于已确认的配置差异，不等于已经从生产日志确认失败原因。
 
-修正项目名并暂时停用绑定后，维护者已确认 Pages 部署成功。按维护者要求，当前重新启用 `CONVENE_PROXY` → `wuwa-convene-proxy` 绑定，保留正确项目名 `wuwaechotool`，用于单独验证外部 Worker 依赖是否影响部署；本轮重新部署的结果仍待确认，不能提前归因于项目名或 Worker。
+当前恢复为维护者已确认可以成功部署的配置：保留项目名 `wuwaechotool`，默认停用外部服务绑定。维护者对照验证：停用绑定时部署成功，保留相同项目名并恢复绑定后部署失败，因此当前外部 Worker 绑定是阻挡部署的条件。Worker 不存在、名称不符或账号不一致等具体原因仍未取得生产日志确认。
 
-当前配置要求 `wuwa-convene-proxy` 已部署在 **Pages 所属的同一个账号**；若不存在，Pages 部署仍可能失败。浏览器导入先直连官方接口；直连受 CORS、网络或超时影响时，尝试同源代理。代理由独立 Worker 提供，Rate Limiting binding 配置在 Worker 中。需 Wrangler >=4.36。若需要创建该 Worker，应由有权限的 Cloudflare 管理者执行以下命令；仅推送 Pages 源码不会自动部署独立 Worker。
+浏览器导入先直连官方接口；直连受 CORS、网络或超时影响时，尝试同源代理。当前代理未绑定，返回 503 并提示代理不可用；不会绕过限流。历史查看、统计、角色分析、成就和分享保持原样。需要启用代理备援时，应先由有权限的 Cloudflare 管理者在 **Pages 所属的同一个账号** 部署并确认 `wuwa-convene-proxy` 存在，再取消根配置服务绑定的注释并部署 Pages。Rate Limiting binding 配置在独立 Worker 中，需 Wrangler >=4.36；仅推送 Pages 源码不会自动部署该 Worker。
 
 ```sh
 npx wrangler@4 deploy --config convene-worker/wrangler.toml
-# 根 wrangler.toml 当前已启用服务绑定；Worker 必须先存在，才能完成 Pages 部署。
+# 确认 Worker 在正确账号部署完成后，才取消根 wrangler.toml 服务绑定三行的注释。
 npx wrangler@4 pages dev .
 # 正式 pages deploy 由项目维护者决定；静态资源发布范围应排除 artifacts / 测试和私人文件。
 ```

@@ -6,11 +6,11 @@ const source=fs.readFileSync('functions/api/convene.js','utf8');
 const api=()=>import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
 const historyURL='https://aki-gm-resources-oversea.aki-game.net/aki/gacha/index.html#/record?player_id=700000099&svr_id=Asia&record_id=synthetic-authorization&resources_id=synthetic-resource&lang=en';
 
-test('Pages config preserves the existing project name and binds the intended proxy Worker',()=>{
+test('default Pages config targets the existing project without requiring an external Worker',()=>{
  const active=fs.readFileSync('wrangler.toml','utf8').split(/\r?\n/).filter(line=>!line.trim().startsWith('#')).join('\n');
  A.match(active,/^name\s*=\s*"wuwaechotool"/m);
  A.match(active,/^pages_build_output_dir\s*=\s*"\."/m);
- A.match(active,/^\[\[services\]\]\s*\n\s*binding\s*=\s*"CONVENE_PROXY"\s*\n\s*service\s*=\s*"wuwa-convene-proxy"\s*$/m);
+ A.doesNotMatch(active,/^\s*\[\[services\]\]/m);
 });
 
 test('unconfigured Pages proxy fails closed instead of forwarding an unmetered request',async()=>{

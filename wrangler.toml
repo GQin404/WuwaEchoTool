@@ -2,7 +2,9 @@ name = "wuwaechotool"
 pages_build_output_dir = "."
 compatibility_date = "2026-10-19"
 
-# The proxy Worker must exist in the same Cloudflare account as Pages.
-[[services]]
-binding = "CONVENE_PROXY"
-service = "wuwa-convene-proxy"
+# Optional: deploy convene-worker/wrangler.toml in the same Cloudflare account
+# before uncommenting this binding. A missing Worker must not block Pages.
+# Without it, browser-direct imports remain available; the proxy fails closed.
+# [[services]]
+# binding = "CONVENE_PROXY"
+# service = "wuwa-convene-proxy"
