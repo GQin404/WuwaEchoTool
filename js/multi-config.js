@@ -29,6 +29,34 @@ function migrate(input,names={}){
  for(const e of data.unusedEchoes||[])add(e);
  data.loadoutVersion=VERSION;return project(data);
 }
+/* 仅补齐可确定的旧字段；新版 costList/unusedEchoes 是投影，必须从配置重建后再校验。 */
+function prepare(input){
+ const data=copy(input);
+ if(!data||Array.isArray(data)||!Array.isArray(data.role))throw Error('INVALID_DATA');
+ if(data.unusedEchoes==null)data.unusedEchoes=[];
+ if(data.loadoutVersion!==VERSION){
+  for(const r of data.role)if(r&&typeof r==='object'&&!Object.hasOwn(r,'costList'))r.costList=[];
+  return data;
+ }
+ for(const r of data.role){
+  if(!r||!Array.isArray(r.configurations)||!r.configurations.length)throw Error('INVALID_CONFIG');
+  for(const c of r.configurations){
+   if(!c||typeof c!=='object')throw Error('INVALID_CONFIG');
+   if(c.roleId===undefined)c.roleId=r.roleId;
+   if(c.name===undefined)c.name='';
+   if(c.source===undefined)c.source='legacy';
+   if(c.settings===undefined&&r.configurations.length===1)c.settings=settings(r);
+   if(Array.isArray(c.slots)&&c.slots.length<5)c.slots=Array.from({length:5},(_,i)=>c.slots[i]??null);
+   if(c.createdAt===undefined)c.createdAt=Number.isFinite(c.updatedAt)?c.updatedAt:0;
+   if(c.updatedAt===undefined)c.updatedAt=c.createdAt;
+  }
+  if(r.configurations.length===1){
+   if(r.activeConfigurationId==null)r.activeConfigurationId=r.configurations[0].id;
+   if(r.defaultConfigurationId==null)r.defaultConfigurationId=r.configurations[0].id;
+  }
+ }
+ return project(validate(data));
+}
 function validate(data){
  if(data.loadoutVersion!==undefined&&data.loadoutVersion!==VERSION)throw Error('UNSUPPORTED_SCHEMA');
  if(data.loadoutVersion!==VERSION)return data;
@@ -84,5 +112,5 @@ function commit(storage,data,{resetRoles=[],resetConfigurations=[],migrateConfig
  if(expectedCore!==null&&JSON.stringify(JSON.parse(before.mcData))!==expectedCore)throw Error('SOURCE_CHANGED');
  try{storage.setItem(JOURNAL,JSON.stringify({version:1,before}));for(const [k,v]of Object.entries(changes))storage.setItem(k,v);storage.removeItem(JOURNAL);}catch(error){try{for(const [k,v]of Object.entries(before))v===null?storage.removeItem(k):storage.setItem(k,v);storage.removeItem(JOURNAL);}catch(_){throw Error('ROLLBACK_FAILED');}throw error;}
 }
-return {VERSION,JOURNAL,copy,uid,settings,active,role,entities,references,configuration,project,migrate,validate,reconcile,add,select,rename,remove,equip,edit,unlink,destroy,overwrite,recover,commit};
+return {VERSION,JOURNAL,copy,uid,settings,active,role,entities,references,configuration,project,migrate,prepare,validate,reconcile,add,select,rename,remove,equip,edit,unlink,destroy,overwrite,recover,commit};
 });

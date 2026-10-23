@@ -4,6 +4,35 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(Multi){
     'use strict';
     const copy=x=>JSON.parse(JSON.stringify(x));
+    const COMPATIBILITY_BACKUP='wuwa.multiconfig.compatibilityBackups.v1';
+    const RAW_KEYS=['mcData',Multi.JOURNAL,'wuwa.echoTool.drafts.v1','wuwa.echoTool.localConfigurations.v1','wuwa.register.names.v1','wuwa.register.echoMeta.v1'];
+    // 原始字符串不经解析即可导出；不包含登录凭证。备份与诊断共用此白名单。
+    function rawBackup(storage){return {format:'wuwa-raw-storage',version:1,values:Object.fromEntries([...RAW_KEYS,COMPATIBILITY_BACKUP].map(k=>[k,storage.getItem(k)]))};}
+    function initialize(storage,metadata){
+        Multi.recover(storage);
+        const raw=storage.getItem('mcData'),original=raw===null?null:JSON.parse(raw);
+        let data=validate(Multi.prepare(original===null?{role:[],unusedEchoes:[]}:original)),migrateConfigurations=null;
+        if(data.loadoutVersion!==2){
+            const names=metadata.load();if(!names.ok)throw Error('INVALID_STORAGE');
+            data=validate(Multi.migrate(data,names.data.roles));
+            migrateConfigurations=Object.fromEntries(data.role.map(r=>[r.roleId,r.activeConfigurationId]));
+        }
+        if(JSON.stringify(original)===JSON.stringify(data))return data;
+        // 每种原始状态只保留一次；备份写入失败时不得覆盖核心存档。
+        if(raw!==null){
+            const values=Object.fromEntries(RAW_KEYS.map(k=>[k,storage.getItem(k)]));
+            if(values.mcData!==raw)throw Error('SOURCE_CHANGED');
+            const saved=storage.getItem(COMPATIBILITY_BACKUP),backup=saved===null?{version:1,snapshots:[]}:JSON.parse(saved);
+            if(backup?.version!==1||!Array.isArray(backup.snapshots))throw Error('INVALID_STORAGE');
+            if(!backup.snapshots.some(s=>JSON.stringify(s.values)===JSON.stringify(values))){
+                backup.snapshots.push({createdAt:Date.now(),values});
+                storage.setItem(COMPATIBILITY_BACKUP,JSON.stringify(backup));
+            }
+        }
+        if(storage.getItem('mcData')!==raw)throw Error('SOURCE_CHANGED');
+        Multi.commit(storage,data,{migrateConfigurations,expectedCore:JSON.stringify(original)});
+        return data;
+    }
     const IMPORT_SERVER='76402e5b20be2c39f095a152090afddc';
     async function accountKey(uid,server=IMPORT_SERVER){const bytes=await globalThis.crypto.subtle.digest('SHA-256',new TextEncoder().encode(server+':'+uid));return Array.from(new Uint8Array(bytes),x=>x.toString(16).padStart(2,'0')).join('');}
     async function importSource(uid,gameRoleId){return {version:1,server:IMPORT_SERVER,accountKey:await accountKey(uid),gameRoleId:String(gameRoleId)};}
@@ -75,5 +104,5 @@
         return {load,transact,score,saveEcho,removeEcho,equip};
     }
     function restoreData({json,expectedRaw,readRaw,write}){const incoming=validate(JSON.parse(json));if(readRaw()!==expectedRaw)throw Error('SOURCE_CHANGED');write(copy(incoming));return incoming;}
-    return {IMPORT_SERVER,accountKey,importSource,createRole,createEcho,removeRole,validate,create,restoreData};
+    return {COMPATIBILITY_BACKUP,rawBackup,initialize,IMPORT_SERVER,accountKey,importSource,createRole,createEcho,removeRole,validate,create,restoreData};
 });

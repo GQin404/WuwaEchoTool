@@ -7212,6 +7212,7 @@ function numToChinese(num) {
 
 //将JSON数据保存到本地浏览器缓存,data-JSON格式
 function saveDataToCache(data, options) {
+    if(typeof MultiConfigUI!=='undefined'&&MultiConfigUI.bootError)throw Error('INVALID_STORAGE');
     if(typeof MultiConfig!=='undefined'&&data?.loadoutVersion===2){
         const raw=localStorage.getItem('mcData'),previous=raw?JSON.parse(raw):null;
         const next=MultiConfig.reconcile(data,previous);

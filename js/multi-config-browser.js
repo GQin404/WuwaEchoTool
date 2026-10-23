@@ -3,8 +3,7 @@
 'use strict';if(window.UiView?.state.effective!=='register')return;
 let bootError=null;
 try{
- MultiConfig.recover(localStorage);
- const raw=localStorage.getItem('mcData');{const data=CharacterCore.validate(raw?JSON.parse(raw):{role:[],unusedEchoes:[]});if(data.loadoutVersion!==2){const meta=RegisterMetadata.create(localStorage).load();if(!meta.ok)throw Error('INVALID_STORAGE');const migrated=MultiConfig.migrate(data,meta.data.roles);if(localStorage.getItem('mcData')!==raw)throw Error('SOURCE_CHANGED');MultiConfig.commit(localStorage,migrated,{migrateConfigurations:Object.fromEntries(migrated.role.map(r=>[r.roleId,r.activeConfigurationId]))});}}
+ CharacterCore.initialize(localStorage,RegisterMetadata.create(localStorage));
  let cid=new URL(location.href).searchParams.get('configuration');const rid=new URL(location.href).searchParams.get('roleid');
  if(rid&&!cid&&/\/mccost(?:-readonly)?\.html$/.test(location.pathname)){const r=JSON.parse(localStorage.getItem('mcData')).role.find(r=>String(r.roleId)===rid);if(r)cid=r.defaultConfigurationId;}
  if(cid&&rid){const d=JSON.parse(localStorage.getItem('mcData'));if(MultiConfig.role(d,rid).activeConfigurationId!==cid){MultiConfig.select(d,rid,cid);MultiConfig.commit(localStorage,d);}}
@@ -20,7 +19,7 @@ function usage(id){const d=read();return d?.loadoutVersion===2?MultiConfig.refer
 function impact(id,remove=false){const rows=usage(id);return rows.length?'\n'+i18n.t(remove?'mc.deleteImpact':'mc.editImpact',{count:rows.length})+'\n'+rows.map(r=>i18n.entity('characters',r.roleListId,r.roleName)+' · '+(r.name||i18n.t('mc.defaultName'))).join('\n'):'';}
 function rename(id,name){try{change(d=>MultiConfig.rename(d,id,MultiConfig.role(d,id).activeConfigurationId,name));return {ok:true};}catch(e){return {ok:false,code:e.message==='INVALID_CONFIG'?'INVALID_METADATA':e.message};}}
 function clearSessions(ids){try{for(const id of ids){const prefixes=['config-name:','model:','candidate:','workspace:echo:'].map(p=>'wuwa.register.edit.'+p+id+':');for(const k of Object.keys(sessionStorage))if(prefixes.some(p=>k.startsWith(p))||k==='wuwa.register.edit.model:'+id)sessionStorage.removeItem(k);const raw=sessionStorage.getItem(RegisterNavigation.KEY);if(raw){const nav=JSON.parse(raw);for(const k of Object.keys(nav))if(k==='analysis:'+id||k.startsWith('analysis:'+id+':'))delete nav[k];sessionStorage.setItem(RegisterNavigation.KEY,JSON.stringify(nav));}}}catch(_){/* 会话缓存不影响已提交的核心数据；旧配置ID与修订仍阻止恢复。 */}}
-window.MultiConfigUI={change,rename,impact,usage,clearSessions};
+window.MultiConfigUI={change,rename,impact,usage,clearSessions,bootError};
 function leave(fn){if(window.MultiConfigLeave)window.MultiConfigLeave(fn);else fn();}
 function go(rid,cid){const d=read(),r=MultiConfig.role(d,rid),u=new URL(r.isImport?'mccost-readonly.html':'mccost.html',location.href);u.search=new URLSearchParams({view:'register',roleid:rid,configuration:cid,lang:i18n.locale});location.assign(u.href);}
 function close(restore=true){const previous=dialog;dialog=null;previous?.close();previous?.remove();if(restore){const target=dialogOpener?.isConnected?dialogOpener:document.querySelector('[data-mc-manage]');target?.focus({preventScroll:true});}}
@@ -90,7 +89,19 @@ function decorate(){
 }
 document.addEventListener('DOMContentLoaded',()=>{
  i18n=EchoI18n.createBrowser(window);
- if(bootError){const alert=document.createElement('p');alert.className='mc-boot-error';alert.setAttribute('role','alert');alert.textContent=i18n.t('mc.migrationError');document.body.prepend(alert);return;}
+ if(bootError){
+  const alert=document.createElement('section');alert.className='mc-boot-error';alert.setAttribute('role','alert');
+  let messageKey='mc.migrationError';
+  const message=document.createElement('p');message.textContent=i18n.t(messageKey);alert.append(message);
+  const download=document.createElement('button');download.type='button';download.textContent=i18n.t('mc.rawBackup');alert.append(download);
+  download.onclick=()=>{try{const value=JSON.stringify(CharacterCore.rawBackup(localStorage),null,2),blob=new Blob([value],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='wuwa-raw-backup-'+Date.now()+'.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}catch(_){messageKey='mc.rawBackupFailed';message.textContent=i18n.t(messageKey);}};
+  window.addEventListener('wuwa-locale',e=>{i18n.setLocale(e.detail);message.textContent=i18n.t(messageKey);download.textContent=i18n.t('mc.rawBackup');});
+  document.body.prepend(alert);
+  document.body.classList.add('mc-storage-blocked');
+  // 失败状态只允许导航与原始备份；禁止在空白占位数据上继续编辑或还原。
+  document.querySelectorAll('main,#role-register').forEach(el=>el.inert=true);
+  return;
+ }
  decorate();let pending=false;new MutationObserver(()=>{if(pending)return;pending=true;queueMicrotask(()=>{pending=false;decorate();});}).observe(document.body,{childList:true,subtree:true});
  document.addEventListener('submit',e=>{if(!e.target.matches('[data-action=echo]'))return;const id=new URL(location.href).searchParams.get('costid');if(id&&usage(id).length>1&&!confirm(i18n.t('mc.editConfirm')+impact(id))){e.preventDefault();e.stopImmediatePropagation();}},true);
  window.addEventListener('wuwa-locale',e=>{i18n.setLocale(e.detail);close();document.querySelectorAll('.mc-switcher').forEach(e=>e.remove());decorate();});

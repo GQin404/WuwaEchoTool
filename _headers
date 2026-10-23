@@ -1,6 +1,10 @@
 /image/*
   Cache-Control: public, max-age=604800, stale-while-revalidate=604800
 
+# 存档兼容修复需要入口与依赖脚本一起更新；后续发布也应重新验证脚本。
+/js/*
+  Cache-Control: no-cache, must-revalidate
+
 /image/convene-current/*
   ! Cache-Control
   Cache-Control: no-cache, must-revalidate
