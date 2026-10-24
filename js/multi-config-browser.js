@@ -89,18 +89,41 @@ function decorate(){
 }
 document.addEventListener('DOMContentLoaded',()=>{
  i18n=EchoI18n.createBrowser(window);
+ function downloadRaw(){
+  const value=JSON.stringify(CharacterCore.rawBackup(localStorage),null,2),blob=new Blob([value],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download='wuwa-raw-backup-'+Date.now()+'.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ }
  if(bootError){
   const alert=document.createElement('section');alert.className='mc-boot-error';alert.setAttribute('role','alert');
-  let messageKey='mc.migrationError';
-  const message=document.createElement('p');message.textContent=i18n.t(messageKey);alert.append(message);
+  let foreignRaw=null,foreign=null;try{foreignRaw=localStorage.getItem('mcData');foreign=CharacterCore.foreignSummary(foreignRaw);}catch(_){}
+  let messageKey=foreign?'mc.foreignStorage':'mc.migrationError';
+  const message=document.createElement('p');message.textContent=i18n.t(messageKey,foreign||{});alert.append(message);
   const download=document.createElement('button');download.type='button';download.textContent=i18n.t('mc.rawBackup');alert.append(download);
-  download.onclick=()=>{try{const value=JSON.stringify(CharacterCore.rawBackup(localStorage),null,2),blob=new Blob([value],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='wuwa-raw-backup-'+Date.now()+'.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}catch(_){messageKey='mc.rawBackupFailed';message.textContent=i18n.t(messageKey);}};
-  window.addEventListener('wuwa-locale',e=>{i18n.setLocale(e.detail);message.textContent=i18n.t(messageKey);download.textContent=i18n.t('mc.rawBackup');});
+  download.onclick=()=>{try{downloadRaw();}catch(_){messageKey='mc.rawBackupFailed';message.textContent=i18n.t(messageKey);}};
+  let restart;
+  if(foreign){
+   restart=document.createElement('button');restart.type='button';restart.dataset.mcRestartForeign='';restart.textContent=i18n.t('mc.foreignRestart');alert.append(restart);
+   restart.onclick=()=>{
+    if(!confirm(i18n.t('mc.foreignConfirm',foreign)))return;
+    restart.disabled=true;
+    try{CharacterCore.restartForeign(localStorage,foreignRaw);location.assign('index.html?view=register&lang='+i18n.locale);}
+    catch(error){messageKey=error.message==='SOURCE_CHANGED'?'workspace.SOURCE_CHANGED':'mc.foreignRestartFailed';message.textContent=i18n.t(messageKey);restart.disabled=false;}
+   };
+  }
+  window.addEventListener('wuwa-locale',e=>{i18n.setLocale(e.detail);message.textContent=i18n.t(messageKey,foreign||{});download.textContent=i18n.t('mc.rawBackup');if(restart)restart.textContent=i18n.t('mc.foreignRestart');});
   document.body.prepend(alert);
   document.body.classList.add('mc-storage-blocked');
   // 失败状态只允许导航与原始备份；禁止在空白占位数据上继续编辑或还原。
   document.querySelectorAll('main,#role-register').forEach(el=>el.inert=true);
   return;
+ }
+ const archived=CharacterCore.archivedForeignSummary(localStorage);
+ if(archived&&/\/(?:index(?:\.html)?)?$/.test(location.pathname)){
+  const notice=document.createElement('section');notice.className='mc-boot-error';notice.setAttribute('role','status');
+  const message=document.createElement('p'),download=document.createElement('button');download.type='button';
+  const draw=()=>{message.textContent=i18n.t('mc.foreignArchived',archived);download.textContent=i18n.t('mc.rawBackup');};draw();
+  download.onclick=()=>{try{downloadRaw();}catch(_){message.textContent=i18n.t('mc.rawBackupFailed');}};
+  window.addEventListener('wuwa-locale',e=>{i18n.setLocale(e.detail);draw();});notice.append(message,download);document.body.prepend(notice);
  }
  decorate();let pending=false;new MutationObserver(()=>{if(pending)return;pending=true;queueMicrotask(()=>{pending=false;decorate();});}).observe(document.body,{childList:true,subtree:true});
  document.addEventListener('submit',e=>{if(!e.target.matches('[data-action=echo]'))return;const id=new URL(location.href).searchParams.get('costid');if(id&&usage(id).length>1&&!confirm(i18n.t('mc.editConfirm')+impact(id))){e.preventDefault();e.stopImmediatePropagation();}},true);

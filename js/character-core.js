@@ -8,6 +8,39 @@
     const RAW_KEYS=['mcData',Multi.JOURNAL,'wuwa.echoTool.drafts.v1','wuwa.echoTool.localConfigurations.v1','wuwa.register.names.v1','wuwa.register.echoMeta.v1'];
     // 原始字符串不经解析即可导出；不包含登录凭证。备份与诊断共用此白名单。
     function rawBackup(storage){return {format:'wuwa-raw-storage',version:1,values:Object.fromEntries([...RAW_KEYS,COMPATIBILITY_BACKUP].map(k=>[k,storage.getItem(k)]))};}
+    // 只识别报告中实际出现的外部配装结构，不把未知数组当作本工具存档。
+    function foreignSummary(raw){
+        try{
+            const data=JSON.parse(raw);
+            if(!Array.isArray(data)||!data.length||!data.every(r=>r&&typeof r.Name==='string'&&r.Name.trim()&&Array.isArray(r.list)&&r.list.length<=5&&r.list.every(e=>e&&['1','3','4'].includes(String(e.Cost))&&Array.isArray(e.AllEchoAffix))))return null;
+            return {roles:data.length,echoes:data.reduce((n,r)=>n+r.list.length,0)};
+        }catch(_){return null;}
+    }
+    function preserveSnapshot(storage,raw){
+        const values=Object.fromEntries(RAW_KEYS.map(k=>[k,storage.getItem(k)]));
+        if(values.mcData!==raw)throw Error('SOURCE_CHANGED');
+        const saved=storage.getItem(COMPATIBILITY_BACKUP),backup=saved===null?{version:1,snapshots:[]}:JSON.parse(saved);
+        if(backup?.version!==1||!Array.isArray(backup.snapshots))throw Error('INVALID_STORAGE');
+        if(!backup.snapshots.some(s=>JSON.stringify(s.values)===JSON.stringify(values))){
+            backup.snapshots.push({createdAt:Date.now(),values});
+            storage.setItem(COMPATIBILITY_BACKUP,JSON.stringify(backup));
+        }
+    }
+    // 只在用户明确确认后，隔离已识别外部资料并建立新存档；不猜声骸身份或复用外部评分。
+    function restartForeign(storage,expectedRaw){
+        if(storage.getItem('mcData')!==expectedRaw)throw Error('SOURCE_CHANGED');
+        if(!foreignSummary(expectedRaw))throw Error('INVALID_DATA');
+        const check=()=>{if(RAW_KEYS.slice(1).some(k=>storage.getItem(k)!==null))throw Error('INVALID_STORAGE');};
+        check();preserveSnapshot(storage,expectedRaw);check();
+        const data=validate(Multi.migrate({role:[],unusedEchoes:[]}));
+        Multi.commit(storage,data,{expectedCore:JSON.stringify(JSON.parse(expectedRaw))});
+        return data;
+    }
+    function archivedForeignSummary(storage){
+        try{const backup=JSON.parse(storage.getItem(COMPATIBILITY_BACKUP));
+            for(const snapshot of (backup?.snapshots||[]).slice().reverse()){const summary=foreignSummary(snapshot.values?.mcData);if(summary)return summary;}
+        }catch(_){}return null;
+    }
     function initialize(storage,metadata){
         Multi.recover(storage);
         const raw=storage.getItem('mcData'),original=raw===null?null:JSON.parse(raw);
@@ -19,16 +52,7 @@
         }
         if(JSON.stringify(original)===JSON.stringify(data))return data;
         // 每种原始状态只保留一次；备份写入失败时不得覆盖核心存档。
-        if(raw!==null){
-            const values=Object.fromEntries(RAW_KEYS.map(k=>[k,storage.getItem(k)]));
-            if(values.mcData!==raw)throw Error('SOURCE_CHANGED');
-            const saved=storage.getItem(COMPATIBILITY_BACKUP),backup=saved===null?{version:1,snapshots:[]}:JSON.parse(saved);
-            if(backup?.version!==1||!Array.isArray(backup.snapshots))throw Error('INVALID_STORAGE');
-            if(!backup.snapshots.some(s=>JSON.stringify(s.values)===JSON.stringify(values))){
-                backup.snapshots.push({createdAt:Date.now(),values});
-                storage.setItem(COMPATIBILITY_BACKUP,JSON.stringify(backup));
-            }
-        }
+        if(raw!==null)preserveSnapshot(storage,raw);
         if(storage.getItem('mcData')!==raw)throw Error('SOURCE_CHANGED');
         Multi.commit(storage,data,{migrateConfigurations,expectedCore:JSON.stringify(original)});
         return data;
@@ -104,5 +128,5 @@
         return {load,transact,score,saveEcho,removeEcho,equip};
     }
     function restoreData({json,expectedRaw,readRaw,write}){const incoming=validate(JSON.parse(json));if(readRaw()!==expectedRaw)throw Error('SOURCE_CHANGED');write(copy(incoming));return incoming;}
-    return {COMPATIBILITY_BACKUP,rawBackup,initialize,IMPORT_SERVER,accountKey,importSource,createRole,createEcho,removeRole,validate,create,restoreData};
+    return {COMPATIBILITY_BACKUP,rawBackup,foreignSummary,restartForeign,archivedForeignSummary,initialize,IMPORT_SERVER,accountKey,importSource,createRole,createEcho,removeRole,validate,create,restoreData};
 });

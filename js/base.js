@@ -7213,6 +7213,8 @@ function numToChinese(num) {
 //将JSON数据保存到本地浏览器缓存,data-JSON格式
 function saveDataToCache(data, options) {
     if(typeof MultiConfigUI!=='undefined'&&MultiConfigUI.bootError)throw Error('INVALID_STORAGE');
+    // 旧版曾仅校验 JSON 语法；统一写入边界拒绝外部数组，避免再次污染核心存档。
+    if(!data||Array.isArray(data)||!Array.isArray(data.role)||!Array.isArray(data.unusedEchoes||[]))throw Error('INVALID_DATA');
     if(typeof MultiConfig!=='undefined'&&data?.loadoutVersion===2){
         const raw=localStorage.getItem('mcData'),previous=raw?JSON.parse(raw):null;
         const next=MultiConfig.reconcile(data,previous);

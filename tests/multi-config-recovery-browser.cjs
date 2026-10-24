@@ -5,6 +5,9 @@ const MC=require('../js/multi-config.js'),Core=require('../js/character-core.js'
 const root=path.resolve(__dirname,'..'),out=process.env.WUWA_RECOVERY_OUT;
 const env={$:()=>{},console:{log(){}}};vm.runInNewContext(fs.readFileSync(path.join(root,'js/base.js'),'utf8')+';globalThis.catalog={roleList,costList};',env);
 const entry=env.catalog.roleList[0],echo=env.catalog.costList.find(e=>e.type==='Cost4');
+// 可选读入本地诊断文件进行隔离复现；不复制到仓库，不输出原文或 UID。
+const supplied=process.env.WUWA_FOREIGN_BACKUP?JSON.parse(fs.readFileSync(process.env.WUWA_FOREIGN_BACKUP,'utf8')).values:null;
+const foreignRaw=supplied?.mcData||JSON.stringify(Array.from({length:8},(_,i)=>({Name:'fixture '+i,list:[4,3,3,1,1].map(Cost=>({Id:0,Cost:String(Cost),AllEchoAffix:[{Name:'攻擊',Number:'18%'}]}))})));
 function fixture(){
  const data=MC.migrate({role:[Core.createRole(entry,'fixture-role')],unusedEchoes:[{...Core.createEcho(echo,'fixture-echo'),mainAtrri:'暴击22%'}]});
  data.role[0].costList=null;data.unusedEchoes=null;return data;
@@ -54,7 +57,36 @@ let server,browser;
   await page.locator('[data-ui-locale]').selectOption(locale);
   if(await page.locator('#register-shell details').evaluate(el=>el.open))await page.locator('#register-shell details summary').click();
   if(out)await page.screenshot({path:path.join(out,'blocked-'+locale+'.png'),fullPage:true});
-  assert.deepEqual(errors,[]);reports.push({width,locale,refreshRecovery:true,createAndSave:true,rawExport:true,writeBlocked:true});await context.close();
+  // 报告中的真实外部结构：取消不写入；确认后保留原文并恢复新增与刷新。
+  await page.evaluate(({values,raw,backupKey})=>{
+   for(const k of ['mcData','wuwa.multiconfig.transaction.v2','wuwa.echoTool.drafts.v1','wuwa.echoTool.localConfigurations.v1','wuwa.register.names.v1','wuwa.register.echoMeta.v1',backupKey]){
+    const value=values?values[k]:k==='mcData'?raw:null;if(value==null)localStorage.removeItem(k);else localStorage.setItem(k,value);
+   }
+  },{values:supplied,raw:foreignRaw,backupKey:Core.COMPATIBILITY_BACKUP});
+  await page.goto(work('create'));await page.locator('[data-mc-restart-foreign]').waitFor();
+  const foreignText=await page.locator('.mc-boot-error').innerText();assert.ok(foreignText.includes('8')&&foreignText.includes('40'));
+  for(const [language,label] of [['en','Archive original data and start fresh'],['zh-TW','保留原始資料並重新開始'],['zh-CN','保留原始数据并重新开始']]){
+   if(!await page.locator('#register-shell details').evaluate(el=>el.open))await page.locator('#register-shell details summary').click();
+   await page.locator('[data-ui-locale]').selectOption(language);assert.equal(await page.locator('[data-mc-restart-foreign]').innerText(),label);
+  }
+  page.once('dialog',d=>d.dismiss());await page.locator('[data-mc-restart-foreign]').click();
+  assert.equal(await page.evaluate(()=>localStorage.getItem('mcData')),foreignRaw);
+  assert.equal(await page.evaluate(key=>localStorage.getItem(key),Core.COMPATIBILITY_BACKUP),supplied?.[Core.COMPATIBILITY_BACKUP]||null);
+  if(out)await page.screenshot({path:path.join(out,'foreign-before-'+locale+'.png'),fullPage:true});
+  page.once('dialog',d=>d.accept());await Promise.all([page.waitForURL('**/index.html?**'),page.locator('[data-mc-restart-foreign]').click()]);
+  assert.equal(await page.evaluate(()=>!!MultiConfigUI.bootError),false);assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('mcData')).role.length),0);
+  assert.deepEqual(await page.evaluate(()=>CharacterCore.archivedForeignSummary(localStorage)),{roles:8,echoes:40});
+  assert.equal(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).snapshots.at(-1).values.mcData,Core.COMPATIBILITY_BACKUP),foreignRaw);
+  await page.goto(work('create'));await Promise.all([page.waitForURL('**/mccost.html?**'),page.locator('form[data-action=create] button[type=submit]').click()]);
+  await page.goto(work('echo'));await Promise.all([page.waitForURL('**/register-workspace.html?**mode=library**'),page.locator('form[data-action=echo] button[type=submit]').click()]);
+  await page.reload();assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('mcData')).role.length),1);assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('mcData')).echoes.length),1);
+  await page.goto(base+'/index.html?view=register&lang='+locale);
+  const [archivedDownload]=await Promise.all([page.waitForEvent('download'),page.locator('.mc-boot-error button').click()]);
+  const archivedStream=await archivedDownload.createReadStream(),archivedChunks=[];for await(const chunk of archivedStream)archivedChunks.push(chunk);
+  const exported=JSON.parse(Buffer.concat(archivedChunks).toString('utf8'));
+  assert.equal(JSON.parse(exported.values[Core.COMPATIBILITY_BACKUP]).snapshots.at(-1).values.mcData,foreignRaw);
+  if(out)await page.screenshot({path:path.join(out,'foreign-after-'+locale+'.png'),fullPage:true});
+  assert.deepEqual(errors,[]);reports.push({width,locale,refreshRecovery:true,createAndSave:true,rawExport:true,writeBlocked:true,foreignCancelPreserved:true,foreignRestartAndSave:true,foreignArchiveExact:true});await context.close();
  }
  console.log(JSON.stringify(reports,null,2));
 })().catch(error=>{console.error(error);process.exitCode=1;}).finally(async()=>{await browser?.close();server?.close();});

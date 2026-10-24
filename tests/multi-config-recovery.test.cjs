@@ -5,6 +5,44 @@ const echo=id=>({costId:id,costListId:59,type:'Cost4',mainAtrri:'暴击22%',prop
 const legacy=()=>({role:[{...Core.createRole({id:1,name:'fixture'},'r1'),costList:[echo(11)]}],unusedEchoes:[echo(12)]});
 function memory(data){const map=new Map(data===undefined?[]:[['mcData',JSON.stringify(data)]]);let fail=null,writes=0;return {map,getItem:k=>map.get(k)??null,setItem(k,v){writes++;if(k===fail){fail=null;throw Error('quota');}map.set(k,String(v));},removeItem:k=>map.delete(k),fail:k=>fail=k,get writes(){return writes;}};}
 const initialize=s=>Core.initialize(s,Meta.create(s));
+const foreign=()=>Array.from({length:8},(_,i)=>({Name:'合成角色'+i,NameImage:'合成角色'+i,UID:'fixture-only',NumberOfStars:i%3,list:[4,3,3,1,1].map(Cost=>({Id:0,Cost:String(Cost),Attributes:'合成套装',AllEchoAffix:[{Name:'攻擊',Number:'18%',Points:123}],Points:123}))}));
+
+test('实际报告的外部数组结构可定位为 8 条角色与 40 条声骸，刷新不自动重置或猜测转换',()=>{
+ const s=memory(foreign()),saved=[...s.map];assert.deepEqual(Core.foreignSummary(s.getItem('mcData')),{roles:8,echoes:40});
+ assert.throws(()=>initialize(s),/INVALID_DATA/);assert.deepEqual([...s.map],saved);
+ for(const data of [[],[{}],{role:[]},[{Name:'fixture',list:[{Cost:2,AllEchoAffix:[]}]}]])assert.equal(Core.foreignSummary(JSON.stringify(data)),null);
+});
+
+test('明确重新开始后逐字节保留外部数组，恢复新增与刷新，不复用不明 Id 或外部评分',()=>{
+ const s=memory(foreign()),raw=s.getItem('mcData'),data=Core.restartForeign(s,raw);
+ assert.equal(data.role.length,0);assert.equal(data.echoes.length,0);assert.deepEqual(Core.archivedForeignSummary(s),{roles:8,echoes:40});
+ assert.equal(JSON.parse(s.getItem(Core.COMPATIBILITY_BACKUP)).snapshots[0].values.mcData,raw);
+ const core=Core.create({read:()=>JSON.parse(s.getItem('mcData')),write:(d,o)=>MC.commit(s,d,o),normalize:()=>({slots:[],summary:{score:0}})});
+ core.transact(JSON.stringify(core.load()),d=>d.role.push(Core.createRole({id:1,name:'fixture'},'new-role')));
+ core.transact(JSON.stringify(core.load()),d=>core.saveEcho(d,null,null,echo('new-echo')));
+ const result=initialize(s);assert.equal(result.role.length,1);assert.equal(result.echoes.length,1);
+ assert.equal(JSON.parse(s.getItem(Core.COMPATIBILITY_BACKUP)).snapshots[0].values.mcData,raw);
+ assert.throws(()=>Core.restartForeign(s,raw),/SOURCE_CHANGED/);
+});
+
+test('外部数组重新开始在取消前无写入；备份失败、核心提交失败或混合辅助资料均保留原文',()=>{
+ for(const failedKey of [Core.COMPATIBILITY_BACKUP,'mcData']){
+  const s=memory(foreign()),raw=s.getItem('mcData');s.fail(failedKey);
+  assert.throws(()=>Core.restartForeign(s,raw));assert.equal(s.getItem('mcData'),raw);assert.equal(s.getItem(MC.JOURNAL),null);
+  Core.restartForeign(s,raw);assert.equal(JSON.parse(s.getItem(Core.COMPATIBILITY_BACKUP)).snapshots.length,1);
+ }
+ const s=memory(foreign());s.setItem('wuwa.echoTool.drafts.v1','keep mixed data');const saved=[...s.map];
+ assert.throws(()=>Core.restartForeign(s,s.getItem('mcData')),/INVALID_STORAGE/);assert.deepEqual([...s.map],saved);
+ const valid=memory(legacy()),before=[...valid.map];assert.throws(()=>Core.restartForeign(valid,valid.getItem('mcData')),/INVALID_DATA/);assert.deepEqual([...valid.map],before);
+});
+
+test('导入服务与 Classic 共用写入边界都拒绝外部数组，保留原存档',()=>{
+ const fs=require('node:fs'),vm=require('node:vm'),s=memory(legacy()),saved=[...s.map];
+ assert.throws(()=>Core.restoreData({json:JSON.stringify(foreign()),expectedRaw:s.getItem('mcData'),readRaw:()=>s.getItem('mcData'),write:d=>s.setItem('mcData',JSON.stringify(d))}),/INVALID_DATA/);
+ const env={$:()=>{},localStorage:s};vm.runInNewContext(fs.readFileSync('js/base.js','utf8'),env);
+ for(const data of [foreign(),null,{list:[]}])assert.throws(()=>env.saveDataToCache(data),/INVALID_DATA/);
+ assert.deepEqual([...s.map],saved);
+});
 
 test('刷新时从新版实体与配置重建失效投影，保留非当前配置并只备份一次',()=>{
  const d=MC.migrate(legacy()),first=d.role[0].activeConfigurationId;
