@@ -305,3 +305,14 @@ html.role-register-page{background:#101718;color-scheme:dark}.role-register-page
 .rr-share-full-size{width:96vw!important;max-width:96vw!important;overflow:auto}.rr-share-full-size canvas{max-width:none!important;width:auto!important}
 
 .rr-compare-lead{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-block:16px}.rr-compare-lead strong,.rr-compare-lead small{display:block;overflow-wrap:anywhere}.rr-compare-lead strong{font-size:1.2rem}.rr-comparing .rr-analysis-summary,.rr-comparing .rr-analysis-content>.rr-substats-details{display:none}@media(max-width:600px){.rr-compare-lead{grid-template-columns:1fr 1fr}.rr-compare-lead>div:last-child{grid-column:1/-1}}
+/* 贡献刻度和比较摘要保持可读，计算依据默认折叠。 */
+#role-register .rr-scale-labels{display:flex;justify-content:space-between;font-size:9px;color:#9cb1b9;margin:4px 0 8px;font-variant-numeric:tabular-nums}
+#role-register .rr-slot{grid-template-rows:24px 92px var(--rr-name-height,40px) calc(var(--rr-label-height,20px) + 34px) 44px 26px 32px minmax(22px,auto)}
+#role-register .rr-scale-labels{grid-row:6;grid-column:1;align-self:end;margin:0}
+#role-register .rr-scale{grid-column:1;align-self:start;margin-top:3px}
+@media(max-width:700px){#role-register .rr-slot{grid-template-rows:20px 72px var(--rr-name-height,38px) 0 43px 26px 26px minmax(20px,auto)}#role-register .rr-scale{display:block}}
+#role-register .rr-loadout-heading{display:block}#role-register .rr-loadout-heading p{font-size:12px;color:#a9bbc3;max-width:900px;line-height:1.6}
+#role-register .rr-decision>details{margin-top:20px;padding-top:14px;border-top:1px solid #869f9a33}
+#role-register .rr-decision>[data-rc-decision]{min-height:44px;background:#335a51;border-color:#8fc6ad;color:#f2f6ec;font-weight:600}
+#role-register.rr-comparing .rr-analysis-heading:not(.rr-candidate-surface .rr-analysis-heading),#role-register.rr-comparing .rr-analysis-content>.rr-analysis-meta{display:none}
+@media(max-width:600px){#role-register .rr-compare-table tr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:12px 0}#role-register .rr-compare-table th{grid-column:1/-1}#role-register .rr-compare-table td{display:block;min-width:0;padding:4px;overflow-wrap:anywhere}#role-register .rr-compare-table td:before{content:attr(data-label);display:block;font-size:10px;color:#a6bac4}#role-register .rr-compare-table thead{display:none}#role-register .rr-decision>[data-rc-decision]{width:100%}}

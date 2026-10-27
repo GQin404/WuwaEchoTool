@@ -80,17 +80,27 @@ document.addEventListener('DOMContentLoaded',function(){
         let snapshot,revision,target,saving=false,position=/^[1-5]$/.test(params.get('selectedPosition')||'')?Number(params.get('selectedPosition')):undefined,initialized=false;
         dialog.querySelector('[data-picker-position]').value=position||'';
         const error=dialog.querySelector('[data-picker-error]'),confirmButton=dialog.querySelector('[data-picker-confirm]'),toggle=dialog.querySelector('[data-picker-toggle]'),panel=dialog.querySelector('.rw-picker-panel');
-        const message=e=>i18n.t('workspace.'+(['SOURCE_CHANGED','INVALID_DATA','INVALID_ECHO','READ_ONLY','IDENTITY','COST_LIMIT'].includes(e.message)?e.message:'SAVE_FAILED'));
+        const message=e=>i18n.t('workspace.'+(e.message==='INVALID_CONFIG'?'INVALID_DATA':(['SOURCE_CHANGED','INVALID_DATA','INVALID_ECHO','READ_ONLY','IDENTITY','COST_LIMIT'].includes(e.message)?e.message:'SAVE_FAILED')));
         const entities=()=>snapshot?MultiConfig.entities(snapshot):[];
         function expand(open){panel.hidden=!open;toggle.setAttribute('aria-expanded',String(open));toggle.classList.toggle('is-active',open);}
         function preflight(){
             availability.clear();
             if(!target)return;
             const slot=position||(MultiConfig.active(target).slots.findIndex(id=>id==null)+1);
-            dialog.querySelector('[data-picker-target]').textContent=i18n.t('workspace.inventoryTarget',{name:i18n.entity('characters',target.roleListId,target.name),position:slot||'—'})+' · '+(MultiConfig.active(target).name||i18n.t('mc.defaultName'))+' · '+i18n.t('workspace.remainingCost',{n:12-target.costList.reduce((n,e)=>n+(e?Number(e.type.replace('Cost','')):0),0)});
+            const active=MultiConfig.active(target),used=active.slots.filter(id=>id!=null).length,total=target.costList.reduce((n,e)=>n+(e?Number(e.type.replace('Cost','')):0),0),full=used===5&&!position,complete=full&&total<=12&&target.costList.filter(Boolean).length===used;
+            dialog.dataset.complete=String(complete);
+            dialog.querySelector('#rw-inventory-title').textContent=i18n.t(full?(complete?'workspace.configurationComplete':'workspace.configurationAttention'):'workspace.inventoryTitle');
+            dialog.querySelector('[data-picker-target]').textContent=(full?'5/5':i18n.t('workspace.inventoryTarget',{name:i18n.entity('characters',target.roleListId,target.name),position:slot}))+' · '+(active.name||i18n.t('mc.defaultName'))+' · Cost '+(Number.isFinite(total)?total:'—')+' / 12 · '+i18n.t('workspace.remainingCost',{n:Number.isFinite(total)?12-total:'—'});
+            dialog.querySelector('[data-picker-done]').classList.toggle('rw-primary',complete);
+            confirmButton.hidden=full;
             dialog.querySelector('[data-picker-manual]').href=url('echo',{roleid:roleId,selectedPosition:slot||'',returnTo:back()});
             dialog.querySelector('[data-picker-screenshot]').href=url('library',{screenshot:'1',roleid:roleId,inventoryReturn:'1',selectedPosition:slot||'',returnTo:back()});
-            for(const item of entities()){try{core.equip(JSON.parse(revision),roleId,item.costId,position);}catch(e){availability.set(String(item.costId),message(e));}}
+            for(const item of entities()){
+                const usedAt=active.slots.findIndex(id=>id!=null&&String(id)===String(item.costId));
+                if(usedAt>=0){availability.set(String(item.costId),i18n.t('workspace.equippedAt',{position:usedAt+1}));continue;}
+                if(complete){availability.set(String(item.costId),i18n.t('workspace.selectReplacement'));continue;}
+                try{core.equip(JSON.parse(revision),roleId,item.costId,position);}catch(e){availability.set(String(item.costId),message(e));}
+            }
         }
         function draw(){
             const records=entities(),context={data:snapshot,roleId,configurationId:target?.activeConfigurationId};

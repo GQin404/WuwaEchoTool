@@ -1,0 +1,173 @@
+[
+  {
+    "tier": "abyss",
+    "score": 7.53936400123495,
+    "status": "awarded",
+    "widths": [
+      1280,
+      1440,
+      1920,
+      360,
+      390,
+      430
+    ]
+  },
+  {
+    "tier": "headwind",
+    "score": 21.60543377585674,
+    "status": "awarded",
+    "widths": [
+      1280,
+      1440,
+      1920,
+      360,
+      390,
+      430
+    ]
+  },
+  {
+    "tier": "breeze",
+    "score": 36.684161778326654,
+    "status": "awarded",
+    "widths": [
+      1280,
+      1440,
+      1920,
+      360,
+      390,
+      430
+    ]
+  },
+  {
+    "tier": "steady",
+    "score": 51.76288978079652,
+    "status": "awarded",
+    "widths": [
+      1280,
+      1440,
+      1920,
+      360,
+      390,
+      430
+    ]
+  },
+  {
+    "tier": "lucky",
+    "score": 66.84161778326643,
+    "status": "awarded",
+    "widths": [
+      1280,
+      1440,
+      1920,
+      360,
+      390,
+      430
+    ]
+  },
+  {
+    "tier": "radiant",
+    "score": 79.89502933004015,
+    "status": "awarded",
+    "widths": [
+      1280,
+      1440,
+      1920,
+      360,
+      390,
+      430
+    ]
+  },
+  {
+    "tier": "star",
+    "score": 89.94751466502014,
+    "status": "awarded",
+    "widths": [
+      1280,
+      1440,
+      1920,
+      360,
+      390,
+      430
+    ]
+  },
+  {
+    "tier": "fate",
+    "score": 97.57864394034334,
+    "status": "awarded",
+    "widths": [
+      1280,
+      1440,
+      1920,
+      360,
+      390,
+      430
+    ]
+  },
+  {
+    "shareAllTiersAndStates": true,
+    "maskedUID": true
+  },
+  {
+    "accountPersistence": true,
+    "scopedErrors": true,
+    "continuousFiveSlots": true,
+    "blankEchoBlocked": true,
+    "incompleteEchoSavedAndSelected": true,
+    "cancelUnchanged": true,
+    "localDraftAdoptedWithoutChangingConfiguration": true,
+    "sharedEditSynchronized": true,
+    "sharedDeleteNoDanglingReferences": true,
+    "actualPNG": true,
+    "pageErrors": []
+  },
+  {
+    "standardRosterRule": true,
+    "pendingAnnotationRecomputed": true,
+    "continuousUP71Win": true,
+    "allNamedPoolTypes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      101,
+      102,
+      104,
+      105,
+      103
+    ],
+    "unknownFallback": 20,
+    "poolWidths": [
+      1280,
+      1440,
+      1920,
+      360,
+      390,
+      430
+    ],
+    "poolLanguages": [
+      "zh-CN",
+      "zh-TW",
+      "en"
+    ],
+    "imageAndTextDisjoint": true,
+    "borderlessLargeArtwork": true,
+    "rarityStableAcrossAccounts": true,
+    "fiveSlotsCost5Complete": true,
+    "explicitReplacement": true,
+    "sameAttributesDistinctIDs": true,
+    "cancelUnchanged": true
+  },
+  {
+    "localizedPNG": [
+      "zh-CN",
+      "zh-TW",
+      "en"
+    ],
+    "longConfigurationName": true
+  }
+]

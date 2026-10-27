@@ -1,4 +1,4 @@
-(function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory(require('./convene-core.js'));else root.ConveneVisuals=factory(root.ConveneCore);})(typeof globalThis!=='undefined'?globalThis:this,function(Core){
+(function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory(require('./convene-core.js'),require('./convene-cabinet.js'));else root.ConveneVisuals=factory(root.ConveneCore,root.ConveneCabinet);})(typeof globalThis!=='undefined'?globalThis:this,function(Core,Cabinet){
 'use strict';
 const COLORS={breeze:'#b1c5d9',radiant:'#b4df96',fate:'#f0ce86',star:'#c9b1ee',lucky:'#89ddca',steady:'#adc8cf',headwind:'#d5ad87',abyss:'#c18ba9',observing:'#8eb6ac'};
 function geometry(title,family='overall'){const index=(family==='character'?Core.CHARACTER_TIERS.slice().reverse():Core.RATING_RULES.tiers.slice().reverse()).map(t=>t.title).indexOf(title),level=index+1,sides=index<0?4:4+index*2;return {level,sides,color:COLORS[title]||COLORS.observing,observing:index<0};}
@@ -54,11 +54,13 @@ function artwork(title,family='overall'){
 function mix(color,white){const rgb=color.slice(1).match(/../g).map(h=>parseInt(h,16));return '#'+rgb.map(v=>Math.round(v+(white?255-v:-v)*.48).toString(16).padStart(2,'0')).join('');}
 function badge(title,family='overall',label=title){const g=geometry(title,family),id='cv-metal-'+family+'-'+title,light=mix(g.color,true),dark=mix(g.color,false);return '<svg xmlns="http://www.w3.org/2000/svg" class="cv-badge" data-family="'+family+'" viewBox="0 0 100 100" role="img" aria-label="'+String(label).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';')+'" style="color:'+g.color+'"><defs><linearGradient id="'+id+'" x1="0" y1="0" x2="1" y2="1"><stop stop-color="'+light+'"/><stop offset=".38" stop-color="'+g.color+'"/><stop offset=".55" stop-color="'+dark+'"/><stop offset=".75" stop-color="'+light+'"/><stop offset="1" stop-color="'+g.color+'"/></linearGradient></defs>'+artwork(title,family).map(p=>'<path d="'+p.d+'" fill="'+(p.fill?'url(#'+id+')':'none')+'" stroke="'+(p.width>=1.5?light:'currentColor')+'" stroke-width="'+p.width+'" opacity="'+p.opacity+'" stroke-linejoin="round"/>').join('')+'<polygon points="'+points(g.sides,3).map(p=>p.join(',')).join(' ')+'" fill="'+light+'"/></svg>';}
 function drawBadge(ctx,title,cx,cy,size,family='overall'){const g=geometry(title,family);ctx.save();ctx.translate(cx-size/2,cy-size/2);ctx.scale(size/100,size/100);const gradient=ctx.createLinearGradient(0,0,100,100),light=mix(g.color,true);for(const [at,color]of [[0,light],[.38,g.color],[.55,mix(g.color,false)],[.75,light],[1,g.color]])gradient.addColorStop(at,color);ctx.fillStyle=gradient;ctx.lineJoin='round';for(const p of artwork(title,family)){ctx.strokeStyle=p.width>=1.5?light:g.color;ctx.globalAlpha=p.opacity;ctx.lineWidth=p.width;const path=new Path2D(p.d);if(p.fill)ctx.fill(path);ctx.stroke(path);}ctx.globalAlpha=1;ctx.fillStyle=light;ctx.beginPath();points(g.sides,3).forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.fill();ctx.restore();}
+// 图标、卡片和分享共用稀有度色板，不按成就索引分配颜色。
+const ACHIEVEMENT_COLORS=Object.freeze({common:'#adc8cf',rare:'#8dbbdb',epic:'#c6a5e3',legendary:'#e5c47b'});
 const achievementKeys=['pull1','pull100','pull500','pull1000','pull3000','gold1','gold10','gold30','gold100','one','ten','fiveEarly','pity','hard','streak','consecutive','comeback','characters5','characters10','weapons5','weapons10','seven','collab','weaponGold','fourCollect','months'];
 const motifs=['M50 24L58 42L76 50L58 58L50 76L42 58L24 50L42 42Z','M36 25L62 44L38 75L44 53L32 51Z','M28 64L38 34L50 56L62 34L72 64Z','M30 31L50 20L70 31V59L50 79L30 59ZM40 39L50 31L60 39V56L50 66L40 56Z','M27 49L40 28L53 49L40 71ZM53 49L66 28L79 49L66 71Z','M32 24L62 55L55 62L24 32ZM50 66L66 50L73 57L57 73Z','M26 57Q50 19 74 57L64 49L50 70L36 49Z','M28 39L50 26L72 39L65 66L50 77L35 66Z'];
-function achievementArtwork(key){const i=Math.max(0,achievementKeys.indexOf(key)),sides=6+i%3,color=['#a9c8d0','#8fdec8','#d8b7f4','#eccb83'][Math.min(3,Math.floor(i/7))],outer=points(sides,44).map(p=>p.join(' ')).join('L'),inner=points(sides,36).map(p=>p.join(' ')).join('L'),satellites=Array.from({length:1+i%5},(_,j)=>{const a=(j/(1+i%5)*Math.PI*2)+(i*.31),x=50+30*Math.cos(a),y=50+30*Math.sin(a);return 'M'+x+' '+(y-2.5)+'L'+(x+2.5)+' '+y+'L'+x+' '+(y+2.5)+'L'+(x-2.5)+' '+y+'Z';}).join('');return {color,paths:[{d:'M'+outer+'Z',fill:true,width:2,opacity:1},{d:'M'+inner+'Z',fill:false,width:.8,opacity:.8},{d:'M16 52C26 16 79 23 86 49C80 78 30 83 16 52Z',fill:false,width:1,opacity:.5},{d:motifs[i%motifs.length],fill:true,width:1.5,opacity:.95},{d:satellites,fill:true,width:.8,opacity:1}]};}
-function achievementIcon(key){const a=achievementArtwork(key),id='cv-ach-'+key;return '<svg viewBox="0 0 100 100" aria-hidden="true" data-achievement="'+key+'"><defs><linearGradient id="'+id+'" x2="1" y2="1"><stop stop-color="'+mix(a.color,true)+'"/><stop offset=".4" stop-color="'+a.color+'"/><stop offset=".65" stop-color="'+mix(a.color,false)+'"/><stop offset="1" stop-color="'+mix(a.color,true)+'"/></linearGradient></defs>'+a.paths.map((p,i)=>'<path d="'+p.d+'" fill="'+(p.fill?(i===0?'#14262e':'url(#'+id+')'):'none')+'" stroke="'+(i===0?'url(#'+id+')':a.color)+'" stroke-width="'+p.width+'" opacity="'+p.opacity+'" stroke-linejoin="round"/>').join('')+'</svg>';}
-function drawAchievement(ctx,key,x,y,size){const a=achievementArtwork(key);ctx.save();ctx.translate(x,y);ctx.scale(size/100,size/100);const g=ctx.createLinearGradient(0,0,100,100);for(const[stop,color]of [[0,mix(a.color,true)],[.4,a.color],[.65,mix(a.color,false)],[1,mix(a.color,true)]])g.addColorStop(stop,color);ctx.lineJoin='round';a.paths.forEach((p,i)=>{ctx.globalAlpha=p.opacity;ctx.lineWidth=p.width;ctx.fillStyle=i===0?'#14262e':g;ctx.strokeStyle=i===0?g:a.color;const path=new Path2D(p.d);if(p.fill)ctx.fill(path);ctx.stroke(path);});ctx.restore();}
+function achievementArtwork(key){const i=Math.max(0,achievementKeys.indexOf(key)),sides=6+i%3,color=ACHIEVEMENT_COLORS[Cabinet.rarity[key]||'common'],outer=points(sides,44).map(p=>p.join(' ')).join('L'),inner=points(sides,36).map(p=>p.join(' ')).join('L'),satellites=Array.from({length:1+i%5},(_,j)=>{const a=(j/(1+i%5)*Math.PI*2)+(i*.31),x=50+30*Math.cos(a),y=50+30*Math.sin(a);return 'M'+x+' '+(y-2.5)+'L'+(x+2.5)+' '+y+'L'+x+' '+(y+2.5)+'L'+(x-2.5)+' '+y+'Z';}).join('');return {color,paths:[{d:'M'+outer+'Z',fill:true,width:2,opacity:1},{d:'M'+inner+'Z',fill:false,width:.8,opacity:.8},{d:'M16 52C26 16 79 23 86 49C80 78 30 83 16 52Z',fill:false,width:1,opacity:.5},{d:motifs[i%motifs.length],fill:true,width:1.5,opacity:.95},{d:satellites,fill:true,width:.8,opacity:1}]};}
+function achievementIcon(key){const a=achievementArtwork(key),id='cv-ach-'+key;return '<svg viewBox="0 0 100 100" aria-hidden="true" data-achievement="'+key+'"><defs><linearGradient id="'+id+'" x2="1" y2="1"><stop stop-color="'+mix(a.color,true)+'"/><stop offset=".4" stop-color="'+a.color+'"/><stop offset=".65" stop-color="'+mix(a.color,false)+'"/><stop offset="1" stop-color="'+mix(a.color,true)+'"/></linearGradient></defs>'+a.paths.map((p,i)=>'<path d="'+p.d+'" fill="'+(p.fill?(i===0?mix(a.color,false):'url(#'+id+')'):'none')+'" stroke="'+(i===0?'url(#'+id+')':a.color)+'" stroke-width="'+p.width+'" opacity="'+p.opacity+'" stroke-linejoin="round"/>').join('')+'</svg>';}
+function drawAchievement(ctx,key,x,y,size){const a=achievementArtwork(key);ctx.save();ctx.translate(x,y);ctx.scale(size/100,size/100);const g=ctx.createLinearGradient(0,0,100,100);for(const[stop,color]of [[0,mix(a.color,true)],[.4,a.color],[.65,mix(a.color,false)],[1,mix(a.color,true)]])g.addColorStop(stop,color);ctx.lineJoin='round';a.paths.forEach((p,i)=>{ctx.globalAlpha=p.opacity;ctx.lineWidth=p.width;ctx.fillStyle=i===0?mix(a.color,false):g;ctx.strokeStyle=i===0?g:a.color;const path=new Path2D(p.d);if(p.fill)ctx.fill(path);ctx.stroke(path);});ctx.restore();}
 
 /* The same engraving primitives drive page SVG and exported Canvas. */
 function frameArtwork(title,w=1000,h=430){
@@ -79,7 +81,32 @@ function frameArtwork(title,w=1000,h=430){
  }
  if(level>=7){add('M'+(w*.2)+' '+(m+4*u)+'H'+(w*.8),.6,.8);add('M'+(w*.2)+' '+(h-m-4*u)+'H'+(w*.8),.6,.8);}
  if(level>=8)for(const x of [w*.2,w*.8])add('M'+(x-6*u)+' '+m+'L'+x+' '+(m+8*u)+'L'+(x+6*u)+' '+m+'L'+x+' '+(m-8*u)+'Z',.8,1,true);
+ // 棱面刻板与角部共鸣纹，高阶增加翼片和晶核。
+ for(const sx of [1,-1])for(const sy of [1,-1]){
+  const X=v=>sx===1?v:w-v,Y=v=>sy===1?v:h-v;
+  const poly=pts=>pts.map(([x,y],i)=>(i?'L':'M')+X(x*u)+' '+Y(y*u)).join('')+'Z';
+  add(poly([[7,55],[7,7],[55,7],[45,14],[15,14],[15,45]]),.19,1,true);
+  add(poly([[18,41],[18,18],[41,18],[35,23],[24,23],[24,35]]),.38,.7,true);
+  if(level>=3)add(poly([[5,64],[5,48],[12,41],[12,57]]),.7,1,true);
+  if(level>=5)add(poly([[20,54],[20,43],[43,20],[54,20],[45,26],[26,45]]),.28,.8,true);
+  if(level>=7)add(poly([[31,10],[48,1],[75,1],[64,8],[49,8],[41,13]]),.75,.9,true);
+ }
+ // 最高两阶的星轨翼片和冠饰不改变内容区尺寸。
  const center=w/2;
+ for(const edge of [m,h-m]){
+  const sign=edge===m?1:-1;
+  for(const side of [-1,1]){
+   const x=v=>center+side*v*u,y=v=>edge+sign*v*u;
+   add('M'+x(55)+' '+y(0)+'L'+x(72)+' '+y(5)+'H'+x(112)+'L'+x(126)+' '+y(0),.7,1.1);
+   if(level>=2)add('M'+x(79)+' '+y(10)+'H'+x(105)+'M'+x(88)+' '+y(13)+'H'+x(99),.65,.8);
+   if(level>=3)for(let i=0;i<Math.min(level,6);i++){const k=140+i*14;add('M'+x(k)+' '+y(0)+'l'+side*5*u+' '+sign*5*u+'l'+side*5*u+' '+(-sign*5*u),.7,.8);}
+   if(level>=5)add('M'+x(62)+' '+y(3)+'L'+x(80)+' '+y(17)+'L'+x(115)+' '+y(17)+'L'+x(126)+' '+y(7),.48,.8);
+   if(level>=7){add('M'+x(16)+' '+y(4)+'L'+x(35)+' '+y(15)+'L'+x(66)+' '+y(22)+'L'+x(54)+' '+y(10)+'L'+x(83)+' '+y(5),.75,1.4);add('M'+x(40)+' '+y(18)+'L'+x(68)+' '+y(26)+'L'+x(61)+' '+y(18),.3,1,true);}
+  }
+  add('M'+(center-7*u)+' '+(edge+sign*3*u)+'L'+center+' '+(edge+sign*15*u)+'L'+(center+7*u)+' '+(edge+sign*3*u)+'L'+center+' '+(edge-sign*5*u)+'Z',.7,1,true);
+  if(level>=8){add('M'+(center-28*u)+' '+(edge+sign*10*u)+'Q'+center+' '+(edge+sign*34*u)+' '+(center+28*u)+' '+(edge+sign*10*u),.9,1.2);add('M'+(center-12*u)+' '+edge+'L'+center+' '+(edge+sign*26*u)+'L'+(center+12*u)+' '+edge+'L'+center+' '+(edge-sign*7*u)+'Z',.8,1.3);}
+ }
+
  add('M'+(center-9*u)+' '+m+'L'+center+' '+(m+9*u)+'L'+(center+9*u)+' '+m,.8,1.1);
  if(level>=3)for(const sign of [-1,1])add('M'+(center+sign*22*u)+' '+m+'H'+(center+sign*(40+level*12)*u),.65);
  if(level>=5){const b=h-m;add('M'+(center-56*u)+' '+b+'L'+(center-35*u)+' '+(b-7*u)+'H'+(center-13*u)+'L'+center+' '+(b-18*u)+'L'+(center+13*u)+' '+(b-7*u)+'H'+(center+35*u)+'L'+(center+56*u)+' '+b,.8,1.3);}
@@ -87,9 +114,21 @@ function frameArtwork(title,w=1000,h=430){
  return out;
 }
 function frame(title,variant='desktop'){
- const mobile=variant==='mobile',w=mobile?400:1000,h=mobile?620:430,g=geometry(title);
- return '<svg class="cv-engraving cv-engraving-'+variant+'" viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="none" aria-hidden="true" style="color:'+g.color+'">'+frameArtwork(title,w,h).map(p=>'<path d="'+p.d+'" fill="'+(p.fill?'currentColor':'none')+'" stroke="currentColor" stroke-width="'+p.width+'" opacity="'+p.opacity+'" vector-effect="non-scaling-stroke" stroke-linejoin="miter"/>').join('')+'</svg>';
+ const mobile=variant==='mobile',w=mobile?400:1000,h=mobile?620:430,g=geometry(title),id='cv-frame-metal-'+title+'-'+variant,paint='url(#'+id+')';
+ const stops=[[0,mix(g.color,true)],[.25,g.color],[.5,mix(g.color,false)],[.8,mix(g.color,true)],[1,g.color]];
+ return '<svg class="cv-engraving cv-engraving-'+variant+'" viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="none" aria-hidden="true" style="color:'+g.color+'"><defs><linearGradient id="'+id+'" x2="1" y2="1">'+stops.map(([offset,color])=>'<stop offset="'+offset+'" stop-color="'+color+'"/>').join('')+'</linearGradient></defs>'+frameArtwork(title,w,h).map(p=>'<path d="'+p.d+'" fill="'+(p.fill?paint:'none')+'" stroke="'+paint+'" stroke-width="'+p.width+'" opacity="'+p.opacity+'" vector-effect="non-scaling-stroke" stroke-linejoin="miter"/>').join('')+'</svg>';
+}
+function panelFrame(title){
+ const level=Math.max(0,geometry(title).level),paths=[];
+ for(const sx of [1,-1])for(const sy of [1,-1]){
+  const X=x=>sx===1?x:1000-x,Y=y=>sy===1?y:430-y;
+  for(let i=0;i<1+Math.floor(level/3);i++){const m=7+i*6,k=level===0?18:22+level*3;paths.push('M'+X(m)+' '+Y(m+k)+'V'+Y(m)+'H'+X(m+k));}
+  if(level>=2)paths.push('M'+X(14)+' '+Y(38)+'L'+X(38)+' '+Y(14)+'H'+X(45));
+  if(level>=5)paths.push('M'+X(13)+' '+Y(54)+'L'+X(22)+' '+Y(45)+'M'+X(45)+' '+Y(22)+'L'+X(54)+' '+Y(13));
+  if(level>=7)paths.push('M'+X(28)+' '+Y(8)+'L'+X(39)+' '+Y(16)+'L'+X(57)+' '+Y(8));
+ }
+ return '<svg class="cv-panel-engraving" viewBox="0 0 1000 430" preserveAspectRatio="none" aria-hidden="true">'+paths.map(d=>'<path d="'+d+'" fill="none" stroke="currentColor" stroke-width=".8" vector-effect="non-scaling-stroke"/>').join('')+'</svg>';
 }
 function drawFrame(ctx,title,x,y,w,h){ctx.save();ctx.translate(x,y);const color=geometry(title).color,g=ctx.createLinearGradient(0,0,w,h);for(const [at,c]of [[0,mix(color,true)],[.25,color],[.5,mix(color,false)],[.8,mix(color,true)],[1,color]])g.addColorStop(at,c);ctx.strokeStyle=g;ctx.fillStyle=g;for(const p of frameArtwork(title,w,h)){ctx.globalAlpha=p.opacity;ctx.lineWidth=p.width;const d=new Path2D(p.d);if(p.fill)ctx.fill(d);ctx.stroke(d);}ctx.restore();}
 
-return {frameArtwork,frame,drawFrame,COLORS,geometry,artwork,badge,drawBadge,achievementIcon,drawAchievement,achievementArtwork,achievementKeys};});
+return {ACHIEVEMENT_COLORS,panelFrame,frameArtwork,frame,drawFrame,COLORS,geometry,artwork,badge,drawBadge,achievementIcon,drawAchievement,achievementArtwork,achievementKeys};});

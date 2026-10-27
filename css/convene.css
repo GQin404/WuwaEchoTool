@@ -257,7 +257,7 @@
 #convene-app .cv-pool-latest{border-top:1px solid #8da99b33;padding-top:12px;margin-top:14px}
 #convene-app .cv-guarantee{color:#e4d49d;font-size:13px;line-height:1.7;margin:10px 0}
 #convene-app .cv-remaining,#convene-app .cv-uncertain{font-size:12px;line-height:1.7;color:#bdd0c7}
-#convene-app .cv-outcome{display:block;font-size:12px;color:#c5d9cc;margin:5px 0}
+#convene-app .cv-outcome{display:table;width:auto;max-width:100%;font-size:12px;color:#c5d9cc;margin:5px 0;overflow-wrap:anywhere}
 #convene-app .cv-result{grid-column:1/-1;width:100%;font-size:12px}
 #convene-app .cv-result summary{cursor:pointer;color:#b5ccc1;padding:8px 0}
 #convene-app .cv-result select{max-width:100%;margin-left:12px}
@@ -465,3 +465,67 @@ body.convene-page{background:#0e181c;color:#e8eee7;color-scheme:dark}
 @media(max-width:600px){.cv-tier-grid{grid-template-columns:1fr}.cv-rating-current{min-width:0}.cv-rating-current h3{overflow-wrap:anywhere}.cv-hero .cv-title{overflow-wrap:anywhere}.cv-engraving{opacity:.65}}
 @media(prefers-reduced-motion:reduce){#convene-app *,#convene-info *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 #convene-app .cv-outcome-unknown{color:#b3c3c7;border:1px dashed #789096;background:transparent}
+/* 统一卡池摘要：四区布局，图片不进入文字网格。 */
+#convene-app .cv-pools,#convene-app .cv-pools:not(.cv-featured-pools){display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,450px),1fr));gap:24px;align-items:stretch}
+#convene-app .cv-pool-summary.cv-pool-card{display:grid;grid-template-rows:auto auto 1fr auto;min-height:0;padding:24px;gap:20px;overflow:hidden;background:linear-gradient(145deg,#20343b,#101e28)}
+#convene-app .cv-pool-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;min-width:0}
+#convene-app .cv-pool-heading h3{font-size:22px;margin:0;overflow-wrap:anywhere;line-height:1.35}
+#convene-app .cv-pool-heading .cv-gold{font-size:12px;flex-shrink:0}
+#convene-app .cv-pool-core{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);align-items:stretch;gap:16px;min-width:0}
+#convene-app .cv-pool-numbers{display:flex;flex-direction:column;justify-content:center;margin:0;gap:22px;min-width:0}
+#convene-app .cv-pool-numbers div{display:block;margin:0}
+#convene-app .cv-pool-numbers dt{font-size:12px;color:#b7c9cd;line-height:1.5}
+#convene-app .cv-pool-numbers dd{margin:4px 0 0;font-size:42px;line-height:1.1;color:#f2e9d4;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#convene-app .cv-pool-numbers .cv-pool-average dd{font-size:26px;color:#c9dace}
+#convene-app .cv-pool-summary.cv-pool-card .cv-pool-art{position:relative;inset:auto;display:grid;grid-template-rows:minmax(0,1fr) auto;align-items:stretch;align-self:stretch;width:100%;height:230px;margin:0;opacity:1;mask-image:none;border:1px solid #abc2c41f;border-radius:8px;background:radial-gradient(ellipse at 50% 85%,#7fa59929,transparent 65%),repeating-linear-gradient(135deg,transparent 0 27px,#b9d9d907 28px 29px),#10232d;overflow:hidden}
+#convene-app .cv-pool-summary .cv-pool-art img{width:100%;height:100%;min-height:0;display:block;object-fit:contain;object-position:center;filter:drop-shadow(0 8px 12px #0004)}
+#convene-app .cv-pool-summary[data-pool-kind=character] .cv-pool-art img{object-position:center 25%}
+#convene-app .cv-pool-summary[data-pool-kind=weapon] .cv-pool-art img{padding:10px;box-sizing:border-box;object-fit:contain}
+#convene-app .cv-pool-summary .cv-art-caption{position:static;display:block;margin:0;padding:7px 9px;background:#0b1820eb;font-size:10px;line-height:1.4;color:#b9cece;overflow-wrap:anywhere}
+#convene-app .cv-pool-rules{border-top:1px solid #acc7bf29;padding-top:16px;font-size:12px;min-width:0}
+#convene-app .cv-pool-rules dl{display:grid;gap:12px;margin:0 0 12px}
+#convene-app .cv-pool-rules dl>div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:0;font-size:12px}
+#convene-app .cv-pool-rules dt{color:#b7c9cd}
+#convene-app .cv-pool-rules dd{margin:0;text-align:end;font-size:17px;color:#f0e4c9;overflow-wrap:anywhere}
+#convene-app .cv-pool-rules p{margin:9px 0;overflow-wrap:anywhere}
+#convene-app .cv-pool-rules progress{width:100%;height:5px;accent-color:var(--cv-theme)}
+#convene-app .cv-pool-bottom{display:grid;gap:16px;border-top:1px solid #acc7bf29;padding-top:16px;min-width:0}
+#convene-app .cv-pool-bottom .cv-pool-latest{border:0;margin:0;padding:0}
+#convene-app .cv-pool-latest small{color:#afc4c6;font-size:11px}
+#convene-app .cv-pool-latest strong{font-size:18px;line-height:1.4;margin:5px 0;overflow-wrap:anywhere}
+#convene-app .cv-pool-latest>div{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:11px;color:#b6caca}
+#convene-app .cv-pool-open{width:100%;min-height:44px;text-align:center}
+#convene-app .cv-image-unavailable{align-self:center;text-align:center;padding:24px;color:#afc4c6}
+/* 边缘刻线仅作用于唤取。 */
+#convene-app .cv-content .cv-card:not(.cv-hero):not(.cv-character-hero){border-color:color-mix(in srgb,var(--cv-theme) 38%,#273c42);background-image:linear-gradient(135deg,color-mix(in srgb,var(--cv-theme) 8%,#1a2b33),#101e28)}
+#convene-app .cv-content .cv-card:not(.cv-hero):not(.cv-character-hero):before{content:"";display:block;position:absolute;inset:6px;pointer-events:none;border:0;background:linear-gradient(var(--cv-theme),var(--cv-theme)) top left/36px 2px no-repeat,linear-gradient(var(--cv-theme),var(--cv-theme)) top left/2px 16px no-repeat,linear-gradient(var(--cv-theme),var(--cv-theme)) bottom right/36px 2px no-repeat,linear-gradient(var(--cv-theme),var(--cv-theme)) bottom right/2px 16px no-repeat;opacity:.55}
+#convene-app .cv-content .cv-card{position:relative}
+#convene-app[data-evaluation=insufficient],#convene-app[data-evaluation=noRecords]{--cv-theme:#8ea6af!important}
+/* 稀有度不受整体运势配色影响，色板由统一配置注入。 */
+#convene-app [data-rarity=common],#convene-app [data-rarity-shelf=common]{--shelf:var(--cv-rarity-common)}
+#convene-app [data-rarity=rare],#convene-app [data-rarity-shelf=rare]{--shelf:var(--cv-rarity-rare)}
+#convene-app [data-rarity=epic],#convene-app [data-rarity-shelf=epic]{--shelf:var(--cv-rarity-epic)}
+#convene-app [data-rarity=legendary],#convene-app [data-rarity-shelf=legendary]{--shelf:var(--cv-rarity-legendary)}
+#convene-app .cv-collectible-copy h3,#convene-app .cv-achievement-mini strong{color:var(--shelf)}
+#convene-app .cv-collectible:not([data-state=unlocked]) .cv-trophy-plinth svg{filter:saturate(.65) brightness(.78);opacity:.85}
+#convene-app .cv-collectible .cv-trophy-plinth{background:radial-gradient(ellipse at center,color-mix(in srgb,var(--shelf) 16%,transparent),transparent 70%);border-bottom:1px solid color-mix(in srgb,var(--shelf) 25%,transparent)}
+#convene-app .cv-collectible:hover,#convene-app .cv-collectible:focus-within{border-color:var(--shelf);box-shadow:inset 0 2px var(--shelf),0 10px 20px #0003}
+#convene-app .cv-achievement-mini{border-color:color-mix(in srgb,var(--shelf) 45%,transparent)}
+#convene-app .cv-collectible progress::-webkit-progress-value{background:var(--shelf)}
+#convene-app .cv-collectible progress::-moz-progress-bar{background:var(--shelf)}
+/* 图片展示无边界；区域仅保留布局空间，不画框或底板。 */
+#convene-app .cv-pool-summary.cv-pool-card .cv-pool-art{border:0;border-radius:0;height:310px;background:radial-gradient(ellipse at 50% 68%,#9bc3b116,transparent 69%);overflow:visible}
+#convene-app .cv-pool-summary .cv-art-caption{background:transparent;padding:5px 0;color:#a9bfc5;font-size:10px;text-align:center}
+#convene-app .cv-pool-summary .cv-pool-art img{mask-image:linear-gradient(to bottom,#000 88%,transparent);filter:drop-shadow(0 10px 15px #0003)}
+#convene-app .cv-panel-engraving{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;color:var(--cv-theme);opacity:.7;z-index:0}
+#convene-app .cv-content .cv-card:not(.cv-hero):not(.cv-character-hero):before{display:none}
+@media(max-width:700px){#convene-app .cv-panel-engraving{opacity:.5}#convene-app .cv-panel-engraving path:nth-child(even){display:none}}
+@media(max-width:700px){
+ #convene-app .cv-pool-summary.cv-pool-card{padding:20px;gap:16px}
+ #convene-app .cv-pool-heading{flex-wrap:wrap;gap:6px}
+ #convene-app .cv-pool-core{grid-template-columns:1fr;gap:16px}
+ #convene-app .cv-pool-numbers{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center}
+ #convene-app .cv-pool-numbers dd{font-size:36px}
+ #convene-app .cv-pool-summary.cv-pool-card .cv-pool-art{height:310px;order:0}
+ #convene-app .cv-engraving-mobile path:nth-child(3n){opacity:.3}
+}

@@ -40,7 +40,7 @@ async function render({stats,character,name='',portrait=null,t,account=null,deta
   const value=r.interval!=null?String(r.interval):r.lowerBound!=null?'≥ '+r.lowerBound:'—';
   text(value,xx+20,yy+83,42,r.interval!=null?accent:muted,cardW*.45,600);
   text(t(r.anomaly?'intervalAnomaly':r.interval!=null?'exactShort':r.lowerBound!=null?'lowerBoundShort':'unknownInterval'),xx+cardW*.49,yy+81,14,muted,cardW*.51-20);
-  if(detailed){text(r.time,xx+20,yy+121,18,ink,cardW-40);const p=stats.pools.find(p=>p.pool===r.pool);text(p?.displayName||t((p?.rule.key||'unknown')+'Pool'),xx+20,yy+151,16,muted,cardW-40);text(t(r.upResult==='unknown'?'unknown':r.upResult),xx+20,yy+175,14,muted,cardW-40);}
+  if(detailed){text(r.time,xx+20,yy+121,18,ink,cardW-40);const p=stats.pools.find(p=>p.pool===r.pool);text(p?.displayName||t((p?.rule.key||'unknown')+'Pool'),xx+20,yy+151,16,muted,cardW-40);text(t(r.outcomeKey||r.upResult||'unknown'),xx+20,yy+175,14,muted,cardW-40);}
  });
  const coverage=Report.coverage(stats),unknown=entries.filter(r=>r.interval==null).length;line(end+25);
  text(t('reportCoverage',{n:unknown,gaps:coverage.gaps}),m,end+59,16,muted);

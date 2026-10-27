@@ -119,7 +119,7 @@
                 role:{...(role.activeConfigurationId?{configurationId:role.activeConfigurationId,configurationName:role.configurations?.find(c=>c.id===role.activeConfigurationId)?.name||''}:{}),id:role.roleId??null,catalogId:role.roleListId??null,name:role.name||master?.name||null,source:role.isImport===true?'imported':'manual',level:numeric(role.level),portrait:portraits.resolve(master)},
                 model:{status:config?'available':'unavailable',chain:Math.max(0,Math.min(6,parseInt(role.ming)||0)),requestedMode:role.damageMode??null,extraEnergy:role.extraEnergy??null,configuration:copy(config)},
                 slots,
-                scale:{min:0,max:Math.max(100,Math.ceil(Math.max(0,...values)/10)*10),unit:'score-points',scope:'role-score-contribution',shared:true},
+                scale:{min:0,max:Math.max(20,Math.ceil(Math.max(0,...values)/5)*5),unit:'score-points',scope:'role-score-contribution',shared:true},
                 summary:{status:complete&&score!==null?'complete':'incomplete',score,cachedScore:numeric(role.totalScore),knownContribution,energyCorrection:correction,costTotal,substatTotals:[...totals.values()],totalsScope:'known-substats-only',
                     weakestPositions:complete&&values.length===5?slots.filter(s=>s.echo.score.value===Math.min(...values)).map(s=>s.position):[]},
                 issues

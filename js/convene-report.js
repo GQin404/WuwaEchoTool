@@ -14,10 +14,16 @@ function highlights(stats){
  if(opportunities>=3&&stats.limited.win>0)out.push({key:'highlightUP',value:stats.limited.win,denominator:opportunities,records:stats.five.filter(r=>r.effectiveResult==='win').map(r=>r.id)});
  return out.slice(0,3);
 }
-function acquisitions(character){return (character?.five||[]).slice().sort(Core.order).map((r,i)=>({ordinal:i+1,id:r.id,time:r.time,pool:r.pool,interval:r.interval,lowerBound:r.interval==null&&!r.anomaly&&r.observed>0?r.observed:null,anomaly:!!r.anomaly,upResult:r.effectiveResult||'unknown',bannerId:r.bannerId||null}));}
+// 历史、证据和分享共用文字语义，不把中 UP 等同小保胜利。
+function outcomeKey(r){
+ if(r.featuredResult==='up')return r.effectiveResult==='win'?'upWin':r.effectiveResult==='guarantee'?'upGuarantee':'upPending';
+ if(r.featuredResult==='offBanner')return r.conflict?'offBannerConflict':'offBanner';
+ return r.effectiveResult||'unknown';
+}
+function acquisitions(character){return (character?.five||[]).slice().sort(Core.order).map((r,i)=>({ordinal:i+1,id:r.id,time:r.time,pool:r.pool,interval:r.interval,lowerBound:r.interval==null&&!r.anomaly&&r.observed>0?r.observed:null,anomaly:!!r.anomaly,upResult:r.effectiveResult||'unknown',outcomeKey:outcomeKey(r),bannerId:r.bannerId||null}));}
 function coverage(stats){return {censored:stats.five.filter(r=>r.interval==null).length,gaps:stats.pools.reduce((n,p)=>n+p.gaps,0),samples:stats.luck.samples};}
 // 分享即使启用 UID 选项，也只显示遮罩，避免暴露完整账号识别。
 function maskUID(uid){const value=String(uid||'');return value.slice(0,2)+'••••'+value.slice(-2);}
 const luckAchievements=['one','ten','fiveEarly','streak','consecutive','comeback'];
 function representativeAchievements(stats){return Core.achievementDetails(stats).filter(a=>a.state==='unlocked'&&luckAchievements.includes(a.key)).slice(0,3);}
-return {eligible,highlights,acquisitions,coverage,maskUID,representativeAchievements};});
+return {outcomeKey,eligible,highlights,acquisitions,coverage,maskUID,representativeAchievements};});

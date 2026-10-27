@@ -2,6 +2,11 @@
     'use strict';
     // 三种语言使用相同的 key 和插值参数。
     const rows={
+"workspace.configurationAttention":["配置需要修正","配置需要修正","Loadout needs attention"],
+"workspace.configurationComplete":["五槽配置完成","五槽配置完成","Five-slot loadout complete"],
+"workspace.equippedAt":["已配置於位置 {position}","已配置于位置 {position}","Equipped in slot {position}"],
+"workspace.selectReplacement":["五槽已滿；請先選擇要替換的位置。","五槽已满；请先选择要替换的位置。","All five slots are filled. Choose a replacement slot first."],
+"loadout.scaleHelp":["同一配置共用刻度；原始貢獻受 Cost、主詞條與模型條件影響，不代表品質或替換順序。","同一配置共用刻度；原始贡献受 Cost、主词条与模型条件影响，不代表品质或替换顺序。","Shared scale within this loadout. Raw contribution depends on Cost, main stat and model conditions; it is not quality or replacement priority."],
 "nav.convene":["喚取紀錄","唤取记录","Convene"],
 "shell.mobile.convene":["喚取","唤取","Convene"],
 "mc.default":["預設配置", "默认配置", "Default loadout"],

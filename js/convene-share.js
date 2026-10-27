@@ -54,7 +54,7 @@ async function render({stats,character=null,name='',portrait=null,t,account=null
     text(intervalKind(r),xx+155,yy+78,15,muted,240);
     text(r.time,xx+420,yy+28,21,ink,inner-430);
     const pool=stats.pools.find(p=>p.pool===r.pool);text(pool?.displayName||t((pool?.rule.key||'unknown')+'Pool'),xx+420,yy+64,18,muted,inner-430);
-    text(t(r.upResult==='unknown'?'unknown':r.upResult),xx+820,yy+94,17,muted,inner-830);
+    text(t(r.outcomeKey||r.upResult||'unknown'),xx+820,yy+94,17,muted,inner-830);
    }else{
     panel(xx,yy,cw,126);text(t('acquisitionOrdinal',{n:r.ordinal}),xx+18,yy+30,17,gold,cw-36,600);
     text(interval(r),xx+18,yy+83,45,r.interval!=null?accent:muted,cw-36,600);
@@ -82,7 +82,7 @@ async function render({stats,character=null,name='',portrait=null,t,account=null
    let yy=1620+poolHeight;section(t('reliableUP'),yy);yy+=65;
    text(t('win')+' '+stats.limited.win+'   ·   '+t('loss')+' '+stats.limited.loss+'   ·   '+t('guarantee')+' '+stats.limited.guarantee,margin,yy,25,ink,inner);
    text(t('unknown')+' '+stats.limited.unknown+' · '+t('unknownUPNote'),margin,yy+38,18,muted,inner);
-   if(achievements.length){section(t('representativeAchievements'),yy+115);achievements.forEach((a,i)=>{Visuals.drawAchievement(x,a.key,margin,yy+146+i*60,42);text(t(a.key),margin+60,yy+174+i*60,22,gold,inner-60);});}
+   if(achievements.length){section(t('representativeAchievements'),yy+115);achievements.forEach((a,i)=>{Visuals.drawAchievement(x,a.key,margin,yy+146+i*60,42);text(t(a.key),margin+60,yy+174+i*60,22,Visuals.achievementArtwork(a.key).color,inner-60);});}
   }
  }
  function drawDistribution(records,py,ph){

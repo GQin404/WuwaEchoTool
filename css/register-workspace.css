@@ -256,3 +256,4 @@ html:has(body .rw-inventory-dialog[open]){overflow:hidden}
 .rw-embedded #register-workspace .rw-inventory-dialog[open]{width:100%;height:100dvh;max-width:none;max-height:none;box-sizing:border-box;margin:0;border-radius:0}
 
 #register-workspace .rw-editor-breadcrumb{padding:8px 0;gap:10px;font-size:.85rem;border:0}#register-workspace .rw-editor-breadcrumb span{overflow-wrap:anywhere}@media(max-width:960px){#register-workspace .rw-editor-breadcrumb{display:none}}
+.rw-inventory-dialog[data-complete=true] [data-picker-target]{padding:16px;border:1px solid #82bfa3;background:#203b33;border-radius:8px;color:#dfefdf}.rw-inventory-dialog[data-complete=true] [data-picker-done]{margin-inline-start:auto;min-height:44px}.rw-inventory-dialog[data-complete=true] [data-picker-confirm]{display:none}

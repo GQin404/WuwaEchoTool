@@ -2,6 +2,19 @@
 (function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory(require('./convene-core.js'));else root.ConveneMessages=factory(root.ConveneCore);})(typeof globalThis!=='undefined'?globalThis:this,function(Core){
 'use strict';
 const rows={
+  "upWin":["中 UP · 小保","中 UP · 小保","UP · won 50/50"],
+  "upGuarantee":["中 UP · 大保底","中 UP · 大保底","UP · guaranteed"],
+  "upPending":["中 UP · 大小保待確認","中 UP · 大小保待确认","UP · prior guarantee unknown"],
+  "offBanner":["歪","歪","Off-banner"],
+  "offBannerConflict":["歪 · 保底序列待核對","歪 · 保底序列待核对","Off-banner · guarantee sequence conflict"],
+  "classification.standardRule":["普通限定池：五位常駐五星為歪，其餘已識別五星角色為 UP","普通限定池：五位常驻五星为歪，其余已识别五星角色为 UP","Standard featured pool: the five permanent 5-stars are off-banner; other identified 5-star Resonators are UP"],
+  "classification.unknownIdentity":["角色身份或特殊池規則不足，保留待確認","角色身份或特殊池规则不足，保留待确认","Insufficient identity or special-pool evidence"],
+  "source.poolRule":["限定角色池身份規則","限定角色池身份规则","Featured Resonator pool identity rule"],
+  "viewPoolAnalysis":["查看卡池分析","查看卡池分析","View pool analysis"],
+  "recorded":["已記錄","已记录","Recorded"],
+  "fiveAcquired":["五星取得 {n} 次","五星取得 {n} 次","5-star acquisitions: {n}"],
+  "latestArtwork":["最近取得的五星","最近取得的五星","Latest acquired 5-star"],
+  "noFive":["尚無五星紀錄","暂无五星记录","No 5-star records yet"],
   "title": [
     "喚取紀錄",
     "唤取记录",
@@ -2720,14 +2733,14 @@ Object.assign(rows,{
     "Win rate among confirmed chances"
   ],
   "sampleEvidence": [
-    "命中 {win} · 非限定 {loss} · 保證 {guarantee} · 未知 {unknown} · 勝率分母 {n}",
-    "命中 {win} · 非限定 {loss} · 保证 {guarantee} · 未知 {unknown} · 胜率分母 {n}",
-    "Wins {win} · off-banner {loss} · guaranteed {guarantee} · unknown {unknown} · rate denominator {n}"
+    "小保中 UP {win} · 歪 {loss} · 大保底 {guarantee} · 保底結果待確認 {unknown} · 勝率分母 {n}",
+    "小保中 UP {win} · 歪 {loss} · 大保底 {guarantee} · 保底结果待确认 {unknown} · 胜率分母 {n}",
+    "50/50 wins {win} · off-banner {loss} · guaranteed {guarantee} · guarantee result pending {unknown} · rate denominator {n}"
   ],
   "recognitionCoverage": [
-    "結果識別覆蓋率",
-    "结果识别覆盖率",
-    "Result identification coverage"
+    "小保／大保判定覆蓋率",
+    "小保／大保判定覆盖率",
+    "50/50 and guarantee classification coverage"
   ],
   "reason.coverageGate": [
     "限定結果的識別覆蓋或小保樣本不足，目前僅用出金運作暫定評價。",
