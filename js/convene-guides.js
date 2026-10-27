@@ -34,5 +34,7 @@ const methods={
  macos:[{id:'auto',label:'methodTerminal',steps:['guideGameHistory','macTerminal','macCommandStep','guideFinish'],command:macCommand,kind:'localMac'},{id:'log',label:'methodLog',steps:['guideGameHistory','macLog','guideSelectLog','guideFinish'],file:true}],
  linux:[{id:'auto',label:'methodTerminal',steps:['guideGameHistory','linuxTerminal','linuxRun','guideFinish'],command:linuxCommand,source:'https://github.com/wuwatracker/wuwatracker/blob/747a48b1b994baa9c372a4fb933ea7588428bd4b/import.sh',kind:'remoteLinux'},{id:'log',label:'methodLog',steps:['guideGameHistory','linuxLog','guideSelectLog','guideFinish'],file:true}]
 };
+methods.windows.sort((a,b)=>['log','offline','auto'].indexOf(a.id)-['log','offline','auto'].indexOf(b.id));
+methods.linux.sort((a,b)=>a.id==='log'?-1:1);
 function method(platform,id){return methods[platform]?.find(m=>m.id===id)||methods[platform]?.[0]||methods.windows[0];}
 return {platforms,methods,method,macReader,macCommand,linuxCommand};});

@@ -60,5 +60,5 @@ near(packet(6,'finisher','contract').cd,6.2);
 near(packet(6,'finisher').cd,3.2);
 assert(m.profile(role(6,'contract')).rule.critDamage < m.profile(role(5,'contract')).rule.critDamage);
 // Rule-page table and report are generated from the same source as scoring.
-assert(fs.readFileSync(path.join(__dirname,'../docs/suoming-share-estimate.md'),'utf8').includes(chainTables()));
+assert(fs.readFileSync(path.join(__dirname,'../docs/suoming-share-estimate.md'),'utf8').replace(/\r\n/g,'\n').includes(chainTables()));
 console.log('PASS: Suoming 28 chain/scenario profiles, packet-specific chain mechanics, mode exclusivity and report parity.');

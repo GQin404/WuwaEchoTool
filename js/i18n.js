@@ -31,7 +31,7 @@
             return template.replace(/\{([\w]+)\}/g,(match,name)=>Object.hasOwn(params,name)?String(params[name]):match);
         }
         const finite=n=>typeof n==='number'&&Number.isFinite(n);
-        function number(value,options={}){return finite(value)?new Intl.NumberFormat(state.locale,options).format(value):t('common.unavailable');}
+        function number(value,options={}){const scale=options.style==='percent'?100:1;return finite(value)?new Intl.NumberFormat(state.locale,options).format(Math.abs(value)*scale<.5*10**-(options.maximumFractionDigits??2)?0:value):t('common.unavailable');}
         const format={
             integer:(n)=>number(n,{maximumFractionDigits:0}),
             decimal:(n,digits=2)=>number(n,{minimumFractionDigits:0,maximumFractionDigits:digits}),
@@ -57,6 +57,7 @@
                 sync();listeners.forEach(fn=>fn({...state}));return {locale,persisted};
             },
             subscribe(fn){if(typeof fn!=='function')throw new TypeError('Expected listener');listeners.add(fn);return ()=>listeners.delete(fn);},
+            searchText(namespace,id,fallback=''){const key=namespace+'.'+id;return [fallback,...['zh-TW','zh-CN','en'].flatMap(locale=>[messages?.[locale]?.[key],messages?.[locale]?.['searchAlias.'+key]])].filter(Boolean).join(' ').toLocaleLowerCase();},
             entity(namespace,id,fallback=null){const key=namespace+'.'+id;return messages?.[state.locale]?.[key]??messages?.[FALLBACK]?.[key]??fallback??'['+key+']';}
         };
     }

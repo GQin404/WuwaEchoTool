@@ -12,14 +12,15 @@
         const heading=document.createElement('h2');heading.textContent=t('share.title');heading.id='rr-share-title';dialog.setAttribute('aria-labelledby',heading.id);dialog.append(heading);
         const note=document.createElement('p');note.textContent=t('share.conditions')+' '+t('share.scope');dialog.append(note);
         let mode=null,closed=false;const pendingImages=new Set(),images=new Map();const choices=document.createElement('div');choices.className='rr-share-choices';dialog.append(choices);
-        const modeButtons=['compact','detailed'].map(value=>{const button=document.createElement('button');button.textContent=t('share.'+value);button.onclick=async()=>{if(back.disabled||closed)return;mode=value;choices.hidden=true;canvas.hidden=false;chartHelp.hidden=false;save.hidden=false;back.hidden=false;dialog.classList.remove('rr-share-choosing');heading.textContent=t('share.'+mode);back.disabled=true;try{await render();}catch(_){status.textContent=t('share.failure');save.disabled=true;}finally{back.disabled=false;canvas.setAttribute('aria-busy','false');}if(dialog.isConnected)back.focus();};choices.append(button);return button;});
+        const modeButtons=['compact','detailed'].map(value=>{const button=document.createElement('button');button.textContent=t('share.'+value);button.onclick=async()=>{if(back.disabled||closed)return;mode=value;zoom.hidden=false;choices.hidden=true;canvas.hidden=false;chartHelp.hidden=false;save.hidden=false;back.hidden=false;dialog.classList.remove('rr-share-choosing');heading.textContent=t('share.'+mode);back.disabled=true;try{await render();}catch(_){status.textContent=t('share.failure');save.disabled=true;}finally{back.disabled=false;canvas.setAttribute('aria-busy','false');}if(dialog.isConnected)back.focus();};choices.append(button);return button;});
         const canvas=document.createElement('canvas');canvas.hidden=true;canvas.width=1440;canvas.height=1150;canvas.setAttribute('role','img');canvas.setAttribute('aria-label',t('share.title'));dialog.append(canvas);
         // 图表尺度保留在网站可展开说明中，不绘入玩家分享图片。
         const chartHelp=document.createElement('details');chartHelp.className='rr-share-chart-help';chartHelp.hidden=true;
         const chartSummary=document.createElement('summary');chartSummary.textContent=t('share.chartHelp');
         const chartDescription=document.createElement('p');chartHelp.append(chartSummary,chartDescription);dialog.append(chartHelp);
         const status=document.createElement('p');status.setAttribute('role','status');dialog.append(status);
-        const actions=document.createElement('div');actions.className='rr-dialog-actions';const save=document.createElement('button'),close=document.createElement('button');save.textContent=t('share.download');close.textContent=t('common.close');save.disabled=true;const back=document.createElement('button');back.textContent=t('share.back');back.hidden=true;save.hidden=true;back.onclick=()=>{canvas.hidden=true;chartHelp.hidden=true;save.hidden=true;back.hidden=true;choices.hidden=false;status.textContent='';heading.textContent=t('share.title');dialog.classList.add('rr-share-choosing');modeButtons[mode==='detailed'?1:0].focus();};actions.append(back,save,close);dialog.append(actions);document.body.append(dialog);const opener=document.activeElement;
+        const zoom=document.createElement('button');zoom.type='button';zoom.textContent=t('share.fullSize');zoom.hidden=true;zoom.onclick=()=>{const expanded=dialog.classList.toggle('rr-share-full-size');zoom.setAttribute('aria-pressed',String(expanded));};dialog.append(zoom);
+        const actions=document.createElement('div');actions.className='rr-dialog-actions';const save=document.createElement('button'),close=document.createElement('button');save.textContent=t('share.download');close.textContent=t('common.close');save.disabled=true;const back=document.createElement('button');back.textContent=t('share.back');back.hidden=true;save.hidden=true;back.onclick=()=>{zoom.hidden=true;dialog.classList.remove('rr-share-full-size');canvas.hidden=true;chartHelp.hidden=true;save.hidden=true;back.hidden=true;choices.hidden=false;status.textContent='';heading.textContent=t('share.title');dialog.classList.add('rr-share-choosing');modeButtons[mode==='detailed'?1:0].focus();};actions.append(back,save,close);dialog.append(actions);document.body.append(dialog);const opener=document.activeElement;
         const finish=()=>{closed=true;pendingImages.forEach(cancel=>cancel());pendingImages.clear();dialog.close();dialog.remove();opener?.focus();};close.onclick=finish;dialog.oncancel=event=>{event.preventDefault();finish();};dialog.showModal();modeButtons[0].focus();
         const replacements=new Map(),localSources=[...new Set([data.role.portrait,...data.slots.map(s=>s.echo?.image)].filter(src=>src&&new URL(src,document.baseURI).protocol==='file:'))];
         const filename=src=>decodeURIComponent(new URL(src,document.baseURI).pathname.split('/').pop());
@@ -61,7 +62,10 @@
         const echoes=data.slots.map(s=>s.echo).filter(Boolean),pad=48,gap=detailed?24:16,column=(pageWidth-pad*2-gap*4)/5;
         const nameSize=detailed?25:22,nameHeight=Math.max(60,...echoes.map(e=>height(echoName(e),nameSize,column-32)));
         const suiteHeight=detailed?Math.max(36,...echoes.map(e=>height(suiteName(e),19,column-32))):0;
-        const mainHeight=detailed?Math.max(58,...echoes.map(e=>height(statName(e.mainStat),22,column-32))):0;
+        const mainHeight=Math.max(58,...echoes.map(e=>height(statName(e.mainStat),22,column-32)));
+        // 简略版按当前模型原始副词条贡献排序，最多两项；并列按稳定词条键排序。
+        const compactStats=e=>(e.substats||[]).filter(s=>s.status==='valid'&&Number.isFinite(s.rawContribution)&&s.rawContribution>0).slice().sort((a,b)=>b.rawContribution-a.rawContribution||a.key.localeCompare(b.key)).slice(0,2);
+        const compactHeight=Math.max(0,...echoes.map(e=>compactStats(e).reduce((n,s)=>n+height(statName(s)+' '+statValue(s),18,column-32)+8,0)));
         const valueWidth=detailed?Math.max(90,...echoes.flatMap(e=>(e.substats||[]).map(s=>{measure.font='24px system-ui, sans-serif';return measure.measureText(statValue(s)).width;}))):0;
         const labelWidth=column-48-valueWidth;
         const rowHeights=Array.from({length:Math.max(5,...echoes.map(e=>e.substats?.length||0))},(_,i)=>Math.max(56,...echoes.map(e=>height(statName(e.substats?.[i]),21,labelWidth)+20)));
@@ -75,8 +79,8 @@
         const badgeStack=chainWidth+modeWidth+8>identityWidth-40,badgeHeight=Math.max(height(chainName,badgeSize,chainWidth-24),height(modeName,badgeSize,modeWidth-24))+14;
         const heroTop=146,heroHeight=Math.max(500*heroScale,portraitHeight+36+identityHeight+badgeHeight*(badgeStack?2:1)+34),heroBottom=heroTop+heroHeight;
         const cardTop=heroBottom+32,imageHeight=detailed?164:140,nameTop=cardTop+imageHeight+66;
-        const mainTop=nameTop+nameHeight+suiteHeight+12,scoreTop=detailed?mainTop+mainHeight+42:nameTop+nameHeight+12;
-        const subTop=scoreTop+94,cardBottom=detailed?subTop+rowHeights.reduce((a,b)=>a+b+8,0)+24:scoreTop+96;
+        const mainTop=nameTop+nameHeight+suiteHeight+12,scoreTop=mainTop+mainHeight+42;
+        const subTop=scoreTop+94,cardBottom=detailed?subTop+rowHeights.reduce((a,b)=>a+b+8,0)+24:scoreTop+96+compactHeight;
         const totalKeys=[...new Set(['crit_rate','crit_damage','atk_percent','resonance_efficiency',...data.summary.substatTotals.map(s=>s.key)])];
         const totalColumns=totalKeys.length<=6?totalKeys.length:4,totalWidth=(pageWidth-pad*2-(totalColumns-1)*18)/totalColumns,totalRows=Array.from({length:Math.ceil(totalKeys.length/totalColumns)},(_,i)=>Math.max(100,...totalKeys.slice(i*totalColumns,i*totalColumns+totalColumns).map(key=>height(t('stats.'+key),23,totalWidth-32)+62)));
         const totalTop=cardBottom+42,totalHeight=totalRows.reduce((a,b)=>a+b+14,0);
@@ -144,13 +148,14 @@
             text(t('loadout.cost',{cost:e.cost??'—'}),x+column-16,cardTop+15,19,'#bdcfc6',column-90,'right');
             picture(e.image,x+24,cardTop+52,column-48,imageHeight);
             text(echoName(e),x+16,nameTop,nameSize,'#e6eee7',column-32);
-            if(detailed){
-                text(suiteName(e),x+16,nameTop+nameHeight,19,'#9dbbb0',column-32);
+            if(detailed)text(suiteName(e),x+16,nameTop+nameHeight,19,'#9dbbb0',column-32);
+            {
                 text(statName(e.mainStat),x+16,mainTop,22,'#b9cec5',column-32);
                 text(statValue(e.mainStat),x+16,mainTop+mainHeight,29,'#e9efea',column-32);
             }
             text(t('loadout.contribution'),x+16,scoreTop,18,'#adc5ba',column-32);
             text(f.scoreValue(e.score.value),x+16,scoreTop+26,detailed?42:36,'#b8ecd7',column-32);
+            if(!detailed){let y=scoreTop+90;for(const stat of compactStats(e)){y+=text(statName(stat)+' '+statValue(stat),x+16,y,18,'#c3efdc',column-32)+8;}}
             if(detailed){let y=subTop;rowHeights.forEach((h,i)=>{
                 const stat=e.substats?.[i],effective=data.model.status==='available'&&stat?.status==='valid'&&Number.isFinite(stat.rawContribution)&&stat.rawContribution>0;
                 panel(x+12,y,column-24,h,8,effective?'#203b35':'#172629',effective?'#578c7d':'#3d5047');
@@ -179,7 +184,7 @@
         }
         function download(){
             save.disabled=true;status.textContent=t('share.exporting');
-            try{canvas.toBlob(blob=>{if(closed)return;save.disabled=false;if(!blob){status.textContent=t('share.failure');return;}const a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download='resonance-register-'+data.role.id+(mode==='detailed'?'-detailed':'')+'.png';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);status.textContent=t('share.downloadStarted');},'image/png');}catch(_){save.disabled=false;status.textContent=t('share.failure');}
+            try{canvas.toBlob(blob=>{if(closed)return;save.disabled=false;if(!blob){status.textContent=t('share.failure');return;}const a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download='resonance-register'+(mode==='detailed'?'-detailed':'')+'.png';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);status.textContent=t('share.downloadStarted');},'image/png');}catch(_){save.disabled=false;status.textContent=t('share.failure');}
         }
         save.onclick=()=>{if(restricted){if(localSources.length)picker.click();else status.textContent=t('share.localExportRestricted');return;}download();};
         picker.onchange=async()=>{

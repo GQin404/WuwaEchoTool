@@ -1,0 +1,246 @@
+{
+  "reviewedAt": "2026-10-27",
+  "primary": "https://wiki.kurobbs.com/",
+  "primaryStatus": "本次检索未取得可核对的结构化名称表；未声称库街区核实",
+  "supplement": [
+    "https://api-v2.encore.moe/api/zh-Hant/echo",
+    "https://api-v2.encore.moe/api/zh-Hans/echo",
+    "https://api-v2.encore.moe/api/en/echo"
+  ],
+  "scope": "仅补充现有37个稳定套装ID的三语言显示名；未引入效果或新ID",
+  "internalToOfficial": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9,
+    "10": 10,
+    "11": 11,
+    "12": 12,
+    "13": 13,
+    "14": 14,
+    "15": 16,
+    "16": 17,
+    "17": 18,
+    "18": 19,
+    "19": 20,
+    "20": 21,
+    "21": 22,
+    "22": 23,
+    "23": 25,
+    "24": 26,
+    "25": 24,
+    "26": 27,
+    "27": 28,
+    "28": 29,
+    "29": 30,
+    "30": 31,
+    "31": 32,
+    "32": 35,
+    "33": 34,
+    "34": 33,
+    "35": 36,
+    "36": 37,
+    "37": 38
+  },
+  "names": {
+    "sets.1": [
+      "凝夜白霜",
+      "凝夜白霜",
+      "Freezing Frost"
+    ],
+    "sets.2": [
+      "熔山裂谷",
+      "熔山裂谷",
+      "Molten Rift"
+    ],
+    "sets.3": [
+      "徹空冥雷",
+      "彻空冥雷",
+      "Void Thunder"
+    ],
+    "sets.4": [
+      "嘯谷長風",
+      "啸谷长风",
+      "Sierra Gale"
+    ],
+    "sets.5": [
+      "浮星祛暗",
+      "浮星祛暗",
+      "Celestial Light"
+    ],
+    "sets.6": [
+      "沉日劫明",
+      "沉日劫明",
+      "Havoc Eclipse"
+    ],
+    "sets.7": [
+      "隱世回光",
+      "隐世回光",
+      "Rejuvenating Glow"
+    ],
+    "sets.8": [
+      "輕雲出月",
+      "轻云出月",
+      "Moonlit Clouds"
+    ],
+    "sets.9": [
+      "不絕餘音",
+      "不绝余音",
+      "Lingering Tunes"
+    ],
+    "sets.10": [
+      "凌冽決斷之心",
+      "凌冽决断之心",
+      "Frosty Resolve"
+    ],
+    "sets.11": [
+      "此間永駐之光",
+      "此间永驻之光",
+      "Eternal Radiance"
+    ],
+    "sets.12": [
+      "幽夜隱匿之帷",
+      "幽夜隐匿之帷",
+      "Midnight Veil"
+    ],
+    "sets.13": [
+      "高天共奏之曲",
+      "高天共奏之曲",
+      "Empyrean Anthem"
+    ],
+    "sets.14": [
+      "無懼浪濤之勇",
+      "无惧浪涛之勇",
+      "Tidebreaking Courage"
+    ],
+    "sets.15": [
+      "流雲逝盡之空",
+      "流云逝尽之空",
+      "Gusts of Welkin"
+    ],
+    "sets.16": [
+      "願戴榮光之旅",
+      "愿戴荣光之旅",
+      "Windward Pilgrimage"
+    ],
+    "sets.17": [
+      "奔狼燎原之焰",
+      "奔狼燎原之焰",
+      "Flaming Clawprint"
+    ],
+    "sets.18": [
+      "失序彼岸之夢",
+      "失序彼岸之梦",
+      "Dream of the Lost"
+    ],
+    "sets.19": [
+      "榮鬥鑄鋒之冠",
+      "荣斗铸锋之冠",
+      "Crown of Valor"
+    ],
+    "sets.20": [
+      "息界同調之律",
+      "息界同调之律",
+      "Law of Harmony"
+    ],
+    "sets.21": [
+      "焚羽獵魔之影",
+      "焚羽猎魔之影",
+      "Flamewing's Shadow"
+    ],
+    "sets.22": [
+      "命理崩毀之弦",
+      "命理崩毁之弦",
+      "Thread of Severed Fate"
+    ],
+    "sets.23": [
+      "星構尋輝之環",
+      "星构寻辉之环",
+      "Halo of Starry Radiance"
+    ],
+    "sets.24": [
+      "流金溯真之式",
+      "流金溯真之式",
+      "Rite of Gilded Revelation"
+    ],
+    "sets.25": [
+      "逆光躍彩之約",
+      "逆光跃彩之约",
+      "Pact of Neonlight Leap"
+    ],
+    "sets.26": [
+      "長路啟航之星",
+      "长路启航之星",
+      "Trailblazing Star"
+    ],
+    "sets.27": [
+      "斑駁粉飾之沫",
+      "斑驳粉饰之沫",
+      "Chromatic Foam"
+    ],
+    "sets.28": [
+      "聽喚語義之願",
+      "听唤语义之愿",
+      "Sound of True Name"
+    ],
+    "sets.29": [
+      "雪落無聲之願",
+      "雪落无声之愿",
+      "Wishes of Quiet Snowfall"
+    ],
+    "sets.30": [
+      "剪心輯夢之影",
+      "剪心辑梦之影",
+      "Reel of Spliced Memories"
+    ],
+    "sets.31": [
+      "碎夢亡鬼之魘",
+      "碎梦亡鬼之魇",
+      "Shadow of Shattered Dreams"
+    ],
+    "sets.32": [
+      "冥途夜行之燈",
+      "冥途夜行之灯",
+      "Lamp of Nether Road"
+    ],
+    "sets.33": [
+      "清邪蕩煞之心",
+      "清邪荡煞之心",
+      "Heart of Evil's Purge"
+    ],
+    "sets.34": [
+      "羽落空塵之歌",
+      "羽落空尘之歌",
+      "Song of Feathered Trace"
+    ],
+    "sets.35": [
+      "銜夢照世之心",
+      "衔梦照世之心",
+      "Heart of Sworn Vigil"
+    ],
+    "sets.36": [
+      "鏡影流電之瞬",
+      "镜影流电之瞬",
+      "Flash of Electric Reflection"
+    ],
+    "sets.37": [
+      "茜染懷想之花",
+      "茜染怀想之花",
+      "Flower of Tinged Yearning"
+    ]
+  },
+  "characters": "沿用 js/character-catalog.js 已有64个内部角色ID及三语言名；雪豹保留搜索别名，显示凌阳",
+  "echoes": "复用 js/screenshot-name-aliases.js 已有185条名称资料，不导入新声骸ID",
+  "unverifiedEchoes": [
+    {
+      "internalId": 5,
+      "legacyAlias": "冰墩墩",
+      "reason": "现有别名库没有可验证的正式名称对照，显示中性待核名称并保留搜索别名，不猜译"
+    }
+  ]
+}

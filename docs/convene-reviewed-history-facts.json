@@ -1,0 +1,133 @@
+[
+  {
+    "id": "reviewed-global-3.7-hsin",
+    "pool": 1,
+    "names": [
+      "As Full as Tonight, Forever",
+      "但愿长圆如此夜",
+      "但願長圓如此夜"
+    ],
+    "start": "2026-09-30 11:00:00",
+    "end": "2026-10-22 09:59:59",
+    "region": "global",
+    "servers": [],
+    "up": [
+      "1311"
+    ],
+    "group": "featured-character",
+    "ruleVersion": "traditional-v1",
+    "selectionRequired": false,
+    "status": "verified",
+    "sources": [
+      "https://wutheringwaves.kurogames.com/en/main/news/detail/5529",
+      "https://wutheringwaves.kurogames.com/en/main/news/detail/5571",
+      "https://hw-media-cdn-mingchao.kurogame.com/object/1790524800000/0rioucn8tj7k7gjeo5-1790578091396.jpg"
+    ],
+    "timeBasis": "server-local; first phase begins after maintenance UTC+8; opaque server boundary dates remain excluded",
+    "boundaryConservative": true,
+    "hard": 80,
+    "four": 10,
+    "inheritance": "same-type",
+    "currency": "Radiant Tide",
+    "reviewedAt": "2026-10-27",
+    "evidenceType": "official-image-reviewed"
+  },
+  {
+    "id": "reviewed-global-3.7-suoming",
+    "pool": 1,
+    "names": [
+      "Nine Deaths, One Unbent Heart",
+      "余心所向九死未悔",
+      "餘心所向九死未悔"
+    ],
+    "start": "2026-10-22 10:00:00",
+    "end": "2026-11-11 11:59:59",
+    "region": "global",
+    "servers": [],
+    "up": [
+      "1312"
+    ],
+    "group": "featured-character",
+    "ruleVersion": "traditional-v1",
+    "selectionRequired": false,
+    "status": "verified",
+    "sources": [
+      "https://wutheringwaves.kurogames.com/en/main/news/detail/5529",
+      "https://wutheringwaves.kurogames.com/en/main/news/detail/5571",
+      "https://hw-media-cdn-mingchao.kurogame.com/object/1790524800000/0rioucn8tj7k7gjeo5-1790578091396.jpg"
+    ],
+    "timeBasis": "server-local; first phase begins after maintenance UTC+8; opaque server boundary dates remain excluded",
+    "boundaryConservative": true,
+    "hard": 80,
+    "four": 10,
+    "inheritance": "same-type",
+    "currency": "Radiant Tide",
+    "reviewedAt": "2026-10-27",
+    "evidenceType": "official-image-reviewed"
+  },
+  {
+    "id": "reviewed-global-3.7-jadehaven",
+    "pool": 2,
+    "names": [
+      "Blooming Jadehaven",
+      "玉阙玄华",
+      "玉闕玄華"
+    ],
+    "start": "2026-09-30 11:00:00",
+    "end": "2026-10-22 09:59:59",
+    "region": "global",
+    "servers": [],
+    "up": [
+      "21050116"
+    ],
+    "group": "featured-weapon",
+    "ruleVersion": "traditional-v1",
+    "selectionRequired": false,
+    "status": "verified",
+    "sources": [
+      "https://wutheringwaves.kurogames.com/en/main/news/detail/5529",
+      "https://wutheringwaves.kurogames.com/en/main/news/detail/5571",
+      "https://hw-media-cdn-mingchao.kurogame.com/object/1790524800000/0rioucn8tj7k7gjeo5-1790578091396.jpg"
+    ],
+    "timeBasis": "server-local; first phase begins after maintenance UTC+8; opaque server boundary dates remain excluded",
+    "boundaryConservative": true,
+    "hard": 80,
+    "four": 10,
+    "inheritance": "same-type",
+    "currency": "Forging Tide",
+    "reviewedAt": "2026-10-27",
+    "evidenceType": "official-image-reviewed"
+  },
+  {
+    "id": "reviewed-global-3.7-unspoken-rue",
+    "pool": 2,
+    "names": [
+      "Unspoken Rue",
+      "沉冥"
+    ],
+    "start": "2026-10-22 10:00:00",
+    "end": "2026-11-11 11:59:59",
+    "region": "global",
+    "servers": [],
+    "up": [
+      "21020107"
+    ],
+    "group": "featured-weapon",
+    "ruleVersion": "traditional-v1",
+    "selectionRequired": false,
+    "status": "verified",
+    "sources": [
+      "https://wutheringwaves.kurogames.com/en/main/news/detail/5529",
+      "https://wutheringwaves.kurogames.com/en/main/news/detail/5571",
+      "https://hw-media-cdn-mingchao.kurogame.com/object/1790524800000/0rioucn8tj7k7gjeo5-1790578091396.jpg"
+    ],
+    "timeBasis": "server-local; first phase begins after maintenance UTC+8; opaque server boundary dates remain excluded",
+    "boundaryConservative": true,
+    "hard": 80,
+    "four": 10,
+    "inheritance": "same-type",
+    "currency": "Forging Tide",
+    "reviewedAt": "2026-10-27",
+    "evidenceType": "official-image-reviewed"
+  }
+]

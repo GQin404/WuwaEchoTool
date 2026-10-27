@@ -83,5 +83,5 @@ near(packet(56,2,'convertedLiberation').bonus,2+.25+.3+.4);
 // 霜渐的二链是效应／团队收益，不能虚构直接伤害评分变化。
 assert.deepEqual(profile(56,1,'lucillaFrost').weights,profile(56,2,'lucillaFrost').weights);
 const document=fs.readFileSync(path.join(__dirname,'../docs/character-weights-54-56.md'),'utf8');
-assert(document.includes(tables()));
+assert(document.replace(/\r\n/g,'\n').includes(tables()));
 console.log('通过：三位角色63组配置、技能分类、逐链系数、Ram与过载预算、暴击封顶、声骸转换和文档一致性。');

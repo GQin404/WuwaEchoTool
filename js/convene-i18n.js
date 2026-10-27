@@ -2603,6 +2603,195 @@ const rows={
     "Open collection cabinet"
   ]
 };
+Object.assign(rows,{
+  "abyss": [
+    "非酋",
+    "非酋",
+    "Against the Tide"
+  ],
+  "headwind": [
+    "大非",
+    "大非",
+    "Rough Waters"
+  ],
+  "breeze": [
+    "小非",
+    "小非",
+    "Gentle Headwind"
+  ],
+  "steady": [
+    "平常心",
+    "平常心",
+    "Steady Seas"
+  ],
+  "lucky": [
+    "小歐",
+    "小欧",
+    "Fair Winds"
+  ],
+  "radiant": [
+    "大歐",
+    "大欧",
+    "Rising Star"
+  ],
+  "star": [
+    "歐皇",
+    "欧皇",
+    "Fortune’s Favorite"
+  ],
+  "fate": [
+    "天選歐皇",
+    "天选欧皇",
+    "Chosen by the Stars"
+  ],
+  "abyss.desc": [
+    "逆風中的共鳴，記錄仍有起伏。",
+    "逆风中的共鸣，记录仍有起伏。",
+    "Resonance against the tide; fortune can change."
+  ],
+  "headwind.desc": [
+    "這段旅程的等待較長。",
+    "这段旅程的等待较长。",
+    "A longer wait on this stretch of the journey."
+  ],
+  "breeze.desc": [
+    "微逆風，靜待下一次共鳴。",
+    "微逆风，静待下一次共鸣。",
+    "A little headwind along the way."
+  ],
+  "steady.desc": [
+    "潮起潮落，平常心以待。",
+    "潮起潮落，平常心以待。",
+    "Taking the ebb and flow in stride."
+  ],
+  "lucky.desc": [
+    "順風的共鳴，留下一點驚喜。",
+    "顺风的共鸣，留下一点惊喜。",
+    "A welcome touch of good fortune."
+  ],
+  "radiant.desc": [
+    "星軌明亮，共鳴頻頻回響。",
+    "星轨明亮，共鸣频频回响。",
+    "Bright star trails and fortunate echoes."
+  ],
+  "star.desc": [
+    "好運在這段記錄中閃耀。",
+    "好运在这段记录中闪耀。",
+    "Fortune shines through these records."
+  ],
+  "fate.desc": [
+    "星辰相應，仍以樣本為證。",
+    "星辰相应，仍以样本为证。",
+    "An exceptional run, grounded in the evidence."
+  ],
+  "evaluation.noRecords": [
+    "無記錄",
+    "无记录",
+    "No records"
+  ],
+  "evaluation.insufficient": [
+    "樣本不足 · 尚未授予",
+    "样本不足 · 尚未授予",
+    "Insufficient sample · unawarded"
+  ],
+  "evaluation.provisional": [
+    "暫定評價",
+    "暂定评价",
+    "Provisional rating"
+  ],
+  "evaluation.awarded": [
+    "正式授予",
+    "正式授予",
+    "Awarded"
+  ],
+  "provisional": [
+    "暫定",
+    "暂定",
+    "Provisional"
+  ],
+  "drawOnly": [
+    "目前僅評定出金運",
+    "目前仅评定出金运",
+    "Currently rated on draw speed only"
+  ],
+  "confirmedRate": [
+    "可確認樣本勝率",
+    "可确认样本胜率",
+    "Win rate among confirmed chances"
+  ],
+  "sampleEvidence": [
+    "命中 {win} · 非限定 {loss} · 保證 {guarantee} · 未知 {unknown} · 勝率分母 {n}",
+    "命中 {win} · 非限定 {loss} · 保证 {guarantee} · 未知 {unknown} · 胜率分母 {n}",
+    "Wins {win} · off-banner {loss} · guaranteed {guarantee} · unknown {unknown} · rate denominator {n}"
+  ],
+  "recognitionCoverage": [
+    "結果識別覆蓋率",
+    "结果识别覆盖率",
+    "Result identification coverage"
+  ],
+  "reason.coverageGate": [
+    "限定結果的識別覆蓋或小保樣本不足，目前僅用出金運作暫定評價。",
+    "限定结果的识别覆盖或小保样本不足，目前仅用出金运作暂定评价。",
+    "Limited-result evidence is incomplete; this provisional rating uses draw speed only."
+  ],
+  "gate.intervalGate": [
+    "完整間隔至少 {n} 個",
+    "完整间隔至少 {n} 个",
+    "At least {n} complete intervals"
+  ],
+  "gate.pullGate": [
+    "相關抽數至少 {n} 抽",
+    "相关抽数至少 {n} 抽",
+    "At least {n} eligible pulls"
+  ],
+  "gate.coverageGate": [
+    "識別覆蓋至少 {coverage}%，可確認小保至少 {n} 次",
+    "识别覆盖至少 {coverage}%，可确认小保至少 {n} 次",
+    "At least {coverage}% identified results and {n} confirmed chances"
+  ],
+  "gate.topGate": [
+    "最高階需 {n} 個完整間隔及 {chances} 次可確認小保",
+    "最高阶需 {n} 个完整间隔及 {chances} 次可确认小保",
+    "Top tier requires {n} complete intervals and {chances} confirmed chances"
+  ],
+  "nextBoundary": [
+    "下一階分數邊界：{n}；後續記錄可能使分數上升或下降。",
+    "下一阶分数边界：{n}；后续记录可能使分数上升或下降。",
+    "Next score boundary: {n}. Further records may raise or lower the score."
+  ],
+  "rawBoundary": [
+    "依未四捨五入分數判定；顯示值不影響稱號。",
+    "依未四舍五入分数判定；显示值不影响称号。",
+    "Tiers use the unrounded score; display rounding does not affect the title."
+  ],
+  "evidenceDetails": [
+    "計算與原始記錄證據",
+    "计算与原始记录证据",
+    "Calculation and record evidence"
+  ],
+  "rateScope": [
+    "僅限已確認的小保機會，不代表全部記錄的真實勝率。",
+    "仅限已确认的小保机会，不代表全部记录的真实胜率。",
+    "Confirmed chances only; this is not the true rate across all records."
+  ],
+  "annotation": [
+    "人工判定",
+    "人工判定",
+    "Manual result"
+  ],
+  "serverDetails": [
+    "進階伺服器識別",
+    "进阶服务器识别",
+    "Advanced server identifier"
+  ],
+  "guideVerification": [
+    "各平台流程未經本次真機驗證；遊戲更新可能改變日誌或擷取方式。外部自動腳本固定版本，更新前應檢視來源。",
+    "各平台流程未经本次真机验证；游戏更新可能改变日志或提取方式。外部自动脚本固定版本，更新前应查看来源。",
+    "These platform methods were not verified on devices in this release. Game updates may change logs or capture methods. External scripts are pinned; review their source before updating."
+  ]
+});
+Object.assign(rows,{"classification.manual":["依人工標註（優先）","依人工标注（优先）","Manual annotation (priority)"],"classification.conflict":["保證序列衝突","保证序列冲突","Conflicting guarantee sequence"],"classification.missingBanner":["缺少可唯一確認的當期卡池","缺少可唯一确认的当期卡池","No uniquely verified banner for this record"],"classification.unknownState":["命中UP，但此前保證狀態未知","命中UP，但此前保证状态未知","UP identified, but prior guarantee state is unknown"],"classification.confirmed":["連續記錄與卡池資料可確認","连续记录与卡池资料可确认","Confirmed by continuous history and banner evidence"]});
+Object.assign(rows,{showUID:['顯示遮罩 UID','显示遮罩 UID','Show masked UID']});
 function create(locale='zh-CN'){const index={'zh-TW':0,'zh-CN':1,en:2}[locale]??1;return (key,params={})=>String(rows[key]?.[index]||key).replace(/\{(\w+)\}/g,(_,k)=>params[k]??'{'+k+'}');}
 function poolName(pool,t){return t((Core.POOLS[pool]?.key||'unknown')+'Pool')+(pool>=8&&pool<101?' '+pool:'');}
 return {rows,create,poolName};});

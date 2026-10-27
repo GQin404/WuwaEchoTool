@@ -448,3 +448,20 @@ body.convene-page{background:#0e181c;color:#e8eee7;color-scheme:dark}
  #convene-app .cv-collectible-copy p{font-size:11px;line-height:1.6;min-height:5em}
  #convene-app .cv-collection-progress{font-size:10px;flex-wrap:wrap}
 }
+
+/* 整体运势仅作用于唤取模块；个人星运和成就保持各自语义。 */
+#convene-app[data-fortune=breeze]{--cv-orbit:.045}
+#convene-app[data-fortune=radiant]{--cv-orbit:.085}
+#convene-app[data-evaluation=provisional] .cv-hero{border-style:dashed}
+#convene-app[data-evaluation=insufficient] .cv-hero{border-color:#819ca4;box-shadow:none}
+#convene-app .cv-content>.cv-card,#convene-app .cv-two>.cv-card{border-top-color:color-mix(in srgb,var(--cv-theme) 65%,#293b42)}
+#convene-app .cv-history-row,#convene-app .cv-recent-card{border-inline-start:2px solid color-mix(in srgb,var(--cv-theme) 28%,transparent)}
+#convene-app .cv-tabs [aria-current=page]{border-bottom:2px solid var(--cv-theme);text-decoration:underline;text-underline-offset:5px}
+.cv-tier-card.cv-current{outline:2px solid var(--cv-accent);outline-offset:2px}
+.cv-result-summary,.cv-gates{overflow-wrap:anywhere}.cv-dimension{font-size:.82rem;color:#b8cbc8}
+.cv-evidence-list code,.cv-rule-method code{overflow-wrap:anywhere;font-size:.75rem}
+.cv-tier-card{min-width:0}.cv-tier-card h3{overflow-wrap:anywhere}.cv-gates li{margin-block:6px}
+#convene-app :focus-visible,.cv-info-body :focus-visible{outline:2px solid #c4eee0;outline-offset:3px}
+@media(max-width:600px){.cv-tier-grid{grid-template-columns:1fr}.cv-rating-current{min-width:0}.cv-rating-current h3{overflow-wrap:anywhere}.cv-hero .cv-title{overflow-wrap:anywhere}.cv-engraving{opacity:.65}}
+@media(prefers-reduced-motion:reduce){#convene-app *,#convene-info *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+#convene-app .cv-outcome-unknown{color:#b3c3c7;border:1px dashed #789096;background:transparent}

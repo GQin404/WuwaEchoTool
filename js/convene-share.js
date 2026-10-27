@@ -69,7 +69,7 @@ async function render({stats,character=null,name='',portrait=null,t,account=null
   text(t(title),470,285,62,accent,w-526,600);
   text(data.luck.score==null?'—':data.luck.score.toFixed(1),470,419,116,ink,380,600);text('/ 100',816,416,26,muted,180);
   text(t(title+'.desc'),470,475,22,muted,w-526);
-  text(t('samples')+' '+data.luck.samples+' · '+t(data.luck.confidence),470,523,18,muted,w-526);
+  text(t('samples')+' '+data.luck.samples+' · '+t('evaluation.'+data.luck.status)+(data.luck.useLimited?'':' · '+t('drawOnly')),470,523,18,muted,w-526);
   [['total',stats.total.toLocaleString()],['five',stats.five.length],['avg',number(stats.average)]].forEach(([key,value],i)=>metric(t(key),value,margin+i*inner/3,636,inner/3-30));
   section(t('luckyHighlights'),835);
   if(!highlights.length)text(t('noReliableHighlight'),margin,909,25,muted,inner);
@@ -92,7 +92,7 @@ async function render({stats,character=null,name='',portrait=null,t,account=null
  const coverage=Report.coverage(stats),unknown=character?entries.filter(r=>r.interval==null).length:coverage.censored;
  line(h-116);text(t('reportCoverage',{n:unknown,gaps:coverage.gaps}),margin,h-80,17,muted,inner);
  text(fixture?t('sample'):t('archiveScope'),margin,h-47,16,muted,inner-220);
- if(showUID&&account)text('UID '+account.uid,w-300,h-47,16,muted,244);
+ if(showUID&&account)text('UID '+Report.maskUID(account.uid),w-300,h-47,16,muted,244);
  return {canvas:c,dataURL:c.toDataURL('image/png'),pages:1,page:0,layout,acquisitionCount:entries.length,acquisitionIDs:entries.map(r=>r.id),highlights,coverage};
 }
 function mean(values){return values.length?values.reduce((a,b)=>a+b,0)/values.length:null;}
@@ -119,7 +119,7 @@ async function renderTarget({rating,name='',portrait=null,t,account=null,detaile
   panel(56,872,1088,94+rows.length*44);text(t('history')+' · '+t('interval'),80,911,21,gold,900);text((currentPage+1)+' / '+pages,1010,911,19,muted,100);
   rows.forEach((r,i)=>{const idx=currentPage*perPage+i,yy=958+i*44;text(idx<7?'R'+idx:'+'+(idx-6),80,yy,21,gold,95);text(r.time,190,yy,21,ink,660);text(r.interval==null?'—':r.interval,990,yy,23,accent,120);});
  }
- text(fixture?t('sample'):t('rNotLifetime'),56,h-64,16,muted,1050);text(t('selfMade'),56,h-30,14,muted,790);if(showUID&&account)text('UID '+account.uid,860,h-30,16,muted,280);
+ text(fixture?t('sample'):t('rNotLifetime'),56,h-64,16,muted,1050);text(t('selfMade'),56,h-30,14,muted,790);if(showUID&&account)text('UID '+Report.maskUID(account.uid),860,h-30,16,muted,280);
  return {canvas:c,dataURL:c.toDataURL('image/png'),pages,page:currentPage,layout};
 }
 function number(n){return n==null?'—':Number(n).toFixed(1).replace(/\.0$/,'');}

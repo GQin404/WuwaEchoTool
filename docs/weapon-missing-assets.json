@@ -1,9 +1,9 @@
 {
   "productionCatalogEntries": 124,
-  "verifiedOfficialWeaponImages": 123,
-  "missingImageCount": 1,
+  "verifiedOfficialWeaponImages": 124,
+  "missingImageCount": 0,
   "missingByRarity": {
-    "5star": 1,
+    "5star": 0,
     "4star": 0,
     "3star": 0,
     "2star": 0,
@@ -13,18 +13,5 @@
   "conflicts": [],
   "unmappedFiles": [],
   "invalidWebP": [],
-  "images": [
-    {
-      "id": "21020107",
-      "resourceId": "21020107",
-      "names": {
-        "zh-CN": "沉冥",
-        "zh-TW": "沉冥",
-        "en": "Unspoken Rue"
-      },
-      "rarity": 5,
-      "category": "sword",
-      "suggestedPath": "image/weapons/5star/沉冥.webp"
-    }
-  ]
+  "images": []
 }

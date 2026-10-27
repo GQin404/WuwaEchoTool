@@ -125,24 +125,17 @@ document.addEventListener('DOMContentLoaded',function(){
         }catch(_){controller=null;error='unreadable';candidateSurface?.invalidate();render();}
     }
     host.addEventListener('click',event=>{if(event.target.closest('[data-rr-share]')&&controller)RegisterShare.open(controller.snapshot().model,i18n);});
-    // 新增入口先选择来源；背包复用现有选择器，不进入通用声骸库。
-    host.addEventListener('click',event=>{
-        const link=event.target.closest('a[href]');if(!link||!controller)return;
-        const destination=new URL(link.href,location.href);
-        if(!destination.pathname.endsWith('/register-workspace.html')||destination.searchParams.get('mode')!=='echo'||destination.searchParams.has('costid'))return;
-        event.preventDefault();
-        const dialog=document.createElement('dialog');dialog.className='rr-dialog rr-add-source';dialog.setAttribute('aria-labelledby','rr-add-source-title');
-        const heading=document.createElement('h2');heading.id='rr-add-source-title';heading.textContent=i18n.t('workspace.addEcho');dialog.append(heading);
-        const choices=document.createElement('div');choices.className='rr-share-choices';
-        for(const [label,inventory] of [['workspace.addManual',false],['workspace.addInventory',true]]){
-            const button=document.createElement('button');button.type='button';button.textContent=i18n.t(label);
-            button.onclick=()=>{const next=new URL(destination);if(inventory)next.searchParams.set('inventory','1');location.assign(next.href);};choices.append(button);
-        }
-        const close=document.createElement('button');close.type='button';close.textContent=i18n.t('common.cancel');
-        const finish=()=>{dialog.close();dialog.remove();link.focus();};close.onclick=finish;dialog.oncancel=e=>{e.preventDefault();finish();};
-        const actions=document.createElement('div');actions.className='rr-dialog-actions';actions.append(close);
-        dialog.append(choices,actions);document.body.append(dialog);dialog.showModal();choices.querySelector('button').focus();
-    });
+    // 桌面在当前分析页复用选择器；手机使用全页选择器，二者共用事务与实体引用。
+    function openSlotPicker(position){
+        const destination=new URL('register-workspace.html',location.href);destination.search=new URLSearchParams({view:'register',mode:'echo',roleid:id,lang:i18n.locale,inventory:'1',selectedPosition:position,returnTo:location.pathname+location.search});
+        if(innerWidth<=960||location.protocol==='file:'){location.assign(destination.href);return;}
+        const dialog=document.createElement('dialog');dialog.className='rr-dialog rr-library-picker';dialog.setAttribute('aria-label',i18n.t('workspace.inventoryTitle'));
+        const frame=document.createElement('iframe');frame.title=i18n.t('workspace.inventoryTitle');destination.searchParams.set('embedded','1');frame.src=destination.href;dialog.append(frame);document.body.append(dialog);
+        const finish=()=>{window.removeEventListener('message',receive);dialog.close();dialog.remove();refresh();host.querySelector('[data-rr-select="'+position+'"]')?.focus();};
+        function receive(event){if(event.origin!==location.origin||event.source!==frame.contentWindow)return;if(event.data?.type==='wuwa-picker-close')finish();else if(event.data?.type==='wuwa-picker-saved')refresh();}
+        window.addEventListener('message',receive);dialog.oncancel=e=>{e.preventDefault();finish();};dialog.showModal();
+    }
+    host.addEventListener('click',event=>{const link=event.target.closest('a[href]');if(!link||!controller)return;const destination=new URL(link.href,location.href);if(!destination.pathname.endsWith('/register-workspace.html')||destination.searchParams.get('mode')!=='echo'||destination.searchParams.has('costid'))return;event.preventDefault();openSlotPicker(controller.snapshot().selection?.position||1);});
     refresh();
     modelRevision=lastRecord;
     modelGuard=RegisterUnsaved.create({scope:'model:'+id+':'+(read()?.activeConfigurationId||'legacy'),get:()=>controller?.modelChanges()||{},apply:changes=>{if(controller&&changes&&typeof changes==='object')for(const [field,value]of Object.entries(changes))controller.updateModel(field,value);},revision:()=>modelRevision,i18n});
@@ -158,6 +151,7 @@ document.addEventListener('DOMContentLoaded',function(){
         const button=event.target.closest('button');if(!button||!controller)return;
         if(button.hasAttribute('data-rr-select')){
             const position=Number(button.dataset.rrSelect),identity=button.dataset.rrIdentity||null;
+            if(!controller.snapshot().model.slots[position-1].echo){const launch=()=>openSlotPicker(position);if(candidateSurface.active())candidateSurface.close(launch);else launch();return;}
             if(candidateSurface.active()){candidateSurface.close(()=>{controller.select(position,identity);render('.rr-slot[data-slot-position="'+position+'"] .rr-slot-trigger');});return;}
             controller.select(position,identity);render('.rr-slot[data-slot-position="'+position+'"] .rr-slot-trigger');
             if(button.hasAttribute('data-rr-problem')&&controller.snapshot().selection)focus('#rr-analysis-title',true);

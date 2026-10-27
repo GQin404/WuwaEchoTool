@@ -189,7 +189,7 @@ const roleList = [
     {
         "id": 11,
         "gid": 1104,
-        "name": "雪豹",
+        "name": "凌阳",
         "star": 5,
         "rule": 1,
         "cls": "mcr-lingyang",

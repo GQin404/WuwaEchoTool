@@ -46,7 +46,7 @@ async function render({stats,character,name='',portrait=null,t,account=null,deta
  text(t('reportCoverage',{n:unknown,gaps:coverage.gaps}),m,end+59,16,muted);
  if(detailed)text(t('optionalTargetSeparate'),m,end+95,16,muted);
  text(fixture?t('sample'):t('archiveScope'),m,h-30,14,muted,inner-230);
- if(showUID&&account)text('UID '+account.uid,w-290,h-30,14,muted,236);
+ if(showUID&&account)text('UID '+Report.maskUID(account.uid),w-290,h-30,14,muted,236);
  return {canvas:c,dataURL:c.toDataURL('image/png'),pages:1,page:0,layout,acquisitionCount:entries.length,acquisitionIDs:entries.map(r=>r.id),coverage,highlights:[],rating:{title,score:character.luck.score},badgeSize:278};
 }
 return {render};

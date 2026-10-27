@@ -719,7 +719,7 @@
       },
       "aliases": [],
       "source": "https://api-v2.encore.moe/api/en/weapon",
-      "image": null,
+      "image": "image/weapons/5star/沉冥.webp",
       "fileName": "沉冥.webp"
     },
     {

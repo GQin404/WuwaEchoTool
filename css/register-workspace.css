@@ -243,3 +243,16 @@ body { margin:0; background:#101718; color:#e2e7e4; font:16px/1.6 system-ui,sans
 #register-workspace #rw-tools .rt-last-roll b{white-space:nowrap}
 @media(max-width:960px){#register-workspace #rw-tools .rt-layout{grid-template-columns:1fr;gap:24px}#register-workspace #rw-tools .rt-result{border-left:0;border-top:1px solid var(--register-line);padding:24px 0 0}#register-workspace #rw-tools .rw-tool-modes button{flex:1 1 0;min-width:0;padding:12px 8px}}
 @media(max-width:480px){#register-workspace #rw-tools .rw-known-options{grid-template-columns:1fr}#register-workspace #rw-tools .rt-context label{min-width:0;width:100%;flex-basis:100%}#register-workspace #rw-tools .rt-context p{margin:0}#register-workspace #rw-tools .rt-table{font-size:13px}#register-workspace #rw-tools .rt-table :is(th,td){padding:10px 5px}}
+
+/* 选择器桌面原位、手机全页；装饰不影响滚动和操作。 */
+.rw-picker-sources,.rw-restore-links{display:flex;gap:16px;flex-wrap:wrap;margin:12px 0}
+[data-full-backup-preview] dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}[data-full-backup-preview] dl>div{padding:12px;border:1px solid #405652;border-radius:12px}[data-full-backup-preview] dd{margin:8px 0 0;font-size:1.5rem}
+.rw-edit-impact{white-space:pre-line}.dock-create-actions button,.mc-actions button{white-space:nowrap}
+@media(min-width:961px){#register-workspace>.op-back{display:none}}
+@media(max-width:960px){.rw-inventory-dialog{width:100dvw;max-width:none;height:100dvh;max-height:none;margin:0;border-radius:0;box-sizing:border-box}.rw-inventory-dialog footer{flex-wrap:wrap;position:sticky;bottom:0;background:#142326}}
+html:has(body .rw-inventory-dialog[open]){overflow:hidden}
+
+.rw-embedded #register-shell,.rw-embedded #register-workspace>header,.rw-embedded #register-workspace>.op-back{display:none}.rw-embedded .rw-inventory-dialog{width:100%;height:100dvh;max-width:none;max-height:none;margin:0;border:0;border-radius:0}
+.rw-embedded #register-workspace .rw-inventory-dialog[open]{width:100%;height:100dvh;max-width:none;max-height:none;box-sizing:border-box;margin:0;border-radius:0}
+
+#register-workspace .rw-editor-breadcrumb{padding:8px 0;gap:10px;font-size:.85rem;border:0}#register-workspace .rw-editor-breadcrumb span{overflow-wrap:anywhere}@media(max-width:960px){#register-workspace .rw-editor-breadcrumb{display:none}}

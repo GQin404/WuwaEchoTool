@@ -14,3 +14,4 @@
 .mc-switcher .mc-actions button{font-size:14px;padding:10px 8px}@media(max-width:700px){.mc-switcher{width:100%}}
 .mc-boot-error button+button{margin-left:8px}@media(max-width:700px){.mc-boot-error button+button{margin:8px 0 0}}
 .mc-boot-error{box-sizing:border-box;max-width:1200px;margin:16px auto;padding:16px 20px;border:1px solid #865d55;border-radius:10px;background:#291e1c;line-height:1.6}.mc-boot-error p{margin:0 0 12px}.mc-boot-error button{min-height:44px;padding:8px 16px;border:1px solid #a9cfc2;border-radius:8px;background:#9acfc0;color:#102120;font:inherit;cursor:pointer}.mc-boot-error button:focus-visible{outline:2px solid #d9eee6;outline-offset:3px}.mc-storage-blocked :is(main,#role-register){opacity:.55}@media(max-width:700px){.mc-boot-error{margin:12px}.mc-boot-error button{width:100%}}
+.mc-switcher .mc-actions button{flex:1 0 auto;white-space:nowrap}.mc-switcher .mc-actions{gap:8px}

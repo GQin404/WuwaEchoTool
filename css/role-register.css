@@ -300,3 +300,8 @@ html.role-register-page{background:#101718;color-scheme:dark}.role-register-page
 #role-register .rr-saved-plans[hidden],#role-register .rr-import-actions:empty{display:none}
 #role-register .rr-import-actions:not(:empty){padding:0 16px 12px}
 @media(max-width:700px){#role-register .rr-danger-actions{order:9;width:100%;margin:0;border:1px solid var(--rr-line);border-radius:8px;background:#142021}#role-register .rr-saved-plans,#role-register .rr-import-actions:not(:empty){order:8;width:100%;padding:14px}}
+
+.rr-library-picker{width:min(1120px,96vw);max-width:96vw;height:90dvh;padding:0;overflow:hidden}.rr-library-picker iframe{display:block;width:100%;height:100%;border:0}
+.rr-share-full-size{width:96vw!important;max-width:96vw!important;overflow:auto}.rr-share-full-size canvas{max-width:none!important;width:auto!important}
+
+.rr-compare-lead{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-block:16px}.rr-compare-lead strong,.rr-compare-lead small{display:block;overflow-wrap:anywhere}.rr-compare-lead strong{font-size:1.2rem}.rr-comparing .rr-analysis-summary,.rr-comparing .rr-analysis-content>.rr-substats-details{display:none}@media(max-width:600px){.rr-compare-lead{grid-template-columns:1fr 1fr}.rr-compare-lead>div:last-child{grid-column:1/-1}}

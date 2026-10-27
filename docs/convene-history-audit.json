@@ -1,6 +1,6 @@
 {
   "noticeCount": 155,
-  "entryCount": 168,
+  "entryCount": 176,
   "versions": {
     "3.7": {
       "date": "2026-09-30",
@@ -89,5 +89,12 @@
   },
   "skipped": [],
   "source": "official public JSON",
-  "noticeSHA256": "4b7ff5d1368774016dea13980a727c1f70087d4de4af380085f54a60a6690680"
+  "noticeSHA256": "4b7ff5d1368774016dea13980a727c1f70087d4de4af380085f54a60a6690680",
+  "generatedEntryCount": 168,
+  "manualSupplement": {
+    "reviewedAt": "2026-10-27",
+    "entries": 8,
+    "source": "docs/convene-reviewed-history-facts.json 及 docs/convene-cn-history-facts.json",
+    "evidence": "官方版本资讯图片人工核对；不改变原抓取正文的SHA256含义"
+  }
 }
